@@ -18,6 +18,8 @@
 		381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F9689206D16FF008E8284 /* PSLoginViewController.m */; };
 		381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381F9691206D35FB008E8284 /* PSMain.storyboard */; };
 		381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F9694206D3812008E8284 /* PSMainTabBarController.m */; };
+		381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F969D206D5A3C008E8284 /* PSMeViewController.m */; };
+		381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96A0206D5A58008E8284 /* PSMeTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		381F9691206D35FB008E8284 /* PSMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PSMain.storyboard; sourceTree = "<group>"; };
 		381F9693206D3812008E8284 /* PSMainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMainTabBarController.h; sourceTree = "<group>"; };
 		381F9694206D3812008E8284 /* PSMainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMainTabBarController.m; sourceTree = "<group>"; };
+		381F969C206D5A3C008E8284 /* PSMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeViewController.h; sourceTree = "<group>"; };
+		381F969D206D5A3C008E8284 /* PSMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeViewController.m; sourceTree = "<group>"; };
+		381F969F206D5A58008E8284 /* PSMeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeTableView.h; sourceTree = "<group>"; };
+		381F96A0206D5A58008E8284 /* PSMeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,10 +205,10 @@
 		381F968B206D35B3008E8284 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				381F9698206D59EF008E8284 /* Me */,
 				381F968C206D35B3008E8284 /* Home */,
 				381F968D206D35B3008E8284 /* ShopCart */,
 				381F968E206D35B3008E8284 /* ShowGround */,
-				381F968F206D35B3008E8284 /* Me */,
 				381F9690206D35B3008E8284 /* MyShow */,
 				381F9691206D35FB008E8284 /* PSMain.storyboard */,
 				381F9693206D3812008E8284 /* PSMainTabBarController.h */,
@@ -232,18 +238,46 @@
 			path = ShowGround;
 			sourceTree = "<group>";
 		};
-		381F968F206D35B3008E8284 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Me;
-			sourceTree = "<group>";
-		};
 		381F9690206D35B3008E8284 /* MyShow */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = MyShow;
+			sourceTree = "<group>";
+		};
+		381F9698206D59EF008E8284 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				381F9699206D59EF008E8284 /* Controller */,
+				381F969A206D59EF008E8284 /* Model */,
+				381F969B206D59EF008E8284 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		381F9699206D59EF008E8284 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				381F969C206D5A3C008E8284 /* PSMeViewController.h */,
+				381F969D206D5A3C008E8284 /* PSMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		381F969A206D59EF008E8284 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		381F969B206D59EF008E8284 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				381F969F206D5A58008E8284 /* PSMeTableView.h */,
+				381F96A0206D5A58008E8284 /* PSMeTableView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,8 +353,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				381F9648206CC3B4008E8284 /* main.m in Sources */,
+				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
+				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
 				381F9672206CCC8F008E8284 /* PSBaseViewController.m in Sources */,
