@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--秀秀场-->
+        <scene sceneID="m7f-Nc-bRj">
+            <objects>
+                <viewController id="rHm-XM-pys" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ab8-vz-6a7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lkH-vl-GcB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="秀秀场" image="main_tab_ShowGround" selectedImage="main_tab_ShowGround" id="5ef-B6-5hX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kin-8g-Gub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318" y="199"/>
+        </scene>
+        <!--我-->
+        <scene sceneID="foi-15-19r">
+            <objects>
+                <viewController id="Hrf-xz-pyv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNK-vL-r3a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0Sn-ty-zJU"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="我" image="main_tab_Me" selectedImage="main_tab_Me" id="p61-4d-xwW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5K-bt-OXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1560" y="605"/>
+        </scene>
+        <!--购物车-->
+        <scene sceneID="nOI-Qd-nDO">
+            <objects>
+                <viewController id="KbY-Qw-eGs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JIy-8g-gdD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zel-Aw-cef"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="购物车" image="main_tab_cart" selectedImage="main_tab_cart" id="VQk-ZE-N3E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2h6-Mo-Ksf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610" y="920"/>
+        </scene>
+        <!--主场-->
+        <scene sceneID="6z5-cn-haI">
+            <objects>
+                <viewController id="QLI-9t-gOR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fnc-lD-Dfz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qgu-5z-cGd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="主场" image="main_tab_MyShow" selectedImage="main_tab_MyShow" id="WXt-JH-6y5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5vP-ws-qo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318" y="920"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="PfO-yC-UTF">
+            <objects>
+                <viewController id="aTi-50-CuL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uHh-Or-jyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nZU-Nh-hi0"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="首页" image="main_tab_Home" selectedImage="main_tab_Home" id="sOE-fe-5Tn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fXi-NU-F88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318" y="-466"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="QZC-hh-Cdk">
+            <objects>
+                <tabBarController storyboardIdentifier="Main" id="lIw-v2-N7H" customClass="PSMainTabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xqU-OB-K68">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aTi-50-CuL" kind="relationship" relationship="viewControllers" id="eZp-I1-Hda"/>
+                        <segue destination="rHm-XM-pys" kind="relationship" relationship="viewControllers" id="D1w-9y-dD3"/>
+                        <segue destination="QLI-9t-gOR" kind="relationship" relationship="viewControllers" id="AWg-Te-HER"/>
+                        <segue destination="KbY-Qw-eGs" kind="relationship" relationship="viewControllers" id="I8F-9V-I48"/>
+                        <segue destination="Hrf-xz-pyv" kind="relationship" relationship="viewControllers" id="RXO-vP-LN7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5AC-Qh-1oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-634" y="-133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="main_tab_Home" width="24" height="24"/>
+        <image name="main_tab_Me" width="24" height="24"/>
+        <image name="main_tab_MyShow" width="24" height="24"/>
+        <image name="main_tab_ShowGround" width="24" height="24"/>
+        <image name="main_tab_cart" width="24" height="24"/>
+    </resources>
+</document>

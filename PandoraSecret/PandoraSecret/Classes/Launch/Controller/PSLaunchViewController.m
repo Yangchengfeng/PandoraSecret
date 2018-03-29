@@ -7,6 +7,7 @@
 //
 
 #import "PSLaunchViewController.h"
+#import "PSMainTabBarController.h"
 
 @implementation PSLaunchViewController
 
@@ -24,5 +25,11 @@
     [super viewDidDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
 }
+
+- (IBAction)enterMainView:(id)sender {
+    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+     self.view.window.rootViewController = mainVC;
+}
+
 
 @end

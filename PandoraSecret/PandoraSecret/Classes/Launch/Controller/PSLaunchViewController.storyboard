@@ -49,6 +49,14 @@
                                     <segue destination="d54-qG-BMs" kind="show" id="6Hf-JM-DMX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ao-Bs-1I7">
+                                <rect key="frame" x="156" y="290" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="进入主页"/>
+                                <connections>
+                                    <action selector="enterMainView:" destination="m61-gn-b3W" eventType="touchUpInside" id="5SC-1o-YIx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="n2b-vo-8oU"/>
