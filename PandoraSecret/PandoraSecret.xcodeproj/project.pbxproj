@@ -46,6 +46,7 @@
 		381F969D206D5A3C008E8284 /* PSMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeViewController.m; sourceTree = "<group>"; };
 		381F969F206D5A58008E8284 /* PSMeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeTableView.h; sourceTree = "<group>"; };
 		381F96A0206D5A58008E8284 /* PSMeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeTableView.m; sourceTree = "<group>"; };
+		381F96A3206DEA7F008E8284 /* Macro.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 				381F9643206CC3B4008E8284 /* LaunchScreen.storyboard */,
 				381F9646206CC3B4008E8284 /* Info.plist */,
 				381F9647206CC3B4008E8284 /* main.m */,
+				381F96A3206DEA7F008E8284 /* Macro.pch */,
 			);
 			path = PandoraSecret;
 			sourceTree = "<group>";
@@ -416,6 +418,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/linmeini/PandoraSecret/PandoraSecret/PandoraSecret/Macro.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -469,6 +473,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/linmeini/PandoraSecret/PandoraSecret/PandoraSecret/Macro.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

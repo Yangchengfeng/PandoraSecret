@@ -1,0 +1,20 @@
+//
+//  Macro.pch
+//  PandoraSecret
+//
+//  Created by 阳丞枫 on 2018/3/30.
+//  Copyright © 2018年 chengfengYang. All rights reserved.
+//
+
+#ifndef Macro_pch
+#define Macro_pch
+
+// 宽高设置
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+// 颜色设置
+#define kPandoraSecretColor [UIColor colorWithRed:212.0/255.0 green:35.0/255.0 blue:122.0/255.0 alpha:1.0]
+#define kColorRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#endif /* Macro_pch */

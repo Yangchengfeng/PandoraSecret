@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tabBar.tintColor = [UIColor colorWithRed:255.0/255.0 green:20.0/255.0 blue:147.0/255.0 alpha:0.5];
+    self.tabBar.tintColor = kPandoraSecretColor;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,10 @@
 #import "PSMeViewController.h"
 #import "PSMeTableView.h"
 
+static CGFloat rowH = 44.f;
+static CGFloat headerH = 0.1f;
+static CGFloat footerH = 10.f;
+
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet PSMeTableView *settingsTableView;
@@ -19,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (NSArray *)settingsItems {
@@ -45,11 +48,11 @@
     }
     if(indexPath.section == [self settingsItems].count-1) {
         UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        logoutBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+        logoutBtn.frame = CGRectMake(0, 0, kScreenWidth, rowH);
         [logoutBtn setTitle:[self settingsItems][indexPath.section][indexPath.row] forState:UIControlStateNormal];
         [logoutBtn setTitle:[self settingsItems][indexPath.section][indexPath.row] forState:UIControlStateHighlighted];
-        [logoutBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:20.0/255.0 blue:147.0/255.0 alpha:0.5] forState:UIControlStateNormal];
-        [logoutBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:20.0/255.0 blue:147.0/255.0 alpha:0.5] forState:UIControlStateHighlighted];
+        [logoutBtn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
+        [logoutBtn setTitleColor:kPandoraSecretColor forState:UIControlStateHighlighted];
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell addSubview:logoutBtn];
     } else {
@@ -60,15 +63,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0f;
+    return rowH;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.1f;
+    return headerH;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.0f;
+    return footerH;
 }
 
 @end
