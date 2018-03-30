@@ -20,6 +20,8 @@
 		381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F9694206D3812008E8284 /* PSMainTabBarController.m */; };
 		381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F969D206D5A3C008E8284 /* PSMeViewController.m */; };
 		381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96A0206D5A58008E8284 /* PSMeTableView.m */; };
+		381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96A5206DEE49008E8284 /* PSMeHeaderTableViewCell.m */; };
+		381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96A6206DEE49008E8284 /* PSMeHeaderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,9 @@
 		381F969F206D5A58008E8284 /* PSMeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeTableView.h; sourceTree = "<group>"; };
 		381F96A0206D5A58008E8284 /* PSMeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeTableView.m; sourceTree = "<group>"; };
 		381F96A3206DEA7F008E8284 /* Macro.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.pch; sourceTree = "<group>"; };
+		381F96A4206DEE49008E8284 /* PSMeHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeHeaderTableViewCell.h; sourceTree = "<group>"; };
+		381F96A5206DEE49008E8284 /* PSMeHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeHeaderTableViewCell.m; sourceTree = "<group>"; };
+		381F96A6206DEE49008E8284 /* PSMeHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSMeHeaderTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +283,9 @@
 			children = (
 				381F969F206D5A58008E8284 /* PSMeTableView.h */,
 				381F96A0206D5A58008E8284 /* PSMeTableView.m */,
+				381F96A4206DEE49008E8284 /* PSMeHeaderTableViewCell.h */,
+				381F96A5206DEE49008E8284 /* PSMeHeaderTableViewCell.m */,
+				381F96A6206DEE49008E8284 /* PSMeHeaderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 			files = (
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
+				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
 				381F966C206CC7F1008E8284 /* PSLaunchViewController.storyboard in Resources */,
 			);
@@ -361,6 +370,7 @@
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
+				381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */,
 				381F9672206CCC8F008E8284 /* PSBaseViewController.m in Sources */,
 				381F966A206CC7D5008E8284 /* PSLaunchViewController.m in Sources */,
 			);

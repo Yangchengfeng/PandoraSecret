@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7LV-nd-d4w" customClass="PSMeHeaderTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7LV-nd-d4w" id="Hgx-52-KEr">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_icon_me" translatesAutoresizingMaskIntoConstraints="NO" id="NGI-XM-Gik">
+                        <rect key="frame" x="8" y="13.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Ccz-W7-bg1"/>
+                            <constraint firstAttribute="height" constant="45" id="bvh-4m-9E9"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="潘多拉的神秘人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-Sn-OMJ">
+                        <rect key="frame" x="63" y="23.5" width="268" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="h28-Ic-g8M"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLZ-p6-xQY">
+                        <rect key="frame" x="341" y="48" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="HrE-cY-uiT"/>
+                            <constraint firstAttribute="height" constant="25" id="M4Y-Gw-VCJ"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="share_me"/>
+                    </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="个人描述：潘多拉神秘人，尽情在背后施展魔法!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16C-xA-4cb">
+                        <rect key="frame" x="8" y="58.5" width="323" height="25"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="mDz-90-7mO"/>
+                        </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OO-KF-7t0">
+                        <rect key="frame" x="8" y="88.5" width="120" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="4hb-gm-je9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="关注数：10000">
+                            <color key="titleColor" red="0.83137254900000002" green="0.13725490200000001" blue="0.66666666669999997" alpha="1" colorSpace="deviceRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJL-Up-gz0">
+                        <rect key="frame" x="178" y="88.5" width="120" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="E1D-xI-JGv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="收藏数：8888">
+                            <color key="titleColor" red="0.83137254901960778" green="0.13725490196078433" blue="0.66666666666666663" alpha="1" colorSpace="deviceRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2OO-KF-7t0" firstAttribute="top" secondItem="16C-xA-4cb" secondAttribute="bottom" constant="5" id="3dy-tF-QVH"/>
+                    <constraint firstItem="16C-xA-4cb" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="4ML-9S-ISH"/>
+                    <constraint firstItem="NGI-XM-Gik" firstAttribute="top" secondItem="Hgx-52-KEr" secondAttribute="topMargin" constant="5" id="5F8-YH-7Ds"/>
+                    <constraint firstItem="2OO-KF-7t0" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="6i3-T6-x45"/>
+                    <constraint firstItem="RJL-Up-gz0" firstAttribute="leading" secondItem="2OO-KF-7t0" secondAttribute="trailing" constant="50" id="Byy-5f-zpZ"/>
+                    <constraint firstAttribute="bottom" secondItem="2OO-KF-7t0" secondAttribute="bottom" constant="5" id="Emv-j1-107"/>
+                    <constraint firstItem="16C-xA-4cb" firstAttribute="top" secondItem="NGI-XM-Gik" secondAttribute="bottom" id="Eu5-Yo-oNo"/>
+                    <constraint firstItem="FK6-Sn-OMJ" firstAttribute="trailing" secondItem="PLZ-p6-xQY" secondAttribute="leading" constant="-10" id="FY3-rs-IWC"/>
+                    <constraint firstItem="RJL-Up-gz0" firstAttribute="width" secondItem="2OO-KF-7t0" secondAttribute="width" id="HlW-Ug-DlO"/>
+                    <constraint firstItem="FK6-Sn-OMJ" firstAttribute="centerY" secondItem="NGI-XM-Gik" secondAttribute="centerY" id="JbL-4T-MSD"/>
+                    <constraint firstItem="PLZ-p6-xQY" firstAttribute="trailing" secondItem="Hgx-52-KEr" secondAttribute="trailingMargin" id="KBl-ds-wpd"/>
+                    <constraint firstItem="PLZ-p6-xQY" firstAttribute="centerY" secondItem="Hgx-52-KEr" secondAttribute="centerY" id="W0T-wK-FOb"/>
+                    <constraint firstItem="NGI-XM-Gik" firstAttribute="leading" secondItem="Hgx-52-KEr" secondAttribute="leadingMargin" id="dFg-2E-2cK"/>
+                    <constraint firstItem="RJL-Up-gz0" firstAttribute="height" secondItem="2OO-KF-7t0" secondAttribute="height" id="f2Q-tt-U10"/>
+                    <constraint firstItem="RJL-Up-gz0" firstAttribute="centerY" secondItem="2OO-KF-7t0" secondAttribute="centerY" id="g6b-Xh-UsB"/>
+                    <constraint firstItem="16C-xA-4cb" firstAttribute="trailing" secondItem="FK6-Sn-OMJ" secondAttribute="trailing" id="mmG-bw-INQ"/>
+                    <constraint firstItem="FK6-Sn-OMJ" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="trailing" constant="10" id="wQY-NU-avE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="44" y="-79"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="head_icon_me" width="64" height="64"/>
+        <image name="share_me" width="32" height="32"/>
+    </resources>
+</document>
