@@ -23,8 +23,9 @@
 }
 
 - (NSArray *)settingsItems {
-    NSArray *settingsitems = @[@[@"昵称", @"收货地址", @"修改绑定手机号", @"修改登录密码"],
-                               @[@"清除缓存", @"关于潘多拉的秘密"]];
+    NSArray *settingsitems = @[@[@"昵称", @"个人描述", @"收货地址", @"修改绑定手机号", @"修改登录密码"],
+                               @[@"关于潘多拉的秘密"],
+                               @[@"退出当前用户"]];
     return settingsitems;
 }
 
@@ -41,10 +42,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [self settingsItems][indexPath.section][indexPath.row];
-    
+    if(indexPath.section == [self settingsItems].count-1) {
+        UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        logoutBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+        [logoutBtn setTitle:[self settingsItems][indexPath.section][indexPath.row] forState:UIControlStateNormal];
+        [logoutBtn setTitle:[self settingsItems][indexPath.section][indexPath.row] forState:UIControlStateHighlighted];
+        [logoutBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:20.0/255.0 blue:147.0/255.0 alpha:0.5] forState:UIControlStateNormal];
+        [logoutBtn setTitleColor:[UIColor colorWithRed:255.0/255.0 green:20.0/255.0 blue:147.0/255.0 alpha:0.5] forState:UIControlStateHighlighted];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [cell addSubview:logoutBtn];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = [self settingsItems][indexPath.section][indexPath.row];
+    }
     return cell;
 }
 
