@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCellId" rowHeight="42" id="KGk-i7-Jjw" customClass="PSShopCartTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="41.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-zD-VcN">
+                        <rect key="frame" x="10" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="SxZ-Uu-QOQ"/>
+                            <constraint firstAttribute="height" constant="20" id="hvc-JM-vtK"/>
+                        </constraints>
+                        <state key="normal" image="choose_none_line"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7li-6p-nyF">
+                        <rect key="frame" x="38" y="11" width="129" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="89D-xT-OtK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="可爱小兔的美丽家园">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-gX-JAM">
+                        <rect key="frame" x="329" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="hrg-0C-QGV"/>
+                            <constraint firstAttribute="height" constant="20" id="vdh-iI-yX5"/>
+                        </constraints>
+                        <state key="normal" image="next"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gal-zD-VcN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Htb-Cg-Npc"/>
+                    <constraint firstItem="7li-6p-nyF" firstAttribute="centerY" secondItem="Gal-zD-VcN" secondAttribute="centerY" id="UZ9-PM-DOC"/>
+                    <constraint firstItem="7li-6p-nyF" firstAttribute="leading" secondItem="Gal-zD-VcN" secondAttribute="trailing" constant="8" id="aRP-fV-Zyx"/>
+                    <constraint firstAttribute="trailing" secondItem="yFe-gX-JAM" secondAttribute="trailing" constant="10" id="oN3-t7-YMc"/>
+                    <constraint firstItem="yFe-gX-JAM" firstAttribute="centerY" secondItem="Gal-zD-VcN" secondAttribute="centerY" id="vM3-tG-cqg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="Gal-zD-VcN" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="cwa-U8-FBI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="67.5" y="-38"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="goodsCellId" rowHeight="98" id="jl8-fR-3xB" customClass="PSShopCartTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jl8-fR-3xB" id="1nf-O3-2cR">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="101.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjO-8J-SUn">
+                        <rect key="frame" x="18" y="41.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="XIK-o7-oA6"/>
+                            <constraint firstAttribute="height" constant="20" id="lKW-UB-iCx"/>
+                        </constraints>
+                        <state key="normal" image="choose_none_line"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image " translatesAutoresizingMaskIntoConstraints="NO" id="INr-Uc-jnb">
+                        <rect key="frame" x="46" y="6.5" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="LVl-nq-pKP"/>
+                            <constraint firstAttribute="width" constant="90" id="XVc-Mb-nac"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do . " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfB-XR-Deo">
+                        <rect key="frame" x="146" y="6.5" width="214" height="73"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="￥1000" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7LE-5I-hgw">
+                        <rect key="frame" x="146" y="84.5" width="39" height="12"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="* 1" textAlignment="natural" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yQc-MH-zth">
+                        <rect key="frame" x="343" y="84.5" width="17" height="12"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yQc-MH-zth" firstAttribute="bottom" secondItem="INr-Uc-jnb" secondAttribute="bottom" id="0m3-kq-BvF"/>
+                    <constraint firstItem="INr-Uc-jnb" firstAttribute="centerY" secondItem="sjO-8J-SUn" secondAttribute="centerY" id="Jh4-fG-nIv"/>
+                    <constraint firstItem="BfB-XR-Deo" firstAttribute="top" secondItem="INr-Uc-jnb" secondAttribute="top" id="Kj1-Sy-3hh"/>
+                    <constraint firstItem="INr-Uc-jnb" firstAttribute="leading" secondItem="sjO-8J-SUn" secondAttribute="trailing" constant="8" id="L1t-aL-tne"/>
+                    <constraint firstItem="7LE-5I-hgw" firstAttribute="bottom" secondItem="INr-Uc-jnb" secondAttribute="bottom" id="Qnq-dC-V1Z"/>
+                    <constraint firstItem="sjO-8J-SUn" firstAttribute="centerY" secondItem="1nf-O3-2cR" secondAttribute="centerY" id="bDq-UI-wZH"/>
+                    <constraint firstItem="sjO-8J-SUn" firstAttribute="leading" secondItem="1nf-O3-2cR" secondAttribute="leadingMargin" constant="10" id="bWc-cF-rZE"/>
+                    <constraint firstItem="BfB-XR-Deo" firstAttribute="leading" secondItem="INr-Uc-jnb" secondAttribute="trailing" constant="10" id="cfP-Xh-rRg"/>
+                    <constraint firstItem="yQc-MH-zth" firstAttribute="trailing" secondItem="BfB-XR-Deo" secondAttribute="trailing" id="eD5-0l-tZL"/>
+                    <constraint firstItem="7LE-5I-hgw" firstAttribute="top" secondItem="BfB-XR-Deo" secondAttribute="bottom" constant="5" id="kEw-zw-uUZ"/>
+                    <constraint firstAttribute="trailing" secondItem="BfB-XR-Deo" secondAttribute="trailing" constant="10" id="kiw-8D-agF"/>
+                    <constraint firstItem="yQc-MH-zth" firstAttribute="top" secondItem="7LE-5I-hgw" secondAttribute="top" id="sqJ-DR-7TB"/>
+                    <constraint firstItem="7LE-5I-hgw" firstAttribute="leading" secondItem="BfB-XR-Deo" secondAttribute="leading" id="vsr-6L-wh4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="96" y="151"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="choose_none_line" width="64" height="64"/>
+        <image name="next" width="64" height="64"/>
+        <image name="placeholder_image " width="64" height="64"/>
+    </resources>
+</document>
