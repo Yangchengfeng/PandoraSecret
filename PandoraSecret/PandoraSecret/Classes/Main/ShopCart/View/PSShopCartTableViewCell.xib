@@ -68,6 +68,9 @@
                 <constraint firstItem="Gal-zD-VcN" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="cwa-U8-FBI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="chooseShopBtn" destination="Gal-zD-VcN" id="kzK-bK-VE9"/>
+            </connections>
             <point key="canvasLocation" x="67.5" y="-38"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="goodsCellId" rowHeight="98" id="jl8-fR-3xB" customClass="PSShopCartTableViewCell">
@@ -85,7 +88,7 @@
                         </constraints>
                         <state key="normal" image="choose_none_line"/>
                         <connections>
-                            <action selector="chooseThisGoods:" destination="jl8-fR-3xB" eventType="touchUpInside" id="fcU-Z4-bou"/>
+                            <action selector="chooseThisGoods:" destination="jl8-fR-3xB" eventType="touchUpInside" id="s8o-0e-PhA"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKX-Yi-GOb">
@@ -150,6 +153,9 @@
                 <constraint firstItem="AKX-Yi-GOb" firstAttribute="top" secondItem="jl8-fR-3xB" secondAttribute="top" id="goW-Yw-F9T"/>
                 <constraint firstAttribute="bottom" secondItem="AKX-Yi-GOb" secondAttribute="bottom" id="mQO-cV-UkM"/>
             </constraints>
+            <connections>
+                <outlet property="chooseGoodsBtn" destination="QRI-y7-cJt" id="Fb4-gA-Vgf"/>
+            </connections>
             <point key="canvasLocation" x="96" y="151"/>
         </tableViewCell>
     </objects>

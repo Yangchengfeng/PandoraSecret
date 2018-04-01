@@ -8,11 +8,24 @@
 
 #import "PSShopCartTableViewCell.h"
 
+@interface PSShopCartTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIButton *chooseGoodsBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chooseShopBtn;
+
+@end
+
 @implementation PSShopCartTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    // 设置选中按钮
+    [_chooseShopBtn setImage:[UIImage imageNamed:@"choose_none_line"] forState:UIControlStateNormal];
+    [_chooseShopBtn setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
+    
+    [_chooseGoodsBtn setImage:[UIImage imageNamed:@"choose_none_line"] forState:UIControlStateNormal];
+    [_chooseGoodsBtn setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
 }
 
 - (instancetype)initWithParam:(BOOL)isHeader {
@@ -27,16 +40,26 @@
     return self;
 }
 
-- (IBAction)chooseAllGoodsInThisShop:(id)sender {
+- (IBAction)chooseAllGoodsInThisShop:(UIButton *)sender {
     NSLog(@"选中该商店所有商品");
+    if(sender.isSelected) {
+        [sender setSelected:NO];
+    } else {
+        [sender setSelected:YES];
+    }
 }
 
 - (IBAction)enterShopHome:(id)sender {
     NSLog(@"进入该商店首页");
 }
 
-- (IBAction)chooseThisGoods:(id)sender {
+- (IBAction)chooseThisGoods:(UIButton *)sender {
     NSLog(@"选中该商品");
+    if(sender.isSelected) {
+        [sender setSelected:NO];
+    } else {
+        [sender setSelected:YES];
+    }
 }
 
 - (IBAction)enterGoodsDetail:(id)sender {
