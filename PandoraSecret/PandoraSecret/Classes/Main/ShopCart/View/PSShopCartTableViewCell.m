@@ -15,12 +15,6 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (instancetype)initWithParam:(BOOL)isHeader {
     self = [super init];
     if(self) {
@@ -31,6 +25,22 @@
         }
     }
     return self;
+}
+
+- (IBAction)chooseAllGoodsInThisShop:(id)sender {
+    NSLog(@"选中该商店所有商品");
+}
+
+- (IBAction)enterShopHome:(id)sender {
+    NSLog(@"进入该商店首页");
+}
+
+- (IBAction)chooseThisGoods:(id)sender {
+    NSLog(@"选中该商品");
+}
+
+- (IBAction)enterGoodsDetail:(id)sender {
+     NSLog(@"查看该商品详情");
 }
 
 @end

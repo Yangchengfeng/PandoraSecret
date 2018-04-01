@@ -1,18 +1,18 @@
 //
-//  PSShopCartDetailViewController.m
+//  PSShopCartGoodsDetailViewController.m
 //  PandoraSecret
 //
-//  Created by 阳丞枫 on 2018/4/1.
+//  Created by 阳丞枫 on 2018/4/2.
 //  Copyright © 2018年 chengfengYang. All rights reserved.
 //
 
-#import "PSShopCartDetailViewController.h"
+#import "PSShopCartGoodsDetailViewController.h"
 
-@interface PSShopCartDetailViewController ()
+@interface PSShopCartGoodsDetailViewController ()
 
 @end
 
-@implementation PSShopCartDetailViewController
+@implementation PSShopCartGoodsDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

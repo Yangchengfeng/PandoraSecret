@@ -25,8 +25,10 @@
 		381F96B220711964008E8284 /* PSShopCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96B020711964008E8284 /* PSShopCartTableViewCell.m */; };
 		381F96B320711964008E8284 /* PSShopCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96B120711964008E8284 /* PSShopCartTableViewCell.xib */; };
 		381F96B6207119AF008E8284 /* PSShopCartListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96B5207119AF008E8284 /* PSShopCartListViewController.m */; };
-		381F96BA207119EC008E8284 /* PSShopCartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96B8207119EC008E8284 /* PSShopCartDetailViewController.m */; };
-		381F96BB207119EC008E8284 /* PSShopCartDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96B9207119EC008E8284 /* PSShopCartDetailViewController.xib */; };
+		381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96BD2071421C008E8284 /* PSShopCartShopDetailViewController.m */; };
+		381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96BE2071421C008E8284 /* PSShopCartShopDetailViewController.xib */; };
+		381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96C220714263008E8284 /* PSShopCartGoodsDetailViewController.m */; };
+		381F96C520714263008E8284 /* PSShopCartGoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96C320714263008E8284 /* PSShopCartGoodsDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,9 +64,12 @@
 		381F96B120711964008E8284 /* PSShopCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShopCartTableViewCell.xib; sourceTree = "<group>"; };
 		381F96B4207119AF008E8284 /* PSShopCartListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartListViewController.h; sourceTree = "<group>"; };
 		381F96B5207119AF008E8284 /* PSShopCartListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartListViewController.m; sourceTree = "<group>"; };
-		381F96B7207119EC008E8284 /* PSShopCartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartDetailViewController.h; sourceTree = "<group>"; };
-		381F96B8207119EC008E8284 /* PSShopCartDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartDetailViewController.m; sourceTree = "<group>"; };
-		381F96B9207119EC008E8284 /* PSShopCartDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShopCartDetailViewController.xib; sourceTree = "<group>"; };
+		381F96BC2071421C008E8284 /* PSShopCartShopDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartShopDetailViewController.h; sourceTree = "<group>"; };
+		381F96BD2071421C008E8284 /* PSShopCartShopDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartShopDetailViewController.m; sourceTree = "<group>"; };
+		381F96BE2071421C008E8284 /* PSShopCartShopDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShopCartShopDetailViewController.xib; sourceTree = "<group>"; };
+		381F96C120714263008E8284 /* PSShopCartGoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartGoodsDetailViewController.h; sourceTree = "<group>"; };
+		381F96C220714263008E8284 /* PSShopCartGoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartGoodsDetailViewController.m; sourceTree = "<group>"; };
+		381F96C320714263008E8284 /* PSShopCartGoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShopCartGoodsDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,9 +316,12 @@
 			children = (
 				381F96B4207119AF008E8284 /* PSShopCartListViewController.h */,
 				381F96B5207119AF008E8284 /* PSShopCartListViewController.m */,
-				381F96B7207119EC008E8284 /* PSShopCartDetailViewController.h */,
-				381F96B8207119EC008E8284 /* PSShopCartDetailViewController.m */,
-				381F96B9207119EC008E8284 /* PSShopCartDetailViewController.xib */,
+				381F96BC2071421C008E8284 /* PSShopCartShopDetailViewController.h */,
+				381F96BD2071421C008E8284 /* PSShopCartShopDetailViewController.m */,
+				381F96BE2071421C008E8284 /* PSShopCartShopDetailViewController.xib */,
+				381F96C120714263008E8284 /* PSShopCartGoodsDetailViewController.h */,
+				381F96C220714263008E8284 /* PSShopCartGoodsDetailViewController.m */,
+				381F96C320714263008E8284 /* PSShopCartGoodsDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -393,11 +401,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
-				381F96BB207119EC008E8284 /* PSShopCartDetailViewController.xib in Resources */,
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
+				381F96C520714263008E8284 /* PSShopCartGoodsDetailViewController.xib in Resources */,
 				381F96B320711964008E8284 /* PSShopCartTableViewCell.xib in Resources */,
 				381F966C206CC7F1008E8284 /* PSLaunchViewController.storyboard in Resources */,
 			);
@@ -410,8 +419,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				381F96BA207119EC008E8284 /* PSShopCartDetailViewController.m in Sources */,
 				381F9648206CC3B4008E8284 /* main.m in Sources */,
+				381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */,
+				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
