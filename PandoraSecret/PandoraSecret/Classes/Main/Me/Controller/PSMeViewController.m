@@ -29,7 +29,8 @@ static CGFloat estimatedRowH = 110.f;
 
 - (NSArray *)settingsItems {
     NSArray *settingsitems = @[@[@"个人中心信息展示"],
-                               @[@"昵称", @"个人描述", @"收货地址", @"修改绑定手机号", @"修改登录密码"],
+                               @[@"昵称", @"个人描述"],
+                               @[@"我的订单", @"收货地址", @"修改绑定手机号", @"修改登录密码"],
                                @[@"关于潘多拉的秘密"],
                                @[@"退出当前用户"]];
     return settingsitems;
