@@ -10,6 +10,8 @@
 
 @interface PSRegisterViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;
+
 @end
 
 @implementation PSRegisterViewController
@@ -23,6 +25,8 @@
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *letfBarItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = letfBarItem;
+    
+    [_phonenumTextField becomeFirstResponder];
 }
 
 - (void)back {
