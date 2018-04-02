@@ -36,24 +36,42 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fare_mainLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="hGl-T2-pLY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-Cd-Kxy">
-                                <rect key="frame" x="75" y="399" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登陆"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-Cd-Kxy">
+                                <rect key="frame" x="80" y="557" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Joa-Bg-8b6"/>
+                                    <constraint firstAttribute="height" constant="30" id="N2h-0H-c1k"/>
+                                </constraints>
+                                <state key="normal" title="登陆">
+                                    <color key="titleColor" red="0.82277435060000004" green="0.31671088930000002" blue="0.44979953769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <segue destination="Bvy-cq-QaD" kind="show" id="Ve9-vm-lhy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMu-Mf-J1H">
-                                <rect key="frame" x="252" y="399" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="注册"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMu-Mf-J1H">
+                                <rect key="frame" x="255" y="557" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="30C-SV-E20"/>
+                                </constraints>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.82277435064315796" green="0.31671088933944702" blue="0.44979953765869141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <segue destination="d54-qG-BMs" kind="show" id="6Hf-JM-DMX"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="PandoraSecret.Lemonior©2018" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqE-Ol-tId">
+                                <rect key="frame" x="50" y="632" width="275" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="SeS-1j-FI5"/>
+                                </constraints>
+                                <color key="textColor" red="0.81239151954650879" green="0.35635256767272949" blue="0.4652741551399231" alpha="0.45257445469798657" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ao-Bs-1I7">
-                                <rect key="frame" x="146" y="539" width="62" height="30"/>
+                                <rect key="frame" x="275" y="111" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="进入主页"/>
                                 <connections>
@@ -63,10 +81,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Knu-Cd-Kxy" firstAttribute="bottom" secondItem="hMu-Mf-J1H" secondAttribute="bottom" id="2Tn-xf-4xd"/>
+                            <constraint firstItem="hMu-Mf-J1H" firstAttribute="width" secondItem="Knu-Cd-Kxy" secondAttribute="width" id="4Nt-8n-w4G"/>
+                            <constraint firstItem="Knu-Cd-Kxy" firstAttribute="centerY" secondItem="hMu-Mf-J1H" secondAttribute="centerY" id="5W1-Mp-9bN"/>
+                            <constraint firstItem="Knu-Cd-Kxy" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" constant="80" id="96t-YU-DKg"/>
+                            <constraint firstItem="hMu-Mf-J1H" firstAttribute="centerY" secondItem="Knu-Cd-Kxy" secondAttribute="centerY" id="9nk-WD-pTP"/>
                             <constraint firstItem="hGl-T2-pLY" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" id="9wV-8Q-X9E"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="hMu-Mf-J1H" secondAttribute="bottom" constant="80" id="DMo-k4-Wvt"/>
+                            <constraint firstItem="hMu-Mf-J1H" firstAttribute="top" secondItem="Knu-Cd-Kxy" secondAttribute="top" id="Efa-6G-ert"/>
+                            <constraint firstItem="bqE-Ol-tId" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" constant="50" id="MgG-6K-68C"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hGl-T2-pLY" secondAttribute="trailing" id="WtY-d2-5dn"/>
+                            <constraint firstItem="hMu-Mf-J1H" firstAttribute="height" secondItem="Knu-Cd-Kxy" secondAttribute="height" id="bqV-MA-PS2"/>
                             <constraint firstItem="hGl-T2-pLY" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" id="eFp-cU-VM2"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="Knu-Cd-Kxy" secondAttribute="bottom" constant="80" id="jBR-ng-yX2"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="hGl-T2-pLY" secondAttribute="bottom" id="oj4-jr-w72"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="bqE-Ol-tId" secondAttribute="trailing" constant="50" id="sqb-gJ-0rc"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="bqE-Ol-tId" secondAttribute="bottom" constant="20" id="yS8-QT-HDn"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hMu-Mf-J1H" secondAttribute="trailing" constant="80" id="yxl-wi-Nv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n2b-vo-8oU"/>
                     </view>
