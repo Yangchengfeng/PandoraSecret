@@ -17,8 +17,6 @@ static CGFloat estimatedRowH = 110.f;
 
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet PSMeTableView *settingsTableView;
-
 @end
 
 @implementation PSMeViewController

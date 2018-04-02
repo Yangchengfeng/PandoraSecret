@@ -13,11 +13,40 @@
         <!--秀秀场-->
         <scene sceneID="m7f-Nc-bRj">
             <objects>
-                <viewController id="rHm-XM-pys" sceneMemberID="viewController">
+                <viewController id="rHm-XM-pys" customClass="PSShowGroundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ab8-vz-6a7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-bR-dRd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rHm-XM-pys" id="G2m-za-pbg"/>
+                                    <outlet property="delegate" destination="rHm-XM-pys" id="cIu-hd-8a2"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-Cs-1u8">
+                                <rect key="frame" x="305" y="548" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="04C-gt-y6I"/>
+                                    <constraint firstAttribute="height" constant="40" id="HeP-ue-lCB"/>
+                                </constraints>
+                                <state key="normal" image="add_toShow"/>
+                                <connections>
+                                    <segue destination="QLI-9t-gOR" kind="show" id="u7K-EJ-Ir2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B7B-bR-dRd" firstAttribute="leading" secondItem="lkH-vl-GcB" secondAttribute="leading" id="5Ef-Oy-tD1"/>
+                            <constraint firstItem="tkP-Cs-1u8" firstAttribute="trailing" secondItem="B7B-bR-dRd" secondAttribute="trailing" constant="-30" id="9dn-fP-QLJ"/>
+                            <constraint firstItem="B7B-bR-dRd" firstAttribute="bottom" secondItem="lkH-vl-GcB" secondAttribute="bottom" id="TAG-y0-Ecp"/>
+                            <constraint firstItem="tkP-Cs-1u8" firstAttribute="bottom" secondItem="B7B-bR-dRd" secondAttribute="bottom" constant="-30" id="bTO-tW-VB1"/>
+                            <constraint firstItem="B7B-bR-dRd" firstAttribute="trailing" secondItem="lkH-vl-GcB" secondAttribute="trailing" id="pjf-OF-yV2"/>
+                            <constraint firstItem="B7B-bR-dRd" firstAttribute="top" secondItem="lkH-vl-GcB" secondAttribute="top" id="rJF-kZ-Dbi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lkH-vl-GcB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="秀秀场" image="main_tab_ShowGround" selectedImage="main_tab_ShowGround" id="5ef-B6-5hX"/>
@@ -25,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kin-8g-Gub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="146"/>
+            <point key="canvasLocation" x="997.60000000000002" y="145.27736131934034"/>
         </scene>
         <!--购物车-->
         <scene sceneID="kyo-Uz-Tfa">
@@ -149,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2h6-Mo-Ksf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-972" y="806"/>
+            <point key="canvasLocation" x="-806" y="806"/>
         </scene>
         <!--主场-->
         <scene sceneID="qzR-Fu-VzW">
@@ -171,7 +200,7 @@
         <!--我也能打开潘多拉魔盒-->
         <scene sceneID="6z5-cn-haI">
             <objects>
-                <viewController id="QLI-9t-gOR" sceneMemberID="viewController">
+                <viewController id="QLI-9t-gOR" customClass="PSMyShowViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fnc-lD-Dfz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,9 +412,6 @@
                         <viewLayoutGuide key="safeArea" id="l16-tX-yO8"/>
                     </view>
                     <navigationItem key="navigationItem" title="个人中心" id="gnL-W7-WOR"/>
-                    <connections>
-                        <outlet property="settingsTableView" destination="zgZ-aW-9sW" id="6Pm-1c-PKf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jez-fC-Jsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -449,6 +475,7 @@
     </scenes>
     <resources>
         <image name="add_photo" width="128" height="128"/>
+        <image name="add_toShow" width="32" height="32"/>
         <image name="choose_none_line" width="64" height="64"/>
         <image name="main_tab_Home" width="24" height="24"/>
         <image name="main_tab_Me" width="24" height="24"/>
@@ -457,4 +484,7 @@
         <image name="main_tab_cart" width="24" height="24"/>
         <image name="star_none_click" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u7K-EJ-Ir2"/>
+    </inferredMetricsTieBreakers>
 </document>

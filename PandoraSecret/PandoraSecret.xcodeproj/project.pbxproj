@@ -29,6 +29,10 @@
 		381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96BE2071421C008E8284 /* PSShopCartShopDetailViewController.xib */; };
 		381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96C220714263008E8284 /* PSShopCartGoodsDetailViewController.m */; };
 		381F96C520714263008E8284 /* PSShopCartGoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96C320714263008E8284 /* PSShopCartGoodsDetailViewController.xib */; };
+		381F96CE2071FAC8008E8284 /* PSShowGroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96CD2071FAC8008E8284 /* PSShowGroundViewController.m */; };
+		381F96D12071FADD008E8284 /* PSMyShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96D02071FADD008E8284 /* PSMyShowViewController.m */; };
+		381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96D32071FD06008E8284 /* PSShowGroundCell.m */; };
+		381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96D42071FD06008E8284 /* PSShowGroundCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,13 @@
 		381F96C120714263008E8284 /* PSShopCartGoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartGoodsDetailViewController.h; sourceTree = "<group>"; };
 		381F96C220714263008E8284 /* PSShopCartGoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartGoodsDetailViewController.m; sourceTree = "<group>"; };
 		381F96C320714263008E8284 /* PSShopCartGoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShopCartGoodsDetailViewController.xib; sourceTree = "<group>"; };
+		381F96CC2071FAC8008E8284 /* PSShowGroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGroundViewController.h; sourceTree = "<group>"; };
+		381F96CD2071FAC8008E8284 /* PSShowGroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGroundViewController.m; sourceTree = "<group>"; };
+		381F96CF2071FADD008E8284 /* PSMyShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMyShowViewController.h; sourceTree = "<group>"; };
+		381F96D02071FADD008E8284 /* PSMyShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMyShowViewController.m; sourceTree = "<group>"; };
+		381F96D22071FD06008E8284 /* PSShowGroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGroundCell.h; sourceTree = "<group>"; };
+		381F96D32071FD06008E8284 /* PSShowGroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGroundCell.m; sourceTree = "<group>"; };
+		381F96D42071FD06008E8284 /* PSShowGroundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShowGroundCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +273,9 @@
 		381F968E206D35B3008E8284 /* ShowGround */ = {
 			isa = PBXGroup;
 			children = (
+				381F96C82071FA77008E8284 /* View */,
+				381F96C72071FA6F008E8284 /* Model */,
+				381F96C62071FA67008E8284 /* Controller */,
 			);
 			path = ShowGround;
 			sourceTree = "<group>";
@@ -269,6 +283,9 @@
 		381F9690206D35B3008E8284 /* MyShow */ = {
 			isa = PBXGroup;
 			children = (
+				381F96CB2071FA93008E8284 /* View */,
+				381F96CA2071FA8B008E8284 /* Model */,
+				381F96C92071FA87008E8284 /* Controller */,
 			);
 			path = MyShow;
 			sourceTree = "<group>";
@@ -343,6 +360,55 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		381F96C62071FA67008E8284 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				381F96CC2071FAC8008E8284 /* PSShowGroundViewController.h */,
+				381F96CD2071FAC8008E8284 /* PSShowGroundViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		381F96C72071FA6F008E8284 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		381F96C82071FA77008E8284 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				381F96D22071FD06008E8284 /* PSShowGroundCell.h */,
+				381F96D32071FD06008E8284 /* PSShowGroundCell.m */,
+				381F96D42071FD06008E8284 /* PSShowGroundCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		381F96C92071FA87008E8284 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				381F96CF2071FADD008E8284 /* PSMyShowViewController.h */,
+				381F96D02071FADD008E8284 /* PSMyShowViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		381F96CA2071FA8B008E8284 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		381F96CB2071FA93008E8284 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -402,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */,
+				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
@@ -427,9 +494,12 @@
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
 				381F96B220711964008E8284 /* PSShopCartTableViewCell.m in Sources */,
+				381F96CE2071FAC8008E8284 /* PSShowGroundViewController.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
 				381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */,
+				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
+				381F96D12071FADD008E8284 /* PSMyShowViewController.m in Sources */,
 				381F96B6207119AF008E8284 /* PSShopCartListViewController.m in Sources */,
 				381F9672206CCC8F008E8284 /* PSBaseViewController.m in Sources */,
 				381F966A206CC7D5008E8284 /* PSLaunchViewController.m in Sources */,
