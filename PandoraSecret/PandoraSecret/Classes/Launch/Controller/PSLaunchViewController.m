@@ -28,8 +28,11 @@
 
 - (IBAction)enterMainView:(id)sender {
     PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-     self.view.window.rootViewController = mainVC;
+    self.view.window.rootViewController = mainVC;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

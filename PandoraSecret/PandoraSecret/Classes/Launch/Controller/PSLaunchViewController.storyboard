@@ -33,6 +33,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fare_mainLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="hGl-T2-pLY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-Cd-Kxy">
                                 <rect key="frame" x="75" y="399" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ao-Bs-1I7">
-                                <rect key="frame" x="156" y="290" width="62" height="30"/>
+                                <rect key="frame" x="146" y="539" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="进入主页"/>
                                 <connections>
@@ -59,13 +62,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hGl-T2-pLY" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" id="9wV-8Q-X9E"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hGl-T2-pLY" secondAttribute="trailing" id="WtY-d2-5dn"/>
+                            <constraint firstItem="hGl-T2-pLY" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" id="eFp-cU-VM2"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="hGl-T2-pLY" secondAttribute="bottom" id="oj4-jr-w72"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n2b-vo-8oU"/>
                     </view>
                     <navigationItem key="navigationItem" id="AQU-Es-beP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VnR-LR-V5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762" y="-1107"/>
+            <point key="canvasLocation" x="-762.39999999999998" y="-1107.7961019490256"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="vNs-mL-Mld">
@@ -98,4 +107,7 @@
             <point key="canvasLocation" x="-30" y="-1361"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fare_mainLaunch" width="500" height="887"/>
+    </resources>
 </document>
