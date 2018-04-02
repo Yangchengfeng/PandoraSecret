@@ -7,10 +7,13 @@
 //
 
 #import "PSLoginViewController.h"
+#import <SMS_SDK/SMSSDK.h>
 
 @interface PSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *verificationCode;
+
 
 @end
 
@@ -49,9 +52,22 @@
         return;
     }
     
-    // 倒计时 & 发送验证码 ：同步
+    // 发送验证码成功后倒计时 ：同步
+//    if(![self sendSMSWithPhoneNum:userPhoneNum]) {
+//        // toast
+//        return;
+//    }
+    [self sendSMSWithPhoneNum:userPhoneNum];
+    // 倒计时
     
 }
+
+- (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
+    [SMSSDK commitVerificationCode:_verificationCode.text phoneNumber:_phonenumTextField.text zone:@"86" result:^(NSError *error) {
+        NSLog(@"error");
+    }];
+}
+
 
 #pragma mark - 判断是否为手机号码
 - (BOOL)testPhoneNum:(NSString *)phoneNum {
@@ -71,6 +87,11 @@
 #pragma mark - 倒计时、重新发送
 
 #pragma mark - 发送验证码
+- (void)sendSMSWithPhoneNum:(NSString *)phoneNum {
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:phoneNum zone:@"86" template:@"" result:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
 
 
 #pragma mark - toast

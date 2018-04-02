@@ -33,6 +33,16 @@
 		381F96D12071FADD008E8284 /* PSMyShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96D02071FADD008E8284 /* PSMyShowViewController.m */; };
 		381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F96D32071FD06008E8284 /* PSShowGroundCell.m */; };
 		381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381F96D42071FD06008E8284 /* PSShowGroundCell.xib */; };
+		38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20320727DEF00F80D92 /* libz.tbd */; };
+		38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20520727DFA00F80D92 /* libicucore.tbd */; };
+		38F2A20820727E0300F80D92 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20720727E0300F80D92 /* MessageUI.framework */; };
+		38F2A20A20727E0B00F80D92 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20920727E0B00F80D92 /* JavaScriptCore.framework */; };
+		38F2A20C20727E1400F80D92 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20B20727E1400F80D92 /* libstdc++.tbd */; };
+		38F2A20E20727E1E00F80D92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */; };
+		38F2A21020727E2800F80D92 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20F20727E2800F80D92 /* CoreTelephony.framework */; };
+		38F2A21220727E3000F80D92 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A21120727E3000F80D92 /* AdSupport.framework */; };
+		38F2A2132072823300F80D92 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */; };
+		38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20120727D2600F80D92 /* MOBFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +91,16 @@
 		381F96D22071FD06008E8284 /* PSShowGroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGroundCell.h; sourceTree = "<group>"; };
 		381F96D32071FD06008E8284 /* PSShowGroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGroundCell.m; sourceTree = "<group>"; };
 		381F96D42071FD06008E8284 /* PSShowGroundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShowGroundCell.xib; sourceTree = "<group>"; };
+		38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		38F2A20120727D2600F80D92 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		38F2A20320727DEF00F80D92 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		38F2A20520727DFA00F80D92 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		38F2A20720727E0300F80D92 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		38F2A20920727E0B00F80D92 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		38F2A20B20727E1400F80D92 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		38F2A20F20727E2800F80D92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		38F2A21120727E3000F80D92 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +108,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F2A21220727E3000F80D92 /* AdSupport.framework in Frameworks */,
+				38F2A21020727E2800F80D92 /* CoreTelephony.framework in Frameworks */,
+				38F2A20E20727E1E00F80D92 /* SystemConfiguration.framework in Frameworks */,
+				38F2A20C20727E1400F80D92 /* libstdc++.tbd in Frameworks */,
+				38F2A20A20727E0B00F80D92 /* JavaScriptCore.framework in Frameworks */,
+				38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */,
+				38F2A2132072823300F80D92 /* SMS_SDK.framework in Frameworks */,
+				38F2A20820727E0300F80D92 /* MessageUI.framework in Frameworks */,
+				38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */,
+				38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +129,7 @@
 			children = (
 				381F9637206CC3B4008E8284 /* PandoraSecret */,
 				381F9636206CC3B4008E8284 /* Products */,
+				38F2A20220727DEE00F80D92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +161,7 @@
 		381F9654206CC59E008E8284 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				38F2A1FD20727D2600F80D92 /* SMSSDK */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -409,6 +441,46 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		38F2A1FD20727D2600F80D92 /* SMSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				38F2A1FE20727D2600F80D92 /* SMSSDK */,
+				38F2A20020727D2600F80D92 /* Required */,
+			);
+			path = SMSSDK;
+			sourceTree = "<group>";
+		};
+		38F2A1FE20727D2600F80D92 /* SMSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */,
+			);
+			path = SMSSDK;
+			sourceTree = "<group>";
+		};
+		38F2A20020727D2600F80D92 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				38F2A20120727D2600F80D92 /* MOBFoundation.framework */,
+			);
+			path = Required;
+			sourceTree = "<group>";
+		};
+		38F2A20220727DEE00F80D92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38F2A21120727E3000F80D92 /* AdSupport.framework */,
+				38F2A20F20727E2800F80D92 /* CoreTelephony.framework */,
+				38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */,
+				38F2A20B20727E1400F80D92 /* libstdc++.tbd */,
+				38F2A20920727E0B00F80D92 /* JavaScriptCore.framework */,
+				38F2A20720727E0300F80D92 /* MessageUI.framework */,
+				38F2A20520727DFA00F80D92 /* libicucore.tbd */,
+				38F2A20320727DEF00F80D92 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -633,6 +705,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/SMSSDK/SMSSDK",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/SMSSDK/Required",
+				);
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.PandoraSecret;
@@ -646,6 +723,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/SMSSDK/SMSSDK",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/SMSSDK/Required",
+				);
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.PandoraSecret;

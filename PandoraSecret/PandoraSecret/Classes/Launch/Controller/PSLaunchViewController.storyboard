@@ -244,7 +244,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="Bvy-cq-QaD" eventType="touchUpInside" id="wL2-vH-l7N"/>
+                                    <action selector="makeSurePhoneNumAndVerificationCode:" destination="Bvy-cq-QaD" eventType="touchUpInside" id="kqo-TO-5lg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xja-T7-9MX">
@@ -263,9 +263,12 @@
                                     <constraint firstAttribute="width" constant="80" id="5P6-W6-QiO"/>
                                     <constraint firstAttribute="height" constant="30" id="USR-GW-CS0"/>
                                 </constraints>
-                                <state key="normal" title="重新发送">
+                                <state key="normal" title="发送">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="Bvy-cq-QaD" eventType="touchUpInside" id="an2-U9-c71"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="获取到的验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bh7-N7-J4N">
                                 <rect key="frame" x="127.5" y="219" width="120" height="30"/>
@@ -302,6 +305,7 @@
                     </view>
                     <connections>
                         <outlet property="phonenumTextField" destination="a8K-6T-Hm0" id="0Ar-ad-MOV"/>
+                        <outlet property="verificationCode" destination="bh7-N7-J4N" id="KAP-eh-GsD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HE2-oI-1hv" userLabel="First Responder" sceneMemberID="firstResponder"/>
