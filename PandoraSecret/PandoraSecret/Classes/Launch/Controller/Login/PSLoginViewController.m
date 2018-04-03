@@ -11,13 +11,6 @@
 #import <SMS_SDK/SMSSDK.h>
 #import "SVProgressHUD.h"
 
-enum {
-    SMSCodeErrorMoreThanSuitableForPhoneNum = 300463,  // 300463    手机号码每天发送次数超限
-    SMSCodeErrororeThanSuitableForPhone,               // 300464    每台手机每天发送次数超限
-    SMSCodeErrorfrequently = 300467,                   // 300467    校验验证码请求频繁
-    SMSCodeErrorWrong,                                 // 300468    需要校验的验证码错误
-} SMSCodeError;
-
 @interface PSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;

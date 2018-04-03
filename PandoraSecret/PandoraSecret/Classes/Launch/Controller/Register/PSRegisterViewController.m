@@ -7,10 +7,12 @@
 //
 
 #import "PSRegisterViewController.h"
+#import "SVProgressHUD.h"
 
 @interface PSRegisterViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -33,9 +35,20 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)register:(id)sender {
+    if([self testPhoneNum:_phonenumTextField.text] && self.passwordTextField.text.length>0) {
+        // 保存到服务器
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的手机号码及密码"];
+    }
+    
+}
+
+- (BOOL)testPhoneNum:(NSString *)phoneNum {
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0-9])|(14[57])|(17[013678]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    BOOL isPhoneNum = [phoneTest evaluateWithObject:phoneNum];
+    return isPhoneNum;
 }
 
 @end
