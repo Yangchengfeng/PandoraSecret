@@ -40,6 +40,7 @@
 		383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3920731A04000E8631 /* SVProgressAnimatedView.m */; };
 		383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3D20731A04000E8631 /* SVIndefiniteAnimatedView.m */; };
 		383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */; };
+		384FE2B52073D94C005E6B2C /* PSUserPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FE2B32073D94C005E6B2C /* PSUserPageTableViewController.m */; };
 		38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20320727DEF00F80D92 /* libz.tbd */; };
 		38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20520727DFA00F80D92 /* libicucore.tbd */; };
 		38F2A20820727E0300F80D92 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20720727E0300F80D92 /* MessageUI.framework */; };
@@ -50,6 +51,8 @@
 		38F2A21220727E3000F80D92 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A21120727E3000F80D92 /* AdSupport.framework */; };
 		38F2A2132072823300F80D92 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */; };
 		38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20120727D2600F80D92 /* MOBFoundation.framework */; };
+		38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */; };
+		38FC37662073DD8000FD055F /* PSUserPageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC37652073DD8000FD055F /* PSUserPageHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,8 @@
 		383FFF4120731AE2000E8631 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		383FFF4820737104000E8631 /* PSLoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSLoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSLoginWithPasswordViewController.m; sourceTree = "<group>"; };
+		384FE2B22073D94C005E6B2C /* PSUserPageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageTableViewController.h; sourceTree = "<group>"; };
+		384FE2B32073D94C005E6B2C /* PSUserPageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageTableViewController.m; sourceTree = "<group>"; };
 		38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		38F2A20120727D2600F80D92 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		38F2A20320727DEF00F80D92 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -121,6 +126,9 @@
 		38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		38F2A20F20727E2800F80D92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		38F2A21120727E3000F80D92 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		38FC37622073DD5300FD055F /* PSUserPageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageHeaderView.h; sourceTree = "<group>"; };
+		38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageHeaderView.m; sourceTree = "<group>"; };
+		38FC37652073DD8000FD055F /* PSUserPageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +306,7 @@
 		381F968B206D35B3008E8284 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				383FFF4D2073CBF9000E8631 /* UserPage */,
 				381F9698206D59EF008E8284 /* Me */,
 				381F968C206D35B3008E8284 /* Home */,
 				381F968D206D35B3008E8284 /* ShopCart */,
@@ -483,6 +492,42 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		383FFF4D2073CBF9000E8631 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				383FFF4E2073CBF9000E8631 /* Controller */,
+				383FFF4F2073CBF9000E8631 /* Model */,
+				383FFF502073CBF9000E8631 /* View */,
+			);
+			path = UserPage;
+			sourceTree = "<group>";
+		};
+		383FFF4E2073CBF9000E8631 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				384FE2B22073D94C005E6B2C /* PSUserPageTableViewController.h */,
+				384FE2B32073D94C005E6B2C /* PSUserPageTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		383FFF4F2073CBF9000E8631 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		383FFF502073CBF9000E8631 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38FC37622073DD5300FD055F /* PSUserPageHeaderView.h */,
+				38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */,
+				38FC37652073DD8000FD055F /* PSUserPageHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		38F2A1FD20727D2600F80D92 /* SMSSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,6 +645,7 @@
 				383FFF4020731A8D000E8631 /* SVProgressHUD.bundle in Resources */,
 				381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */,
 				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
+				38FC37662073DD8000FD055F /* PSUserPageHeaderView.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
@@ -621,6 +667,8 @@
 				383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */,
 				383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */,
 				383FFF4520731E43000E8631 /* SVRadialGradientLayer.m in Sources */,
+				38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */,
+				384FE2B52073D94C005E6B2C /* PSUserPageTableViewController.m in Sources */,
 				383FFF4420731E14000E8631 /* SVProgressHUD.m in Sources */,
 				381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */,
 				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
