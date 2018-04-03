@@ -9,12 +9,21 @@
 #import "PSLoginViewController.h"
 #import "PSMainTabBarController.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "SVProgressHUD.h"
+
+enum {
+    SMSCodeErrorMoreThanSuitableForPhoneNum = 300463,  // 300463    手机号码每天发送次数超限
+    SMSCodeErrororeThanSuitableForPhone,               // 300464    每台手机每天发送次数超限
+    SMSCodeErrorfrequently = 300467,                   // 300467    校验验证码请求频繁
+    SMSCodeErrorWrong,                                 // 300468    需要校验的验证码错误
+} SMSCodeError;
 
 @interface PSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *verificationCode;
 @property (weak, nonatomic) IBOutlet UIButton *sendRequestBtn;
+@property (strong, nonatomic) NSDictionary *smsCodeDictionary;
 
 @end
 
@@ -62,6 +71,9 @@
 }
 
 - (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
+    if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
+        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
+    }
     [SMSSDK commitVerificationCode:_verificationCode.text
                        phoneNumber:_phonenumTextField.text
                               zone:@"86"
@@ -73,6 +85,13 @@
                                     // 保存用户信息(uid等)
                                 } else {
                                     // toast
+                                    if(error.code ) {
+                                        
+                                    }
+                                    [SVProgressHUD showWithStatus:@"验证码未发送成功"];
+                                    [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+                                    [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
+                                    _sendRequestBtn.userInteractionEnabled = YES;
                                 }
     }];
 }
@@ -105,6 +124,7 @@
                                             _sendRequestBtn.userInteractionEnabled = NO;
                                         } else {
                                             // toast
+                                            [SVProgressHUD showWithStatus:@"验证码未发送成功"];
                                             [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                                             [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
                                             _sendRequestBtn.userInteractionEnabled = YES;
