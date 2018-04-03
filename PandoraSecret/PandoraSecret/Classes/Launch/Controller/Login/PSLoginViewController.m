@@ -68,8 +68,9 @@
                             result:^(NSError *error) {
                                 if (!error) {
                                     // 请求成功
-                                        PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-                                        self.view.window.rootViewController = mainVC;
+                                    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+                                    self.view.window.rootViewController = mainVC;
+                                    // 保存用户信息(uid等)
                                 } else {
                                     // toast
                                 }
