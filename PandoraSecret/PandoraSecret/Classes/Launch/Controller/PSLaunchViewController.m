@@ -7,6 +7,7 @@
 //
 
 #import "PSLaunchViewController.h"
+#import "PSMainTabBarController.h"
 
 @implementation PSLaunchViewController
 
@@ -23,6 +24,10 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
+}
+
+- (IBAction)pushToMain:(id)sender {
+    [self.navigationController pushViewController:[[PSMainTabBarController alloc] init] animated:YES];
 }
 
 - (BOOL)prefersStatusBarHidden {

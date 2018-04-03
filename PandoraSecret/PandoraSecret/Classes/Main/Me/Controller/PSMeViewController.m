@@ -13,7 +13,7 @@
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
 static CGFloat footerH = 10.f;
-static CGFloat estimatedRowH = 110.f;
+static CGFloat estimatedRowH = 113.5f;
 
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
