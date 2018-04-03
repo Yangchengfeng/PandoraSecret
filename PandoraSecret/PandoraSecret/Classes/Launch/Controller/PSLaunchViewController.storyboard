@@ -74,9 +74,6 @@
                                 <rect key="frame" x="275" y="111" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="进入主页"/>
-                                <connections>
-                                    <action selector="enterMainView:" destination="m61-gn-b3W" eventType="touchUpInside" id="5SC-1o-YIx"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,7 +275,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -305,6 +302,7 @@
                     </view>
                     <connections>
                         <outlet property="phonenumTextField" destination="a8K-6T-Hm0" id="0Ar-ad-MOV"/>
+                        <outlet property="sendRequestBtn" destination="plU-hd-HIl" id="2Bn-dB-GrS"/>
                         <outlet property="verificationCode" destination="bh7-N7-J4N" id="KAP-eh-GsD"/>
                     </connections>
                 </viewController>
