@@ -46,6 +46,11 @@ enum {
     
     [_phonenumTextField becomeFirstResponder];
     
+    _smsCodeDictionary = @{@"300463": @"手机号码每天发送次数超限",
+                           @"300464": @"每台手机每天发送次数超限",
+                           @"300467": @"校验验证码请求频繁",
+                           @"300468": @"验证码错误"
+                           };
 }
 
 - (void)back {
@@ -85,10 +90,8 @@ enum {
                                     // 保存用户信息(uid等)
                                 } else {
                                     // toast
-                                    if(error.code ) {
-                                        
-                                    }
-                                    [SVProgressHUD showWithStatus:@"验证码未发送成功"];
+                                    NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
+                                    [SVProgressHUD showErrorWithStatus:errorStr];
                                     [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                                     [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
                                     _sendRequestBtn.userInteractionEnabled = YES;
