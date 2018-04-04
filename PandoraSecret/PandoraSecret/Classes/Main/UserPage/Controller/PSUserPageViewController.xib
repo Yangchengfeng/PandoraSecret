@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSUserPageViewController">
             <connections>
+                <outlet property="underlinViewLeftConstraint" destination="fm7-xi-spI" id="Jhq-XJ-9bf"/>
                 <outlet property="userPageListScrollView" destination="2wD-iv-C1i" id="GBf-4b-C4q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -121,12 +122,12 @@
                         <constraint firstItem="QFn-LI-hoB" firstAttribute="trailing" secondItem="0SX-am-KvZ" secondAttribute="trailing" id="Oxc-3S-rNf"/>
                         <constraint firstItem="5hg-L1-dP5" firstAttribute="leading" secondItem="Rp7-lr-7eA" secondAttribute="leading" constant="15" id="SwU-bM-yJS"/>
                         <constraint firstItem="toT-dk-zFb" firstAttribute="top" secondItem="Rp7-lr-7eA" secondAttribute="top" constant="15" id="Syw-fk-Iyl"/>
-                        <constraint firstItem="nCi-f6-oSR" firstAttribute="centerX" secondItem="VUf-Xr-qQK" secondAttribute="centerX" id="Y5E-42-6ut"/>
                         <constraint firstItem="FX3-oH-vM6" firstAttribute="centerY" secondItem="VUf-Xr-qQK" secondAttribute="centerY" id="b6m-a7-ehV"/>
                         <constraint firstItem="aRb-iW-elJ" firstAttribute="leading" secondItem="FX3-oH-vM6" secondAttribute="trailing" id="bIY-Nj-7oX"/>
                         <constraint firstItem="VUf-Xr-qQK" firstAttribute="leading" secondItem="R37-Y2-arU" secondAttribute="leading" id="c4e-fW-yYj"/>
                         <constraint firstItem="R37-Y2-arU" firstAttribute="trailing" secondItem="DJ7-tg-3LW" secondAttribute="trailing" constant="15" id="cpr-X4-FWl"/>
                         <constraint firstItem="R37-Y2-arU" firstAttribute="top" secondItem="DJ7-tg-3LW" secondAttribute="top" constant="-10" id="d4H-bd-yAx"/>
+                        <constraint firstItem="nCi-f6-oSR" firstAttribute="leading" secondItem="Rp7-lr-7eA" secondAttribute="leading" constant="71.5" id="fm7-xi-spI"/>
                         <constraint firstAttribute="height" constant="165.5" id="k7g-U2-Cr2"/>
                         <constraint firstItem="dRg-FC-BsH" firstAttribute="top" secondItem="nCi-f6-oSR" secondAttribute="bottom" constant="4" id="moa-wG-k1l"/>
                         <constraint firstItem="QFn-LI-hoB" firstAttribute="top" secondItem="0SX-am-KvZ" secondAttribute="bottom" id="nIy-Zc-3NY"/>
@@ -139,7 +140,7 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="R37-Y2-arU"/>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wD-iv-C1i">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wD-iv-C1i">
                     <rect key="frame" x="0.0" y="229.5" width="375" height="437.5"/>
                     <color key="backgroundColor" red="0.76431363819999998" green="0.2159549892" blue="0.47242128849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </scrollView>

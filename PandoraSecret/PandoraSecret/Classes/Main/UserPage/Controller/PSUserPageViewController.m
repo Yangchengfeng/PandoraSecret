@@ -9,9 +9,12 @@
 #import "PSUserPageViewController.h"
 #import "PSUserPageList.h"
 
-@interface PSUserPageViewController ()
+static CGFloat underlineWidthConstraint = 44.f;
+
+@interface PSUserPageViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *userPageListScrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *underlinViewLeftConstraint;
 
 @end
 
@@ -24,6 +27,7 @@
     _userPageListScrollView.bounces = NO; // 限流
     _userPageListScrollView.pagingEnabled = YES;
     _userPageListScrollView.clipsToBounds = NO;
+    _userPageListScrollView.delegate = self;
     
     // 关注列表
     UITableView *followList = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeFollow];
@@ -33,6 +37,20 @@
     UITableView *collectionList = [[PSUserPageList alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeCollection];
     [_userPageListScrollView addSubview:collectionList];
     
+    // 下划线位置
+    _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
+    
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"===");
+    CGFloat page = scrollView.contentOffset.x/kScreenWidth;
+    if(page < 0.5) {
+        _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
+    } else {
+        CGFloat leftWidth = ((kScreenWidth-1)/2.0 - 44.)/2.0;
+        _underlinViewLeftConstraint.constant = kScreenWidth/2.0 + leftWidth;
+    }
 }
 
 @end
