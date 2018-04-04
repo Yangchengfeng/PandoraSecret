@@ -9,7 +9,7 @@
 #import "PSUserPageViewController.h"
 #import "PSUserPageList.h"
 
-@interface PSUserPageViewController () <UIScrollViewDelegate>
+@interface PSUserPageViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *userPageListScrollView;
 
@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view from its nib.
     _userPageListScrollView.contentSize = CGSizeMake(kScreenWidth*2, kScreenHeight-140.5);
     _userPageListScrollView.bounces = NO; // 限流
+    _userPageListScrollView.pagingEnabled = YES;
+    _userPageListScrollView.clipsToBounds = NO;
     
     // 关注列表
     UITableView *followList = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeFollow];
@@ -31,10 +33,6 @@
     UITableView *collectionList = [[PSUserPageList alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeCollection];
     [_userPageListScrollView addSubview:collectionList];
     
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // 判断位移，并传给nextListType
 }
 
 @end
