@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _userPageListScrollView.contentSize = CGSizeMake(kScreenWidth*2, kScreenHeight-140.5);
+    _userPageListScrollView.bounces = NO; // 限流
     
     // 关注列表
     UITableView *followList = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeFollow];

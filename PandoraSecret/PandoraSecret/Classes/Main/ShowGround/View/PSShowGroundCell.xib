@@ -13,15 +13,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="207" id="KGk-i7-Jjw" customClass="PSShowGroundCell">
-            <rect key="frame" x="0.0" y="0.0" width="355" height="199.5"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="270" id="KGk-i7-Jjw" customClass="PSShowGroundCell">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="203"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="355" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="355" height="202.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="142-Ql-93s">
-                        <rect key="frame" x="18" y="5" width="40" height="40"/>
+                        <rect key="frame" x="10" y="5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="Ey5-KV-bmq"/>
                             <constraint firstAttribute="height" constant="40" id="ZBZ-Ao-n4b"/>
@@ -29,7 +29,7 @@
                         <state key="normal" image="head_icon_me"/>
                     </button>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="可爱的松鼠之家" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-jg-0yK">
-                        <rect key="frame" x="66" y="17.5" width="261" height="15"/>
+                        <rect key="frame" x="56" y="18" width="271" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Qaf-5B-njW"/>
                         </constraints>
@@ -38,7 +38,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="商品描述" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-Ec-fIi">
-                        <rect key="frame" x="66" y="45" width="281" height="15"/>
+                        <rect key="frame" x="56" y="45.5" width="291" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="BoN-ag-kbQ"/>
                         </constraints>
@@ -47,31 +47,31 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image " translatesAutoresizingMaskIntoConstraints="NO" id="9oT-wG-nJZ">
-                        <rect key="frame" x="66" y="65" width="281" height="129"/>
+                        <rect key="frame" x="56" y="65.5" width="265" height="132.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="9oT-wG-nJZ" secondAttribute="height" multiplier="281:129" id="3Is-8p-WVh"/>
+                            <constraint firstAttribute="width" secondItem="9oT-wG-nJZ" secondAttribute="height" multiplier="2:1" id="3Is-8p-WVh"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9oT-wG-nJZ" firstAttribute="leading" secondItem="u5v-Ec-fIi" secondAttribute="leading" id="4m4-eS-YdT"/>
                     <constraint firstItem="1Cx-jg-0yK" firstAttribute="centerY" secondItem="142-Ql-93s" secondAttribute="centerY" id="DNo-fS-TSj"/>
+                    <constraint firstAttribute="trailing" secondItem="9oT-wG-nJZ" secondAttribute="trailing" constant="34" id="GYX-Hk-iSU"/>
                     <constraint firstItem="9oT-wG-nJZ" firstAttribute="top" secondItem="u5v-Ec-fIi" secondAttribute="bottom" constant="5" id="K2a-RR-NkG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Cx-jg-0yK" secondAttribute="trailing" constant="20" id="QuX-sf-0hg"/>
                     <constraint firstItem="u5v-Ec-fIi" firstAttribute="leading" secondItem="1Cx-jg-0yK" secondAttribute="leading" id="Z4u-GH-t5L"/>
                     <constraint firstItem="u5v-Ec-fIi" firstAttribute="top" secondItem="142-Ql-93s" secondAttribute="bottom" id="c6h-Gy-tmx"/>
-                    <constraint firstAttribute="trailing" secondItem="9oT-wG-nJZ" secondAttribute="trailing" constant="8" id="fgO-Ce-fZq"/>
-                    <constraint firstItem="142-Ql-93s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="mWC-sr-lNZ"/>
-                    <constraint firstItem="1Cx-jg-0yK" firstAttribute="leading" secondItem="142-Ql-93s" secondAttribute="trailing" constant="8" id="nul-wL-A5u"/>
+                    <constraint firstItem="142-Ql-93s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="mWC-sr-lNZ"/>
+                    <constraint firstItem="1Cx-jg-0yK" firstAttribute="leading" secondItem="142-Ql-93s" secondAttribute="trailing" constant="6" id="nul-wL-A5u"/>
                     <constraint firstAttribute="bottom" secondItem="9oT-wG-nJZ" secondAttribute="bottom" constant="5" id="s3O-al-w8a"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="aW0-zy-SZf" firstAttribute="trailing" secondItem="u5v-Ec-fIi" secondAttribute="trailing" constant="8" id="Ch9-tM-d4e"/>
-                <constraint firstItem="142-Ql-93s" firstAttribute="top" secondItem="aW0-zy-SZf" secondAttribute="top" constant="5" id="L8Z-VB-zpr"/>
+                <constraint firstItem="142-Ql-93s" firstAttribute="top" secondItem="aW0-zy-SZf" secondAttribute="top" constant="5" id="Sqx-hK-Igi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="51.5" y="138"/>
+            <point key="canvasLocation" x="51.5" y="169"/>
         </tableViewCell>
     </objects>
     <resources>

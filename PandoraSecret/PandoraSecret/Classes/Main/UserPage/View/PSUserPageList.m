@@ -41,10 +41,7 @@
     if(_listType == PSUserPageListTypeFollow) {
         return 74.5f;
     }
-    if(_listType == PSUserPageListTypeCollection) {
-        return 199.5f;
-    }
-    return 60.f;
+    return 70+(kScreenWidth-90)/2.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
