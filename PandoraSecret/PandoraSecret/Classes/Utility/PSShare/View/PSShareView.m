@@ -9,8 +9,11 @@
 //  2、其他功能：收藏、复制、投诉
 
 #import "PSShareView.h"
+#import "PSShareCollectionViewCell.h"
 
-@interface PSShareView () <UICollectionViewDelegate, UICollectionViewDataSource>
+static NSString *cellId = @"PSShareCollectionViewCell";
+
+@interface PSShareView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout >
 
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) UIView *containView; //背景View(包裹各种元素的view)
@@ -39,8 +42,8 @@
         self.functionItems = functionItems;
         self.itemSize = itemSize;
         
-        BOOL hasThirdpart = (shareItems.count>0) ? YES : NO;
-        BOOL hasOtherFunction = (functionItems.count>0) ? YES : NO;
+        BOOL hasThirdpart = (shareItems.allKeys.count>0) ? YES : NO;
+        BOOL hasOtherFunction = (functionItems.allKeys.count>0) ? YES : NO;
         
         CGFloat lineViewL = 15.f;
         CGFloat lineViewH = 1.f;
@@ -63,37 +66,39 @@
         _containView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_containView];
         
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.itemSize = itemSize;
-        
         // 分享
         if(hasThirdpart) {
-            _shareCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, itemsHeight) collectionViewLayout:flowLayout];
+            UICollectionViewFlowLayout *shareLayout = [[UICollectionViewFlowLayout alloc] init];
+            shareLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            shareLayout.itemSize = CGSizeMake(frame.size.width, itemSize.height);
+            _shareCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, itemsHeight) collectionViewLayout:shareLayout];
             _shareCollectionView.delegate = self;
             _shareCollectionView.dataSource = self;
             _shareCollectionView.showsVerticalScrollIndicator = NO;
             _shareCollectionView.showsHorizontalScrollIndicator = YES;
-            _shareCollectionView.bounces = NO;
-            _shareCollectionView.backgroundColor = [UIColor clearColor];
-            [_shareCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
+            _shareCollectionView.bounces = YES;
+            _shareCollectionView.backgroundColor = [UIColor redColor];
+            [_shareCollectionView registerClass:[PSShareCollectionViewCell class] forCellWithReuseIdentifier:cellId];
             [_containView addSubview:_shareCollectionView];
         }
         // 其他功能
         if(hasOtherFunction) {
+            UICollectionViewFlowLayout *functionLayout = [[UICollectionViewFlowLayout alloc] init];
+            functionLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            functionLayout.itemSize = CGSizeMake(frame.size.width, itemSize.height);
             if(hasThirdpart) {
-                _functionCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, itemsHeight+lineViewH, frame.size.width, itemsHeight) collectionViewLayout:flowLayout];
+                _functionCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, itemsHeight+lineViewH, frame.size.width, itemsHeight) collectionViewLayout:functionLayout];
             } else {
-                _functionCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, itemsHeight) collectionViewLayout:flowLayout];
+                _functionCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, itemsHeight) collectionViewLayout:functionLayout];
             }
             _functionCollectionView.delegate = self;
             _functionCollectionView.dataSource = self;
             _functionCollectionView.showsVerticalScrollIndicator = NO;
             _functionCollectionView.showsHorizontalScrollIndicator = YES;
             _functionCollectionView.bounces = NO;
-            _functionCollectionView.backgroundColor = [UIColor clearColor];
-            [_functionCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
-            [_functionCollectionView addSubview:_shareCollectionView];
+            _functionCollectionView.backgroundColor = [UIColor blueColor];
+            [_functionCollectionView registerClass:[PSShareCollectionViewCell class] forCellWithReuseIdentifier:cellId];
+            [_containView addSubview:_functionCollectionView];
         }
         
         _firstLineView = [[UIView alloc] initWithFrame:CGRectMake(lineViewL, itemsHeight, frame.size.width-lineViewL*2, lineViewH)];
@@ -149,18 +154,28 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (collectionView == self.shareCollectionView) {
-        return self.shareItems.count;
+        return self.shareItems.allKeys.count;
     }
     if (collectionView == self.functionCollectionView) {
-        return self.functionItems.count;
+        return self.functionItems.allKeys.count;
     }
     return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    PSShareCollectionViewCell *cell = (PSShareCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    if (collectionView == self.shareCollectionView) {
+        cell.itemTitle.text = _shareItems.allKeys[indexPath.item];
+    } else {
+        cell.itemTitle.text = _functionItems.allKeys[indexPath.item];
+    }
+    [cell.itemImage setImage:[UIImage imageNamed:@"login_sms"]];
     
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return _itemSize;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

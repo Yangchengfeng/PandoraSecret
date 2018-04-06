@@ -33,9 +33,13 @@ static CGFloat estimatedRowH = 113.5f;
 
 - (NSDictionary *)shareItems { // @"分享类目名"：@"分享类目图片名"
     if(!_shareItems) {
-        _shareItems = @{ @"QQ":@"QQ",
+        _shareItems = @{ @"QQ": @"QQ",
                          @"微博": @"weibo",
                          @"短信": @"sms",
+                         @"微信": @"wechat",
+                         @"邮件": @"email",
+                         @"人人网": @"renre",
+                         @"FB": @"facebook",
                         };
     }
     return _shareItems;
@@ -43,7 +47,7 @@ static CGFloat estimatedRowH = 113.5f;
 
 - (NSDictionary *)functionItems { // 本人不支持
     if(!_functionItems) {
-        _functionItems = @{ @"复制": @"copy"
+        _functionItems = @{ @"复制": @"copy",
                             };
     }
     return _functionItems;
