@@ -15,6 +15,8 @@
 
 // 颜色设置
 #define kPandoraSecretColor [UIColor colorWithRed:212.0/255.0 green:35.0/255.0 blue:122.0/255.0 alpha:1.0]
+#define kPandoraSecretMaskColor [UIColor colorWithWhite:0 alpha:0.6] // 遮盖颜色
+#define kPandoraSecretLineColor [UIColor colorWithWhite:0.5 alpha:0.3] // 分隔线颜色
 #define kColorRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 #endif /* Macro_pch */

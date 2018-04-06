@@ -93,7 +93,7 @@ static CGFloat estimatedRowH = 113.5f;
 
 - (IBAction)sharePersonality:(id)sender {
     CGRect frame = [UIScreen mainScreen].bounds;
-    PSShareView *shareView = [[PSShareView alloc] initWithFrame:frame];
+    PSShareView *shareView = [[PSShareView alloc] initWithshareViewFrame:frame itemsHeight:80 hasThirdpart:YES andOtherFunction:YES];
     [shareView showOnController:self];
 }
 
