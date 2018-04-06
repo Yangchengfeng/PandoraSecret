@@ -417,10 +417,10 @@
                                 <rect key="frame" x="327" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="share_me"/>
+                                <connections>
+                                    <action selector="sharePersonality:" destination="EXh-bI-M5k" eventType="touchUpInside" id="EjK-zd-Qs5"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="sharePersonality:" destination="EXh-bI-M5k" id="34o-UT-ijU"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

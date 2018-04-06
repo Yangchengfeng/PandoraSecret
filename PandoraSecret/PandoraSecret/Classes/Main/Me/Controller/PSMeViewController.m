@@ -9,6 +9,7 @@
 #import "PSMeViewController.h"
 #import "PSMeTableView.h"
 #import "PSMeHeaderTableViewCell.h"
+#import "PSShareView.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
@@ -91,6 +92,9 @@ static CGFloat estimatedRowH = 113.5f;
 }
 
 - (IBAction)sharePersonality:(id)sender {
+    CGRect frame = [UIScreen mainScreen].bounds;
+    PSShareView *shareView = [[PSShareView alloc] initWithFrame:frame];
+    [shareView showOnController:self];
 }
 
 @end

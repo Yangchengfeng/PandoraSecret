@@ -69,27 +69,30 @@
 }
 
 - (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
-    if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
-        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
-    }
-    [SMSSDK commitVerificationCode:_verificationCode.text
-                       phoneNumber:_phonenumTextField.text
-                              zone:@"86"
-                            result:^(NSError *error) {
-                                if (!error) {
-                                    // 请求成功
-                                    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-                                    self.view.window.rootViewController = mainVC;
-                                    // 保存用户信息(uid等)
-                                } else {
-                                    // toast
-                                    NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
-                                    [SVProgressHUD showErrorWithStatus:errorStr];
-                                    [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
-                                    [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
-                                    _sendRequestBtn.userInteractionEnabled = YES;
-                                }
-    }];
+    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+    self.view.window.rootViewController = mainVC;
+
+//    if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
+//        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
+//    }
+//    [SMSSDK commitVerificationCode:_verificationCode.text
+//                       phoneNumber:_phonenumTextField.text
+//                              zone:@"86"
+//                            result:^(NSError *error) {
+//                                if (!error) {
+//                                    // 请求成功
+//                                    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+//                                    self.view.window.rootViewController = mainVC;
+//                                    // 保存用户信息(uid等)
+//                                } else {
+//                                    // toast
+//                                    NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
+//                                    [SVProgressHUD showErrorWithStatus:errorStr];
+//                                    [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+//                                    [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
+//                                    _sendRequestBtn.userInteractionEnabled = YES;
+//                                }
+//    }];
 }
 
 - (BOOL)testPhoneNum:(NSString *)phoneNum {

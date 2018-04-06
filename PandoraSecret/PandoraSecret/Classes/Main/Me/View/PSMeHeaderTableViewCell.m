@@ -7,7 +7,6 @@
 //
 
 #import "PSMeHeaderTableViewCell.h"
-#import "PSThirdPartChooseView.h"
 
 @implementation PSMeHeaderTableViewCell
 
