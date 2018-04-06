@@ -7,6 +7,7 @@
 //
 
 #import "PSMeHeaderTableViewCell.h"
+#import "PSThirdPartChooseView.h"
 
 @implementation PSMeHeaderTableViewCell
 
@@ -27,10 +28,6 @@
         self = [[NSBundle mainBundle] loadNibNamed:@"PSMeHeaderTableViewCell" owner:nil options:nil].firstObject;
     }
     return self;
-}
-
-- (IBAction)shareYourBusinessCard:(id)sender {
-    
 }
 
 @end

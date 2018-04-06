@@ -90,4 +90,7 @@ static CGFloat estimatedRowH = 113.5f;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (IBAction)sharePersonality:(id)sender {
+}
+
 @end

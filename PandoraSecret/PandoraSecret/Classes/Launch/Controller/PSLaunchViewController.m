@@ -7,7 +7,7 @@
 //
 
 #import "PSLaunchViewController.h"
-#import "PSUserPageViewController.h"
+#import "PSMainTabBarController.h"
 
 @implementation PSLaunchViewController
 
@@ -27,7 +27,7 @@
 }
 
 - (IBAction)pushToMain:(id)sender {
-    [self.navigationController pushViewController:[[PSUserPageViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[PSMainTabBarController alloc] init] animated:YES];
 }
 
 - (BOOL)prefersStatusBarHidden {

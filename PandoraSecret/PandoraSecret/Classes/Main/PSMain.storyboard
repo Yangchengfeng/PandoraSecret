@@ -411,7 +411,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l16-tX-yO8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="个人中心" id="gnL-W7-WOR"/>
+                    <navigationItem key="navigationItem" title="个人中心" id="gnL-W7-WOR">
+                        <barButtonItem key="rightBarButtonItem" image="share_me" style="plain" id="Oxu-Yn-NxM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yHb-gl-QK0">
+                                <rect key="frame" x="327" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_me"/>
+                            </button>
+                            <connections>
+                                <action selector="sharePersonality:" destination="EXh-bI-M5k" id="34o-UT-ijU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jez-fC-Jsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -458,7 +469,6 @@
         <!--秀秀场-->
         <scene sceneID="eIh-h7-zG7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gP3-9b-dc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="JbO-U1-TtN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="秀秀场" image="main_tab_ShowGround" id="lqU-xC-hES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V8U-o1-cVW">
@@ -469,6 +479,7 @@
                         <segue destination="rHm-XM-pys" kind="relationship" relationship="rootViewController" id="hRR-Ke-6F1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gP3-9b-dc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="326" y="147"/>
         </scene>
@@ -482,6 +493,7 @@
         <image name="main_tab_MyShow" width="24" height="24"/>
         <image name="main_tab_ShowGround" width="24" height="24"/>
         <image name="main_tab_cart" width="24" height="24"/>
+        <image name="share_me" width="32" height="32"/>
         <image name="star_none_click" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>

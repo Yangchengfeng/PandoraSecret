@@ -56,6 +56,7 @@
 		38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */; };
 		38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */; };
 		38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37782074A04E00FD055F /* PSUserPageList.m */; };
+		38FC378420752F7700FD055F /* PSThirdPartChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC378320752F7700FD055F /* PSThirdPartChooseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,8 @@
 		38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListFollowCell.xib; sourceTree = "<group>"; };
 		38FC37772074A04E00FD055F /* PSUserPageList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageList.h; sourceTree = "<group>"; };
 		38FC37782074A04E00FD055F /* PSUserPageList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageList.m; sourceTree = "<group>"; };
+		38FC378220752F7700FD055F /* PSThirdPartChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSThirdPartChooseView.h; sourceTree = "<group>"; };
+		38FC378320752F7700FD055F /* PSThirdPartChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSThirdPartChooseView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,6 +588,8 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				38FC377B20752BD400FD055F /* Controller */,
+				38FC377A20752BCC00FD055F /* Model */,
 				38F2A217207313CC00F80D92 /* View */,
 			);
 			path = Utility;
@@ -593,8 +598,24 @@
 		38F2A217207313CC00F80D92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38FC378220752F7700FD055F /* PSThirdPartChooseView.h */,
+				38FC378320752F7700FD055F /* PSThirdPartChooseView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		38FC377A20752BCC00FD055F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38FC377B20752BD400FD055F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -700,6 +721,7 @@
 				38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */,
 				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
 				381F96D12071FADD008E8284 /* PSMyShowViewController.m in Sources */,
+				38FC378420752F7700FD055F /* PSThirdPartChooseView.m in Sources */,
 				381F96B6207119AF008E8284 /* PSShopCartListViewController.m in Sources */,
 				381F9672206CCC8F008E8284 /* PSBaseViewController.m in Sources */,
 				381F966A206CC7D5008E8284 /* PSLaunchViewController.m in Sources */,
