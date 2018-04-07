@@ -10,6 +10,8 @@
 
 #import "PSShareView.h"
 #import "PSShareCollectionViewCell.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
 
 static NSString *cellId = @"PSShareCollectionViewCell";
 
@@ -179,10 +181,59 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self dismiss:YES];
+    
+    // 判断是否安装，mob在模拟器判断是否安装应用会崩溃([ShareSDK isClientInstalled:])
+    
+    NSArray* imageArray = @[[UIImage imageNamed:@"login_sms"]];
+    if (imageArray) {
+        
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@"分享内容"
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"分享标题"
+                                           type:SSDKContentTypeAuto];
+        [shareParams SSDKEnableUseClientShare]; //有的平台要客户端分享需要加此方法，例如微博
+       
+        [ShareSDK showShareActionSheet:nil
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       switch (state) {
+                           case SSDKResponseStateSuccess: {
+                               [self dismiss:YES];
+                               // 设置代理(之后改善)
+                               UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"分享成功"
+                                                                                              message:nil
+                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                               
+                               UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定"          style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * action) {}];
+                               
+                               [alert addAction:defaultAction];
+                               [_presentVC presentViewController:alert animated:YES completion:nil];
+                               break;
+                           }
+                           case SSDKResponseStateFail: {
+                               UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"分享失败"
+                                                                                              message:nil
+                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                               
+                               UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定"          style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * action) {}];
+                               
+                               [alert addAction:defaultAction];
+                               [_presentVC presentViewController:alert animated:YES completion:nil];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }];
+    }
 }
 
-- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0.0f;
 }
 

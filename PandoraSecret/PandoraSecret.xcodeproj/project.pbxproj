@@ -67,6 +67,7 @@
 		38FC38782077FF2500FD055F /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC38622077FEFF00FD055F /* TencentOpenAPI.framework */; };
 		38FC38792078015000FD055F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC38582077FEFF00FD055F /* libWeiboSDK.a */; };
 		38FC387A2078015500FD055F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC38602077FEFF00FD055F /* libWeChatSDK.a */; };
+		38FC387B2078994E00FD055F /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC386A2077FEFF00FD055F /* ShareSDKUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC387B2078994E00FD055F /* ShareSDKUI.framework in Frameworks */,
 				38FC387A2078015500FD055F /* libWeChatSDK.a in Frameworks */,
 				38FC38792078015000FD055F /* libWeiboSDK.a in Frameworks */,
 				38FC38782077FF2500FD055F /* TencentOpenAPI.framework in Frameworks */,
@@ -954,6 +956,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1011,6 +1014,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1044,6 +1048,7 @@
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Optional",
 				);
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1073,6 +1078,7 @@
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Optional",
 				);
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
