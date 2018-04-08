@@ -15,8 +15,7 @@
     [httpManager GET:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSInteger status = (NSInteger)responseObject[@"status"];
-        if(status == 1) {
+        if([responseObject[@"status"] isEqual:@1]) {
             if(success) {
                 success(responseObject);
             }

@@ -43,6 +43,7 @@ static NSString *registerURL = @"user/register";
         [PSNetoperation postRequestWithConcretePartOfURL:registerURL parameter:param success:^(id responseObject) {
             PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
             self.view.window.rootViewController = mainVC;
+            // 保存用户信息(单例)
         } failure:^(id failure) {
             NSLog(@"%@", failure);
             [SVProgressHUD showErrorWithStatus:failure[@"msg"]];

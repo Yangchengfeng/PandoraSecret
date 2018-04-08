@@ -11,6 +11,8 @@
 #import <SMS_SDK/SMSSDK.h>
 #import "SVProgressHUD.h"
 
+static NSString *queryURL = @"user/query";
+
 @interface PSLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phonenumTextField;
@@ -55,44 +57,50 @@
     // 判断是否为手机号码
     if(![self testPhoneNum:userPhoneNum]) {
         // toast
+        [SVProgressHUD showErrorWithStatus:@"请填写正确的手机号码"];
         return;
     }
     
     // 查找数据库判断是否存在该用户，存在则倒计时， 不存在则toast提示：未注册，请先进行注册
-    if(![self testUser:userPhoneNum]) {
-        // toast
-        return;
-    }
-    
-    [self clickBtn:sender toSendSMSWithPhoneNum:userPhoneNum];
-    
+    [self testUser:userPhoneNum withSender:sender andPhoneNum:userPhoneNum];
+}
+
+- (void)testUser:(NSString *)phoneNum withSender:(UIButton *)sender andPhoneNum:(NSString *)userPhoneNum {
+    NSDictionary *param = @{@"phone":_phonenumTextField.text};
+    [PSNetoperation getRequestWithConcretePartOfURL:queryURL parameter:param success:^(id responseObject) {
+        [self clickBtn:sender toSendSMSWithPhoneNum:userPhoneNum];
+    } failure:^(id failure) {
+        [SVProgressHUD showErrorWithStatus:@"该用户未注册，请先注册"];
+    } andError:^(NSError *responseError) {
+        [SVProgressHUD showErrorWithStatus:@"操作失败，请重新再试"];
+    }];
 }
 
 - (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
-    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-    self.view.window.rootViewController = mainVC;
+//    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+//    self.view.window.rootViewController = mainVC;
 
-//    if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
-//        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
-//    }
-//    [SMSSDK commitVerificationCode:_verificationCode.text
-//                       phoneNumber:_phonenumTextField.text
-//                              zone:@"86"
-//                            result:^(NSError *error) {
-//                                if (!error) {
-//                                    // 请求成功
-//                                    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-//                                    self.view.window.rootViewController = mainVC;
-//                                    // 保存用户信息(uid等)
-//                                } else {
-//                                    // toast
-//                                    NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
-//                                    [SVProgressHUD showErrorWithStatus:errorStr];
-//                                    [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
-//                                    [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
-//                                    _sendRequestBtn.userInteractionEnabled = YES;
-//                                }
-//    }];
+    if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
+        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
+    }
+    [SMSSDK commitVerificationCode:_verificationCode.text
+                       phoneNumber:_phonenumTextField.text
+                              zone:@"86"
+                            result:^(NSError *error) {
+                                if (!error) {
+                                    // 请求成功
+                                    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+                                    self.view.window.rootViewController = mainVC;
+                                    // 保存用户信息(uid等)
+                                } else {
+                                    // toast
+                                    NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
+                                    [SVProgressHUD showErrorWithStatus:errorStr];
+                                    [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+                                    [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
+                                    _sendRequestBtn.userInteractionEnabled = YES;
+                                }
+    }];
 }
 
 - (BOOL)testPhoneNum:(NSString *)phoneNum {
@@ -100,13 +108,6 @@
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     BOOL isPhoneNum = [phoneTest evaluateWithObject:phoneNum];
     return isPhoneNum;
-}
-
-#pragma mark - 该用户是否已经注册
-- (BOOL)testUser:(NSString *)phoneNum {
-    BOOL hasUser = YES;
-    
-    return hasUser;
 }
 
 - (void)clickBtn:(UIButton *)clickBtn toSendSMSWithPhoneNum:(NSString *)phoneNum {
