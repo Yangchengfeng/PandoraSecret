@@ -9,6 +9,10 @@
 #ifndef Macro_pch
 #define Macro_pch
 
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
+#import "PSNetoperation.h"
+
 // 宽高设置
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -18,5 +22,8 @@
 #define kPandoraSecretMaskColor [UIColor colorWithWhite:0 alpha:0.6] // 遮盖颜色
 #define kPandoraSecretLineColor [UIColor colorWithWhite:0.5 alpha:0.3] // 分隔线颜色
 #define kColorRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+// 服务器地址
+#define kBaseURLStr @"http://120.78.184.72:9090/"
 
 #endif /* Macro_pch */

@@ -7,7 +7,9 @@
 //
 
 #import "PSRegisterViewController.h"
-#import "SVProgressHUD.h"
+#import "PSMainTabBarController.h"
+
+static NSString *registerURL = @"user/register";
 
 @interface PSRegisterViewController ()
 
@@ -37,7 +39,16 @@
 
 - (IBAction)register:(id)sender {
     if([self testPhoneNum:_phonenumTextField.text] && self.passwordTextField.text.length>0) {
-        // 保存到服务器
+        NSDictionary *param = @{@"phone":_phonenumTextField.text, @"password":_passwordTextField.text};
+        [PSNetoperation postRequestWithConcretePartOfURL:registerURL parameter:param success:^(id responseObject) {
+            NSLog(@"%@", responseObject);
+            [self.navigationController pushViewController:[[PSMainTabBarController alloc] init] animated:YES];
+        } failure:^(id failure) {
+            NSLog(@"%@", failure);
+            [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+        } andError:^(NSError *responseError) {
+            NSLog(@"%@", responseError);
+        }];
     } else {
         [SVProgressHUD showErrorWithStatus:@"请确认输入正确的手机号码及密码"];
     }

@@ -68,6 +68,13 @@
 		38FC38792078015000FD055F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC38582077FEFF00FD055F /* libWeiboSDK.a */; };
 		38FC387A2078015500FD055F /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC38602077FEFF00FD055F /* libWeChatSDK.a */; };
 		38FC387B2078994E00FD055F /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FC386A2077FEFF00FD055F /* ShareSDKUI.framework */; };
+		38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E92079E48800FD055F /* PSNetoperation.m */; };
+		38FC38EB2079E77100FD055F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38DF2079E45400FD055F /* AFURLResponseSerialization.m */; };
+		38FC38EC2079E77100FD055F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E02079E45400FD055F /* AFHTTPSessionManager.m */; };
+		38FC38ED2079E77F00FD055F /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E52079E45400FD055F /* AFNetworkReachabilityManager.m */; };
+		38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E62079E45400FD055F /* AFSecurityPolicy.m */; };
+		38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E22079E45400FD055F /* AFURLSessionManager.m */; };
+		38FC38F02079E78F00FD055F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E32079E45400FD055F /* AFURLRequestSerialization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +190,21 @@
 		38FC38722077FEFF00FD055F /* SinaWeiboConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinaWeiboConnector.framework; sourceTree = "<group>"; };
 		38FC38732077FEFF00FD055F /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		38FC38752077FEFF00FD055F /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		38FC38DB2079E45400FD055F /* AFSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		38FC38DC2079E45400FD055F /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		38FC38DD2079E45400FD055F /* AFURLSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		38FC38DE2079E45400FD055F /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		38FC38DF2079E45400FD055F /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		38FC38E02079E45400FD055F /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		38FC38E12079E45400FD055F /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		38FC38E22079E45400FD055F /* AFURLSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		38FC38E32079E45400FD055F /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		38FC38E42079E45400FD055F /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		38FC38E52079E45400FD055F /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		38FC38E62079E45400FD055F /* AFSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		38FC38E72079E45400FD055F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		38FC38E82079E48800FD055F /* PSNetoperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSNetoperation.h; sourceTree = "<group>"; };
+		38FC38E92079E48800FD055F /* PSNetoperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSNetoperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +274,7 @@
 		381F9654206CC59E008E8284 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				38FC38DA2079E45400FD055F /* AFNetworking */,
 				38FC38522077FEFF00FD055F /* ShareSDK */,
 				383FFF3520731A04000E8631 /* SVProgressHUD */,
 				38F2A1FD20727D2600F80D92 /* SMSSDK */,
@@ -642,6 +665,7 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				38FC38D92079E42700FD055F /* PSNetoperation */,
 				38FC379B207757FF00FD055F /* PSShare */,
 			);
 			path = Utility;
@@ -797,6 +821,35 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		38FC38D92079E42700FD055F /* PSNetoperation */ = {
+			isa = PBXGroup;
+			children = (
+				38FC38E82079E48800FD055F /* PSNetoperation.h */,
+				38FC38E92079E48800FD055F /* PSNetoperation.m */,
+			);
+			path = PSNetoperation;
+			sourceTree = "<group>";
+		};
+		38FC38DA2079E45400FD055F /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				38FC38DB2079E45400FD055F /* AFSecurityPolicy.h */,
+				38FC38DC2079E45400FD055F /* AFNetworkReachabilityManager.h */,
+				38FC38DD2079E45400FD055F /* AFURLSessionManager.h */,
+				38FC38DE2079E45400FD055F /* AFURLRequestSerialization.h */,
+				38FC38DF2079E45400FD055F /* AFURLResponseSerialization.m */,
+				38FC38E02079E45400FD055F /* AFHTTPSessionManager.m */,
+				38FC38E12079E45400FD055F /* AFURLResponseSerialization.h */,
+				38FC38E22079E45400FD055F /* AFURLSessionManager.m */,
+				38FC38E32079E45400FD055F /* AFURLRequestSerialization.m */,
+				38FC38E42079E45400FD055F /* AFNetworking.h */,
+				38FC38E52079E45400FD055F /* AFNetworkReachabilityManager.m */,
+				38FC38E62079E45400FD055F /* AFSecurityPolicy.m */,
+				38FC38E72079E45400FD055F /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -878,6 +931,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */,
+				38FC38F02079E78F00FD055F /* AFURLRequestSerialization.m in Sources */,
+				38FC38ED2079E77F00FD055F /* AFNetworkReachabilityManager.m in Sources */,
+				38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */,
+				38FC38EB2079E77100FD055F /* AFURLResponseSerialization.m in Sources */,
+				38FC38EC2079E77100FD055F /* AFHTTPSessionManager.m in Sources */,
 				38FC37AC2077ECE200FD055F /* PSShareItem.m in Sources */,
 				381F9648206CC3B4008E8284 /* main.m in Sources */,
 				38FC37A12077581700FD055F /* PSShareView.m in Sources */,
@@ -890,6 +949,7 @@
 				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
+				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
 				38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */,
 				383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */,
@@ -975,6 +1035,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1027,6 +1088,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -1050,6 +1112,7 @@
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Optional",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1080,6 +1143,7 @@
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/PandoraSecret/Libs/ShareSDK/ShareSDK/Support/Optional",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PandoraSecret/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
