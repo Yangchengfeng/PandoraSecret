@@ -41,8 +41,8 @@ static NSString *registerURL = @"user/register";
     if([self testPhoneNum:_phonenumTextField.text] && self.passwordTextField.text.length>0) {
         NSDictionary *param = @{@"phone":_phonenumTextField.text, @"password":_passwordTextField.text};
         [PSNetoperation postRequestWithConcretePartOfURL:registerURL parameter:param success:^(id responseObject) {
-            NSLog(@"%@", responseObject);
-            [self.navigationController pushViewController:[[PSMainTabBarController alloc] init] animated:YES];
+            PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+            self.view.window.rootViewController = mainVC;
         } failure:^(id failure) {
             NSLog(@"%@", failure);
             [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
