@@ -31,6 +31,20 @@
     }];
 }
 
++ (void)postRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError {
+    AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLStr]];
+    [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if(success) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if(responseError) {
+            [SVProgressHUD showSuccessWithStatus:@"操作出错，请重新再试~"];
+        }
+    }];
+}
+
 + (void)postRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError {
     AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLStr]];
     [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {

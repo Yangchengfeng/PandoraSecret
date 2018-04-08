@@ -77,8 +77,6 @@ static NSString *queryURL = @"user/query";
 }
 
 - (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
-//    PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
-//    self.view.window.rootViewController = mainVC;
 
     if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
         [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
@@ -92,6 +90,7 @@ static NSString *queryURL = @"user/query";
                                     PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
                                     self.view.window.rootViewController = mainVC;
                                     // 保存用户信息(uid等)
+                                    
                                 } else {
                                     // toast
                                     NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];

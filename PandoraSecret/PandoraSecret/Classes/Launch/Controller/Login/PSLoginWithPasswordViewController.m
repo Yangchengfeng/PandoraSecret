@@ -9,6 +9,8 @@
 #import "PSLoginWithPasswordViewController.h"
 #import "SVProgressHUD.h"
 
+static NSString *loginURL = @"user/login";
+
 @interface PSLoginWithPasswordViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
@@ -27,6 +29,10 @@
 - (IBAction)loginWithPhoneNumberAndPassword:(id)sender {
     if([self testPhoneNum:_phoneNumberTextField.text] && _passwordTextField.text.length>0) {
         // 验证账号密码
+        NSDictionary *param = @{@"phone":_phoneNumberTextField.text, @"password":_passwordTextField.text};
+        [PSNetoperation postRequestWithConcretePartOfURL:loginURL parameter:param success:^(id responseObject) {
+        } andError:^(NSError *responseError) {
+        }];
     } else {
         [SVProgressHUD showErrorWithStatus:@"请输入正确的账号和密码"];
     }
