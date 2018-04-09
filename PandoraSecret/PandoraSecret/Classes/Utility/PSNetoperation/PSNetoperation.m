@@ -36,7 +36,7 @@
     [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if(success) {
-            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            success(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(responseError) {

@@ -7,6 +7,7 @@
 //
 
 #import "PSLoginWithPasswordViewController.h"
+#import "PSMainTabBarController.h"
 #import "SVProgressHUD.h"
 
 static NSString *loginURL = @"user/login";
@@ -31,6 +32,9 @@ static NSString *loginURL = @"user/login";
         // 验证账号密码
         NSDictionary *param = @{@"phone":_phoneNumberTextField.text, @"password":_passwordTextField.text};
         [PSNetoperation postRequestWithConcretePartOfURL:loginURL parameter:param success:^(id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+            self.view.window.rootViewController = mainVC;
         } andError:^(NSError *responseError) {
         }];
     } else {

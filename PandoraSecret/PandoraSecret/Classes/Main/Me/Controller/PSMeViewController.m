@@ -11,6 +11,7 @@
 #import "PSMeTableView.h"
 #import "PSMeHeaderTableViewCell.h"
 #import "PSShareView.h"
+#import "PSLaunchViewController.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
@@ -83,7 +84,7 @@ static CGFloat estimatedRowH = 113.5f;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
     }
-    if(indexPath.section == self.settingsItems.count-1) {
+    if(indexPath.section == _settingsItems.count-1) {
         UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         logoutBtn.frame = CGRectMake(0, 0, kScreenWidth, rowH);
         [logoutBtn setTitle:self.settingsItems[indexPath.section][indexPath.row] forState:UIControlStateNormal];
@@ -119,6 +120,11 @@ static CGFloat estimatedRowH = 113.5f;
     // 取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if(indexPath.row == _settingsItems.count-1) {
+        PSLaunchViewController *launchVC = [[PSLaunchViewController alloc] init];
+        self.view.window.rootViewController = launchVC;
+        return;
+    }
     UIViewController *vc = [[UIViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
