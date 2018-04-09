@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "PSNetoperation.h"
+#import "PSUserManager.h"
 
 // 宽高设置
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width

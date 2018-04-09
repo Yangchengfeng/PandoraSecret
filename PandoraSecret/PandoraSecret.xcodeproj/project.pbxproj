@@ -75,6 +75,7 @@
 		38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E62079E45400FD055F /* AFSecurityPolicy.m */; };
 		38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E22079E45400FD055F /* AFURLSessionManager.m */; };
 		38FC38F02079E78F00FD055F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E32079E45400FD055F /* AFURLRequestSerialization.m */; };
+		38FC38F4207B4F1B00FD055F /* PSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38F3207B4F1B00FD055F /* PSUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +206,8 @@
 		38FC38E72079E45400FD055F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		38FC38E82079E48800FD055F /* PSNetoperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSNetoperation.h; sourceTree = "<group>"; };
 		38FC38E92079E48800FD055F /* PSNetoperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSNetoperation.m; sourceTree = "<group>"; };
+		38FC38F2207B4F1B00FD055F /* PSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserManager.h; sourceTree = "<group>"; };
+		38FC38F3207B4F1B00FD055F /* PSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -665,6 +668,7 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				38FC38F1207B4F0200FD055F /* PSUser */,
 				38FC38D92079E42700FD055F /* PSNetoperation */,
 				38FC379B207757FF00FD055F /* PSShare */,
 			);
@@ -850,6 +854,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		38FC38F1207B4F0200FD055F /* PSUser */ = {
+			isa = PBXGroup;
+			children = (
+				38FC38F2207B4F1B00FD055F /* PSUserManager.h */,
+				38FC38F3207B4F1B00FD055F /* PSUserManager.m */,
+			);
+			path = PSUser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -960,6 +973,7 @@
 				38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
 				381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */,
+				38FC38F4207B4F1B00FD055F /* PSUserManager.m in Sources */,
 				38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */,
 				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
 				38FC37A82077CA5600FD055F /* PSShareCollectionViewCell.m in Sources */,

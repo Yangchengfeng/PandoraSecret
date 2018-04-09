@@ -69,6 +69,10 @@ static NSString *queryURL = @"user/query";
     NSDictionary *param = @{@"phone":_phonenumTextField.text};
     [PSNetoperation getRequestWithConcretePartOfURL:queryURL parameter:param success:^(id responseObject) {
         // 保存用户信息，登录失败再清除
+        NSDictionary *userInfo = responseObject[@"data"][0];
+        PSUserManager *userManager = [PSUserManager shareManager];
+        [userManager userManagerWithUserInformation:userInfo];
+        
         [self clickBtn:sender toSendSMSWithPhoneNum:userPhoneNum];
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:@"该用户未注册，请先注册"];
@@ -80,7 +84,8 @@ static NSString *queryURL = @"user/query";
 - (IBAction)makeSurePhoneNumAndVerificationCode:(id)sender {
 
     if(_phonenumTextField.text.length != 11 || _verificationCode.text.length !=4) {
-        [SVProgressHUD showErrorWithStatus:@"请确认输入正确的号码和验证码"];
+        [SVProgressHUD showErrorWithStatus:@"确认号码和验证码"];
+        return;
     }
     [SMSSDK commitVerificationCode:_verificationCode.text
                        phoneNumber:_phonenumTextField.text
@@ -90,15 +95,19 @@ static NSString *queryURL = @"user/query";
                                     // 请求成功
                                     PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
                                     self.view.window.rootViewController = mainVC;
-                                    // 保存用户信息(uid等)
                                     
                                 } else {
+                                    // 清除数据
+                                    PSUserManager *userManager = [PSUserManager shareManager];
+                                    [userManager deleteUserInfo];
                                     // toast
                                     NSString *errorStr = [_smsCodeDictionary objectForKey:[NSString stringWithFormat:@"%ld", error.code]];
                                     [SVProgressHUD showErrorWithStatus:errorStr];
+                                    
                                     [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                                     [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
                                     _sendRequestBtn.userInteractionEnabled = YES;
+                                    
                                 }
     }];
 }
