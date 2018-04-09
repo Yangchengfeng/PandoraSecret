@@ -118,6 +118,9 @@ static CGFloat estimatedRowH = 113.5f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // 取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UIViewController *vc = [[UIViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)sharePersonality:(id)sender {
