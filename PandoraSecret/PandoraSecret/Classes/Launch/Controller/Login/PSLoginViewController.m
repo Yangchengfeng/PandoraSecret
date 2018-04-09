@@ -68,6 +68,7 @@ static NSString *queryURL = @"user/query";
 - (void)testUser:(NSString *)phoneNum withSender:(UIButton *)sender andPhoneNum:(NSString *)userPhoneNum {
     NSDictionary *param = @{@"phone":_phonenumTextField.text};
     [PSNetoperation getRequestWithConcretePartOfURL:queryURL parameter:param success:^(id responseObject) {
+        // 保存用户信息，登录失败再清除
         [self clickBtn:sender toSendSMSWithPhoneNum:userPhoneNum];
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:@"该用户未注册，请先注册"];
