@@ -80,6 +80,7 @@
 		38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC3900207BC06400FD055F /* PSHomeCarousel.xib */; };
 		38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3949207C899C00FD055F /* PSHomeViewController.m */; };
 		38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38FC394C207D029900FD055F /* LaunchTour.mp4 */; };
+		38FC3951207D074900FD055F /* PSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3950207D074900FD055F /* PSButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,6 +280,8 @@
 		38FC3948207C899C00FD055F /* PSHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeViewController.h; sourceTree = "<group>"; };
 		38FC3949207C899C00FD055F /* PSHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeViewController.m; sourceTree = "<group>"; };
 		38FC394C207D029900FD055F /* LaunchTour.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchTour.mp4; sourceTree = "<group>"; };
+		38FC394F207D074900FD055F /* PSButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSButton.h; sourceTree = "<group>"; };
+		38FC3950207D074900FD055F /* PSButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -744,6 +747,7 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				38FC394E207D071700FD055F /* PSButton */,
 				38FC38F1207B4F0200FD055F /* PSUser */,
 				38FC38D92079E42700FD055F /* PSNetoperation */,
 				38FC379B207757FF00FD055F /* PSShare */,
@@ -1041,6 +1045,15 @@
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
+		38FC394E207D071700FD055F /* PSButton */ = {
+			isa = PBXGroup;
+			children = (
+				38FC394F207D074900FD055F /* PSButton.h */,
+				38FC3950207D074900FD055F /* PSButton.m */,
+			);
+			path = PSButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1144,6 +1157,7 @@
 				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
+				38FC3951207D074900FD055F /* PSButton.m in Sources */,
 				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
 				38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */,

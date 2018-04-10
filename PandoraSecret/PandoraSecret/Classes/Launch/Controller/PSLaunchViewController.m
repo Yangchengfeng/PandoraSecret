@@ -13,6 +13,8 @@
 @interface PSLaunchViewController ()
 
 @property (nonatomic, strong) AVPlayerViewController *avPlayer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLeftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerRightConstraint;
 
 @end
 
@@ -25,7 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+     _loginLeftConstraint.constant = _registerRightConstraint.constant = (kScreenWidth - 100 - 60*2)/2.0;
+    
     [self setMoviePlayer];
 }
 
