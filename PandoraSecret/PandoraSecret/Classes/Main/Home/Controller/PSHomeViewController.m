@@ -18,6 +18,7 @@ static CGFloat goodsH = 150.f;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *goodsCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCarousel;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -42,6 +43,8 @@ static CGFloat goodsH = 150.f;
     
     [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
     [_goodsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:goodsId];
+    
+    [self addTimer];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -88,5 +91,39 @@ static CGFloat goodsH = 150.f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
 }
+
+- (void)nextImage {
+    //设置当前 indePath
+    NSIndexPath *currrentIndexPath = [[_homeCarousel indexPathsForVisibleItems] lastObject];
+    NSIndexPath *currentIndexPathReset = [NSIndexPath indexPathForItem:currrentIndexPath.item inSection:0];
+    // 设置下一个滚动的item
+    NSInteger nextItem = currentIndexPathReset.item + 1;
+    if(nextItem == 5) {
+        nextItem = 0;
+    }
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:0];
+    [_homeCarousel scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+}
+
+#pragma mark - 添加计时器
+- (void)addTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self addTimer];
+}
+
+#pragma mark - 去掉计时器
+- (void)removeTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self removeTimer];
+}
+
 
 @end
