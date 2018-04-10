@@ -39,13 +39,27 @@ static CGFloat fancyBtnH = 50.f;
 - (void)addFancyBtn {
     CGFloat cellW = self.frame.size.width;
     CGFloat cellH = self.frame.size.height;
+    
     CGRect likeBtnFrame = CGRectMake(cellW/2.-fancyBtnH/2., (cellH - 2*fancyBtnH)/3., fancyBtnH, fancyBtnH);
     PSFancyBtn *likeBtn = [[PSFancyBtn alloc] initWithFrame:likeBtnFrame backgroundColor:kPandoraSecretColor title:@"心水品" font:8 imageName:@"home_like"];
+    [likeBtn addTarget:self action:@selector(like) forControlEvents:UIControlEventTouchUpInside];
+    
     CGRect dislikeBtnFrame = CGRectMake(cellW/2.-fancyBtnH/2., (cellH - 2*fancyBtnH)/3.*2+fancyBtnH, fancyBtnH, fancyBtnH);
     PSFancyBtn *dislikeBtn = [[PSFancyBtn alloc] initWithFrame:dislikeBtnFrame backgroundColor:kColorRGBA(18, 50, 219, 1) title:@"不喜欢" font:10 imageName:@"home_dislike"];
+    [dislikeBtn addTarget:self action:@selector(dislike) forControlEvents:UIControlEventTouchUpInside];
 
     [_maskView addSubview:likeBtn];
     [_maskView addSubview:dislikeBtn];
+}
+
+- (void)like {
+    // 保存喜欢进行智能推荐
+    [_maskView removeFromSuperview];
+}
+
+- (void)dislike {
+    // 保存不喜欢进行智能推荐
+    [_maskView removeFromSuperview];
 }
 
 @end
