@@ -69,7 +69,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hEi-op-C13">
-                                <rect key="frame" x="0.0" y="204" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hEi-op-C13" secondAttribute="height" multiplier="3:2" id="70U-VY-FBA"/>
@@ -87,7 +87,7 @@
                             <constraint firstItem="hMu-Mf-J1H" firstAttribute="top" secondItem="Knu-Cd-Kxy" secondAttribute="top" id="Efa-6G-ert"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hEi-op-C13" secondAttribute="trailing" id="L1R-Vu-2dt"/>
                             <constraint firstItem="bqE-Ol-tId" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" constant="50" id="MgG-6K-68C"/>
-                            <constraint firstItem="hEi-op-C13" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" constant="140" id="QWu-tN-TYw"/>
+                            <constraint firstItem="hEi-op-C13" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" constant="80" id="QWu-tN-TYw"/>
                             <constraint firstItem="hMu-Mf-J1H" firstAttribute="height" secondItem="Knu-Cd-Kxy" secondAttribute="height" id="bqV-MA-PS2"/>
                             <constraint firstItem="hEi-op-C13" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" id="gGx-Hb-pey"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="Knu-Cd-Kxy" secondAttribute="bottom" constant="80" id="jBR-ng-yX2"/>

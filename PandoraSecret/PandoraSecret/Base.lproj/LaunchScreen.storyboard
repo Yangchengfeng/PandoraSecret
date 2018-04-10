@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lin-gG-nfJ">
-                                <rect key="frame" x="0.0" y="140" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lin-gG-nfJ" secondAttribute="height" multiplier="3:2" id="Tox-Lo-S2e"/>
@@ -30,7 +30,7 @@
                         <constraints>
                             <constraint firstItem="lin-gG-nfJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Od9-rR-IxN"/>
                             <constraint firstItem="lin-gG-nfJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="P9N-da-uhA"/>
-                            <constraint firstItem="lin-gG-nfJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="S5n-SQ-Npp"/>
+                            <constraint firstItem="lin-gG-nfJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="S5n-SQ-Npp"/>
                             <constraint firstItem="lin-gG-nfJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fs9-sY-SxN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

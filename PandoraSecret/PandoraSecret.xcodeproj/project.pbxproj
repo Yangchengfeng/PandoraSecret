@@ -79,6 +79,7 @@
 		38FC3901207BC06400FD055F /* PSHomeCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38FF207BC06400FD055F /* PSHomeCarousel.m */; };
 		38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC3900207BC06400FD055F /* PSHomeCarousel.xib */; };
 		38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3949207C899C00FD055F /* PSHomeViewController.m */; };
+		38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38FC394C207D029900FD055F /* LaunchTour.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -277,6 +278,7 @@
 		38FC3941207BCA1C00FD055F /* UIImage+GIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		38FC3948207C899C00FD055F /* PSHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeViewController.h; sourceTree = "<group>"; };
 		38FC3949207C899C00FD055F /* PSHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeViewController.m; sourceTree = "<group>"; };
+		38FC394C207D029900FD055F /* LaunchTour.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchTour.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 		381F9655206CC5A7008E8284 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				38FC394C207D029900FD055F /* LaunchTour.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1096,6 +1099,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */,
 				383FFF4020731A8D000E8631 /* SVProgressHUD.bundle in Resources */,
 				38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */,
 				381F96C02071421C008E8284 /* PSShopCartShopDetailViewController.xib in Resources */,
