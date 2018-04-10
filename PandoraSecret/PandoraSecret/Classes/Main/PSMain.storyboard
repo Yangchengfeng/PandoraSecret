@@ -369,22 +369,6 @@
             </objects>
             <point key="canvasLocation" x="597.60000000000002" y="823.53823088455783"/>
         </scene>
-        <!--首页-->
-        <scene sceneID="PfO-yC-UTF">
-            <objects>
-                <viewController id="aTi-50-CuL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uHh-Or-jyO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="nZU-Nh-hi0"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="首页" image="main_tab_Home" selectedImage="main_tab_Home" id="sOE-fe-5Tn"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fXi-NU-F88" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="262" y="-615"/>
-        </scene>
         <!--个人中心-->
         <scene sceneID="Ptv-OH-0XJ">
             <objects>
@@ -455,7 +439,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aTi-50-CuL" kind="relationship" relationship="viewControllers" id="eZp-I1-Hda"/>
+                        <segue destination="s57-tZ-XCm" kind="relationship" relationship="viewControllers" id="drZ-4Y-Fal"/>
                         <segue destination="JbO-U1-TtN" kind="relationship" relationship="viewControllers" id="bKU-iG-SYn"/>
                         <segue destination="jTB-Dq-06K" kind="relationship" relationship="viewControllers" id="fuD-oN-Y9m"/>
                         <segue destination="Bpj-tu-xe7" kind="relationship" relationship="viewControllers" id="Ynx-ue-nGc"/>
@@ -465,6 +449,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AC-Qh-1oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-634" y="-133"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="Y81-la-X03">
+            <objects>
+                <viewController id="s57-tZ-XCm" customClass="PSHomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZiY-rW-tr7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-0x-dU3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="KvP-BR-ekF"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Ym-7d-XuA">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IGv-Pe-fGt">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-cL-qLW">
+                                <rect key="frame" x="0.0" y="225" width="375" height="393"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N2I-UL-dag">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HWt-N4-1pZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;猜你喜欢&lt;-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDK-6x-Ba3">
+                                <rect key="frame" x="0.0" y="205" width="375" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="rmB-Lo-79f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.83137254900000002" green="0.13725490200000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZDK-6x-Ba3" firstAttribute="leading" secondItem="u13-Qi-yte" secondAttribute="leading" id="AAG-uv-N7P"/>
+                            <constraint firstItem="SZp-cL-qLW" firstAttribute="bottom" secondItem="u13-Qi-yte" secondAttribute="bottom" id="Gzi-dh-OzI"/>
+                            <constraint firstItem="SZp-cL-qLW" firstAttribute="leading" secondItem="u13-Qi-yte" secondAttribute="leading" id="Js8-f2-Pik"/>
+                            <constraint firstItem="O5v-0x-dU3" firstAttribute="trailing" secondItem="u13-Qi-yte" secondAttribute="trailing" id="KtV-Zc-ykl"/>
+                            <constraint firstItem="SZp-cL-qLW" firstAttribute="trailing" secondItem="u13-Qi-yte" secondAttribute="trailing" id="N1b-tE-0sW"/>
+                            <constraint firstItem="ZDK-6x-Ba3" firstAttribute="top" secondItem="O5v-0x-dU3" secondAttribute="bottom" constant="5" id="W5V-9c-beX"/>
+                            <constraint firstItem="O5v-0x-dU3" firstAttribute="leading" secondItem="u13-Qi-yte" secondAttribute="leading" id="Xf2-la-hev"/>
+                            <constraint firstItem="ZDK-6x-Ba3" firstAttribute="trailing" secondItem="u13-Qi-yte" secondAttribute="trailing" id="Xxc-zx-4a4"/>
+                            <constraint firstItem="O5v-0x-dU3" firstAttribute="top" secondItem="ZiY-rW-tr7" secondAttribute="top" id="YQu-oh-1O1"/>
+                            <constraint firstItem="SZp-cL-qLW" firstAttribute="top" secondItem="ZDK-6x-Ba3" secondAttribute="bottom" id="f0o-di-00E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u13-Qi-yte"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="首页" image="main_tab_Home" id="9Kj-oy-VlI"/>
+                    <connections>
+                        <outlet property="goodsCollectionView" destination="SZp-cL-qLW" id="Ha2-W2-51N"/>
+                        <outlet property="homeCarousel" destination="O5v-0x-dU3" id="jY6-ox-3N7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QAw-t8-Je3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="293.60000000000002" y="-387.25637181409297"/>
         </scene>
         <!--秀秀场-->
         <scene sceneID="eIh-h7-zG7">

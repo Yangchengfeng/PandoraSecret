@@ -91,6 +91,7 @@ static CGFloat estimatedRowH = 113.5f;
         [logoutBtn setTitle:self.settingsItems[indexPath.section][indexPath.row] forState:UIControlStateHighlighted];
         [logoutBtn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
         [logoutBtn setTitleColor:kPandoraSecretColor forState:UIControlStateHighlighted];
+        logoutBtn.userInteractionEnabled = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
         [cell addSubview:logoutBtn];
     } else {
@@ -120,13 +121,13 @@ static CGFloat estimatedRowH = 113.5f;
     // 取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.row == _settingsItems.count-1) {
+    if(indexPath.section == _settingsItems.count-1) {
         PSLaunchViewController *launchVC = [[PSLaunchViewController alloc] init];
         self.view.window.rootViewController = launchVC;
-        return;
+    } else {
+        UIViewController *vc = [[UIViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    UIViewController *vc = [[UIViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)sharePersonality:(id)sender {
