@@ -81,6 +81,9 @@
 		38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3949207C899C00FD055F /* PSHomeViewController.m */; };
 		38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38FC394C207D029900FD055F /* LaunchTour.mp4 */; };
 		38FC3951207D074900FD055F /* PSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3950207D074900FD055F /* PSButton.m */; };
+		38FC3955207D227C00FD055F /* PSHomeGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3953207D227C00FD055F /* PSHomeGoodsCell.m */; };
+		38FC3956207D227C00FD055F /* PSHomeGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC3954207D227C00FD055F /* PSHomeGoodsCell.xib */; };
+		38FC3959207D39F200FD055F /* PSFancyBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3958207D39F200FD055F /* PSFancyBtn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,6 +285,11 @@
 		38FC394C207D029900FD055F /* LaunchTour.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = LaunchTour.mp4; sourceTree = "<group>"; };
 		38FC394F207D074900FD055F /* PSButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSButton.h; sourceTree = "<group>"; };
 		38FC3950207D074900FD055F /* PSButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSButton.m; sourceTree = "<group>"; };
+		38FC3952207D227C00FD055F /* PSHomeGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeGoodsCell.h; sourceTree = "<group>"; };
+		38FC3953207D227C00FD055F /* PSHomeGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeGoodsCell.m; sourceTree = "<group>"; };
+		38FC3954207D227C00FD055F /* PSHomeGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSHomeGoodsCell.xib; sourceTree = "<group>"; };
+		38FC3957207D39F200FD055F /* PSFancyBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSFancyBtn.h; sourceTree = "<group>"; };
+		38FC3958207D39F200FD055F /* PSFancyBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSFancyBtn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -965,6 +973,11 @@
 				38FC38FE207BC06400FD055F /* PSHomeCarousel.h */,
 				38FC38FF207BC06400FD055F /* PSHomeCarousel.m */,
 				38FC3900207BC06400FD055F /* PSHomeCarousel.xib */,
+				38FC3952207D227C00FD055F /* PSHomeGoodsCell.h */,
+				38FC3953207D227C00FD055F /* PSHomeGoodsCell.m */,
+				38FC3954207D227C00FD055F /* PSHomeGoodsCell.xib */,
+				38FC3957207D39F200FD055F /* PSFancyBtn.h */,
+				38FC3958207D39F200FD055F /* PSFancyBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1124,6 +1137,7 @@
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
 				38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
+				38FC3956207D227C00FD055F /* PSHomeGoodsCell.xib in Resources */,
 				381F96C520714263008E8284 /* PSShopCartGoodsDetailViewController.xib in Resources */,
 				381F96B320711964008E8284 /* PSShopCartTableViewCell.xib in Resources */,
 				381F966C206CC7F1008E8284 /* PSLaunchViewController.storyboard in Resources */,
@@ -1154,6 +1168,7 @@
 				38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */,
 				383FFF4420731E14000E8631 /* SVProgressHUD.m in Sources */,
 				381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */,
+				38FC3959207D39F200FD055F /* PSFancyBtn.m in Sources */,
 				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
@@ -1165,6 +1180,7 @@
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
 				381F96B220711964008E8284 /* PSShopCartTableViewCell.m in Sources */,
 				381F96CE2071FAC8008E8284 /* PSShowGroundViewController.m in Sources */,
+				38FC3955207D227C00FD055F /* PSHomeGoodsCell.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,

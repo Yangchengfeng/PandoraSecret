@@ -8,11 +8,11 @@
 
 #import "PSHomeViewController.h"
 #import "PSHomeCarousel.h"
+#import "PSHomeGoodsCell.h"
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
 static CGFloat carouseH = 150.f;
-static CGFloat goodsH = 150.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -33,7 +33,7 @@ static CGFloat goodsH = 150.f;
     _homeCarousel.backgroundColor = [UIColor whiteColor];
     _homeCarousel.pagingEnabled = YES;
     _homeCarousel.showsVerticalScrollIndicator = NO;
-    _homeCarousel.showsHorizontalScrollIndicator = YES;
+    _homeCarousel.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_homeCarousel];
     
     _homeCarousel.delegate = self;
@@ -42,7 +42,7 @@ static CGFloat goodsH = 150.f;
     _goodsCollectionView.dataSource = self;
     
     [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
-    [_goodsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:goodsId];
+    [_goodsCollectionView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsId];
     
     [self addTimer];
 }
@@ -64,7 +64,7 @@ static CGFloat goodsH = 150.f;
         homeCarouselCell.pageControl.currentPage = indexPath.item;
         return homeCarouselCell;
     }
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsId forIndexPath:indexPath];
+    PSHomeGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsId forIndexPath:indexPath];
     return cell;
 }
 
@@ -72,11 +72,15 @@ static CGFloat goodsH = 150.f;
     if(collectionView == _homeCarousel) {
         return CGSizeMake(kScreenWidth, carouseH);
     }
-    return CGSizeMake((kScreenWidth-15)/2.0, goodsH);
+    CGFloat goodsW = (kScreenWidth-30)/2.0;
+    return CGSizeMake(goodsW, goodsW + 55.0);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    if(collectionView == _homeCarousel) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    return UIEdgeInsetsMake(2,10, 2, 10);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -84,10 +88,9 @@ static CGFloat goodsH = 150.f;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 2;
+    return 0;
 }
 
-//点击item方法
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
 }
