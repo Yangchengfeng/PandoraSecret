@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,9 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fare_mainLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="hGl-T2-pLY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-Cd-Kxy">
                                 <rect key="frame" x="80" y="557" width="40" height="30"/>
                                 <constraints>
@@ -70,14 +68,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFr-jP-ona">
-                                <rect key="frame" x="156" y="318" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="进入主页"/>
-                                <connections>
-                                    <action selector="pushToMain:" destination="m61-gn-b3W" eventType="touchUpInside" id="EAZ-Kk-sT8"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="hEi-op-C13">
+                                <rect key="frame" x="0.0" y="204" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hEi-op-C13" secondAttribute="height" multiplier="3:2" id="70U-VY-FBA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -86,15 +83,14 @@
                             <constraint firstItem="Knu-Cd-Kxy" firstAttribute="centerY" secondItem="hMu-Mf-J1H" secondAttribute="centerY" id="5W1-Mp-9bN"/>
                             <constraint firstItem="Knu-Cd-Kxy" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" constant="80" id="96t-YU-DKg"/>
                             <constraint firstItem="hMu-Mf-J1H" firstAttribute="centerY" secondItem="Knu-Cd-Kxy" secondAttribute="centerY" id="9nk-WD-pTP"/>
-                            <constraint firstItem="hGl-T2-pLY" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" id="9wV-8Q-X9E"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="hMu-Mf-J1H" secondAttribute="bottom" constant="80" id="DMo-k4-Wvt"/>
                             <constraint firstItem="hMu-Mf-J1H" firstAttribute="top" secondItem="Knu-Cd-Kxy" secondAttribute="top" id="Efa-6G-ert"/>
+                            <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hEi-op-C13" secondAttribute="trailing" id="L1R-Vu-2dt"/>
                             <constraint firstItem="bqE-Ol-tId" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" constant="50" id="MgG-6K-68C"/>
-                            <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hGl-T2-pLY" secondAttribute="trailing" id="WtY-d2-5dn"/>
+                            <constraint firstItem="hEi-op-C13" firstAttribute="top" secondItem="n2b-vo-8oU" secondAttribute="top" constant="140" id="QWu-tN-TYw"/>
                             <constraint firstItem="hMu-Mf-J1H" firstAttribute="height" secondItem="Knu-Cd-Kxy" secondAttribute="height" id="bqV-MA-PS2"/>
-                            <constraint firstItem="hGl-T2-pLY" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" id="eFp-cU-VM2"/>
+                            <constraint firstItem="hEi-op-C13" firstAttribute="leading" secondItem="n2b-vo-8oU" secondAttribute="leading" id="gGx-Hb-pey"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="Knu-Cd-Kxy" secondAttribute="bottom" constant="80" id="jBR-ng-yX2"/>
-                            <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="hGl-T2-pLY" secondAttribute="bottom" id="oj4-jr-w72"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="bqE-Ol-tId" secondAttribute="trailing" constant="50" id="sqb-gJ-0rc"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="bottom" secondItem="bqE-Ol-tId" secondAttribute="bottom" constant="20" id="yS8-QT-HDn"/>
                             <constraint firstItem="n2b-vo-8oU" firstAttribute="trailing" secondItem="hMu-Mf-J1H" secondAttribute="trailing" constant="80" id="yxl-wi-Nv4"/>
@@ -420,9 +416,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fare_mainLaunch" width="500" height="887"/>
+        <image name="logo" width="375" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="09X-yW-TwN"/>
+        <segue reference="6Hf-JM-DMX"/>
     </inferredMetricsTieBreakers>
 </document>
