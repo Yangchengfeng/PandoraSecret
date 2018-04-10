@@ -11,13 +11,13 @@
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
-static CGFloat carouseH = 200.f;
+static CGFloat carouseH = 150.f;
 static CGFloat goodsH = 150.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *homeCarousel;
 @property (weak, nonatomic) IBOutlet UICollectionView *goodsCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *homeCarousel;
 
 @end
 
@@ -26,20 +26,22 @@ static CGFloat goodsH = 150.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    _homeCarousel.collectionViewLayout = layout;
+    _homeCarousel.backgroundColor = [UIColor whiteColor];
+    _homeCarousel.pagingEnabled = YES;
+    _homeCarousel.showsVerticalScrollIndicator = NO;
+    _homeCarousel.showsHorizontalScrollIndicator = YES;
+    [self.view addSubview:_homeCarousel];
+    
     _homeCarousel.delegate = self;
     _homeCarousel.dataSource = self;
     _goodsCollectionView.delegate = self;
     _goodsCollectionView.dataSource = self;
     
-    [_homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
+    [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
     [_goodsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:goodsId];
-    
-    //1.初始化layout
-    UICollectionViewFlowLayout *carouselLayout = [[UICollectionViewFlowLayout alloc] init];
-    [carouselLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    _homeCarousel.collectionViewLayout = carouselLayout;
-    _homeCarousel.showsVerticalScrollIndicator = NO;
-    _homeCarousel.showsHorizontalScrollIndicator = NO;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -48,19 +50,16 @@ static CGFloat goodsH = 150.f;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if(collectionView == _homeCarousel) {
-        return 1;
+        return 5;
     }
     return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(collectionView == _homeCarousel) {
-        PSHomeCarousel *homeCarousel = [collectionView dequeueReusableCellWithReuseIdentifier:carouselId forIndexPath:indexPath];
-        [homeCarousel.hotSaleImageView setImage:[UIImage imageNamed:@"placeholder_image"]];
-        homeCarousel.pageControl.numberOfPages = 5; // 设置五张
-        homeCarousel.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-        homeCarousel.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.3];
-        return homeCarousel;
+        PSHomeCarousel *homeCarouselCell = [collectionView dequeueReusableCellWithReuseIdentifier:carouselId forIndexPath:indexPath];
+        homeCarouselCell.pageControl.currentPage = indexPath.item;
+        return homeCarouselCell;
     }
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsId forIndexPath:indexPath];
     return cell;
