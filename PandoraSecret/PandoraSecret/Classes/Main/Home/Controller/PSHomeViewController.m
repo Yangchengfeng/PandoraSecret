@@ -13,8 +13,10 @@
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
-static CGFloat carouseH = 150.f;
 static NSString *bannerQuery = @"banner/query";
+static NSString *homeHeaderView = @"homeHeaderView";
+static NSString *homeFooterView = @"homeFooterView";
+static CGFloat carouseH = 150.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -49,6 +51,9 @@ static NSString *bannerQuery = @"banner/query";
     
     [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
     [_goodsCollectionView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsId];
+    
+    [_goodsCollectionView registerClass:[UICollectionReusableView class]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderView];
+    [_goodsCollectionView registerClass:[UICollectionReusableView class]  forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:homeFooterView];
     
     [self addTimer];
 }
@@ -119,7 +124,7 @@ static NSString *bannerQuery = @"banner/query";
     if(collectionView == _homeCarousel) {
         return UIEdgeInsetsMake(0, 0, 0, 0);
     }
-    return UIEdgeInsetsMake(2,10, 2, 10);
+    return UIEdgeInsetsMake(2, 10, 2, 10);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -130,8 +135,39 @@ static NSString *bannerQuery = @"banner/query";
     return 0;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+    if(kind == UICollectionElementKindSectionHeader) {
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeHeaderView forIndexPath:indexPath];
+    
+        for (UIView *view in reusableView.subviews) {
+            [view removeFromSuperview];
+        }
+        UILabel *label = [[UILabel alloc] initWithFrame:reusableView.bounds];
+        label.text = @"-> 猜你喜欢 <-";
+        label.textColor = kPandoraSecretColor;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:12];
+        [reusableView addSubview:label];
+    }
+    if(kind == UICollectionElementKindSectionFooter) {
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeFooterView forIndexPath:indexPath];
+        
+        for (UIView *view in reusableView.subviews) {
+            [view removeFromSuperview];
+        }
+        UIButton *btn = [[UIButton alloc] initWithFrame:reusableView.bounds];
+        [btn setTitle:@"点击加载更多..." forState:UIControlStateNormal];
+        [btn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
+        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        btn.titleLabel.font = [UIFont systemFontOfSize:8];
+        [reusableView addSubview:btn];
+    }
+    return reusableView;
+}
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 #pragma mark - 添加计时器
