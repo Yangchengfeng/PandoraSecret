@@ -8,6 +8,6 @@
 
 #import "PSBaseViewController.h"
 
-@interface PSHomeViewController : PSBaseViewController
+@interface PSHomeViewController : UITableViewController
 
 @end

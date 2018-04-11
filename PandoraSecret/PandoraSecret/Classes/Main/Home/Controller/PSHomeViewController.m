@@ -16,14 +16,12 @@ static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
 static NSString *bannerQuery = @"banner/query";
 static NSString *productList = @"product/list";
-static NSString *homeHeaderView = @"homeHeaderView";
-static NSString *homeFooterView = @"homeFooterView";
 static CGFloat carouseH = 150.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *goodsCollectionView;
-@property (weak, nonatomic) IBOutlet UICollectionView *homeCarousel;
+@property (strong, nonatomic) UICollectionView *goodsCollectionView;
+@property (strong, nonatomic) UICollectionView *homeCarousel;
 @property (nonatomic, copy) NSMutableArray *homeCarouselArr;
 @property (nonatomic, copy) NSMutableArray *productListArr;
 @property (nonatomic, strong) NSTimer *timer;
@@ -32,35 +30,110 @@ static CGFloat carouseH = 150.f;
 
 @implementation PSHomeViewController
 
+- (UICollectionView *)homeCarousel {
+    if(!_homeCarousel) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        _homeCarousel = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, carouseH) collectionViewLayout:layout];
+        _homeCarousel.backgroundColor = [UIColor whiteColor];
+        _homeCarousel.pagingEnabled = YES;
+        _homeCarousel.showsVerticalScrollIndicator = NO;
+        _homeCarousel.showsHorizontalScrollIndicator = NO;
+        _homeCarousel.delegate = self;
+        _homeCarousel.dataSource = self;
+        [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
+    }
+    return _homeCarousel;
+}
+
+- (UICollectionView *)goodsCollectionView {
+    if(!_goodsCollectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+        _goodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - carouseH - 15 - 2) collectionViewLayout:layout];
+        _goodsCollectionView.backgroundColor = [UIColor whiteColor];
+        _goodsCollectionView.showsVerticalScrollIndicator = NO;
+        _goodsCollectionView.showsHorizontalScrollIndicator = NO;
+        _goodsCollectionView.delegate = self;
+        _goodsCollectionView.dataSource = self;
+         [_goodsCollectionView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsId];
+    }
+    return _goodsCollectionView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    _homeCarousel.collectionViewLayout = layout;
-    _homeCarousel.backgroundColor = [UIColor whiteColor];
-    _homeCarousel.pagingEnabled = YES;
-    _homeCarousel.showsVerticalScrollIndicator = NO;
-    _homeCarousel.showsHorizontalScrollIndicator = NO;
-    [self.view addSubview:_homeCarousel];
-    
-    _homeCarousel.delegate = self;
-    _homeCarousel.dataSource = self;
-    _goodsCollectionView.delegate = self;
-    _goodsCollectionView.dataSource = self;
-    
-    [self.homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
-    [_goodsCollectionView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsId];
-    
-    [_goodsCollectionView registerClass:[UICollectionReusableView class]  forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeHeaderView];
-    [_goodsCollectionView registerClass:[UICollectionReusableView class]  forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:homeFooterView];
-    
     [self addTimer];
-    
+
     [self loadBannerInfoWithBannerURL:bannerQuery];
     [self loadProductListWithProductListURL:productList];
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(section == 0) {
+        return 1;
+    }
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return carouseH;
+    }
+    return kScreenHeight-carouseH-15 - 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0) {
+        return 0.0;
+    }
+    return 15;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 2.f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 15)];
+    label.text = @"-> 猜你喜欢 <-";
+    label.textColor = kPandoraSecretColor;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:12];
+    return label;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        NSString *cellId = @"carouselId";
+        UITableViewCell *carouselCell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if(!carouselCell) {
+           carouselCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        }
+        for (UIView *view in carouselCell.subviews) {
+            [view removeFromSuperview];
+        }
+        [carouselCell addSubview:self.homeCarousel];
+        return carouselCell;
+    }
+    NSString *cellId = @"productId";
+    UITableViewCell *productCell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if(!productCell) {
+        productCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    for (UIView *view in productCell.subviews) {
+        [view removeFromSuperview];
+    }
+    [productCell addSubview:self.goodsCollectionView];
+    return productCell;
+}
+
 
 - (void)loadBannerInfoWithBannerURL:(NSString *)url{
     __weak typeof(self) weakSelf = self;
@@ -76,7 +149,7 @@ static CGFloat carouseH = 150.f;
         [SVProgressHUD showErrorWithStatus:@"数据加载出错，请稍后再试~~~"];
     }];
 }
-
+//
 // page=1&pageSize=10
 - (void)loadProductListWithProductListURL:(NSString *)url {
     __weak typeof(self) weakSelf = self;
@@ -97,9 +170,7 @@ static CGFloat carouseH = 150.f;
     }];
 }
 
-
-#pragma mark - 数据源设置
-
+//#pragma mark - 数据源设置
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -180,49 +251,18 @@ static CGFloat carouseH = 150.f;
     return 0;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *reusableView = nil;
-    if(kind == UICollectionElementKindSectionHeader) {
-        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeHeaderView forIndexPath:indexPath];
-    
-        for (UIView *view in reusableView.subviews) {
-            [view removeFromSuperview];
-        }
-        UILabel *label = [[UILabel alloc] initWithFrame:reusableView.bounds];
-        label.text = @"-> 猜你喜欢 <-";
-        label.textColor = kPandoraSecretColor;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:12];
-        [reusableView addSubview:label];
-    }
-    if(kind == UICollectionElementKindSectionFooter) {
-        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeFooterView forIndexPath:indexPath];
-        
-        for (UIView *view in reusableView.subviews) {
-            [view removeFromSuperview];
-        }
-        UIButton *btn = [[UIButton alloc] initWithFrame:reusableView.bounds];
-        [btn setTitle:@"点击加载更多..." forState:UIControlStateNormal];
-        [btn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
-        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        btn.titleLabel.font = [UIFont systemFontOfSize:8];
-        [reusableView addSubview:btn];
-    }
-    return reusableView;
-}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+
 }
 
-#pragma mark - 添加计时器
+//#pragma mark - 添加计时器
 - (void)addTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)nextImage {
-    NSIndexPath *currrentIndexPath = [[_homeCarousel indexPathsForVisibleItems] lastObject];
+    NSIndexPath *currrentIndexPath = [[self.homeCarousel indexPathsForVisibleItems] lastObject];
     NSIndexPath *currentIndexPathReset = [NSIndexPath indexPathForItem:currrentIndexPath.item inSection:0];
 
     NSInteger nextItem = currentIndexPathReset.item + 1;
@@ -230,8 +270,8 @@ static CGFloat carouseH = 150.f;
         nextItem = 0;
     }
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:0];
-    
-    [_homeCarousel scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+
+    [self.homeCarousel scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -250,3 +290,4 @@ static CGFloat carouseH = 150.f;
 
 
 @end
+
