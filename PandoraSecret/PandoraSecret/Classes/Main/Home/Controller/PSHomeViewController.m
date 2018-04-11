@@ -10,10 +10,12 @@
 #import "PSHomeCarousel.h"
 #import "PSHomeGoodsCell.h"
 #import "PSHomeCarouselItem.h"
+#import "PSHomeProductListItem.h"
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
 static NSString *bannerQuery = @"banner/query";
+static NSString *productList = @"product/list";
 static NSString *homeHeaderView = @"homeHeaderView";
 static NSString *homeFooterView = @"homeFooterView";
 static CGFloat carouseH = 150.f;
@@ -23,6 +25,7 @@ static CGFloat carouseH = 150.f;
 @property (weak, nonatomic) IBOutlet UICollectionView *goodsCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCarousel;
 @property (nonatomic, copy) NSMutableArray *homeCarouselArr;
+@property (nonatomic, copy) NSMutableArray *productListArr;
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
@@ -32,8 +35,6 @@ static CGFloat carouseH = 150.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self loadBannerInfoWithBannerURL:bannerQuery];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
@@ -56,6 +57,9 @@ static CGFloat carouseH = 150.f;
     [_goodsCollectionView registerClass:[UICollectionReusableView class]  forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:homeFooterView];
     
     [self addTimer];
+    
+    [self loadBannerInfoWithBannerURL:bannerQuery];
+    [self loadProductListWithProductListURL:productList];
 }
 
 - (void)loadBannerInfoWithBannerURL:(NSString *)url{
@@ -73,6 +77,27 @@ static CGFloat carouseH = 150.f;
     }];
 }
 
+// page=1&pageSize=10
+- (void)loadProductListWithProductListURL:(NSString *)url {
+    __weak typeof(self) weakSelf = self;
+    _productListArr = [NSMutableArray array];
+    NSDictionary *param = @{@"page":@1,
+                            @"pageSize":@10
+                            };
+    [PSNetoperation getRequestWithConcretePartOfURL:url parameter:param success:^(id responseObject) {
+        NSDictionary *goodsInfo = responseObject[@"data"];
+        NSArray *productList = goodsInfo[@"list"];
+        for(NSDictionary *dict in productList) {
+            PSHomeProductListItem *homeProductListItem = [PSHomeProductListItem homeProductListItemWithDict:dict];
+            [_productListArr addObject:homeProductListItem];
+            [weakSelf.goodsCollectionView reloadData];
+        }
+    } andError:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"数据加载出错，请稍后再试~~~"];
+    }];
+}
+
+
 #pragma mark - 数据源设置
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -86,7 +111,10 @@ static CGFloat carouseH = 150.f;
         }
         return 5;
     }
-    return 20;
+    if(_productListArr.count>0) {
+        return _productListArr.count;
+    }
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,6 +137,23 @@ static CGFloat carouseH = 150.f;
         return homeCarouselCell;
     }
     PSHomeGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsId forIndexPath:indexPath];
+    if(_productListArr.count > 0) {
+        cell.productListItem = _productListArr[indexPath.item];
+    } else {
+        NSDictionary *dict = @{@"tradeItemId":@"-1",
+                               @"name": @"errorlink",
+                               @"title": @"暂无相关信息",
+                               @"category": @"unknown",
+                               @"status":@"-1",
+                               @"stock":@"0",
+                               @"sale":@"0",
+                               @"shopId": @"0",
+                               @"image": @"",
+                               @"price": @"0",
+                               };
+        PSHomeProductListItem *homeProductItem = [PSHomeProductListItem homeProductListItemWithDict:dict];
+        cell.productListItem = homeProductItem;
+    }
     return cell;
 }
 
@@ -181,7 +226,7 @@ static CGFloat carouseH = 150.f;
     NSIndexPath *currentIndexPathReset = [NSIndexPath indexPathForItem:currrentIndexPath.item inSection:0];
 
     NSInteger nextItem = currentIndexPathReset.item + 1;
-    if(nextItem == _homeCarouselArr.count) {
+    if((_homeCarouselArr.count > 0 && nextItem == _homeCarouselArr.count) || (_homeCarouselArr.count <= 0 && nextItem == 5)) {
         nextItem = 0;
     }
     NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextItem inSection:0];

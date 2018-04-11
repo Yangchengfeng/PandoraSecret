@@ -72,6 +72,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="60" height="97"/>
+            <connections>
+                <outlet property="decs" destination="VsV-7D-b0j" id="lKr-tu-z8z"/>
+                <outlet property="image" destination="4eH-l3-zrt" id="8Ni-fq-3s7"/>
+                <outlet property="price" destination="uuV-rx-Qmi" id="1c1-VZ-waB"/>
+            </connections>
             <point key="canvasLocation" x="42" y="72.5"/>
         </collectionViewCell>
     </objects>

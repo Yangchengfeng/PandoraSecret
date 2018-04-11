@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSHomeProductListItem.h"
 
 @interface PSHomeGoodsCell : UICollectionViewCell
+
+@property (nonatomic, strong) PSHomeProductListItem *productListItem;
 
 @end

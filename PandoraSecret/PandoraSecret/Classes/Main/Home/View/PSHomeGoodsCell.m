@@ -14,10 +14,22 @@ static CGFloat fancyBtnH = 50.f;
 @interface PSHomeGoodsCell ()
 
 @property (nonatomic, strong) UIView *maskView;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *decs;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 
 @end
 
 @implementation PSHomeGoodsCell
+
+- (void)setProductListItem:(PSHomeProductListItem *)productListItem {
+    if(_productListItem == nil) {
+        _productListItem = productListItem;
+    }
+    [_image sd_setImageWithURL:[NSURL URLWithString:productListItem.image] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
+    _decs.text = [NSString stringWithFormat:@"%@-%@", productListItem.name, productListItem.title];
+    _price.text = productListItem.price;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

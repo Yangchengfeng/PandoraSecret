@@ -48,6 +48,7 @@
 		383EAF88207DF291009E57CE /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3938207BCA1C00FD055F /* UIView+WebCacheOperation.m */; };
 		383EAF89207DF291009E57CE /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3939207BCA1C00FD055F /* UIView+WebCache.m */; };
 		383EAF8A207DF708009E57CE /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC392F207BCA1C00FD055F /* NSData+ImageContentType.m */; };
+		383EAF8D207E2017009E57CE /* PSHomeProductListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EAF8C207E2017009E57CE /* PSHomeProductListItem.m */; };
 		383FFF4020731A8D000E8631 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 383FFF3E20731A04000E8631 /* SVProgressHUD.bundle */; };
 		383FFF4220731AE2000E8631 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383FFF4120731AE2000E8631 /* QuartzCore.framework */; };
 		383FFF4420731E14000E8631 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3C20731A04000E8631 /* SVProgressHUD.m */; };
@@ -148,6 +149,8 @@
 		381F96D22071FD06008E8284 /* PSShowGroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGroundCell.h; sourceTree = "<group>"; };
 		381F96D32071FD06008E8284 /* PSShowGroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGroundCell.m; sourceTree = "<group>"; };
 		381F96D42071FD06008E8284 /* PSShowGroundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSShowGroundCell.xib; sourceTree = "<group>"; };
+		383EAF8B207E2017009E57CE /* PSHomeProductListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeProductListItem.h; sourceTree = "<group>"; };
+		383EAF8C207E2017009E57CE /* PSHomeProductListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeProductListItem.m; sourceTree = "<group>"; };
 		383FFF3620731A04000E8631 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		383FFF3720731A04000E8631 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		383FFF3820731A04000E8631 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -983,6 +986,8 @@
 			children = (
 				38FC395A207DC04900FD055F /* PSHomeCarouselItem.h */,
 				38FC395B207DC04900FD055F /* PSHomeCarouselItem.m */,
+				383EAF8B207E2017009E57CE /* PSHomeProductListItem.h */,
+				383EAF8C207E2017009E57CE /* PSHomeProductListItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1185,6 +1190,7 @@
 				383EAF7F207DF136009E57CE /* SDWebImageCoder.m in Sources */,
 				383EAF7E207DF11D009E57CE /* SDImageCache.m in Sources */,
 				383EAF7D207DF105009E57CE /* SDWebImageManager.m in Sources */,
+				383EAF8D207E2017009E57CE /* PSHomeProductListItem.m in Sources */,
 				383EAF7C207DF0E3009E57CE /* UIImageView+WebCache.m in Sources */,
 				38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */,
 				38FC38F02079E78F00FD055F /* AFURLRequestSerialization.m in Sources */,
