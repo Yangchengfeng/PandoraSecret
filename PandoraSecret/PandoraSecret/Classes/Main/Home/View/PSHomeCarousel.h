@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSHomeCarouselItem.h"
 
 @interface PSHomeCarousel : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *hotSaleImageView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) PSHomeCarouselItem *homeCarouselItem;
 
 @end

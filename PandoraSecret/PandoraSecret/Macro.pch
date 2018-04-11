@@ -11,6 +11,7 @@
 
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
+#import "UIImageView+WebCache.h"
 #import "PSNetoperation.h"
 #import "PSUserManager.h"
 

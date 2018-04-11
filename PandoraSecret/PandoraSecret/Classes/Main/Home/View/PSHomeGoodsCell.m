@@ -41,7 +41,7 @@ static CGFloat fancyBtnH = 50.f;
     CGFloat cellH = self.frame.size.height;
     
     CGRect likeBtnFrame = CGRectMake(cellW/2.-fancyBtnH/2., (cellH - 2*fancyBtnH)/3., fancyBtnH, fancyBtnH);
-    PSFancyBtn *likeBtn = [[PSFancyBtn alloc] initWithFrame:likeBtnFrame backgroundColor:kPandoraSecretColor title:@"心水品" font:8 imageName:@"home_like"];
+    PSFancyBtn *likeBtn = [[PSFancyBtn alloc] initWithFrame:likeBtnFrame backgroundColor:kPandoraSecretColor title:@"心水品" font:10 imageName:@"home_like"];
     [likeBtn addTarget:self action:@selector(like) forControlEvents:UIControlEventTouchUpInside];
     
     CGRect dislikeBtnFrame = CGRectMake(cellW/2.-fancyBtnH/2., (cellH - 2*fancyBtnH)/3.*2+fancyBtnH, fancyBtnH, fancyBtnH);

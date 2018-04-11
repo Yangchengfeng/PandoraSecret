@@ -10,11 +10,22 @@
 
 @implementation PSNetoperation
 
-+ (void)getRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError {
++ (void)getRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError {
     AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLStr]];
     [httpManager GET:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
-        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if(success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if(responseError) {
+            responseError(error);
+        }
+    }];
+}
+
++ (void)getRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError {
+    [self getRequestWithConcretePartOfURL:urlStr parameter:param success:^(id responseObject) {
         if([responseObject[@"status"] isEqual:@1]) {
             if(success) {
                 success(responseObject);
@@ -24,7 +35,7 @@
                 failure(responseObject);
             }
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } andError:^(NSError *error) {
         if(responseError) {
             responseError(error);
         }
@@ -40,16 +51,13 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(responseError) {
-            [SVProgressHUD showSuccessWithStatus:@"操作出错，请重新再试~"];
+            responseError(error);
         }
     }];
 }
 
 + (void)postRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError {
-    AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLStr]];
-    [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self postRequestWithConcretePartOfURL:urlStr parameter:param success:^(id responseObject) {
         if([responseObject[@"status"] isEqual:@1]) {
             if(success) {
                 success(responseObject);
@@ -59,7 +67,7 @@
                 failure(responseObject);
             }
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } andError:^(NSError *error) {
         if(responseError) {
             responseError(error);
         }
