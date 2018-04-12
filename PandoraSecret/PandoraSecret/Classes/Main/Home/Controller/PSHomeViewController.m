@@ -65,6 +65,8 @@ static CGFloat carouseH = 150.f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    
     [self addTimer];
 
     [self loadBannerInfoWithBannerURL:bannerQuery];
