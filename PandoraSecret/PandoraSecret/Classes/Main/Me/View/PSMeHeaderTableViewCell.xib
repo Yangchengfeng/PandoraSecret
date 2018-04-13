@@ -34,7 +34,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潘多拉的神秘人，尽情施展魔法吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XP-FB-aIo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  潘多拉的神秘人，尽情施展魔法吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XP-FB-aIo">
                         <rect key="frame" x="8" y="57.5" width="338" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,6 +66,7 @@
                     <constraint firstItem="NGI-XM-Gik" firstAttribute="leading" secondItem="Hgx-52-KEr" secondAttribute="leadingMargin" id="dFg-2E-2cK"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3qQ-kg-9ji" secondAttribute="bottom" constant="5" id="hW3-tO-0Ud"/>
                     <constraint firstItem="pOF-Hy-mzF" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="trailing" constant="5" id="haK-hK-ksS"/>
+                    <constraint firstItem="3qQ-kg-9ji" firstAttribute="top" secondItem="8XP-FB-aIo" secondAttribute="bottom" constant="8" id="iVe-zt-mRQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="pOF-Hy-mzF" secondAttribute="trailing" constant="20" id="jz2-88-aYA"/>
                     <constraint firstItem="8XP-FB-aIo" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="n0H-nN-fVw"/>
                     <constraint firstItem="8XP-FB-aIo" firstAttribute="top" secondItem="NGI-XM-Gik" secondAttribute="bottom" id="nJL-Uy-hxW"/>
