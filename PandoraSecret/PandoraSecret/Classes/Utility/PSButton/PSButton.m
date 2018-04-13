@@ -14,7 +14,7 @@
     [super awakeFromNib];
     self.layer.borderWidth = 0.2;
     self.layer.cornerRadius = 10;
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderColor = kPandoraSecretColor.CGColor;
 }
 
 @end

@@ -71,7 +71,7 @@ static NSString *queryURL = @"user/query";
         // 保存用户信息，登录失败再清除
         NSDictionary *userInfo = responseObject[@"data"][0];
         PSUserManager *userManager = [PSUserManager shareManager];
-        [userManager userManagerWithUserInformation:userInfo];
+        [userManager saveUserInfo:userInfo];
         
         [self clickBtn:sender toSendSMSWithPhoneNum:userPhoneNum];
     } failure:^(id failure) {

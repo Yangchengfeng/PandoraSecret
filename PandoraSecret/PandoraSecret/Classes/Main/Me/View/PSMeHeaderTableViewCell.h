@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSMeHeaderModel.h"
 
 @interface PSMeHeaderTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) PSMeHeaderModel *headerModel;
 
 @end

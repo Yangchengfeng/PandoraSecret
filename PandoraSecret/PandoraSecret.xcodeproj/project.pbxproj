@@ -56,6 +56,10 @@
 		383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3920731A04000E8631 /* SVProgressAnimatedView.m */; };
 		383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3D20731A04000E8631 /* SVIndefiniteAnimatedView.m */; };
 		383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */; };
+		38A03D0E207FBFCB004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */; };
+		38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D11207FE62F004AACD0 /* PSUserManager.m */; };
+		38A03D1F20813B70004AACD0 /* PSUserOrderAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */; };
+		38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2120815117004AACD0 /* PSMeHeaderModel.m */; };
 		38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20320727DEF00F80D92 /* libz.tbd */; };
 		38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20520727DFA00F80D92 /* libicucore.tbd */; };
 		38F2A20820727E0300F80D92 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20720727E0300F80D92 /* MessageUI.framework */; };
@@ -91,7 +95,6 @@
 		38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E62079E45400FD055F /* AFSecurityPolicy.m */; };
 		38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E22079E45400FD055F /* AFURLSessionManager.m */; };
 		38FC38F02079E78F00FD055F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38E32079E45400FD055F /* AFURLRequestSerialization.m */; };
-		38FC38F4207B4F1B00FD055F /* PSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38F3207B4F1B00FD055F /* PSUserManager.m */; };
 		38FC3901207BC06400FD055F /* PSHomeCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC38FF207BC06400FD055F /* PSHomeCarousel.m */; };
 		38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC3900207BC06400FD055F /* PSHomeCarousel.xib */; };
 		38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3949207C899C00FD055F /* PSHomeViewController.m */; };
@@ -164,6 +167,14 @@
 		383FFF4120731AE2000E8631 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		383FFF4820737104000E8631 /* PSLoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSLoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSLoginWithPasswordViewController.m; sourceTree = "<group>"; };
+		38A03D0C207FBFCB004AACD0 /* PSMePersonalityEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMePersonalityEditViewController.h; sourceTree = "<group>"; };
+		38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMePersonalityEditViewController.m; sourceTree = "<group>"; };
+		38A03D10207FE62F004AACD0 /* PSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserManager.h; sourceTree = "<group>"; };
+		38A03D11207FE62F004AACD0 /* PSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserManager.m; sourceTree = "<group>"; };
+		38A03D1D20813B70004AACD0 /* PSUserOrderAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserOrderAddressModel.h; sourceTree = "<group>"; };
+		38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserOrderAddressModel.m; sourceTree = "<group>"; };
+		38A03D2020815117004AACD0 /* PSMeHeaderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeHeaderModel.h; sourceTree = "<group>"; };
+		38A03D2120815117004AACD0 /* PSMeHeaderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeHeaderModel.m; sourceTree = "<group>"; };
 		38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		38F2A20120727D2600F80D92 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		38F2A20320727DEF00F80D92 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -233,8 +244,6 @@
 		38FC38E72079E45400FD055F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		38FC38E82079E48800FD055F /* PSNetoperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSNetoperation.h; sourceTree = "<group>"; };
 		38FC38E92079E48800FD055F /* PSNetoperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSNetoperation.m; sourceTree = "<group>"; };
-		38FC38F2207B4F1B00FD055F /* PSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserManager.h; sourceTree = "<group>"; };
-		38FC38F3207B4F1B00FD055F /* PSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserManager.m; sourceTree = "<group>"; };
 		38FC38FE207BC06400FD055F /* PSHomeCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeCarousel.h; sourceTree = "<group>"; };
 		38FC38FF207BC06400FD055F /* PSHomeCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeCarousel.m; sourceTree = "<group>"; };
 		38FC3900207BC06400FD055F /* PSHomeCarousel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSHomeCarousel.xib; sourceTree = "<group>"; };
@@ -568,6 +577,8 @@
 			children = (
 				381F969C206D5A3C008E8284 /* PSMeViewController.h */,
 				381F969D206D5A3C008E8284 /* PSMeViewController.m */,
+				38A03D0C207FBFCB004AACD0 /* PSMePersonalityEditViewController.h */,
+				38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -575,6 +586,8 @@
 		381F969A206D59EF008E8284 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38A03D2020815117004AACD0 /* PSMeHeaderModel.h */,
+				38A03D2120815117004AACD0 /* PSMeHeaderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -730,6 +743,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		38A03D0F207FE625004AACD0 /* PSUser */ = {
+			isa = PBXGroup;
+			children = (
+				38A03D10207FE62F004AACD0 /* PSUserManager.h */,
+				38A03D11207FE62F004AACD0 /* PSUserManager.m */,
+				38A03D1D20813B70004AACD0 /* PSUserOrderAddressModel.h */,
+				38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */,
+			);
+			path = PSUser;
+			sourceTree = "<group>";
+		};
 		38F2A1FD20727D2600F80D92 /* SMSSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,8 +800,8 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				38A03D0F207FE625004AACD0 /* PSUser */,
 				38FC394E207D071700FD055F /* PSButton */,
-				38FC38F1207B4F0200FD055F /* PSUser */,
 				38FC38D92079E42700FD055F /* PSNetoperation */,
 				38FC379B207757FF00FD055F /* PSShare */,
 			);
@@ -961,15 +985,6 @@
 				38FC38E72079E45400FD055F /* AFHTTPSessionManager.h */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		38FC38F1207B4F0200FD055F /* PSUser */ = {
-			isa = PBXGroup;
-			children = (
-				38FC38F2207B4F1B00FD055F /* PSUserManager.h */,
-				38FC38F3207B4F1B00FD055F /* PSUserManager.m */,
-			);
-			path = PSUser;
 			sourceTree = "<group>";
 		};
 		38FC38F8207BBD1F00FD055F /* Controller */ = {
@@ -1176,6 +1191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */,
 				383EAF8A207DF708009E57CE /* NSData+ImageContentType.m in Sources */,
 				383EAF88207DF291009E57CE /* UIView+WebCacheOperation.m in Sources */,
 				383EAF89207DF291009E57CE /* UIView+WebCache.m in Sources */,
@@ -1184,12 +1200,14 @@
 				383EAF85207DF1A9009E57CE /* SDWebImageDownloaderOperation.m in Sources */,
 				383EAF83207DF18F009E57CE /* SDWebImageCoderHelper.m in Sources */,
 				383EAF84207DF18F009E57CE /* SDWebImageCompat.m in Sources */,
+				38A03D1F20813B70004AACD0 /* PSUserOrderAddressModel.m in Sources */,
 				383EAF82207DF16F009E57CE /* SDWebImageCodersManager.m in Sources */,
 				383EAF81207DF161009E57CE /* SDWebImageDownloader.m in Sources */,
 				383EAF80207DF13F009E57CE /* SDImageCacheConfig.m in Sources */,
 				383EAF7F207DF136009E57CE /* SDWebImageCoder.m in Sources */,
 				383EAF7E207DF11D009E57CE /* SDImageCache.m in Sources */,
 				383EAF7D207DF105009E57CE /* SDWebImageManager.m in Sources */,
+				38A03D0E207FBFCB004AACD0 /* PSMePersonalityEditViewController.m in Sources */,
 				383EAF8D207E2017009E57CE /* PSHomeProductListItem.m in Sources */,
 				383EAF7C207DF0E3009E57CE /* UIImageView+WebCache.m in Sources */,
 				38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */,
@@ -1222,11 +1240,11 @@
 				381F96B220711964008E8284 /* PSShopCartTableViewCell.m in Sources */,
 				381F96CE2071FAC8008E8284 /* PSShowGroundViewController.m in Sources */,
 				38FC3955207D227C00FD055F /* PSHomeGoodsCell.m in Sources */,
+				38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
 				381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */,
-				38FC38F4207B4F1B00FD055F /* PSUserManager.m in Sources */,
 				38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */,
 				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
 				38FC37A82077CA5600FD055F /* PSShareCollectionViewCell.m in Sources */,

@@ -8,18 +8,17 @@
 
 #import "PSMeHeaderTableViewCell.h"
 
+@interface PSMeHeaderTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *userVatcar;
+@property (weak, nonatomic) IBOutlet UILabel *uName;
+@property (weak, nonatomic) IBOutlet UILabel *userDesc;
+@property (weak, nonatomic) IBOutlet UILabel *focusNum;
+@property (weak, nonatomic) IBOutlet UILabel *collectionNum;
+
+@end
+
 @implementation PSMeHeaderTableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 - (instancetype)init {
     self = [super init];
@@ -27,6 +26,14 @@
         self = [[NSBundle mainBundle] loadNibNamed:@"PSMeHeaderTableViewCell" owner:nil options:nil].firstObject;
     }
     return self;
+}
+
+- (void)setHeaderModel:(PSMeHeaderModel *)headerModel {
+    self.userVatcar.image = [UIImage imageNamed:headerModel.userVatcar];
+    self.uName.text = headerModel.uname;
+    self.userDesc.text = headerModel.desc;
+    self.focusNum.text = [NSString stringWithFormat:@"关注数：%ld", headerModel.focusNum];
+    self.collectionNum.text = [NSString stringWithFormat:@"收藏数：%ld", headerModel.collectionNum];
 }
 
 @end

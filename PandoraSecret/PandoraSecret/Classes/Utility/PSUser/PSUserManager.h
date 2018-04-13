@@ -7,19 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSUserOrderAddressModel.h"
+#import "PSMeHeaderModel.h"
 
 @interface PSUserManager : NSObject
 
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *userVatcar;
-@property (nonatomic, strong) NSString *phoneNum;
-@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, assign, readonly) NSInteger uid;
+@property (nonatomic, strong) NSString *uname;
 @property (nonatomic, strong) NSString *userDesc;
-@property (nonatomic, strong) NSString *focusNum;
-@property (nonatomic, strong) NSString *collectionNum;
+@property (nonatomic, strong) PSUserOrderAddressModel *address;
+@property (nonatomic, strong) NSString *phoneNum;
+@property (nonatomic, strong) NSString *userVatcar;
+@property (nonatomic, assign, readonly) NSInteger focusNum;
+@property (nonatomic, assign, readonly) NSInteger collectionNum;
+@property (nonatomic, strong, readonly) NSDictionary *userInfo;
+@property (nonatomic, strong, readonly) PSMeHeaderModel *myCenterHeaderModel;
 
 + (instancetype)shareManager;
-- (void)userManagerWithUserInformation:(NSDictionary *)userInfo;
+- (void)saveUserInfo:(NSDictionary *)userInfo;
 - (void)deleteUserInfo;
+- (BOOL)hasLogin;
 
 @end

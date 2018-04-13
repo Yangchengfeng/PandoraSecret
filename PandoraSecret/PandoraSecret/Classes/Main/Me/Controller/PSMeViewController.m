@@ -12,11 +12,20 @@
 #import "PSMeHeaderTableViewCell.h"
 #import "PSShareView.h"
 #import "PSLaunchViewController.h"
+#import "PSMePersonalityEditViewController.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
 static CGFloat footerH = 10.f;
 static CGFloat estimatedRowH = 113.5f;
+
+typedef enum {
+    PSSettingsSectionTypeHeader = 0,  // 个人头部
+    PSSettingsSectionTypePersonality, // 个人信息修改
+    PSSettingsSectionTypeOrder,       // 订单信息、地址
+    PSSettingsSectionTypeAbout,       // 有关应用
+    PSSettingsSectionTypeLogout,      // 登出设置
+} PSSettingsSectionType;
 
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -57,8 +66,8 @@ static CGFloat estimatedRowH = 113.5f;
 - (NSArray *)settingsItems {
     if(!_settingsItems) {
         _settingsItems = @[@[@"个人中心信息展示"],
-                               @[@"昵称", @"个人描述"],
-                               @[@"我的订单", @"收货地址", @"修改绑定手机号", @"修改登录密码"],
+                               @[@"昵称", @"个人描述", @"修改登录密码"],
+                               @[@"我的订单", @"收货地址"],
                                @[@"关于潘多拉的秘密"],
                                @[@"退出当前用户"]];
     }
@@ -76,8 +85,11 @@ static CGFloat estimatedRowH = 113.5f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
+        PSUserManager *userManager = [PSUserManager shareManager];
+        
         PSMeHeaderTableViewCell *headerCell = [[PSMeHeaderTableViewCell alloc] init];
         // 设置model
+        headerCell.headerModel = userManager.myCenterHeaderModel;
         return headerCell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
@@ -121,12 +133,30 @@ static CGFloat estimatedRowH = 113.5f;
     // 取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.section == _settingsItems.count-1) {
-        PSLaunchViewController *launchVC = [[PSLaunchViewController alloc] init];
-        self.view.window.rootViewController = launchVC;
-    } else {
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+    switch (indexPath.section) {
+        case PSSettingsSectionTypePersonality: {
+            BOOL ensure = NO;
+            PSEditType editType = PSEditTypeNickname;
+            if(indexPath.row == 1) {
+                editType = PSEditTypeDescription;
+            }
+            if(indexPath.row == 2) {
+                ensure = YES;
+                editType = PSEditTypePassword;
+            }
+            PSMePersonalityEditViewController *personalityEditVc = [[PSMePersonalityEditViewController alloc] init];
+            [personalityEditVc editWithType:editType placeHolder:self.settingsItems[indexPath.section][indexPath.row] needToEnsure:ensure];
+            [self.navigationController pushViewController:personalityEditVc animated:YES];
+            break;
+        }
+        case PSSettingsSectionTypeOrder:
+            break;
+        case PSSettingsSectionTypeAbout:
+            break;
+        case PSSettingsSectionTypeLogout:
+            break;
+        default:
+            break;
     }
 }
 

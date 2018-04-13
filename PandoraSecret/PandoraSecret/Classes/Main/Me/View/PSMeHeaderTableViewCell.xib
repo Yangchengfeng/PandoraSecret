@@ -25,64 +25,62 @@
                             <constraint firstAttribute="height" constant="45" id="bvh-4m-9E9"/>
                         </constraints>
                     </imageView>
-                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="潘多拉的神秘人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FK6-Sn-OMJ">
-                        <rect key="frame" x="63" y="22.5" width="278" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潘多拉的神秘人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOF-Hy-mzF">
+                        <rect key="frame" x="58" y="25.5" width="288" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="h28-Ic-g8M"/>
+                            <constraint firstAttribute="height" constant="20" id="Xbq-2f-RVc"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="个人描述：潘多拉神秘人，尽情在背后施展魔法!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16C-xA-4cb">
-                        <rect key="frame" x="8" y="57.5" width="333" height="25"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="潘多拉的神秘人，尽情施展魔法吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XP-FB-aIo">
+                        <rect key="frame" x="8" y="57.5" width="338" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注数：10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qQ-kg-9ji">
+                        <rect key="frame" x="8" y="80" width="100" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="mDz-90-7mO"/>
-                        </constraints>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OO-KF-7t0">
-                        <rect key="frame" x="8" y="87.5" width="120" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="4hb-gm-je9"/>
+                            <constraint firstAttribute="height" constant="20" id="84o-zQ-aaa"/>
+                            <constraint firstAttribute="width" constant="100" id="aTJ-oJ-qB4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="关注数：10000">
-                            <color key="titleColor" red="0.83137254900000002" green="0.13725490200000001" blue="0.66666666669999997" alpha="1" colorSpace="deviceRGB"/>
-                        </state>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJL-Up-gz0">
-                        <rect key="frame" x="178" y="87.5" width="120" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="120" id="E1D-xI-JGv"/>
-                        </constraints>
+                        <color key="textColor" red="0.83137254900000002" green="0.13725490200000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏数：10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gv-kg-Fqy">
+                        <rect key="frame" x="208" y="80" width="100" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="收藏数：8888">
-                            <color key="titleColor" red="0.83137254901960778" green="0.13725490196078433" blue="0.66666666666666663" alpha="1" colorSpace="deviceRGB"/>
-                        </state>
-                    </button>
+                        <color key="textColor" red="0.83137254900000002" green="0.13725490200000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2OO-KF-7t0" firstAttribute="top" secondItem="16C-xA-4cb" secondAttribute="bottom" constant="5" id="3dy-tF-QVH"/>
-                    <constraint firstItem="16C-xA-4cb" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="4ML-9S-ISH"/>
-                    <constraint firstItem="2OO-KF-7t0" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="6i3-T6-x45"/>
-                    <constraint firstItem="RJL-Up-gz0" firstAttribute="leading" secondItem="2OO-KF-7t0" secondAttribute="trailing" constant="50" id="Byy-5f-zpZ"/>
+                    <constraint firstItem="9Gv-kg-Fqy" firstAttribute="leading" secondItem="3qQ-kg-9ji" secondAttribute="trailing" constant="100" id="CCb-uu-QCV"/>
                     <constraint firstItem="NGI-XM-Gik" firstAttribute="top" secondItem="Hgx-52-KEr" secondAttribute="topMargin" constant="4.5" id="CuB-vc-Hgi"/>
-                    <constraint firstAttribute="bottom" secondItem="2OO-KF-7t0" secondAttribute="bottom" constant="5" id="Emv-j1-107"/>
-                    <constraint firstItem="16C-xA-4cb" firstAttribute="top" secondItem="NGI-XM-Gik" secondAttribute="bottom" id="Eu5-Yo-oNo"/>
-                    <constraint firstItem="RJL-Up-gz0" firstAttribute="width" secondItem="2OO-KF-7t0" secondAttribute="width" id="HlW-Ug-DlO"/>
-                    <constraint firstItem="FK6-Sn-OMJ" firstAttribute="centerY" secondItem="NGI-XM-Gik" secondAttribute="centerY" id="JbL-4T-MSD"/>
+                    <constraint firstItem="pOF-Hy-mzF" firstAttribute="centerY" secondItem="NGI-XM-Gik" secondAttribute="centerY" id="HiJ-gI-I7d"/>
+                    <constraint firstItem="8XP-FB-aIo" firstAttribute="trailing" secondItem="pOF-Hy-mzF" secondAttribute="trailing" id="J8Z-L3-5ES"/>
+                    <constraint firstItem="9Gv-kg-Fqy" firstAttribute="width" secondItem="3qQ-kg-9ji" secondAttribute="width" id="Nbz-bn-85J"/>
                     <constraint firstItem="NGI-XM-Gik" firstAttribute="leading" secondItem="Hgx-52-KEr" secondAttribute="leadingMargin" id="dFg-2E-2cK"/>
-                    <constraint firstItem="RJL-Up-gz0" firstAttribute="height" secondItem="2OO-KF-7t0" secondAttribute="height" id="f2Q-tt-U10"/>
-                    <constraint firstItem="RJL-Up-gz0" firstAttribute="centerY" secondItem="2OO-KF-7t0" secondAttribute="centerY" id="g6b-Xh-UsB"/>
-                    <constraint firstItem="16C-xA-4cb" firstAttribute="trailing" secondItem="FK6-Sn-OMJ" secondAttribute="trailing" id="mmG-bw-INQ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="FK6-Sn-OMJ" secondAttribute="trailing" constant="25" id="p4w-V8-Gh2"/>
-                    <constraint firstItem="FK6-Sn-OMJ" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="trailing" constant="10" id="wQY-NU-avE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3qQ-kg-9ji" secondAttribute="bottom" constant="5" id="hW3-tO-0Ud"/>
+                    <constraint firstItem="pOF-Hy-mzF" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="trailing" constant="5" id="haK-hK-ksS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pOF-Hy-mzF" secondAttribute="trailing" constant="20" id="jz2-88-aYA"/>
+                    <constraint firstItem="8XP-FB-aIo" firstAttribute="leading" secondItem="NGI-XM-Gik" secondAttribute="leading" id="n0H-nN-fVw"/>
+                    <constraint firstItem="8XP-FB-aIo" firstAttribute="top" secondItem="NGI-XM-Gik" secondAttribute="bottom" id="nJL-Uy-hxW"/>
+                    <constraint firstItem="9Gv-kg-Fqy" firstAttribute="height" secondItem="3qQ-kg-9ji" secondAttribute="height" id="t6Z-o4-CIg"/>
+                    <constraint firstItem="3qQ-kg-9ji" firstAttribute="leading" secondItem="8XP-FB-aIo" secondAttribute="leading" id="vAZ-0j-HdS"/>
+                    <constraint firstItem="9Gv-kg-Fqy" firstAttribute="bottom" secondItem="3qQ-kg-9ji" secondAttribute="bottom" id="xVe-XV-DnV"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionNum" destination="9Gv-kg-Fqy" id="I4R-I4-NUS"/>
+                <outlet property="focusNum" destination="3qQ-kg-9ji" id="OP5-gu-4GS"/>
+                <outlet property="uName" destination="pOF-Hy-mzF" id="oDB-7e-4iV"/>
+                <outlet property="userDesc" destination="8XP-FB-aIo" id="zxX-dl-Kc8"/>
+                <outlet property="userVatcar" destination="NGI-XM-Gik" id="RHw-zy-WDe"/>
+            </connections>
             <point key="canvasLocation" x="44" y="-79"/>
         </tableViewCell>
     </objects>
