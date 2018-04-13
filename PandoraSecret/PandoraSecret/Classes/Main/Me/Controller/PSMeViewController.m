@@ -13,6 +13,7 @@
 #import "PSShareView.h"
 #import "PSLaunchViewController.h"
 #import "PSMePersonalityEditViewController.h"
+#import "PSAppAboutViewController.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
@@ -151,8 +152,11 @@ typedef enum {
         }
         case PSSettingsSectionTypeOrder:
             break;
-        case PSSettingsSectionTypeAbout:
+        case PSSettingsSectionTypeAbout: {
+            PSAppAboutViewController *aboutVC = [[PSAppAboutViewController alloc] init];
+            [self.navigationController pushViewController:aboutVC animated:YES];
             break;
+        }
         case PSSettingsSectionTypeLogout:
             break;
         default:

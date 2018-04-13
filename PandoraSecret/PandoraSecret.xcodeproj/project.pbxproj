@@ -56,10 +56,20 @@
 		383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3920731A04000E8631 /* SVProgressAnimatedView.m */; };
 		383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3D20731A04000E8631 /* SVIndefiniteAnimatedView.m */; };
 		383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */; };
-		38A03D0E207FBFCB004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */; };
 		38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D11207FE62F004AACD0 /* PSUserManager.m */; };
 		38A03D1F20813B70004AACD0 /* PSUserOrderAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */; };
 		38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2120815117004AACD0 /* PSMeHeaderModel.m */; };
+		38A03D2B208165D1004AACD0 /* PSAdressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D29208165D1004AACD0 /* PSAdressListViewController.m */; };
+		38A03D2C208165D1004AACD0 /* PSAdressListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A03D2A208165D1004AACD0 /* PSAdressListViewController.xib */; };
+		38A03D3320816632004AACD0 /* PSAddressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D3120816632004AACD0 /* PSAddressDetailViewController.m */; };
+		38A03D3420816632004AACD0 /* PSAddressDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A03D3220816632004AACD0 /* PSAddressDetailViewController.xib */; };
+		38A03D3E20816DCA004AACD0 /* PSAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */; };
+		38A03D3F20817353004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */; };
+		38A03D4220817776004AACD0 /* PSOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D4120817776004AACD0 /* PSOrderListViewController.m */; };
+		38A03D46208177F9004AACD0 /* PSOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D44208177F9004AACD0 /* PSOrderDetailViewController.m */; };
+		38A03D47208177F9004AACD0 /* PSOrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A03D45208177F9004AACD0 /* PSOrderDetailViewController.xib */; };
+		38A03D4C2081784C004AACD0 /* PSOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D4A2081784C004AACD0 /* PSOrderListCell.m */; };
+		38A03D4D2081784C004AACD0 /* PSOrderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */; };
 		38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20320727DEF00F80D92 /* libz.tbd */; };
 		38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20520727DFA00F80D92 /* libicucore.tbd */; };
 		38F2A20820727E0300F80D92 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20720727E0300F80D92 /* MessageUI.framework */; };
@@ -167,14 +177,30 @@
 		383FFF4120731AE2000E8631 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		383FFF4820737104000E8631 /* PSLoginWithPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSLoginWithPasswordViewController.h; sourceTree = "<group>"; };
 		383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSLoginWithPasswordViewController.m; sourceTree = "<group>"; };
-		38A03D0C207FBFCB004AACD0 /* PSMePersonalityEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMePersonalityEditViewController.h; sourceTree = "<group>"; };
-		38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMePersonalityEditViewController.m; sourceTree = "<group>"; };
 		38A03D10207FE62F004AACD0 /* PSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserManager.h; sourceTree = "<group>"; };
 		38A03D11207FE62F004AACD0 /* PSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserManager.m; sourceTree = "<group>"; };
 		38A03D1D20813B70004AACD0 /* PSUserOrderAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserOrderAddressModel.h; sourceTree = "<group>"; };
 		38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserOrderAddressModel.m; sourceTree = "<group>"; };
 		38A03D2020815117004AACD0 /* PSMeHeaderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMeHeaderModel.h; sourceTree = "<group>"; };
 		38A03D2120815117004AACD0 /* PSMeHeaderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMeHeaderModel.m; sourceTree = "<group>"; };
+		38A03D2520816515004AACD0 /* PSMePersonalityEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMePersonalityEditViewController.h; sourceTree = "<group>"; };
+		38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMePersonalityEditViewController.m; sourceTree = "<group>"; };
+		38A03D28208165D1004AACD0 /* PSAdressListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAdressListViewController.h; sourceTree = "<group>"; };
+		38A03D29208165D1004AACD0 /* PSAdressListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAdressListViewController.m; sourceTree = "<group>"; };
+		38A03D2A208165D1004AACD0 /* PSAdressListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSAdressListViewController.xib; sourceTree = "<group>"; };
+		38A03D3020816632004AACD0 /* PSAddressDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAddressDetailViewController.h; sourceTree = "<group>"; };
+		38A03D3120816632004AACD0 /* PSAddressDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAddressDetailViewController.m; sourceTree = "<group>"; };
+		38A03D3220816632004AACD0 /* PSAddressDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSAddressDetailViewController.xib; sourceTree = "<group>"; };
+		38A03D3C20816DCA004AACD0 /* PSAppAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppAboutViewController.h; sourceTree = "<group>"; };
+		38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppAboutViewController.m; sourceTree = "<group>"; };
+		38A03D4020817776004AACD0 /* PSOrderListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderListViewController.h; sourceTree = "<group>"; };
+		38A03D4120817776004AACD0 /* PSOrderListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderListViewController.m; sourceTree = "<group>"; };
+		38A03D43208177F9004AACD0 /* PSOrderDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderDetailViewController.h; sourceTree = "<group>"; };
+		38A03D44208177F9004AACD0 /* PSOrderDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderDetailViewController.m; sourceTree = "<group>"; };
+		38A03D45208177F9004AACD0 /* PSOrderDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderDetailViewController.xib; sourceTree = "<group>"; };
+		38A03D492081784C004AACD0 /* PSOrderListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderListCell.h; sourceTree = "<group>"; };
+		38A03D4A2081784C004AACD0 /* PSOrderListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderListCell.m; sourceTree = "<group>"; };
+		38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderListCell.xib; sourceTree = "<group>"; };
 		38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		38F2A20120727D2600F80D92 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		38F2A20320727DEF00F80D92 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -575,10 +601,11 @@
 		381F9699206D59EF008E8284 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38A03D2720816519004AACD0 /* PSUserOrder */,
+				38A03D2420816515004AACD0 /* PSUserEdit */,
+				38A03D2320816510004AACD0 /* PSAppAbout */,
 				381F969C206D5A3C008E8284 /* PSMeViewController.h */,
 				381F969D206D5A3C008E8284 /* PSMeViewController.m */,
-				38A03D0C207FBFCB004AACD0 /* PSMePersonalityEditViewController.h */,
-				38A03D0D207FBFCB004AACD0 /* PSMePersonalityEditViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -595,6 +622,7 @@
 		381F969B206D59EF008E8284 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38A03D482081781A004AACD0 /* PSUserOrder */,
 				381F969F206D5A58008E8284 /* PSMeTableView.h */,
 				381F96A0206D5A58008E8284 /* PSMeTableView.m */,
 				381F96A4206DEE49008E8284 /* PSMeHeaderTableViewCell.h */,
@@ -752,6 +780,52 @@
 				38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */,
 			);
 			path = PSUser;
+			sourceTree = "<group>";
+		};
+		38A03D2320816510004AACD0 /* PSAppAbout */ = {
+			isa = PBXGroup;
+			children = (
+				38A03D3C20816DCA004AACD0 /* PSAppAboutViewController.h */,
+				38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */,
+			);
+			path = PSAppAbout;
+			sourceTree = "<group>";
+		};
+		38A03D2420816515004AACD0 /* PSUserEdit */ = {
+			isa = PBXGroup;
+			children = (
+				38A03D2520816515004AACD0 /* PSMePersonalityEditViewController.h */,
+				38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */,
+			);
+			path = PSUserEdit;
+			sourceTree = "<group>";
+		};
+		38A03D2720816519004AACD0 /* PSUserOrder */ = {
+			isa = PBXGroup;
+			children = (
+				38A03D28208165D1004AACD0 /* PSAdressListViewController.h */,
+				38A03D29208165D1004AACD0 /* PSAdressListViewController.m */,
+				38A03D2A208165D1004AACD0 /* PSAdressListViewController.xib */,
+				38A03D3020816632004AACD0 /* PSAddressDetailViewController.h */,
+				38A03D3120816632004AACD0 /* PSAddressDetailViewController.m */,
+				38A03D3220816632004AACD0 /* PSAddressDetailViewController.xib */,
+				38A03D4020817776004AACD0 /* PSOrderListViewController.h */,
+				38A03D4120817776004AACD0 /* PSOrderListViewController.m */,
+				38A03D43208177F9004AACD0 /* PSOrderDetailViewController.h */,
+				38A03D44208177F9004AACD0 /* PSOrderDetailViewController.m */,
+				38A03D45208177F9004AACD0 /* PSOrderDetailViewController.xib */,
+			);
+			path = PSUserOrder;
+			sourceTree = "<group>";
+		};
+		38A03D482081781A004AACD0 /* PSUserOrder */ = {
+			isa = PBXGroup;
+			children = (
+				38A03D492081784C004AACD0 /* PSOrderListCell.h */,
+				38A03D4A2081784C004AACD0 /* PSOrderListCell.m */,
+				38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */,
+			);
+			path = PSUserOrder;
 			sourceTree = "<group>";
 		};
 		38F2A1FD20727D2600F80D92 /* SMSSDK */ = {
@@ -1172,9 +1246,13 @@
 				38FC37A92077CA5600FD055F /* PSShareCollectionViewCell.xib in Resources */,
 				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
 				38FC376B2074791A00FD055F /* PSUserPageViewController.xib in Resources */,
+				38A03D47208177F9004AACD0 /* PSOrderDetailViewController.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
+				38A03D2C208165D1004AACD0 /* PSAdressListViewController.xib in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
+				38A03D4D2081784C004AACD0 /* PSOrderListCell.xib in Resources */,
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
+				38A03D3420816632004AACD0 /* PSAddressDetailViewController.xib in Resources */,
 				38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
 				38FC3956207D227C00FD055F /* PSHomeGoodsCell.xib in Resources */,
@@ -1191,6 +1269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A03D3F20817353004AACD0 /* PSMePersonalityEditViewController.m in Sources */,
 				38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */,
 				383EAF8A207DF708009E57CE /* NSData+ImageContentType.m in Sources */,
 				383EAF88207DF291009E57CE /* UIView+WebCacheOperation.m in Sources */,
@@ -1198,7 +1277,9 @@
 				383EAF87207DF1ED009E57CE /* SDWebImageFrame.m in Sources */,
 				383EAF86207DF1E5009E57CE /* SDWebImageImageIOCoder.m in Sources */,
 				383EAF85207DF1A9009E57CE /* SDWebImageDownloaderOperation.m in Sources */,
+				38A03D3320816632004AACD0 /* PSAddressDetailViewController.m in Sources */,
 				383EAF83207DF18F009E57CE /* SDWebImageCoderHelper.m in Sources */,
+				38A03D4220817776004AACD0 /* PSOrderListViewController.m in Sources */,
 				383EAF84207DF18F009E57CE /* SDWebImageCompat.m in Sources */,
 				38A03D1F20813B70004AACD0 /* PSUserOrderAddressModel.m in Sources */,
 				383EAF82207DF16F009E57CE /* SDWebImageCodersManager.m in Sources */,
@@ -1207,7 +1288,6 @@
 				383EAF7F207DF136009E57CE /* SDWebImageCoder.m in Sources */,
 				383EAF7E207DF11D009E57CE /* SDImageCache.m in Sources */,
 				383EAF7D207DF105009E57CE /* SDWebImageManager.m in Sources */,
-				38A03D0E207FBFCB004AACD0 /* PSMePersonalityEditViewController.m in Sources */,
 				383EAF8D207E2017009E57CE /* PSHomeProductListItem.m in Sources */,
 				383EAF7C207DF0E3009E57CE /* UIImageView+WebCache.m in Sources */,
 				38FC38EF2079E78F00FD055F /* AFURLSessionManager.m in Sources */,
@@ -1216,6 +1296,7 @@
 				38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */,
 				38FC38EB2079E77100FD055F /* AFURLResponseSerialization.m in Sources */,
 				38FC38EC2079E77100FD055F /* AFHTTPSessionManager.m in Sources */,
+				38A03D4C2081784C004AACD0 /* PSOrderListCell.m in Sources */,
 				38FC37AC2077ECE200FD055F /* PSShareItem.m in Sources */,
 				381F9648206CC3B4008E8284 /* main.m in Sources */,
 				38FC37A12077581700FD055F /* PSShareView.m in Sources */,
@@ -1227,12 +1308,14 @@
 				38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */,
 				383FFF4420731E14000E8631 /* SVProgressHUD.m in Sources */,
 				381F96C420714263008E8284 /* PSShopCartGoodsDetailViewController.m in Sources */,
+				38A03D46208177F9004AACD0 /* PSOrderDetailViewController.m in Sources */,
 				38FC3959207D39F200FD055F /* PSFancyBtn.m in Sources */,
 				381F96BF2071421C008E8284 /* PSShopCartShopDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
 				38FC3951207D074900FD055F /* PSButton.m in Sources */,
 				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
+				38A03D2B208165D1004AACD0 /* PSAdressListViewController.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
 				38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */,
 				383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */,
@@ -1241,6 +1324,7 @@
 				381F96CE2071FAC8008E8284 /* PSShowGroundViewController.m in Sources */,
 				38FC3955207D227C00FD055F /* PSHomeGoodsCell.m in Sources */,
 				38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */,
+				38A03D3E20816DCA004AACD0 /* PSAppAboutViewController.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */,
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
