@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381EACFE2081EC520047FFD2 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 381EACFD2081EBCA0047FFD2 /* NullSafe.m */; };
 		381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F9639206CC3B4008E8284 /* AppDelegate.m */; };
 		381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 381F9641206CC3B4008E8284 /* Assets.xcassets */; };
 		381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381F9643206CC3B4008E8284 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		381EACFD2081EBCA0047FFD2 /* NullSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		381F9635206CC3B4008E8284 /* PandoraSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		381F9638206CC3B4008E8284 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		381F9639206CC3B4008E8284 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -371,6 +373,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381EACFC2081EBCA0047FFD2 /* NullSafe */ = {
+			isa = PBXGroup;
+			children = (
+				381EACFD2081EBCA0047FFD2 /* NullSafe.m */,
+			);
+			path = NullSafe;
+			sourceTree = "<group>";
+		};
 		381F962C206CC3B4008E8284 = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +880,7 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				381EACFC2081EBCA0047FFD2 /* NullSafe */,
 				38A03D4E208186D4004AACD0 /* PSGoods */,
 				38A03D0F207FE625004AACD0 /* PSUser */,
 				38FC394E207D071700FD055F /* PSButton */,
@@ -1331,6 +1342,7 @@
 				38FC395C207DC04900FD055F /* PSHomeCarouselItem.m in Sources */,
 				381F9672206CCC8F008E8284 /* PSBaseViewController.m in Sources */,
 				381F966A206CC7D5008E8284 /* PSLaunchViewController.m in Sources */,
+				381EACFE2081EC520047FFD2 /* NullSafe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -86,11 +86,10 @@ typedef enum {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
-        
         PSMeHeaderTableViewCell *headerCell = [[PSMeHeaderTableViewCell alloc] init];
         // 设置model
-//        PSUserManager *userManager = [PSUserManager shareManager];
-//        headerCell.headerModel = userManager.myCenterHeaderModel;
+        PSUserManager *userManager = [PSUserManager shareManager];
+        headerCell.headerModel = userManager.myCenterHeaderModel;
         return headerCell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];

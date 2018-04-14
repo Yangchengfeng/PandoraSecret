@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PSUserOrderAddressModel : NSObject
+@interface PSUserOrderAddressModel : NSObject <NSCoding>
 
 + (instancetype)orderAddressWithDict:(NSDictionary *)dict;
 

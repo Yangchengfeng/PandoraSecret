@@ -29,7 +29,7 @@
 }
 
 - (void)setHeaderModel:(PSMeHeaderModel *)headerModel {
-    self.userVatcar.image = [UIImage imageNamed:headerModel.userVatcar];
+    [self.userVatcar sd_setImageWithURL:[NSURL URLWithString:headerModel.userVatcar] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
     self.uName.text = headerModel.uname;
     self.userDesc.text = headerModel.desc;
     self.focusNum.text = [NSString stringWithFormat:@"关注数：%ld", headerModel.focusNum];

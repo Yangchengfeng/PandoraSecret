@@ -33,15 +33,27 @@
 }
 
 + (instancetype)orderAddressWithDict:(NSDictionary *)dict {
-    if(dict == nil) {
-        dict = @{@"id": @(-1),
-                 @"uname": @"",
-                 @"phone": @"",
-                 @"address": @"",
-                 @"defaultAddress": @(1)
-                 };
-    }
     return [[self alloc] initWithDict:dict];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.addressId = [[aDecoder decodeObjectForKey:@"id"] integerValue];
+        self.uname = [aDecoder decodeObjectForKey:@"uname"];
+        self.phone = [aDecoder decodeObjectForKey:@"phone"];
+        self.address = [aDecoder decodeObjectForKey:@"address"];
+        self.defaultAddress = [[aDecoder decodeObjectForKey:@"defaultAddress"] integerValue];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeInteger:self.addressId forKey:@"id"];
+    [aCoder encodeObject:self.uname forKey:@"uname"];
+    [aCoder encodeObject:self.phone forKey:@"phone"];
+    [aCoder encodeObject:self.address forKey:@"address"];
+    [aCoder encodeInteger:self.defaultAddress forKey:@"defaultAddress"];
 }
 
 @end

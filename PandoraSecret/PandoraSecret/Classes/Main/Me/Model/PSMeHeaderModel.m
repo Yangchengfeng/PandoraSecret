@@ -15,9 +15,9 @@
     if(self) {
         self.uname = dict[@"uname"];
         self.desc = dict[@"userDesc"];
-        self.userVatcar = dict[@"image"];
-        self.collectionNum = [dict[@"collection"] integerValue];
-        self.focusNum = [dict[@"focus"] integerValue];
+        self.userVatcar = dict[@"userVatcar"];
+        self.collectionNum = [dict[@"collectionNum"] integerValue];
+        self.focusNum = [dict[@"focusNum"] integerValue];
     }
     return self;
 }

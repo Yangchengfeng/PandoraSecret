@@ -43,7 +43,8 @@ static PSUserManager *_manager = nil;
 
 - (void)setAddress:(PSUserOrderAddressModel *)address {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    [user setObject:address forKey:@"address"];
+    NSData *addressData = [NSKeyedArchiver archivedDataWithRootObject:address];
+    [user setObject:addressData forKey:@"address"];
 }
 
 - (void)setPhoneNum:(NSString *)phoneNum {
@@ -54,11 +55,12 @@ static PSUserManager *_manager = nil;
 // 全部保存
 - (void)saveUserInfo:(NSDictionary *)userInfo {
     PSUserOrderAddressModel *address = [PSUserOrderAddressModel orderAddressWithDict:userInfo[@"address"]];
+    NSData *addressData = [NSKeyedArchiver archivedDataWithRootObject:address];
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     [user setInteger:[userInfo[@"id"] integerValue] forKey:@"uid"];
     [user setObject:(userInfo[@"userName"]?:@"潘多拉的神秘人") forKey:@"uname"];
-    [user setObject:address forKey:@"address"];
+    [user setObject:addressData forKey:@"address"];
     [user setObject:(userInfo[@"userDesc"]?:@"潘多拉的神秘人，尽情施展你的魔法吧！") forKey:@"userDesc"];
     [user setObject:userInfo[@"phone"] forKey:@"phoneNum"];
     [user setObject:(userInfo[@"image"]?:@"head_icon_me") forKey:@"userVatcar"];
@@ -83,9 +85,15 @@ static PSUserManager *_manager = nil;
     return [user objectForKey:@"userVatcar"];
 }
 
+- (NSString *)userDesc {
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    return [user objectForKey:@"userDesc"];
+}
+
 - (PSUserOrderAddressModel *)address {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    return [user objectForKey:@"address"];
+    NSData *addressData = [user objectForKey:@"address"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:addressData];
 }
 
 - (NSString *)phoneNum {
@@ -120,6 +128,7 @@ static PSUserManager *_manager = nil;
 - (PSMeHeaderModel *)myCenterHeaderModel {
     NSDictionary *info = @{@"uname":self.uname,
                            @"phoneNum":self.phoneNum,
+                           @"userDesc":self.userDesc,
                            @"userVatcar":self.userVatcar,
                            @"focusNum":@(self.focusNum),
                            @"collectionNum":@(self.collectionNum)
