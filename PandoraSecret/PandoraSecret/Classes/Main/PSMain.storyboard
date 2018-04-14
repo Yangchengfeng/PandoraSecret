@@ -439,7 +439,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="sk0-Qi-VHn" kind="relationship" relationship="viewControllers" id="Oqn-ry-qvO"/>
+                        <segue destination="Sv7-Sz-CCd" kind="relationship" relationship="viewControllers" id="qpw-16-1nA"/>
                         <segue destination="JbO-U1-TtN" kind="relationship" relationship="viewControllers" id="bKU-iG-SYn"/>
                         <segue destination="jTB-Dq-06K" kind="relationship" relationship="viewControllers" id="fuD-oN-Y9m"/>
                         <segue destination="Bpj-tu-xe7" kind="relationship" relationship="viewControllers" id="Ynx-ue-nGc"/>
@@ -449,6 +449,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AC-Qh-1oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-634" y="-133"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="EL2-vE-L9H">
+            <objects>
+                <navigationController id="Sv7-Sz-CCd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" image="main_tab_Home" id="0gY-Vk-uUI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DMT-hQ-pY9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sk0-Qi-VHn" kind="relationship" relationship="rootViewController" id="xVb-L4-Re8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xlf-RQ-dwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="-525"/>
         </scene>
         <!--首页-->
         <scene sceneID="32l-Fz-0tZ">
@@ -490,10 +507,11 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="首页" image="main_tab_Home" id="XZR-EP-ZwO"/>
+                    <navigationItem key="navigationItem" id="Zdd-St-Vc4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNL-UF-rDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="-351"/>
+            <point key="canvasLocation" x="476" y="-429"/>
         </scene>
         <!--秀秀场-->
         <scene sceneID="eIh-h7-zG7">

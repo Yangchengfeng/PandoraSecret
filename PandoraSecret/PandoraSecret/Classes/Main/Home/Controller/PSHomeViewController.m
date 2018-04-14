@@ -254,7 +254,10 @@ static CGFloat carouseH = 150.f;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //#pragma mark - 添加计时器
@@ -290,6 +293,20 @@ static CGFloat carouseH = 150.f;
     [self removeTimer];
 }
 
+#pragma mark - 导航栏
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end
 
