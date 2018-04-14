@@ -33,10 +33,16 @@ typedef enum {
 @property (nonatomic, strong) NSDictionary *shareItems;
 @property (nonatomic, strong) NSDictionary *functionItems;
 @property (nonatomic, strong) NSArray *settingsItems;
+@property (weak, nonatomic) IBOutlet PSMeTableView *meTableView;
 
 @end
 
 @implementation PSMeViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_meTableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

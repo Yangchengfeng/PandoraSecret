@@ -407,6 +407,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="meTableView" destination="zgZ-aW-9sW" id="YVZ-No-uSK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jez-fC-Jsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

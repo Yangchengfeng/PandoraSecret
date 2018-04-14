@@ -16,7 +16,7 @@ static NSString *updateURL = @"user/update";
 @property (nonatomic, strong) UITextField *editInfoTextField;
 @property (nonatomic, strong) UITextField *ensureInfoTextField;
 @property (nonatomic, assign) BOOL needEnsure;
-@property (nonatomic, strong) NSString *editType;
+@property (nonatomic, assign) NSInteger editType;
 
 @end
 
@@ -30,19 +30,17 @@ static NSString *updateURL = @"user/update";
 
 - (void)editWithType:(PSEditType)type placeHolder:(NSString *)placeHolder needToEnsure:(BOOL)ensure {
     // 标题设置
+    _editType = type;
     NSString *title = @"";
     switch (type) {
         case PSEditTypeNickname:
             title = @"修改昵称";
-            _editType = @"username";
             break;
         case PSEditTypeDescription:
             title = @"修改个人描述";
-            _editType = @"userDesc";
             break;
         case PSEditTypePassword:
             title = @"修改账号密码";
-            _editType = @"password";
             break;
         default:
             break;
@@ -78,8 +76,10 @@ static NSString *updateURL = @"user/update";
 }
 
 - (void)editRequest {
+    [_editInfoTextField resignFirstResponder];
     // 判断是否相同
     if(_needEnsure) {
+        [_ensureInfoTextField resignFirstResponder];
         if((_ensureInfoTextField.text.length>0) && (_editInfoTextField.text.length>0) && [_ensureInfoTextField.text isEqualToString:_editInfoTextField.text]) {
             [self userInfoUpdate];
         } else {
@@ -95,14 +95,19 @@ static NSString *updateURL = @"user/update";
 }
 
 - (void)userInfoUpdate {
+
     PSUserManager *manager = [PSUserManager shareManager];
     if([manager hasLogin]) {
         NSDictionary *param = @{
-                                @"phone":[manager userInfo][@"phone"],
-                                _editType:_editInfoTextField.text
+                                @"phone": [manager phoneNum],
+                                @"editType": @(_editType),
+                                @"message": _editInfoTextField.text
                                 };
         [PSNetoperation postRequestWithConcretePartOfURL:updateURL parameter:param success:^(id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            [manager saveUserInfo:responseObject[@"data"][0]];
+        } failure:^(id failure) {
+            [SVProgressHUD showSuccessWithStatus:failure[@"msg"]];
         } andError:^(NSError *error) {
             
         }];

@@ -144,10 +144,8 @@ static PSUserManager *_manager = nil;
 
 #pragma mark - 判断是否登录
 - (BOOL)hasLogin {
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    NSInteger uid = [user integerForKey:@"uid"];
     BOOL hasLogin = NO;
-    if(uid) {
+    if(self.uid) {
         hasLogin = YES;
     }
     return hasLogin;
