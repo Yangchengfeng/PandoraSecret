@@ -36,7 +36,10 @@ static NSString *loginURL = @"user/login";
             [userManage saveUserInfo:responseObject[@"data"][0]];
             PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
             self.view.window.rootViewController = mainVC;
-        } andError:^(NSError *responseError) {
+        } failure:^(id failure) {
+            [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+        } andError:^(NSError *error) {
+            
         }];
     } else {
         [SVProgressHUD showErrorWithStatus:@"请输入正确的账号和密码"];

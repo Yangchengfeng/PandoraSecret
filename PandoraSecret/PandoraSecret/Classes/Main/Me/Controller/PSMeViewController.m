@@ -136,16 +136,20 @@ typedef enum {
     switch (indexPath.section) {
         case PSSettingsSectionTypePersonality: {
             BOOL ensure = NO;
+            PSUserManager *userManager = [PSUserManager shareManager];
+            NSString *placeholder = userManager.uname;
             PSEditType editType = PSEditTypeNickname;
             if(indexPath.row == 1) {
                 editType = PSEditTypeDescription;
+                placeholder = userManager.userDesc;
             }
             if(indexPath.row == 2) {
                 ensure = YES;
                 editType = PSEditTypePassword;
+                placeholder = self.settingsItems[indexPath.section][indexPath.row];
             }
             PSMePersonalityEditViewController *personalityEditVc = [[PSMePersonalityEditViewController alloc] init];
-            [personalityEditVc editWithType:editType placeHolder:self.settingsItems[indexPath.section][indexPath.row] needToEnsure:ensure];
+            [personalityEditVc editWithType:editType placeHolder:placeholder needToEnsure:ensure];
             [self.navigationController pushViewController:personalityEditVc animated:YES];
             break;
         }

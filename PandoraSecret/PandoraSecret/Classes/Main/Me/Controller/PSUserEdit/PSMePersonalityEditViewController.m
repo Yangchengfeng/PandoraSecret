@@ -68,7 +68,8 @@ static NSString *updateURL = @"user/update";
     _editInfoTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.view addSubview:_editInfoTextField];
     // 确认按钮
-    PSButton *btn = [[PSButton alloc] initWithFrame:CGRectMake((kScreenWidth-80)/2, kScreenHeight/2., 80, 30)];
+    PSButton *btn = [PSButton buttonWithType:UIButtonTypeSystem];
+    btn.frame = CGRectMake((kScreenWidth-80)/2, kScreenHeight/2., 80, 30);
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitle:@"确定" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
