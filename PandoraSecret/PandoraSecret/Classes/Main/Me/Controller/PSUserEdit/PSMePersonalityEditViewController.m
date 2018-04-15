@@ -24,8 +24,6 @@ static NSString *updateURL = @"user/update";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)editWithType:(PSEditType)type placeHolder:(NSString *)placeHolder needToEnsure:(BOOL)ensure {

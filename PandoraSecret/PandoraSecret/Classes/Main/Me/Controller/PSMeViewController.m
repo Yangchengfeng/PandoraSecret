@@ -14,6 +14,7 @@
 #import "PSLaunchViewController.h"
 #import "PSMePersonalityEditViewController.h"
 #import "PSAppAboutViewController.h"
+#import "PSAddressListViewController.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
@@ -139,10 +140,10 @@ typedef enum {
     // 取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    PSUserManager *userManager = [PSUserManager shareManager];
     switch (indexPath.section) {
         case PSSettingsSectionTypePersonality: {
             BOOL ensure = NO;
-            PSUserManager *userManager = [PSUserManager shareManager];
             NSString *placeholder = userManager.uname;
             PSEditType editType = PSEditTypeNickname;
             if(indexPath.row == 1) {
@@ -159,8 +160,16 @@ typedef enum {
             [self.navigationController pushViewController:personalityEditVc animated:YES];
             break;
         }
-        case PSSettingsSectionTypeOrder:
+        case PSSettingsSectionTypeOrder:{
+            if(indexPath.row == 0) {
+                
+            } else {
+                PSAddressListViewController *addressList = [[PSAddressListViewController alloc] init];
+                addressList.uid = userManager.uid;
+                [self.navigationController pushViewController:addressList animated:YES];
+            }
             break;
+        }
         case PSSettingsSectionTypeAbout: {
             PSAppAboutViewController *aboutVC = [[PSAppAboutViewController alloc] init];
             [self.navigationController pushViewController:aboutVC animated:YES];
