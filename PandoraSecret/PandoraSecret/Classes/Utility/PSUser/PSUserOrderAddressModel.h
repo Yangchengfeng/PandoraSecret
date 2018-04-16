@@ -10,11 +10,11 @@
 
 @interface PSUserOrderAddressModel : NSObject <NSCoding>
 
-@property (nonatomic, assign) NSInteger addressId;
+@property (nonatomic, strong) NSString *addressId;
 @property (nonatomic, strong) NSString *uname;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *address;
-@property (nonatomic, assign) NSInteger defaultAddress;
+@property (nonatomic, strong) NSString *defaultAddress;
 
 + (instancetype)orderAddressWithDict:(NSDictionary *)dict;
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSUserOrderAddressModel.h"
 
 @interface PSAddressListCell : UITableViewCell
 

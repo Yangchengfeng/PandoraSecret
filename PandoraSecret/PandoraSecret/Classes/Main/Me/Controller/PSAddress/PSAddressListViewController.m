@@ -9,8 +9,10 @@
 #import "PSAddressListViewController.h"
 #import "PSUserOrderAddressModel.h"
 #import "VictoriaAddressEditViewController.h"
+#import "PSAddressListCell.h"
 
 static NSString *addressQuery = @"address/query";
+static NSString *deleteRequest = @"address/delete";
 
 @interface PSAddressListViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -56,7 +58,7 @@ static NSString *addressQuery = @"address/query";
         for(NSDictionary *address in responseObject[@"data"]) {
             [_addresslistArr addObject:address];
         }
-        if(_addresslistArr.count<=0) {
+        if(_addresslistArr && _addresslistArr.count<=0) {
             _noDataType = PSNoDataViewTypeSuccess;
         }
         [self.addressListView reloadData];
@@ -99,6 +101,14 @@ static NSString *addressQuery = @"address/query";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(_addresslistArr.count > 0) {
+        PSAddressListCell *addressCell = [[PSAddressListCell alloc] init];
+        _addressModel = [PSUserOrderAddressModel orderAddressWithDict:_addresslistArr[indexPath.section]];
+        addressCell.addressModel = _addressModel;
+        [addressCell.edit addTarget:self action:@selector(toEdit) forControlEvents:UIControlEventTouchUpInside];
+        [addressCell.delete addTarget:self action:@selector(toDelete) forControlEvents:UIControlEventTouchUpInside];
+        return addressCell;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     if(!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
@@ -110,6 +120,32 @@ static NSString *addressQuery = @"address/query";
     [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-64-44-49) andType:_noDataType];
     [cell addSubview:noDataView];
     return cell;
+}
+
+// 跳转到编辑页面
+- (void)toEdit {
+    VictoriaAddressEditViewController *newAddress = [[VictoriaAddressEditViewController alloc] init];
+    [self.navigationController pushViewController:newAddress animated:YES];
+}
+
+// 发起删除，成功刷新页面
+- (void)toDelete {
+    NSDictionary *dict = @{@"uid": @([PSUserManager shareManager].uid),
+                           @"id": _addressModel.addressId
+                           };
+    [PSNetoperation postRequestWithConcretePartOfURL:deleteRequest parameter:dict success:^(id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"删除备用地址成功"];
+        for(NSDictionary *address in responseObject[@"data"]) {
+            [_addresslistArr addObject:address];
+        }
+        [UIView animateWithDuration:[SVProgressHUD displayDurationForString:@"删除备用地址成功"] animations:^{
+            [self.addressListView reloadData];
+        }];
+    } failure:^(id failure) {
+        [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+    } andError:^(NSError *error) {
+        
+    }];
 }
 
 @end

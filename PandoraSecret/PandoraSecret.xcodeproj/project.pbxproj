@@ -15,6 +15,8 @@
 		381EAD602084C6A50047FFD2 /* VictoriaAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381EAD5E2084C4270047FFD2 /* VictoriaAddressPickerView.m */; };
 		381EAD612084C6B50047FFD2 /* VictoriaAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 381EAD5B2084C4270047FFD2 /* VictoriaAddressModel.m */; };
 		381EAD622084C8A00047FFD2 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 381EAD532084C4270047FFD2 /* area.plist */; };
+		381EAD6D208505A50047FFD2 /* PSAddressListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381EAD6C208505910047FFD2 /* PSAddressListCell.m */; };
+		381EAD6E208505B30047FFD2 /* PSAddressListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381EAD6A208505910047FFD2 /* PSAddressListCell.xib */; };
 		381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F9639206CC3B4008E8284 /* AppDelegate.m */; };
 		381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 381F9641206CC3B4008E8284 /* Assets.xcassets */; };
 		381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381F9643206CC3B4008E8284 /* LaunchScreen.storyboard */; };
@@ -126,6 +128,9 @@
 		381EAD5B2084C4270047FFD2 /* VictoriaAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VictoriaAddressModel.m; sourceTree = "<group>"; };
 		381EAD5D2084C4270047FFD2 /* VictoriaAddressPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VictoriaAddressPickerView.h; sourceTree = "<group>"; };
 		381EAD5E2084C4270047FFD2 /* VictoriaAddressPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VictoriaAddressPickerView.m; sourceTree = "<group>"; };
+		381EAD6A208505910047FFD2 /* PSAddressListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSAddressListCell.xib; sourceTree = "<group>"; };
+		381EAD6B208505910047FFD2 /* PSAddressListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAddressListCell.h; sourceTree = "<group>"; };
+		381EAD6C208505910047FFD2 /* PSAddressListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAddressListCell.m; sourceTree = "<group>"; };
 		381F9635206CC3B4008E8284 /* PandoraSecret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PandoraSecret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		381F9638206CC3B4008E8284 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		381F9639206CC3B4008E8284 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -190,9 +195,6 @@
 		38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMePersonalityEditViewController.m; sourceTree = "<group>"; };
 		38A03D3C20816DCA004AACD0 /* PSAppAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppAboutViewController.h; sourceTree = "<group>"; };
 		38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppAboutViewController.m; sourceTree = "<group>"; };
-		38A03D492081784C004AACD0 /* PSOrderListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderListCell.h; sourceTree = "<group>"; };
-		38A03D4A2081784C004AACD0 /* PSOrderListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderListCell.m; sourceTree = "<group>"; };
-		38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderListCell.xib; sourceTree = "<group>"; };
 		38A03D54208189CE004AACD0 /* PSGoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSGoodsDetailViewController.h; sourceTree = "<group>"; };
 		38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGoodsDetailViewController.m; sourceTree = "<group>"; };
 		38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
@@ -444,6 +446,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		381EAD69208505910047FFD2 /* PSAddress */ = {
+			isa = PBXGroup;
+			children = (
+				381EAD6A208505910047FFD2 /* PSAddressListCell.xib */,
+				381EAD6B208505910047FFD2 /* PSAddressListCell.h */,
+				381EAD6C208505910047FFD2 /* PSAddressListCell.m */,
+			);
+			path = PSAddress;
+			sourceTree = "<group>";
+		};
 		381F962C206CC3B4008E8284 = {
 			isa = PBXGroup;
 			children = (
@@ -688,7 +700,7 @@
 		381F969B206D59EF008E8284 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38A03D482081781A004AACD0 /* PSUserOrder */,
+				381EAD69208505910047FFD2 /* PSAddress */,
 				381F969F206D5A58008E8284 /* PSMeTableView.h */,
 				381F96A0206D5A58008E8284 /* PSMeTableView.m */,
 				381F96A4206DEE49008E8284 /* PSMeHeaderTableViewCell.h */,
@@ -868,16 +880,6 @@
 				381EAD0020825DC60047FFD2 /* PSAddressListViewController.m */,
 			);
 			path = PSAddress;
-			sourceTree = "<group>";
-		};
-		38A03D482081781A004AACD0 /* PSUserOrder */ = {
-			isa = PBXGroup;
-			children = (
-				38A03D492081784C004AACD0 /* PSOrderListCell.h */,
-				38A03D4A2081784C004AACD0 /* PSOrderListCell.m */,
-				38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */,
-			);
-			path = PSUserOrder;
 			sourceTree = "<group>";
 		};
 		38A03D4E208186D4004AACD0 /* PSGoods */ = {
@@ -1303,6 +1305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381EAD6E208505B30047FFD2 /* PSAddressListCell.xib in Resources */,
 				381EAD622084C8A00047FFD2 /* area.plist in Resources */,
 				38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */,
 				383FFF4020731A8D000E8631 /* SVProgressHUD.bundle in Resources */,
@@ -1329,6 +1332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381EAD6D208505A50047FFD2 /* PSAddressListCell.m in Sources */,
 				381EAD612084C6B50047FFD2 /* VictoriaAddressModel.m in Sources */,
 				381EAD602084C6A50047FFD2 /* VictoriaAddressPickerView.m in Sources */,
 				381EAD5F2084C69F0047FFD2 /* VictoriaAddressEditViewController.m in Sources */,

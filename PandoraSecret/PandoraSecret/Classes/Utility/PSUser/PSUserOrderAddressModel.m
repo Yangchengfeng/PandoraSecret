@@ -13,11 +13,11 @@
 - (instancetype)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if(self) {
-        self.addressId = [dict[@"id"] integerValue];
+        self.addressId = [dict[@"id"] stringValue];
         self.uname = dict[@"uname"];
-        self.phone = dict[@"phone"];
+        self.phone = [dict[@"phone"] stringValue];
         self.address = dict[@"address"];
-        self.defaultAddress = [dict[@"defaultAddress"] integerValue];
+        self.defaultAddress = [dict[@"defaultAddress"] stringValue];
     }
     return self;
 }
@@ -29,21 +29,21 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if(self) {
-        self.addressId = [[aDecoder decodeObjectForKey:@"id"] integerValue];
+        self.addressId = [aDecoder decodeObjectForKey:@"id"];
         self.uname = [aDecoder decodeObjectForKey:@"uname"];
         self.phone = [aDecoder decodeObjectForKey:@"phone"];
         self.address = [aDecoder decodeObjectForKey:@"address"];
-        self.defaultAddress = [[aDecoder decodeObjectForKey:@"defaultAddress"] integerValue];
+        self.defaultAddress = [aDecoder decodeObjectForKey:@"defaultAddress"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeInteger:self.addressId forKey:@"id"];
+    [aCoder encodeObject:self.addressId forKey:@"id"];
     [aCoder encodeObject:self.uname forKey:@"uname"];
     [aCoder encodeObject:self.phone forKey:@"phone"];
     [aCoder encodeObject:self.address forKey:@"address"];
-    [aCoder encodeInteger:self.defaultAddress forKey:@"defaultAddress"];
+    [aCoder encodeObject:self.defaultAddress forKey:@"defaultAddress"];
 }
 
 @end

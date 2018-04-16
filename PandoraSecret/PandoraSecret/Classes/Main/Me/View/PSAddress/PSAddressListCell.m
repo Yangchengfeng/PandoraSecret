@@ -19,10 +19,13 @@
 @implementation PSAddressListCell
 
 - (void)setAddressModel:(PSUserOrderAddressModel *)addressModel {
-    _uname.text = addressModel.uname;
-    _uphone.text = addressModel.phone;
-    _detailAddress.text = addressModel.address;
-    if(addressModel.defaultAddress == 1) {
+    if(!_addressModel) {
+        _addressModel = addressModel;
+    }
+    _uname.text = _addressModel.uname;
+    _uphone.text = _addressModel.phone;
+    _detailAddress.text = _addressModel.address;
+    if([_addressModel.defaultAddress isEqualToString:@"1"]) {
         _defalutAddress.selected = YES;
     } else {
         _defalutAddress.selected = NO;
@@ -33,8 +36,8 @@
     self = [super init];
     if(self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"PSAddressListCell" owner:nil options:nil].firstObject;
-        [self.defalutAddress setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
-        [self.defalutAddress setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [self.defalutAddress setImage:[UIImage imageNamed:@"address_select"] forState:UIControlStateSelected];
+        [self.defalutAddress setImage:[UIImage imageNamed:@"address_select_none"] forState:UIControlStateNormal];
     }
     return self;
 }
