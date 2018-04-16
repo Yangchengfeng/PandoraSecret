@@ -8,6 +8,7 @@
 
 #import "PSAddressListViewController.h"
 #import "PSUserOrderAddressModel.h"
+#import "VictoriaAddressEditViewController.h"
 
 static NSString *addressQuery = @"address/query";
 
@@ -46,7 +47,6 @@ static NSString *addressQuery = @"address/query";
     [addAddress addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addAddress];
     
-    
     [self queryAddress];
 }
 
@@ -68,7 +68,8 @@ static NSString *addressQuery = @"address/query";
 }
 
 - (void)addAddress {
-//    self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>
+    VictoriaAddressEditViewController *newAddress = [[VictoriaAddressEditViewController alloc] init];
+    [self.navigationController pushViewController:newAddress animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
