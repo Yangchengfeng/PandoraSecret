@@ -65,8 +65,6 @@
 		38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2120815117004AACD0 /* PSMeHeaderModel.m */; };
 		38A03D3E20816DCA004AACD0 /* PSAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */; };
 		38A03D3F20817353004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */; };
-		38A03D4C2081784C004AACD0 /* PSOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D4A2081784C004AACD0 /* PSOrderListCell.m */; };
-		38A03D4D2081784C004AACD0 /* PSOrderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A03D4B2081784C004AACD0 /* PSOrderListCell.xib */; };
 		38A03D57208189CE004AACD0 /* PSGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */; };
 		38F2A20420727DEF00F80D92 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20320727DEF00F80D92 /* libz.tbd */; };
 		38F2A20620727DFA00F80D92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20520727DFA00F80D92 /* libicucore.tbd */; };
@@ -1315,7 +1313,6 @@
 				381EAD07208338490047FFD2 /* PSNoDataView.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
 				381F9645206CC3B4008E8284 /* LaunchScreen.storyboard in Resources */,
-				38A03D4D2081784C004AACD0 /* PSOrderListCell.xib in Resources */,
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
 				38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
@@ -1362,7 +1359,6 @@
 				38FC38EE2079E77F00FD055F /* AFSecurityPolicy.m in Sources */,
 				38FC38EB2079E77100FD055F /* AFURLResponseSerialization.m in Sources */,
 				38FC38EC2079E77100FD055F /* AFHTTPSessionManager.m in Sources */,
-				38A03D4C2081784C004AACD0 /* PSOrderListCell.m in Sources */,
 				38FC37AC2077ECE200FD055F /* PSShareItem.m in Sources */,
 				381F9648206CC3B4008E8284 /* main.m in Sources */,
 				38FC37A12077581700FD055F /* PSShareView.m in Sources */,
