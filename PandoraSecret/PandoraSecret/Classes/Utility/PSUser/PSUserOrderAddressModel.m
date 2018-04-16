@@ -8,16 +8,6 @@
 
 #import "PSUserOrderAddressModel.h"
 
-@interface PSUserOrderAddressModel ()
-
-@property (nonatomic, assign) NSInteger addressId;
-@property (nonatomic, strong) NSString *uname;
-@property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, assign) NSInteger defaultAddress;
-
-@end
-
 @implementation PSUserOrderAddressModel
 
 - (instancetype)initWithDict:(NSDictionary *)dict {

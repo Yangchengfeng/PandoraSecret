@@ -25,7 +25,7 @@ static NSString *addressQuery = @"address/query";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.addressListView reloadData];
+    [self queryAddress];
 }
 
 - (void)viewDidLoad {
@@ -46,8 +46,6 @@ static NSString *addressQuery = @"address/query";
     addAddress.backgroundColor = kPandoraSecretColor;
     [addAddress addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addAddress];
-    
-    [self queryAddress];
 }
 
 - (void)queryAddress {
@@ -58,7 +56,9 @@ static NSString *addressQuery = @"address/query";
         for(NSDictionary *address in responseObject[@"data"]) {
             [_addresslistArr addObject:address];
         }
-        _noDataType = PSNoDataViewTypeSuccess;
+        if(_addresslistArr.count<=0) {
+            _noDataType = PSNoDataViewTypeSuccess;
+        }
         [self.addressListView reloadData];
     } failure:^(id failure) {
         _noDataType = PSNoDataViewTypeFailure;
