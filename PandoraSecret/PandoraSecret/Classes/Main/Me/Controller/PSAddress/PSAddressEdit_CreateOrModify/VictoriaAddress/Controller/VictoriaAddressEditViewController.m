@@ -3,7 +3,7 @@
 //  Address
 //
 //  Created by 阳丞枫 on 2018/4/16.
-//  Copyright © 2018年 CodingFire. All rights reserved.
+//  Copyright © 2018年 chengfengYang. All rights reserved.
 //
 //  for Create or Modify an address
 
@@ -12,6 +12,7 @@
 #import "VictoriaAddressModel.h"
 
 static NSString *addAddress = @"address/add";
+static NSString *updateAddress = @"address/update";
 
 @interface VictoriaAddressEditViewController () <VictoriaAddressPickerDelegate, UITextViewDelegate>
 
@@ -29,6 +30,7 @@ static NSString *addAddress = @"address/add";
 @property (nonatomic, strong) UITextField *uphoneTextField;
 @property (nonatomic, strong) UITextView *detailAddressTextView;
 @property (nonatomic, strong) UISwitch *defaultSwitch;
+@property (nonatomic, assign) VictoriaAddressEditType editType;
 
 @end
 
@@ -43,6 +45,23 @@ static NSString *addAddress = @"address/add";
     _stateArr = [NSMutableArray array];
     _cityArr = [NSMutableArray array];
     _areaArr = [NSMutableArray array];
+}
+
+#pragma mark - 判断新增或编辑
+- (void)enterAddressEditVCWithType:(VictoriaAddressEditType)type {
+    switch (type) {
+        _editType = type;
+        case VictoriaAddressEditTypeNew: {
+            self.navigationItem.title = @"新增地址";
+            break;
+        }
+        case VictoriaAddressEditTypeModify: {
+            self.navigationItem.title = @"编辑地址";
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - VictoriaAddressPickerDelegate
@@ -206,6 +225,11 @@ static NSString *addAddress = @"address/add";
         cell.accessoryView = switchBtn;
         _defaultSwitch = switchBtn;
     }
+    _unameTextField.text = _addressModel.uname;
+    _uphoneTextField.text = _addressModel.phone;
+    _detailAddressTextView.text = _addressModel.detailAddress;
+    _addressBtn.titleLabel.text = _addressModel.address;
+    _defaultSwitch.on = [_addressModel.defaultAddress isEqualToString:@"1"];
     cell.textLabel.text = _editListArr[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.textColor = [UIColor lightGrayColor];
@@ -270,7 +294,7 @@ static NSString *addAddress = @"address/add";
                                    @"uname": _unameTextField.text,
                                    @"address":[NSString stringWithFormat:@"%@-%@", self.addressBtn.titleLabel.text, _detailAddressTextView.text]
                                    };
-    [PSNetoperation postRequestWithConcretePartOfURL:addAddress parameter:addressParam success:^(id responseObject) {
+    [PSNetoperation postRequestWithConcretePartOfURL:_editType==VictoriaAddressEditTypeNew?addAddress:updateAddress parameter:addressParam success:^(id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"增加地址成功"];
     } failure:^(id failure) {
         [SVProgressHUD showSuccessWithStatus:@"操作失败，请重新再试~"];

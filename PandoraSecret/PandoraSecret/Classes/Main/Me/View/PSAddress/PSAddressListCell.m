@@ -24,7 +24,7 @@
     }
     _uname.text = _addressModel.uname;
     _uphone.text = _addressModel.phone;
-    _detailAddress.text = _addressModel.address;
+    _detailAddress.text = [NSString stringWithFormat:@"%@-%@", _addressModel.address, _addressModel.detailAddress];
     if([_addressModel.defaultAddress isEqualToString:@"1"]) {
         _defalutAddress.selected = YES;
     } else {

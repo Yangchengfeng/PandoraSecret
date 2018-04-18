@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *uname;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *detailAddress;
 @property (nonatomic, strong) NSString *defaultAddress;
 
 + (instancetype)orderAddressWithDict:(NSDictionary *)dict;

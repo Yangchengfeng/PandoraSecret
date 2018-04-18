@@ -71,6 +71,7 @@ static NSString *deleteRequest = @"address/delete";
 
 - (void)addAddress {
     VictoriaAddressEditViewController *newAddress = [[VictoriaAddressEditViewController alloc] init];
+    [newAddress enterAddressEditVCWithType:VictoriaAddressEditTypeNew];
     [self.navigationController pushViewController:newAddress animated:YES];
 }
 
@@ -124,8 +125,10 @@ static NSString *deleteRequest = @"address/delete";
 
 // 跳转到编辑页面
 - (void)toEdit {
-    VictoriaAddressEditViewController *newAddress = [[VictoriaAddressEditViewController alloc] init];
-    [self.navigationController pushViewController:newAddress animated:YES];
+    VictoriaAddressEditViewController *editAddress = [[VictoriaAddressEditViewController alloc] init];
+    editAddress.addressModel = _addressModel;
+    [editAddress enterAddressEditVCWithType:VictoriaAddressEditTypeModify];
+    [self.navigationController pushViewController:editAddress animated:YES];
 }
 
 // 发起删除，成功刷新页面

@@ -17,6 +17,7 @@
         self.uname = dict[@"uname"];
         self.phone = [dict[@"phone"] stringValue];
         self.address = dict[@"address"];
+        self.detailAddress = dict[@"detailAddress"];
         self.defaultAddress = [dict[@"defaultAddress"] stringValue];
     }
     return self;
@@ -33,6 +34,7 @@
         self.uname = [aDecoder decodeObjectForKey:@"uname"];
         self.phone = [aDecoder decodeObjectForKey:@"phone"];
         self.address = [aDecoder decodeObjectForKey:@"address"];
+        self.detailAddress = [aDecoder decodeObjectForKey:@"detailAddress"];
         self.defaultAddress = [aDecoder decodeObjectForKey:@"defaultAddress"];
     }
     return self;
@@ -43,6 +45,7 @@
     [aCoder encodeObject:self.uname forKey:@"uname"];
     [aCoder encodeObject:self.phone forKey:@"phone"];
     [aCoder encodeObject:self.address forKey:@"address"];
+    [aCoder encodeObject:self.detailAddress forKey:@"detailAddress"];
     [aCoder encodeObject:self.defaultAddress forKey:@"defaultAddress"];
 }
 
