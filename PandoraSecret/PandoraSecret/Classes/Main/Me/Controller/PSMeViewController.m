@@ -15,6 +15,7 @@
 #import "PSMePersonalityEditViewController.h"
 #import "PSAppAboutViewController.h"
 #import "PSAddressListViewController.h"
+#import "PSOrderListViewController.h"
 
 static CGFloat rowH = 44.f;
 static CGFloat headerH = 0.1f;
@@ -162,7 +163,8 @@ typedef enum {
         }
         case PSSettingsSectionTypeOrder:{
             if(indexPath.row == 0) {
-                
+                PSOrderListViewController *orderVC = [[PSOrderListViewController alloc] init];
+                [self.navigationController pushViewController:orderVC animated:YES];
             } else {
                 PSAddressListViewController *addressList = [[PSAddressListViewController alloc] init];
                 addressList.uid = userManager.uid;

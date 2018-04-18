@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="PSOrderListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下单时间：2018-04-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNS-zW-Svf">
+                        <rect key="frame" x="15" y="0.0" width="290" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Shn-0P-71p"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付：￥250 共5件商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0h-FH-4eD">
+                        <rect key="frame" x="15" y="130" width="290" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="n7y-nh-FC9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zA-ke-sZN">
+                        <rect key="frame" x="15" y="25" width="290" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="DNj-Dy-PrJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3zA-ke-sZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3sT-vn-2jF"/>
+                    <constraint firstItem="b0h-FH-4eD" firstAttribute="top" secondItem="3zA-ke-sZN" secondAttribute="bottom" constant="5" id="BUU-XT-15a"/>
+                    <constraint firstItem="3zA-ke-sZN" firstAttribute="top" secondItem="bNS-zW-Svf" secondAttribute="bottom" constant="5" id="NUa-1s-CAi"/>
+                    <constraint firstItem="bNS-zW-Svf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YTD-uy-LWm"/>
+                    <constraint firstItem="bNS-zW-Svf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dv6-ek-8eU"/>
+                    <constraint firstItem="b0h-FH-4eD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="l8Q-RB-ygZ"/>
+                    <constraint firstAttribute="trailing" secondItem="bNS-zW-Svf" secondAttribute="trailing" constant="15" id="pTO-MN-JlF"/>
+                    <constraint firstAttribute="trailing" secondItem="3zA-ke-sZN" secondAttribute="trailing" constant="15" id="sEy-d1-492"/>
+                    <constraint firstAttribute="bottom" secondItem="b0h-FH-4eD" secondAttribute="bottom" id="xxa-ay-IlT"/>
+                    <constraint firstAttribute="trailing" secondItem="b0h-FH-4eD" secondAttribute="trailing" constant="15" id="y9D-vk-Mtc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="goodsImage" destination="3zA-ke-sZN" id="cXB-ld-EsZ"/>
+                <outlet property="orderPriceAndGoodsNum" destination="b0h-FH-4eD" id="ygt-aG-SS1"/>
+                <outlet property="orderTime" destination="bNS-zW-Svf" id="jSt-gO-cWg"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="25"/>
+        </tableViewCell>
+    </objects>
+</document>
