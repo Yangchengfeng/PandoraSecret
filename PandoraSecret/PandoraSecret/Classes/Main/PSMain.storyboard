@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -212,6 +213,9 @@
                                     <constraint firstAttribute="height" constant="20" id="gdZ-kE-EGO"/>
                                 </constraints>
                                 <state key="normal" image="choose_none_line"/>
+                                <connections>
+                                    <action selector="anonymousClick:" destination="QLI-9t-gOR" eventType="touchUpInside" id="V9U-x9-d4u"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="是否匿名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="US2-fr-zZv">
                                 <rect key="frame" x="40" y="352" width="65" height="15"/>
@@ -249,6 +253,9 @@
                                     <constraint firstAttribute="height" constant="60" id="Y67-Rp-hMu"/>
                                 </constraints>
                                 <state key="normal" image="add_photo"/>
+                                <connections>
+                                    <action selector="searchPhoto:" destination="QLI-9t-gOR" eventType="touchUpInside" id="ZAQ-f6-134"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0u-uz-5pm">
                                 <rect key="frame" x="10" y="254" width="355" height="1"/>
@@ -267,6 +274,9 @@
                                 <state key="normal" title="确认提交">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="uploadShow:" destination="QLI-9t-gOR" eventType="touchUpInside" id="vrc-aa-uHq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="打分" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJW-aL-0iW">
                                 <rect key="frame" x="15" y="315" width="30" height="15"/>
@@ -364,10 +374,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="主场" image="main_tab_MyShow" selectedImage="main_tab_MyShow" id="WXt-JH-6y5"/>
                     <navigationItem key="navigationItem" title="我也能打开潘多拉魔盒" id="en3-S4-tA0"/>
+                    <connections>
+                        <outlet property="choosePhoto" destination="1K4-hV-3gD" id="9cn-c0-CuN"/>
+                        <outlet property="comment" destination="uqo-MM-asv" id="Q9H-B4-BfY"/>
+                        <outlet property="goodsTitle" destination="KLe-ip-dnn" id="QJt-R0-PKm"/>
+                        <outlet property="isAnonymous" destination="uJg-gb-hmH" id="91N-ar-H9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vP-ws-qo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597.60000000000002" y="823.53823088455783"/>
+            <point key="canvasLocation" x="780" y="907"/>
         </scene>
         <!--个人中心-->
         <scene sceneID="Ptv-OH-0XJ">

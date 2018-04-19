@@ -76,12 +76,31 @@
 }
 
 #pragma mark - 图床上传
-+ (void)postPicUploadWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError {
-    AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBasePicUploadURLStr]];
-    [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+
++ (void)postPicUploadWithImage:(UIImage *)image success:(success)success failure:(failure)failure andError:(responseError)responseError {
+    AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
+    
+    [httpManager POST:kBasePicUploadURLStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        // 时间+uuid
+        NSData *data = UIImageJPEGRepresentation(image, 0.3);
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@_%@.png", [UIDevice currentDevice].identifierForVendor, str];
+        
+        [formData appendPartWithFileData:data name:@"smfile" fileName:fileName mimeType:@"image/jpeg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if(success) {
-            success(responseObject);
+        if([responseObject[@"code"] isEqualToString:@"success"]) {
+            if(success) {
+                success(responseObject);
+            }
+        } else {
+            if(failure) {
+                failure(responseObject);
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(responseError) {

@@ -18,4 +18,7 @@ typedef void(^responseError)(NSError *error);
 + (void)getRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError;
 + (void)postRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError;
 + (void)postRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success failure:(failure)failure andError:(responseError)responseError;
+// 上传图片
++ (void)postPicUploadWithImage:(UIImage *)image success:(success)success failure:(failure)failure andError:(responseError)responseError;
+
 @end
