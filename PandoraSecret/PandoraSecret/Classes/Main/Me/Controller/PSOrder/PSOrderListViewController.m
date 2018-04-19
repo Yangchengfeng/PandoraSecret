@@ -51,10 +51,6 @@ static NSString *orderQuery = @"order/list/query";
     }];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if(_orderListArr.count>0) {
         return _orderListArr.count;
