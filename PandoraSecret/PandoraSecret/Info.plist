@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -75,8 +70,17 @@
 	<string>250071dfff38c</string>
 	<key>MOBAppSecret</key>
 	<string>cd8a0079da1051da39b2a3de4336c392</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSContactsUsageDescription</key>
 	<string>开启通讯好友</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>该应用需要您的同意才会添加图片到相册中</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>该应用需要您同意才会访问您的相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
