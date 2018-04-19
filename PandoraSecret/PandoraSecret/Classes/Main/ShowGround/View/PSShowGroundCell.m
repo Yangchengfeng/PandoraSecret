@@ -7,12 +7,24 @@
 //
 
 #import "PSShowGroundCell.h"
+#import "UIButton+WebCache.h"
+
+@interface PSShowGroundCell ()
+
+@property (weak, nonatomic) IBOutlet UIButton *userVatcarImage;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UITextField *goodsDecs;
+@property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
+
+@end
 
 @implementation PSShowGroundCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setShowGroundModel:(PSShowGroundModel *)showGroundModel {
+    _userName.text = showGroundModel.userName;
+    [_userVatcarImage sd_setImageWithURL:[NSURL URLWithString:showGroundModel.userImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
+    _goodsDecs.text = showGroundModel.content;
+    [_goodsImage sd_setImageWithURL:[NSURL URLWithString:showGroundModel.topicImage] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
 }
 
 - (instancetype)init {

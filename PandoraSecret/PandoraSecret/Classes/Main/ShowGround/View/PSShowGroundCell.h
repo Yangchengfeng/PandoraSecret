@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSShowGroundModel.h"
 
 @interface PSShowGroundCell : UITableViewCell
+
+@property (nonatomic, strong) PSShowGroundModel *showGroundModel;
 
 @end
