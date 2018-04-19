@@ -10,6 +10,7 @@
 
 @implementation PSNetoperation
 
+#pragma mark - 利用搭建在阿里云服务器
 + (void)getRequestWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError {
     AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLStr]];
     [httpManager GET:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -68,6 +69,21 @@
             }
         }
     } andError:^(NSError *error) {
+        if(responseError) {
+            responseError(error);
+        }
+    }];
+}
+
+#pragma mark - 图床上传
++ (void)postPicUploadWithConcretePartOfURL:(NSString *)urlStr parameter:(id)param success:(success)success  andError:(responseError)responseError {
+    AFHTTPSessionManager *httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBasePicUploadURLStr]];
+    [httpManager POST:urlStr parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if(success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(responseError) {
             responseError(error);
         }

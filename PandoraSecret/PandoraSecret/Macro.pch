@@ -45,4 +45,7 @@ CG_INLINE CGRect const CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat 
 // 服务器地址
 #define kBaseURLStr @"http://120.78.184.72:9090/"
 
+// 主秀场图片上传文档：https://sm.ms/doc/
+#define kBasePicUploadURLStr @"https://sm.ms/api/upload"
+
 #endif /* Macro_pch */
