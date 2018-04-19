@@ -8,6 +8,7 @@
 
 #import "PSOrderListViewController.h"
 #import "PSOrderListCell.h"
+#import "PSOrderDetailViewController.h"
 #import "PSMeOrderModel.h"
 
 static NSString *orderQuery = @"order/list/query";
@@ -15,7 +16,7 @@ static NSString *orderQuery = @"order/list/query";
 @interface PSOrderListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *orderListView;
-@property (nonatomic, copy) NSMutableArray *orderListArr;
+@property (nonatomic, copy) NSMutableArray<PSMeOrderModel *> *orderListArr;
 @property (nonatomic, assign) PSNoDataViewType noDataType;
 
 @end
@@ -94,9 +95,15 @@ static NSString *orderQuery = @"order/list/query";
         [view removeFromSuperview];
     }
     PSNoDataView *noDataView = [[PSNoDataView alloc] init];
-    [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-64-44-49) andType:_noDataType];
+    [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-44) andType:_noDataType];
     [cell addSubview:noDataView];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PSOrderDetailViewController *orderDetailVC = [[PSOrderDetailViewController alloc] init];
+    [orderDetailVC requestOrderDetailWithOrderId:_orderListArr[indexPath.section].orderId];
+    [self.navigationController pushViewController:orderDetailVC animated:YES];
 }
 
 @end
