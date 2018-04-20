@@ -19,6 +19,8 @@
 @property (nonatomic, assign) BOOL anonymous;
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) NSInteger likeNum;
+@property (nonatomic, strong) NSString *shopName;
 
 + (instancetype)showWithDict:(NSDictionary *)dict;
 

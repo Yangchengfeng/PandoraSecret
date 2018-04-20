@@ -25,7 +25,6 @@ static NSString *showGroundListQuery = @"topic/list";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _showGroundListView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-44) style:UITableViewStyleGrouped];
-    _showGroundListView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     _showGroundListView.delegate = self;
     _showGroundListView.dataSource = self;
     [self.view addSubview:_showGroundListView];
@@ -51,6 +50,7 @@ static NSString *showGroundListQuery = @"topic/list";
         cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     }
     cell.showGroundModel = _showGroundListArr[indexPath.section];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -66,7 +66,7 @@ static NSString *showGroundListQuery = @"topic/list";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 170.f;
+    return 200.f;
 }
 
 // 用于去掉Grouped类型引起的头部空白
@@ -88,6 +88,5 @@ static NSString *showGroundListQuery = @"topic/list";
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 3;
 }
-
 
 @end

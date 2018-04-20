@@ -22,6 +22,8 @@
         self.anonymous = [dict[@"anonymous"] boolValue];
         self.width = [dict[@"width"] floatValue];
         self.height = [dict[@"height"] floatValue];
+        self.likeNum = [dict[@"likeNum"] integerValue];
+        self.shopName = dict[@"shopName"];
     }
     return self;
 }
