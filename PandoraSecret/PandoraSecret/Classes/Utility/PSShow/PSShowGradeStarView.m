@@ -4,7 +4,7 @@
 //
 //  Created by 阳丞枫 on 2018/4/20.
 //  Copyright © 2018年 chengfengYang. All rights reserved.
-//
+// 
 
 #import "PSShowGradeStarView.h"
 
@@ -19,8 +19,6 @@ static NSInteger starBeginWithIdx = 0;
 @end
 
 @implementation PSShowGradeStarView
-
-#pragma mark - 显示分数
 
 - (id)initWithFrame:(CGRect)frame selectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
     self = [super initWithFrame:frame];
@@ -52,5 +50,10 @@ static NSInteger starBeginWithIdx = 0;
     }
 }
 
+#pragma mark - 点击评分
+
+- (id)initWithFrame:(CGRect)frame totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
+    return [self initWithFrame:frame selectedStars:0 totalStars:totalStars starSize:starSize optional:optional];
+}
 
 @end

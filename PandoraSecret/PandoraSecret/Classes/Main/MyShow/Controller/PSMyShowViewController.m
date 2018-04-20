@@ -7,16 +7,20 @@
 //
 
 #import "PSMyShowViewController.h"
+#import "PSShowGradeStarView.h"
 
+static NSInteger selectedStar = 0;
+static NSInteger totalStars = 5;
 static NSString *myShowPostUrl = @"topic/public";
 
 @interface PSMyShowViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *comment;
+@property (weak, nonatomic) IBOutlet UITextView *comment;
 @property (weak, nonatomic) IBOutlet UIButton *choosePhoto;
 @property (weak, nonatomic) IBOutlet UITextField *goodsTitle;
 @property (weak, nonatomic) IBOutlet UIButton *isAnonymous;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet PSShowGradeStarView *pickStarView;
 @property (nonatomic, strong) UIImage *pickerImage;
 
 @end
@@ -30,6 +34,8 @@ static NSString *myShowPostUrl = @"topic/public";
     _imagePickerController.delegate = self;
     _imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     _imagePickerController.allowsEditing = YES;
+    
+    [_pickStarView buildStarsWithSelectedStars:selectedStar totalStars:totalStars starSize:CGSizeMake(30, 30) optional:YES];
     
     [_isAnonymous setImage:[UIImage imageNamed:@"choose_none_line"] forState:UIControlStateNormal];
     [_isAnonymous setImage:[UIImage imageNamed:@"choose"] forState:UIControlStateSelected];
