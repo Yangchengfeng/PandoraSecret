@@ -7,7 +7,9 @@
 //
 
 #import "PSShowGroundCell.h"
-#import "UIButton+WebCache.h"
+#import "PSShowGradeStarView.h"
+
+static NSInteger totalStars = 5;
 
 @interface PSShowGroundCell ()
 
@@ -15,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *goodsDecs;
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
-@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
+@property (weak, nonatomic) IBOutlet PSShowGradeStarView *showGradeStarView;
 @property (weak, nonatomic) IBOutlet UILabel *shopOrGoodsName;
 
 @end
@@ -27,7 +29,8 @@
     [_userVatcarImage sd_setImageWithURL:[NSURL URLWithString:showGroundModel.userImage] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
     _goodsDecs.text = showGroundModel.content;
     [_goodsImage sd_setImageWithURL:[NSURL URLWithString:showGroundModel.topicImage] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
-    _gradeLabel.text = [NSString stringWithFormat:@"%ld分", showGroundModel.likeNum];
+    
+    [_showGradeStarView buildStarsWithSelectedStars:showGroundModel.likeNum totalStars:totalStars starSize:CGSizeMake(20, 20) optional:NO];
     _shopOrGoodsName.text = showGroundModel.shopName;
 }
 

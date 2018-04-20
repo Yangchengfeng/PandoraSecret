@@ -29,17 +29,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商店或商品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-xd-E9u">
-                        <rect key="frame" x="15" y="54.5" width="227" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5分" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnk-Wx-YZx">
-                        <rect key="frame" x="292" y="55" width="40" height="14.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="CUW-0w-kzP"/>
-                            <constraint firstAttribute="height" constant="15" id="u4Z-0l-Dcd"/>
-                        </constraints>
+                        <rect key="frame" x="15" y="54.5" width="324" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,34 +42,42 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgB-MU-7nG">
-                        <rect key="frame" x="15" y="74.5" width="317" height="15"/>
+                        <rect key="frame" x="15" y="74.5" width="324" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN0-eI-uJr">
-                        <rect key="frame" x="63" y="17" width="269" height="17"/>
+                        <rect key="frame" x="63" y="17" width="168" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-PJ-1mB" customClass="PSShowGradeStarView">
+                        <rect key="frame" x="231" y="15.5" width="108" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="108" id="9pW-Jf-nXg"/>
+                            <constraint firstAttribute="height" constant="20" id="PHw-Lg-PCT"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xnk-Wx-YZx" firstAttribute="leading" secondItem="hUg-xd-E9u" secondAttribute="trailing" constant="50" id="0cj-4q-hIo"/>
                     <constraint firstItem="FN0-eI-uJr" firstAttribute="centerY" secondItem="uuf-Au-5BC" secondAttribute="centerY" id="4NT-ii-26Z"/>
+                    <constraint firstItem="wbs-PJ-1mB" firstAttribute="leading" secondItem="FN0-eI-uJr" secondAttribute="trailing" id="4ky-IO-M9J"/>
+                    <constraint firstItem="wbs-PJ-1mB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="7dm-Vp-BYn"/>
                     <constraint firstItem="uuf-Au-5BC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8jl-dk-hXE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="FN0-eI-uJr" secondAttribute="trailing" constant="15" id="8uY-s7-vk8"/>
                     <constraint firstItem="zgB-MU-7nG" firstAttribute="leading" secondItem="hUg-xd-E9u" secondAttribute="leading" id="DRE-90-fiO"/>
                     <constraint firstItem="zgB-MU-7nG" firstAttribute="top" secondItem="hUg-xd-E9u" secondAttribute="bottom" constant="5" id="EWE-B9-WfE"/>
+                    <constraint firstItem="wbs-PJ-1mB" firstAttribute="centerY" secondItem="FN0-eI-uJr" secondAttribute="centerY" id="FuB-ie-P7z"/>
                     <constraint firstItem="eqm-kt-rBt" firstAttribute="leading" secondItem="zgB-MU-7nG" secondAttribute="leading" id="JVs-4i-tRM"/>
-                    <constraint firstItem="zgB-MU-7nG" firstAttribute="trailing" secondItem="xnk-Wx-YZx" secondAttribute="trailing" id="Tb4-30-DcW"/>
-                    <constraint firstItem="xnk-Wx-YZx" firstAttribute="centerY" secondItem="hUg-xd-E9u" secondAttribute="centerY" id="URc-m3-RBo"/>
+                    <constraint firstItem="hUg-xd-E9u" firstAttribute="trailing" secondItem="wbs-PJ-1mB" secondAttribute="trailing" id="aGZ-4E-hUy"/>
                     <constraint firstItem="eqm-kt-rBt" firstAttribute="top" secondItem="zgB-MU-7nG" secondAttribute="bottom" constant="5" id="cZt-dX-h0b"/>
                     <constraint firstItem="uuf-Au-5BC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fI5-e7-AVp"/>
                     <constraint firstItem="hUg-xd-E9u" firstAttribute="top" secondItem="uuf-Au-5BC" secondAttribute="bottom" constant="9.5" id="ijK-kW-3gJ"/>
+                    <constraint firstItem="zgB-MU-7nG" firstAttribute="trailing" secondItem="wbs-PJ-1mB" secondAttribute="trailing" id="mz4-ey-y2M"/>
                     <constraint firstItem="hUg-xd-E9u" firstAttribute="leading" secondItem="uuf-Au-5BC" secondAttribute="leading" id="qU0-eU-rca"/>
                     <constraint firstItem="FN0-eI-uJr" firstAttribute="leading" secondItem="uuf-Au-5BC" secondAttribute="trailing" constant="8" id="uTq-nq-erh"/>
-                    <constraint firstItem="xnk-Wx-YZx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-15" id="xHE-SC-U7d"/>
                     <constraint firstAttribute="bottom" secondItem="eqm-kt-rBt" secondAttribute="bottom" constant="5" id="yWt-Sf-hTl"/>
                 </constraints>
             </tableViewCellContentView>
@@ -87,8 +85,8 @@
             <connections>
                 <outlet property="goodsDecs" destination="zgB-MU-7nG" id="ued-SX-2ku"/>
                 <outlet property="goodsImage" destination="eqm-kt-rBt" id="Sr3-H2-rCn"/>
-                <outlet property="gradeLabel" destination="xnk-Wx-YZx" id="ZpI-b4-Gjn"/>
                 <outlet property="shopOrGoodsName" destination="hUg-xd-E9u" id="Oyu-nc-AUt"/>
+                <outlet property="showGradeStarView" destination="wbs-PJ-1mB" id="Rfz-eq-NTW"/>
                 <outlet property="userName" destination="FN0-eI-uJr" id="VO8-Ak-qlc"/>
                 <outlet property="userVatcarImage" destination="uuf-Au-5BC" id="C2t-4f-q2J"/>
             </connections>

@@ -67,6 +67,7 @@
 		383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF3D20731A04000E8631 /* SVIndefiniteAnimatedView.m */; };
 		383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */; };
 		385FD4662089212E0033D098 /* PSShowGroundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FD4652089212E0033D098 /* PSShowGroundModel.m */; };
+		385FD46A208A11D20033D098 /* PSShowGradeStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 385FD469208A11D20033D098 /* PSShowGradeStarView.m */; };
 		38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D11207FE62F004AACD0 /* PSUserManager.m */; };
 		38A03D1F20813B70004AACD0 /* PSUserOrderAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D1E20813B70004AACD0 /* PSUserOrderAddressModel.m */; };
 		38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2120815117004AACD0 /* PSMeHeaderModel.m */; };
@@ -203,6 +204,8 @@
 		383FFF4920737104000E8631 /* PSLoginWithPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSLoginWithPasswordViewController.m; sourceTree = "<group>"; };
 		385FD4642089212E0033D098 /* PSShowGroundModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGroundModel.h; sourceTree = "<group>"; };
 		385FD4652089212E0033D098 /* PSShowGroundModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGroundModel.m; sourceTree = "<group>"; };
+		385FD468208A11D20033D098 /* PSShowGradeStarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShowGradeStarView.h; sourceTree = "<group>"; };
+		385FD469208A11D20033D098 /* PSShowGradeStarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShowGradeStarView.m; sourceTree = "<group>"; };
 		38A03D10207FE62F004AACD0 /* PSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserManager.h; sourceTree = "<group>"; };
 		38A03D11207FE62F004AACD0 /* PSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserManager.m; sourceTree = "<group>"; };
 		38A03D1D20813B70004AACD0 /* PSUserOrderAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserOrderAddressModel.h; sourceTree = "<group>"; };
@@ -900,6 +903,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		385FD467208A11AC0033D098 /* PSShow */ = {
+			isa = PBXGroup;
+			children = (
+				385FD468208A11D20033D098 /* PSShowGradeStarView.h */,
+				385FD469208A11D20033D098 /* PSShowGradeStarView.m */,
+			);
+			path = PSShow;
+			sourceTree = "<group>";
+		};
 		38A03D0F207FE625004AACD0 /* PSUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1006,7 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				385FD467208A11AC0033D098 /* PSShow */,
 				381EAD022083286B0047FFD2 /* PSNoDataView */,
 				381EACFC2081EBCA0047FFD2 /* NullSafe */,
 				38A03D4E208186D4004AACD0 /* PSGoods */,
@@ -1429,6 +1442,7 @@
 				383FFF4720731E57000E8631 /* SVIndefiniteAnimatedView.m in Sources */,
 				383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */,
 				381EAD71208740DA0047FFD2 /* PSMeOrderModel.m in Sources */,
+				385FD46A208A11D20033D098 /* PSShowGradeStarView.m in Sources */,
 				383FFF4520731E43000E8631 /* SVRadialGradientLayer.m in Sources */,
 				38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */,
 				381EAD822087522F0047FFD2 /* PSOrderListViewController.m in Sources */,
