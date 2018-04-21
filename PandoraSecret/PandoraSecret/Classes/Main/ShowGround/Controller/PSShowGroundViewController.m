@@ -9,10 +9,11 @@
 #import "PSShowGroundViewController.h"
 #import "PSShowGroundCell.h"
 #import "PSShowGroundModel.h"
+#import "PSUserPageViewController.h"
 
 static NSString *showGroundListQuery = @"topic/list";
 
-@interface PSShowGroundViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PSShowGroundViewController () <UITableViewDelegate, UITableViewDataSource, PSShowGroundCellDelegate>
 
 @property (nonatomic, strong) UITableView *showGroundListView;
 @property (nonatomic, copy) NSMutableArray *showGroundListArr;
@@ -49,6 +50,7 @@ static NSString *showGroundListQuery = @"topic/list";
     if(!cell) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     }
+    cell.delegate = self;
     cell.showGroundModel = _showGroundListArr[indexPath.section];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -87,6 +89,12 @@ static NSString *showGroundListQuery = @"topic/list";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 3;
+}
+
+- (void)enterUserPage {
+    PSUserPageViewController *userPage = [[PSUserPageViewController alloc] init];
+    userPage.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:userPage animated:YES];
 }
 
 @end

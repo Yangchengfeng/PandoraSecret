@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "PSShowGroundModel.h"
 
+
+@protocol PSShowGroundCellDelegate <NSObject>
+
+- (void)enterUserPage;
+
+@end
+
 @interface PSShowGroundCell : UITableViewCell
 
 @property (nonatomic, strong) PSShowGroundModel *showGroundModel;
+@property (nonatomic, assign) id<PSShowGroundCellDelegate> delegate;
 
 @end

@@ -38,8 +38,17 @@ static NSInteger totalStars = 5;
     self = [super init];
     if(self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"PSShowGroundCell" owner:nil options:nil].firstObject;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToEnterUserPage)];
+        self.userVatcarImage.userInteractionEnabled = YES;
+        [self.userVatcarImage addGestureRecognizer:tap];
     }
     return self;
+}
+
+- (void)tapToEnterUserPage {
+    if([self.delegate respondsToSelector:@selector(enterUserPage)]) {
+        [self.delegate enterUserPage];
+    }
 }
 
 @end
