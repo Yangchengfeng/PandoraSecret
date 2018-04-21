@@ -8,14 +8,24 @@
 
 #import "PSShopCartListViewController.h"
 #import "PSShopCartTableViewCell.h"
+#import "PSShopCartModel.h"
+
+static NSString *shopCartListQuery = @"cart/list";
 
 @interface PSShopCartListViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, copy) NSMutableArray *shopCartListShopArr;
+@property (nonatomic, copy) NSMutableArray *shopCartListGoodsArr;
+@property (nonatomic, assign) PSNoDataViewType noDataType;
 @property (weak, nonatomic) IBOutlet UITableView *shopCartList;
 
 @end
 
 @implementation PSShopCartListViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+     [self queryShopCartList];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,26 +34,51 @@
     _shopCartList.dataSource = self;
 }
 
+- (void)queryShopCartList {
+    _shopCartListShopArr = [NSMutableArray array];
+    _shopCartListGoodsArr = [NSMutableArray array];
+    NSDictionary *param = @{@"uid":@([PSUserManager shareManager].uid)};
+    [PSNetoperation getRequestWithConcretePartOfURL:shopCartListQuery parameter:param success:^(id responseObject) {
+        for(NSDictionary *address in responseObject[@"data"]) {
+            [_shopCartListShopArr addObject:address[@"shopName"]];
+            NSMutableArray *arr = [NSMutableArray array];
+            for(NSDictionary *goods in address[@"carts"]) {
+                [arr addObject:goods];
+            }
+            [_shopCartListGoodsArr addObject:arr];
+        }
+        if(_shopCartListShopArr && _shopCartListShopArr.count<=0) {
+            _noDataType = PSNoDataViewTypeSuccess;
+        }
+        [self.shopCartList reloadData];
+    } failure:^(id failure) {
+        _noDataType = PSNoDataViewTypeFailure;
+    } andError:^(NSError *error) {
+        _noDataType = PSNoDataViewTypeError;
+    }];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // 商店数
-    return 22;
+    return _shopCartListShopArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 商品数+1个商店栏
-    return 22;
+    NSMutableArray *arr = _shopCartListGoodsArr[section];
+    return arr.count+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    PSShopCartTableViewCell *cell;
     BOOL isHeader = YES;
     if(indexPath.row == 0) {
         cell = [[PSShopCartTableViewCell alloc] initWithParam:isHeader];
+        cell.shopName = _shopCartListShopArr[indexPath.section];
     } else {
         cell = [[PSShopCartTableViewCell alloc] initWithParam:(!isHeader)];
-    }
-    if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
+        NSInteger realIdx = indexPath.row-1;
+        cell.shopCartModel = [PSShopCartModel shopCartListModelWithDict:_shopCartListGoodsArr[indexPath.section][realIdx]];
     }
     return cell;
 }

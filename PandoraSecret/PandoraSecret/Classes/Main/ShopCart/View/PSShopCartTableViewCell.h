@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSShopCartModel.h"
 
 @interface PSShopCartTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSString *shopName;
+@property (nonatomic, strong) PSShopCartModel *shopCartModel;
 - (instancetype)initWithParam:(BOOL)isHeader;
 
 @end

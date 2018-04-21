@@ -12,10 +12,28 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *chooseGoodsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *chooseShopBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
+@property (weak, nonatomic) IBOutlet UILabel *goodsTitle;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *num;
+@property (weak, nonatomic) IBOutlet UIButton *shopNameBtn;
 
 @end
 
 @implementation PSShopCartTableViewCell
+
+- (void)setShopName:(NSString *)shopName {
+    _shopName = shopName;
+    [_shopNameBtn setTitle:_shopName forState:UIControlStateNormal];
+}
+
+- (void)setShopCartModel:(PSShopCartModel *)shopCartModel {
+    _shopCartModel = shopCartModel;
+    [_goodsImage sd_setImageWithURL:[NSURL URLWithString:_shopCartModel.image] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
+    _goodsTitle.text = _shopCartModel.title;
+    _price.text = [NSString stringWithFormat:@"%ld", _shopCartModel.price];
+    _num.text = [NSString stringWithFormat:@"%ld件", _shopCartModel.num];
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

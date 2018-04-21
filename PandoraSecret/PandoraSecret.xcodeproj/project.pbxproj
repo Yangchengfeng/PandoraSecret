@@ -75,6 +75,7 @@
 		38A03D3E20816DCA004AACD0 /* PSAppAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */; };
 		38A03D3F20817353004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */; };
 		38A03D57208189CE004AACD0 /* PSGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */; };
+		38D38099208B61A6008BE79A /* PSShopCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D38098208B61A6008BE79A /* PSShopCartModel.m */; };
 		38DB91E82087924800243E80 /* PSOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91E62087924800243E80 /* PSOrderDetailCell.m */; };
 		38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DB91E72087924800243E80 /* PSOrderDetailCell.xib */; };
 		38DB91EC208794E400243E80 /* PSOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91EB208794E400243E80 /* PSOrderDetailModel.m */; };
@@ -221,6 +222,8 @@
 		38A03D3D20816DCA004AACD0 /* PSAppAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppAboutViewController.m; sourceTree = "<group>"; };
 		38A03D54208189CE004AACD0 /* PSGoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSGoodsDetailViewController.h; sourceTree = "<group>"; };
 		38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGoodsDetailViewController.m; sourceTree = "<group>"; };
+		38D38097208B61A6008BE79A /* PSShopCartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartModel.h; sourceTree = "<group>"; };
+		38D38098208B61A6008BE79A /* PSShopCartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartModel.m; sourceTree = "<group>"; };
 		38DB91E52087924800243E80 /* PSOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderDetailCell.h; sourceTree = "<group>"; };
 		38DB91E62087924800243E80 /* PSOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderDetailCell.m; sourceTree = "<group>"; };
 		38DB91E72087924800243E80 /* PSOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderDetailCell.xib; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 		381F96AB207118C3008E8284 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38D38097208B61A6008BE79A /* PSShopCartModel.h */,
+				38D38098208B61A6008BE79A /* PSShopCartModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1488,6 +1493,7 @@
 				38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */,
 				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
 				38FC37A82077CA5600FD055F /* PSShareCollectionViewCell.m in Sources */,
+				38D38099208B61A6008BE79A /* PSShopCartModel.m in Sources */,
 				381F96D12071FADD008E8284 /* PSMyShowViewController.m in Sources */,
 				381F96B6207119AF008E8284 /* PSShopCartListViewController.m in Sources */,
 				38FC395C207DC04900FD055F /* PSHomeCarouselItem.m in Sources */,
