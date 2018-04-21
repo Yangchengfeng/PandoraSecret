@@ -8,16 +8,22 @@
 
 #import "PSUserPageViewController.h"
 #import "PSUserPageList.h"
+#import "PSUserPageModel.h"
 
 static CGFloat underlineWidthConstraint = 44.f;
 static NSString *userPageQuery = @"user/message/query";
 
 @interface PSUserPageViewController () <UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *userDescLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userVatcarImageView;
+@property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *userPageListScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *underlinViewLeftConstraint;
-@property (nonatomic, copy) NSMutableArray *collectionArr;
-@property (nonatomic, copy) NSMutableArray *focusArr;
+@property (nonatomic, strong) PSUserPageList *followList;
+@property (nonatomic, strong) PSUserPageList *collectionList;
+@property (nonatomic, strong) PSUserPageModel *userPageModel;
 
 @end
 
@@ -33,29 +39,27 @@ static NSString *userPageQuery = @"user/message/query";
     _userPageListScrollView.delegate = self;
     
     // 关注列表
-    UITableView *followList = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeFollow];
-    [_userPageListScrollView addSubview:followList];
+    _followList = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeFollow];
+    _followList.tag = PSUserPageListTypeFollow;
+    [_userPageListScrollView addSubview:_followList];
     
     // 收藏列表
-    UITableView *collectionList = [[PSUserPageList alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeCollection];
-    [_userPageListScrollView addSubview:collectionList];
+    _collectionList = [[PSUserPageList alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight-140.5) andListType:PSUserPageListTypeCollection];
+    [_userPageListScrollView addSubview:_collectionList];
     
     // 下划线位置
     _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
-    
 }
 
 - (void)queryList {
-    _showGroundListArr = [NSMutableArray array];
-    NSDictionary *param = @{
-                            @"uid":@"",
-                            @"phone":@""
+    NSDictionary *param = @{@"uid":@"",
+                            @"phone":[PSUserManager shareManager].phoneNum
                             };
-    [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:nil success:^(id responseObject) {
-        for(NSDictionary *dict in responseObject[@"data"]) {
-            [_showGroundListArr addObject:[PSShowGroundModel showWithDict:dict]];
-        }
-        [_showGroundListView reloadData];
+    [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
+        _userPageModel = [PSUserPageModel userPageModelWithDict:responseObject[@"data"]];
+        _followList.userPageArr = _userPageModel.focusArr;
+        _collectionList.userPageArr = _userPageModel.collectionArr;
+        
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
     } andError:^(NSError *error) {
@@ -63,7 +67,6 @@ static NSString *userPageQuery = @"user/message/query";
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"===");
     CGFloat page = scrollView.contentOffset.x/kScreenWidth;
     if(page < 0.5) {
         _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
@@ -71,6 +74,14 @@ static NSString *userPageQuery = @"user/message/query";
         CGFloat leftWidth = ((kScreenWidth-1)/2.0 - 44.)/2.0;
         _underlinViewLeftConstraint.constant = kScreenWidth/2.0 + leftWidth;
     }
+}
+
+- (IBAction)focusListBtn:(id)sender {
+    _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
+}
+
+- (IBAction)collectionListBtn:(id)sender {
+    _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0 + kScreenWidth/2.+1;
 }
 
 @end

@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    PSUserPageListTypeFollow = 0,
+    PSUserPageListTypeFollow = 100,
     PSUserPageListTypeCollection,
 } PSUserPageListType;
 
 @interface PSUserPageList : UITableView
+
+@property (nonatomic, copy) NSMutableArray *userPageArr;
 
 - (instancetype)initWithFrame:(CGRect)frame andListType:(PSUserPageListType)listType;
 

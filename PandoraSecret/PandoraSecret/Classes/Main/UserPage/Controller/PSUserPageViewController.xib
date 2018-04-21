@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,8 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSUserPageViewController">
             <connections>
+                <outlet property="focusBtn" destination="DJ7-tg-3LW" id="DZg-jT-zCE"/>
                 <outlet property="underlinViewLeftConstraint" destination="fm7-xi-spI" id="Jhq-XJ-9bf"/>
+                <outlet property="userDescLabel" destination="QFn-LI-hoB" id="EPU-Nm-WyE"/>
+                <outlet property="userNameLabel" destination="0SX-am-KvZ" id="2Fn-aQ-ffT"/>
                 <outlet property="userPageListScrollView" destination="2wD-iv-C1i" id="GBf-4b-C4q"/>
+                <outlet property="userVatcarImageView" destination="toT-dk-zFb" id="geK-dG-Cyn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,6 +55,9 @@
                             <state key="normal" title="关注">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="focusListBtn:" destination="-1" eventType="touchUpInside" id="v7e-BO-Bdm"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRb-iW-elJ">
                             <rect key="frame" x="188" y="133" width="187" height="30"/>
@@ -59,6 +67,9 @@
                             <state key="normal" title="收藏">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="collectionListBtn:" destination="-1" eventType="touchUpInside" id="1tO-O5-vMI"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-L1-dP5">
                             <rect key="frame" x="15" y="130" width="345" height="0.5"/>
