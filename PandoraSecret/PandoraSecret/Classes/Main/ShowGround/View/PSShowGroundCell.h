@@ -12,7 +12,7 @@
 
 @protocol PSShowGroundCellDelegate <NSObject>
 
-- (void)enterUserPage;
+- (void)enterUserPageWithUid:(NSInteger)uid;
 
 @end
 

@@ -49,17 +49,35 @@ static NSString *userPageQuery = @"user/message/query";
     
     // 下划线位置
     _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
+    
+    // unfollow_button
+    [_focusBtn setImage:[UIImage imageNamed:@"follow_button"] forState:UIControlStateNormal];
+    [_focusBtn setImage:[UIImage imageNamed:@"unfollow_button"] forState:UIControlStateSelected];
+    
+    [self queryList];
 }
 
 - (void)queryList {
-    NSDictionary *param = @{@"uid":@"",
+    NSDictionary *param = @{@"uid":@(_uid),
                             @"phone":[PSUserManager shareManager].phoneNum
                             };
     [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
         _userPageModel = [PSUserPageModel userPageModelWithDict:responseObject[@"data"]];
         _followList.userPageArr = _userPageModel.focusArr;
-        _collectionList.userPageArr = _userPageModel.collectionArr;
-        
+        _collectionList.userPageArr = _userPageModel.topicArr;
+        _userNameLabel.text = _userPageModel.userName;
+        _userDescLabel.text = _userPageModel.userDesc;
+        [_userVatcarImageView sd_setImageWithURL:[NSURL URLWithString:_userPageModel.image] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
+        if(_userPageModel.isFocus==-1) {
+            _focusBtn.hidden = YES;
+        } else {
+            _focusBtn.hidden = NO;
+            if(_userPageModel.isFocus == 0) {
+                _focusBtn.selected = NO;
+            } else {
+                _focusBtn.selected = YES;
+            }
+        }
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
     } andError:^(NSError *error) {

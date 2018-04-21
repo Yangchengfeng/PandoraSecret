@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +29,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg4-XD-7a1">
-                        <rect key="frame" x="73" y="10.5" width="189" height="30"/>
+                        <rect key="frame" x="73" y="10.5" width="169" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="XTA-0d-HIc"/>
                         </constraints>
@@ -36,15 +38,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUa-ly-jCc">
-                        <rect key="frame" x="272" y="23" width="25" height="25"/>
+                        <rect key="frame" x="252" y="25.5" width="50" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="Opn-KT-wQu"/>
-                            <constraint firstAttribute="height" constant="25" id="tsa-wu-5B3"/>
+                            <constraint firstAttribute="width" constant="50" id="Opn-KT-wQu"/>
+                            <constraint firstAttribute="width" secondItem="tUa-ly-jCc" secondAttribute="height" multiplier="2.56:1.02" id="Vnk-SI-oX9"/>
                         </constraints>
-                        <state key="normal" image="unfollow"/>
+                        <state key="normal" image="follow_button"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-g6-B1t">
-                        <rect key="frame" x="73" y="40.5" width="189" height="20"/>
+                        <rect key="frame" x="73" y="40.5" width="169" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="rqx-wR-O5P"/>
                         </constraints>
@@ -59,7 +61,7 @@
                     <constraint firstItem="fg4-XD-7a1" firstAttribute="leading" secondItem="c7C-LC-KXQ" secondAttribute="trailing" constant="10" id="2b6-mR-eut"/>
                     <constraint firstItem="c7C-LC-KXQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="67h-em-B0y"/>
                     <constraint firstItem="U0n-g6-B1t" firstAttribute="leading" secondItem="c7C-LC-KXQ" secondAttribute="trailing" constant="10" id="9we-qy-oTq"/>
-                    <constraint firstItem="tUa-ly-jCc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-10" id="Hor-Jq-zy7"/>
+                    <constraint firstItem="tUa-ly-jCc" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="Hor-Jq-zy7"/>
                     <constraint firstItem="tUa-ly-jCc" firstAttribute="leading" secondItem="U0n-g6-B1t" secondAttribute="trailing" constant="10" id="Kut-7L-kWM"/>
                     <constraint firstItem="fg4-XD-7a1" firstAttribute="top" secondItem="c7C-LC-KXQ" secondAttribute="top" id="Qdi-GW-ZRd"/>
                     <constraint firstItem="U0n-g6-B1t" firstAttribute="bottom" secondItem="c7C-LC-KXQ" secondAttribute="bottom" id="rhs-K7-jw7"/>
@@ -71,11 +73,17 @@
                 <constraint firstItem="tUa-ly-jCc" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="lbH-yr-4gj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="focusBtn" destination="tUa-ly-jCc" id="fRf-Ya-4iA"/>
+                <outlet property="userDescLabel" destination="U0n-g6-B1t" id="1EF-dS-7ew"/>
+                <outlet property="userNameLabel" destination="fg4-XD-7a1" id="VnN-ng-W9W"/>
+                <outlet property="userVatcarImageView" destination="c7C-LC-KXQ" id="t5A-kK-Joy"/>
+            </connections>
             <point key="canvasLocation" x="31.5" y="5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="follow_button" width="128" height="51"/>
         <image name="head_icon_me" width="64" height="64"/>
-        <image name="unfollow" width="64" height="64"/>
     </resources>
 </document>

@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *userDesc;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *image;
+@property (nonatomic, assign) NSInteger isFocus;
 
 + (instancetype)focusModelWithDict:(NSDictionary *)dict;
 

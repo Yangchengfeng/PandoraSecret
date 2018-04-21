@@ -51,6 +51,7 @@
     }
     if(_listType == PSUserPageListTypeCollection) {
         PSShowGroundCell *cell = [[PSShowGroundCell alloc] init];
+        cell.showGroundModel = (PSShowGroundModel *)_userPageArr;
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];

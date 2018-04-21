@@ -10,8 +10,8 @@
 
 @interface PSShowGroundModel : NSObject
 
-@property (nonatomic, strong) NSString *showId;
-@property (nonatomic, strong) NSString *userId;
+@property (nonatomic, assign) NSInteger showId;
+@property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *userImage;
 @property (nonatomic, strong) NSString *content;

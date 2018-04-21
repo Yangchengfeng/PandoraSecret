@@ -91,9 +91,10 @@ static NSString *showGroundListQuery = @"topic/list";
     return 3;
 }
 
-- (void)enterUserPage {
+- (void)enterUserPageWithUid:(NSInteger)uid {
     PSUserPageViewController *userPage = [[PSUserPageViewController alloc] init];
     userPage.hidesBottomBarWhenPushed = YES;
+    userPage.uid = uid;
     [self.navigationController pushViewController:userPage animated:YES];
 }
 

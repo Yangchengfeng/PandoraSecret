@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSFocusModel.h"
 
 @interface PSUserPageListFollowCell : UITableViewCell
+
+@property (nonatomic, strong) PSFocusModel *focusModel;
 
 @end

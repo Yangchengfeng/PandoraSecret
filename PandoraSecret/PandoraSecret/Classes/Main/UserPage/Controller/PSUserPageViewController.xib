@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,15 +31,15 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="165.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJ7-tg-3LW">
-                            <rect key="frame" x="340" y="10" width="20" height="20"/>
+                            <rect key="frame" x="305" y="10" width="55" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="RJ7-eA-XP7"/>
-                                <constraint firstAttribute="width" constant="20" id="nTA-Gl-bbW"/>
+                                <constraint firstAttribute="width" secondItem="DJ7-tg-3LW" secondAttribute="height" multiplier="2.56:1.02" id="EvL-e3-srD"/>
+                                <constraint firstAttribute="width" constant="55" id="nTA-Gl-bbW"/>
                             </constraints>
-                            <state key="normal" image="follow"/>
+                            <state key="normal" image="unfollow_button"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SX-am-KvZ">
-                            <rect key="frame" x="55" y="75" width="270" height="30"/>
+                            <rect key="frame" x="55" y="75" width="265" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="RnB-31-Zf1"/>
                             </constraints>
@@ -102,7 +103,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户的个人描述" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFn-LI-hoB">
-                            <rect key="frame" x="55" y="105" width="270" height="20"/>
+                            <rect key="frame" x="55" y="105" width="265" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="ZZR-P5-Why"/>
                             </constraints>
@@ -122,12 +123,12 @@
                     <constraints>
                         <constraint firstItem="5hg-L1-dP5" firstAttribute="top" secondItem="QFn-LI-hoB" secondAttribute="bottom" constant="5" id="33o-RJ-3sg"/>
                         <constraint firstItem="VUf-Xr-qQK" firstAttribute="top" secondItem="5hg-L1-dP5" secondAttribute="bottom" constant="5" id="9gN-CD-Klh"/>
+                        <constraint firstItem="QFn-LI-hoB" firstAttribute="centerX" secondItem="0SX-am-KvZ" secondAttribute="centerX" id="9my-sa-GdW"/>
                         <constraint firstItem="dRg-FC-BsH" firstAttribute="bottom" secondItem="R37-Y2-arU" secondAttribute="bottom" id="E3B-JM-N2K"/>
                         <constraint firstItem="QFn-LI-hoB" firstAttribute="leading" secondItem="0SX-am-KvZ" secondAttribute="leading" id="Ekq-8k-JX7"/>
                         <constraint firstItem="FX3-oH-vM6" firstAttribute="leading" secondItem="VUf-Xr-qQK" secondAttribute="trailing" id="I0D-4l-Vrq"/>
                         <constraint firstItem="toT-dk-zFb" firstAttribute="centerX" secondItem="R37-Y2-arU" secondAttribute="centerX" id="ID6-lA-bdg"/>
                         <constraint firstItem="aRb-iW-elJ" firstAttribute="centerY" secondItem="VUf-Xr-qQK" secondAttribute="centerY" id="Jgi-Bc-TAc"/>
-                        <constraint firstItem="DJ7-tg-3LW" firstAttribute="leading" secondItem="0SX-am-KvZ" secondAttribute="trailing" constant="15" id="Kc6-lO-cfv"/>
                         <constraint firstItem="aRb-iW-elJ" firstAttribute="trailing" secondItem="R37-Y2-arU" secondAttribute="trailing" id="KhR-aw-rh4"/>
                         <constraint firstItem="0SX-am-KvZ" firstAttribute="top" secondItem="toT-dk-zFb" secondAttribute="bottom" constant="10" id="LIo-I2-NsH"/>
                         <constraint firstItem="QFn-LI-hoB" firstAttribute="trailing" secondItem="0SX-am-KvZ" secondAttribute="trailing" id="Oxc-3S-rNf"/>
@@ -139,6 +140,7 @@
                         <constraint firstItem="R37-Y2-arU" firstAttribute="trailing" secondItem="DJ7-tg-3LW" secondAttribute="trailing" constant="15" id="cpr-X4-FWl"/>
                         <constraint firstItem="R37-Y2-arU" firstAttribute="top" secondItem="DJ7-tg-3LW" secondAttribute="top" constant="-10" id="d4H-bd-yAx"/>
                         <constraint firstItem="nCi-f6-oSR" firstAttribute="leading" secondItem="Rp7-lr-7eA" secondAttribute="leading" constant="71.5" id="fm7-xi-spI"/>
+                        <constraint firstItem="0SX-am-KvZ" firstAttribute="centerX" secondItem="R37-Y2-arU" secondAttribute="centerX" id="jXx-ka-3jt"/>
                         <constraint firstAttribute="height" constant="165.5" id="k7g-U2-Cr2"/>
                         <constraint firstItem="dRg-FC-BsH" firstAttribute="top" secondItem="nCi-f6-oSR" secondAttribute="bottom" constant="4" id="moa-wG-k1l"/>
                         <constraint firstItem="QFn-LI-hoB" firstAttribute="top" secondItem="0SX-am-KvZ" secondAttribute="bottom" id="nIy-Zc-3NY"/>
@@ -171,7 +173,7 @@
         </view>
     </objects>
     <resources>
-        <image name="follow" width="64" height="64"/>
         <image name="head_icon_me" width="64" height="64"/>
+        <image name="unfollow_button" width="128" height="51"/>
     </resources>
 </document>

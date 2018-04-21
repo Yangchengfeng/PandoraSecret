@@ -25,6 +25,7 @@ static NSInteger totalStars = 5;
 @implementation PSShowGroundCell
 
 - (void)setShowGroundModel:(PSShowGroundModel *)showGroundModel {
+    _showGroundModel = showGroundModel;
     _userName.text = showGroundModel.userName;
     [_userVatcarImage sd_setImageWithURL:[NSURL URLWithString:showGroundModel.userImage] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
     _goodsDecs.text = showGroundModel.content;
@@ -46,8 +47,8 @@ static NSInteger totalStars = 5;
 }
 
 - (void)tapToEnterUserPage {
-    if([self.delegate respondsToSelector:@selector(enterUserPage)]) {
-        [self.delegate enterUserPage];
+    if([self.delegate respondsToSelector:@selector(enterUserPageWithUid:)]) {
+        [self.delegate enterUserPageWithUid:_showGroundModel.userId];
     }
 }
 

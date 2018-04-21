@@ -13,6 +13,9 @@
 - (instancetype)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if(self) {
+        _collectionArr = [NSMutableArray array];
+        _topicArr = [NSMutableArray array];
+        _focusArr = [NSMutableArray array];
         self.uid = [dict[@"id"] integerValue];
         self.userDesc = dict[@"userDesc"];
         self.userName = dict[@"userName"];
@@ -20,13 +23,13 @@
         self.phone = dict[@"phone"];
         self.image = dict[@"image"];
         for(NSDictionary *collect in dict[@"collection"]) {
-            [self.collectionArr addObject:[PSCollectionModel collectionModelWithDict:collect]];
+            [_collectionArr addObject:[PSCollectionModel collectionModelWithDict:collect]];
         }
-        for(NSDictionary *collect in dict[@"focus"]) {
-            [self.focusArr addObject:[PSFocusModel focusModelWithDict:collect]];
+        for(NSDictionary *focus in dict[@"focus"]) {
+             [_focusArr addObject:[PSFocusModel focusModelWithDict:focus]];
         }
-        for(NSDictionary *collect in dict[@"topics"]) {
-            [self.topicArr addObject:[PSShowGroundModel showWithDict:collect]];
+        for(NSDictionary *topics in dict[@"topics"]) {
+            [_topicArr addObject:[PSShowGroundModel showWithDict:topics]];
         }
     }
     return self;

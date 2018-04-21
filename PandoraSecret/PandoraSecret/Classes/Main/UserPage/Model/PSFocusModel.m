@@ -17,6 +17,7 @@
         self.userDesc = dict[@"userDesc"];
         self.userName = dict[@"userName"];
         self.image = dict[@"image"];
+        self.isFocus = [dict[@"isFocus"] integerValue];
     }
     return self;
 }

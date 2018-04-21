@@ -10,4 +10,6 @@
 
 @interface PSUserPageViewController : PSBaseViewController
 
+@property (nonatomic, assign) NSInteger uid;
+
 @end
