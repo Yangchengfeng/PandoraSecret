@@ -76,6 +76,10 @@
 		38A03D3F20817353004AACD0 /* PSMePersonalityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D2620816515004AACD0 /* PSMePersonalityEditViewController.m */; };
 		38A03D57208189CE004AACD0 /* PSGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */; };
 		38D38099208B61A6008BE79A /* PSShopCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D38098208B61A6008BE79A /* PSShopCartModel.m */; };
+		38D3809C208B84DA008BE79A /* PSUserPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D3809B208B84DA008BE79A /* PSUserPageModel.m */; };
+		38D3809F208B873F008BE79A /* PSFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D3809E208B873F008BE79A /* PSFocusModel.m */; };
+		38D380A2208B874C008BE79A /* PSCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D380A1208B874C008BE79A /* PSCollectionModel.m */; };
+		38D380A5208B8761008BE79A /* PSTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D380A4208B8761008BE79A /* PSTopicModel.m */; };
 		38DB91E82087924800243E80 /* PSOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91E62087924800243E80 /* PSOrderDetailCell.m */; };
 		38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DB91E72087924800243E80 /* PSOrderDetailCell.xib */; };
 		38DB91EC208794E400243E80 /* PSOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91EB208794E400243E80 /* PSOrderDetailModel.m */; };
@@ -224,6 +228,14 @@
 		38A03D55208189CE004AACD0 /* PSGoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGoodsDetailViewController.m; sourceTree = "<group>"; };
 		38D38097208B61A6008BE79A /* PSShopCartModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShopCartModel.h; sourceTree = "<group>"; };
 		38D38098208B61A6008BE79A /* PSShopCartModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShopCartModel.m; sourceTree = "<group>"; };
+		38D3809A208B84DA008BE79A /* PSUserPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageModel.h; sourceTree = "<group>"; };
+		38D3809B208B84DA008BE79A /* PSUserPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageModel.m; sourceTree = "<group>"; };
+		38D3809D208B873F008BE79A /* PSFocusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSFocusModel.h; sourceTree = "<group>"; };
+		38D3809E208B873F008BE79A /* PSFocusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSFocusModel.m; sourceTree = "<group>"; };
+		38D380A0208B874C008BE79A /* PSCollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCollectionModel.h; sourceTree = "<group>"; };
+		38D380A1208B874C008BE79A /* PSCollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSCollectionModel.m; sourceTree = "<group>"; };
+		38D380A3208B8761008BE79A /* PSTopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTopicModel.h; sourceTree = "<group>"; };
+		38D380A4208B8761008BE79A /* PSTopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTopicModel.m; sourceTree = "<group>"; };
 		38DB91E52087924800243E80 /* PSOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderDetailCell.h; sourceTree = "<group>"; };
 		38DB91E62087924800243E80 /* PSOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderDetailCell.m; sourceTree = "<group>"; };
 		38DB91E72087924800243E80 /* PSOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderDetailCell.xib; sourceTree = "<group>"; };
@@ -893,6 +905,14 @@
 		383FFF4F2073CBF9000E8631 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38D3809A208B84DA008BE79A /* PSUserPageModel.h */,
+				38D3809B208B84DA008BE79A /* PSUserPageModel.m */,
+				38D3809D208B873F008BE79A /* PSFocusModel.h */,
+				38D3809E208B873F008BE79A /* PSFocusModel.m */,
+				38D380A0208B874C008BE79A /* PSCollectionModel.h */,
+				38D380A1208B874C008BE79A /* PSCollectionModel.m */,
+				38D380A3208B8761008BE79A /* PSTopicModel.h */,
+				38D380A4208B8761008BE79A /* PSTopicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1430,6 +1450,7 @@
 				38A03D12207FE67D004AACD0 /* PSUserManager.m in Sources */,
 				383EAF8A207DF708009E57CE /* NSData+ImageContentType.m in Sources */,
 				383EAF88207DF291009E57CE /* UIView+WebCacheOperation.m in Sources */,
+				38D3809F208B873F008BE79A /* PSFocusModel.m in Sources */,
 				383EAF89207DF291009E57CE /* UIView+WebCache.m in Sources */,
 				383EAF87207DF1ED009E57CE /* SDWebImageFrame.m in Sources */,
 				383EAF86207DF1E5009E57CE /* SDWebImageImageIOCoder.m in Sources */,
@@ -1462,14 +1483,17 @@
 				383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */,
 				381EAD71208740DA0047FFD2 /* PSMeOrderModel.m in Sources */,
 				385FD46A208A11D20033D098 /* PSShowGradeStarView.m in Sources */,
+				38D380A5208B8761008BE79A /* PSTopicModel.m in Sources */,
 				383FFF4520731E43000E8631 /* SVRadialGradientLayer.m in Sources */,
 				38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */,
 				381EAD822087522F0047FFD2 /* PSOrderListViewController.m in Sources */,
 				38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */,
+				38D3809C208B84DA008BE79A /* PSUserPageModel.m in Sources */,
 				383FFF4420731E14000E8631 /* SVProgressHUD.m in Sources */,
 				38FC3959207D39F200FD055F /* PSFancyBtn.m in Sources */,
 				38DB91F22087A3AA00243E80 /* PSOrderDetailViewController.m in Sources */,
 				381F96A1206D5A58008E8284 /* PSMeTableView.m in Sources */,
+				38D380A2208B874C008BE79A /* PSCollectionModel.m in Sources */,
 				381F9695206D3812008E8284 /* PSMainTabBarController.m in Sources */,
 				38FC3951207D074900FD055F /* PSButton.m in Sources */,
 				381EAD7E208749030047FFD2 /* PSOrderListCell.m in Sources */,
