@@ -39,7 +39,7 @@ static NSString *loginURL = @"user/login";
         } failure:^(id failure) {
             [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
         } andError:^(NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:@"网络加载失败"];
         }];
     } else {
         [SVProgressHUD showErrorWithStatus:@"请输入正确的账号和密码"];

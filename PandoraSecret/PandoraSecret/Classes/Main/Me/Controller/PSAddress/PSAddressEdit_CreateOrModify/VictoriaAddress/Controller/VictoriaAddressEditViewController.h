@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "PSUserOrderAddressModel.h"
+#import "PSBaseViewController.h"
 
 typedef enum {
     VictoriaAddressEditTypeNew,   //新增
     VictoriaAddressEditTypeModify // 编辑
 } VictoriaAddressEditType;
 
-@interface VictoriaAddressEditViewController : UITableViewController
+@interface VictoriaAddressEditViewController : PSBaseViewController
 
 @property (nonatomic, strong) PSUserOrderAddressModel *addressModel;
-- (void)enterAddressEditVCWithType:(VictoriaAddressEditType)type;
+- (void)enterAddressEditVCWithType:(VictoriaAddressEditType)editType;
 
 @end

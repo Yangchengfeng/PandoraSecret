@@ -10,11 +10,13 @@
 #import "VictoriaAddressEditViewController.h"
 #import "VictoriaAddressPickerView.h"
 #import "VictoriaAddressModel.h"
+#import "PSTextViewWithPlaceholder.h"
 
 static NSString *addAddress = @"address/add";
 static NSString *updateAddress = @"address/update";
+static NSString *placeholderStr = @"请输入收件人的详细地址信息，如道路，门牌号，小区，楼栋号、单元室等，需要上门或非工作日取件可以加以备注";
 
-@interface VictoriaAddressEditViewController () <VictoriaAddressPickerDelegate, UITextViewDelegate>
+@interface VictoriaAddressEditViewController () <UITextViewDelegate, VictoriaAddressPickerDelegate, PSTextViewWithPlaceholderDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) VictoriaAddressPickerView *areaView;
 @property (nonatomic, assign) VictoriaAddressTableViewType selectTableViewId;
@@ -24,11 +26,12 @@ static NSString *updateAddress = @"address/update";
 @property (nonatomic, copy) NSMutableArray *cityArr;
 @property (nonatomic, copy) NSMutableArray *areaArr;
 // myAddressView
+@property (nonatomic, strong) UITableView *victoriaAddressListView;
 @property (nonatomic, copy) NSArray *editListArr;
 @property (nonatomic, strong) UIButton *addressBtn;
 @property (nonatomic, strong) UITextField *unameTextField;
 @property (nonatomic, strong) UITextField *uphoneTextField;
-@property (nonatomic, strong) UITextView *detailAddressTextView;
+@property (nonatomic, strong) PSTextViewWithPlaceholder *detailAddressTextView;
 @property (nonatomic, strong) UISwitch *defaultSwitch;
 @property (nonatomic, assign) VictoriaAddressEditType editType;
 
@@ -38,6 +41,13 @@ static NSString *updateAddress = @"address/update";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    // tableView设置
+    _victoriaAddressListView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-44) style:UITableViewStyleGrouped];
+    _victoriaAddressListView.delegate = self;
+    _victoriaAddressListView.dataSource = self;
+    [self.view addSubview:_victoriaAddressListView];
     // 初始化
     _selectTableViewId = VictoriaAddressTableViewTypeState;
     _selectedAddressId = 0;
@@ -48,9 +58,9 @@ static NSString *updateAddress = @"address/update";
 }
 
 #pragma mark - 判断新增或编辑
-- (void)enterAddressEditVCWithType:(VictoriaAddressEditType)type {
-    switch (type) {
-        _editType = type;
+- (void)enterAddressEditVCWithType:(VictoriaAddressEditType)editType {
+    switch(editType) {
+        _editType = editType;
         case VictoriaAddressEditTypeNew: {
             self.navigationItem.title = @"新增地址";
             break;
@@ -142,43 +152,25 @@ static NSString *updateAddress = @"address/update";
 #pragma mark - tableview
 - (NSArray *)editListArr {
     if(!_editListArr) {
-        _editListArr = @[@"收件人", @"联系电话", @"所在地址", @"详细地址", @"设置默认地址"];
+        _editListArr = @[@[@"收件人", @"联系电话", @"所在地址", @"详细地址", @"设置默认地址"],@[@"确定"]];
     }
     return _editListArr;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.editListArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.editListArr.count;
+    NSArray *arr = self.editListArr[section];
+    return arr.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == 3) {
-        return 80;
+        return 55;
     }
     return 40;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 80;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMakes(0, 0, 375, 80)];
-    UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    saveBtn.frame = CGRectMakes(0, 0, 80, 40);
-    saveBtn.center = view.center;
-    [saveBtn setTitle:@"提交" forState:UIControlStateNormal];
-    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    saveBtn.backgroundColor = kPandoraSecretColor;
-    saveBtn.layer.borderWidth = 0.3;
-    [saveBtn addTarget:self action:@selector(commitAllInformation) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:saveBtn];
-    return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -187,50 +179,69 @@ static NSString *updateAddress = @"address/update";
     if(!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    if(indexPath.row == 0 || indexPath.row == 1) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"editCellId"];
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMakes(85, 0, 375-85, cell.frame.size.height)];
-        textField.textColor = [UIColor blackColor];
-        textField.tintColor = [UIColor orangeColor];
-        textField.font = [UIFont systemFontOfSize:12];
-        textField.userInteractionEnabled = YES;
-        if(indexPath.row == 0) {
-            _unameTextField = textField;
-        } else {
-            _uphoneTextField = textField;
-            _uphoneTextField.keyboardType = UIKeyboardTypeNumberPad;
+    if(indexPath.section == 1) {
+        UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        saveBtn.frame = CGRectMakes(13, 2.5, cell.bounds.size.width-26, 35);
+        [saveBtn setTitle:_editListArr[indexPath.section][indexPath.row] forState:UIControlStateNormal];
+        [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        saveBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [saveBtn addTarget:self action:@selector(commitAllInformation) forControlEvents:UIControlEventTouchUpInside];
+        [cell addSubview:saveBtn];
+        return cell;
+    }
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0 || indexPath.row == 1) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"editCellId"];
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMakes(85, 0, 375-85, cell.frame.size.height)];
+            textField.textColor = [UIColor blackColor];
+            textField.tintColor = [UIColor orangeColor];
+            textField.font = [UIFont systemFontOfSize:12];
+            textField.userInteractionEnabled = YES;
+            if(indexPath.row == 0) {
+                _unameTextField = textField;
+                _unameTextField.text = _addressModel.uname;
+                [cell addSubview:_unameTextField];
+            } else {
+                _uphoneTextField = textField;
+                _uphoneTextField.keyboardType = UIKeyboardTypeNumberPad;
+                _uphoneTextField.text = _addressModel.phone;
+                [cell addSubview:_uphoneTextField];
+            }
         }
-        [cell addSubview:textField];
+        if(indexPath.row == 2) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"chooseCellId"];
+            [cell addSubview:self.addressBtn];
+        }
+        if(indexPath.row == 3) {
+            PSTextViewWithPlaceholder *textView = [[PSTextViewWithPlaceholder alloc] initWithFrame:CGRectMakes(85, 0, 375-85, 55)];
+            textView.text= placeholderStr;
+            textView.editable = YES;
+            textView.tintColor = [UIColor orangeColor];
+            textView.textColor = [UIColor lightGrayColor];
+            textView.font = [UIFont systemFontOfSize:12];
+            textView.delegate = self;
+            textView.placeholderDelegate = self;
+            textView.font = [UIFont systemFontOfSize:12];
+            textView.placeholder = placeholderStr;
+            textView.placeholderColor = [UIColor lightGrayColor];
+
+            _detailAddressTextView = textView;
+            _detailAddressTextView.text = _addressModel.detailAddress;
+            [cell addSubview:_detailAddressTextView];
+        }
+        if(indexPath.row == 4) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"switchCellId"];
+            UISwitch *switchBtn = [[UISwitch alloc] init];
+            cell.accessoryView = switchBtn;
+            _defaultSwitch = switchBtn;
+            if(_editType == VictoriaAddressEditTypeModify) {
+                _defaultSwitch.on = [_addressModel.defaultAddress isEqualToString:@"1"];
+            } else {
+                _defaultSwitch.on = NO;
+            }
+        }
     }
-    if(indexPath.row == 2) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"chooseCellId"];
-        [cell addSubview:self.addressBtn];
-    }
-    if(indexPath.row == 3) {
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMakes(85, 0, 375-85, 90)];
-        textView.text= @"请输入收件人的详细地址信息，如道路，门牌号，小区，楼栋号、单元室等，需要上门或非工作日取件可以加以备注";
-        textView.editable = YES;
-        textView.tintColor = [UIColor orangeColor];
-        textView.textColor = [UIColor lightGrayColor];
-        textView.font = [UIFont systemFontOfSize:12];
-        textView.delegate = self;
-        _detailAddressTextView = textView;
-        [cell addSubview:textView];
-    }
-    if(indexPath.row == 4) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"switchCellId"];
-        UISwitch *switchBtn = [[UISwitch alloc]init];
-        [switchBtn addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
-        switchBtn.tag = 100 + indexPath.row;
-        cell.accessoryView = switchBtn;
-        _defaultSwitch = switchBtn;
-    }
-    _unameTextField.text = _addressModel.uname;
-    _uphoneTextField.text = _addressModel.phone;
-    _detailAddressTextView.text = _addressModel.detailAddress;
-    _addressBtn.titleLabel.text = _addressModel.address;
-    _defaultSwitch.on = [_addressModel.defaultAddress isEqualToString:@"1"];
-    cell.textLabel.text = _editListArr[indexPath.row];
+    cell.textLabel.text = _editListArr[indexPath.section][indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.textColor = [UIColor lightGrayColor];
     return cell;
@@ -260,46 +271,76 @@ static NSString *updateAddress = @"address/update";
         addressBtn.userInteractionEnabled = YES;
         [addressBtn addTarget:self action:@selector(showAddressView) forControlEvents:UIControlEventTouchUpInside];
         _addressBtn = addressBtn;
+        _addressBtn.titleLabel.text = _addressModel.address;
     }
     return _addressBtn;
 }
 
-- (void)setSelectedState:(NSString *)state city:(NSString *)city andArea:(NSString *)area {
-    NSString *selectedAddress = [NSString stringWithFormat:@"%@-%@-%@", state, city, area];
-    [self.addressBtn setTitle:selectedAddress forState:UIControlStateNormal];
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    if(textView.text.length < 1) {
-        textView.text = @"请输入收件人的详细地址信息，如道路，门牌号，小区，楼栋号、单元室等，需要上门或非工作日取件可以加以备注";
-        textView.textColor = [UIColor lightGrayColor];
-    }
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    if(textView.text.length>0) {
-        textView.text = @"";
-        textView.textColor = [UIColor blackColor];
-    }
-}
-
-- (void)switchValueChange:(UISwitch *)switchBtn {
-    // 保存设置
-}
+#pragma mark - network_request
 
 - (void)commitAllInformation {
     PSUserManager *userManager = [PSUserManager shareManager];
     NSDictionary *addressParam = @{@"uid":@(userManager.uid),
                                    @"phone": _uphoneTextField.text,
                                    @"uname": _unameTextField.text,
-                                   @"address":[NSString stringWithFormat:@"%@-%@", self.addressBtn.titleLabel.text, _detailAddressTextView.text]
+                                   @"address":[NSString stringWithFormat:@"%@-%@", self.addressBtn.titleLabel.text, _detailAddressTextView.text],
+                                   @"isDefault":@(_defaultSwitch.isOn)
                                    };
     [PSNetoperation postRequestWithConcretePartOfURL:_editType==VictoriaAddressEditTypeNew?addAddress:updateAddress parameter:addressParam success:^(id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"增加地址成功"];
     } failure:^(id failure) {
-        [SVProgressHUD showSuccessWithStatus:@"操作失败，请重新再试~"];
+        [SVProgressHUD showSuccessWithStatus:failure[@"msg"]];
     } andError:^(NSError *error) {
     }];
+}
+
+#pragma mark - VictoriaAddressPickerDelegate
+
+- (void)setSelectedState:(NSString *)state city:(NSString *)city andArea:(NSString *)area {
+    NSString *selectedAddress = [NSString stringWithFormat:@"%@-%@-%@", state, city, area];
+    [self.addressBtn setTitle:selectedAddress forState:UIControlStateNormal];
+}
+
+#pragma mark - PSTextViewWithPlaceholderDelegate
+
+- (void)touchView:(PSTextViewWithPlaceholder *)textView hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    textView.placeholder = @"";
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if([text isEqualToString:@""]) {
+        self.detailAddressTextView.placeholder = placeholderStr;
+    }
+    if ([text isEqualToString:@"\n"]){
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - tableview设置
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
 }
 
 @end
