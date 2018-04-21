@@ -10,6 +10,11 @@
 
 @interface PSFocusModel : NSObject
 
+@property (nonatomic, assign) NSInteger uid;
+@property (nonatomic, strong) NSString *userDesc;
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *image;
+
 + (instancetype)focusModelWithDict:(NSDictionary *)dict;
 
 @end

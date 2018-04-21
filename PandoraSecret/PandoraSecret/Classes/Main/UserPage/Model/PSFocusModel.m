@@ -13,7 +13,10 @@
 - (instancetype)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if(self) {
-        
+        self.uid = [dict[@"id"] integerValue];
+        self.userDesc = dict[@"userDesc"];
+        self.userName = dict[@"userName"];
+        self.image = dict[@"image"];
     }
     return self;
 }

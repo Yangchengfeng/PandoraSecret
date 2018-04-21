@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PSFocusModel.h"
 #import "PSCollectionModel.h"
-#import "PSTopicModel.h"
+#import "PSShowGroundModel.h"
 
 @interface PSUserPageModel : NSObject
 
@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, copy) NSMutableArray<PSFocusModel *> *focusArr;
 @property (nonatomic, copy) NSMutableArray<PSCollectionModel *> *collectionArr;
-@property (nonatomic, copy) NSMutableArray<PSTopicModel *> *topicArr;
+@property (nonatomic, copy) NSMutableArray<PSShowGroundModel *> *topicArr;
 
 + (instancetype)userPageModelWithDict:(NSDictionary *)dict;
 

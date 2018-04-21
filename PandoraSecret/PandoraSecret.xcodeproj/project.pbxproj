@@ -79,7 +79,6 @@
 		38D3809C208B84DA008BE79A /* PSUserPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D3809B208B84DA008BE79A /* PSUserPageModel.m */; };
 		38D3809F208B873F008BE79A /* PSFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D3809E208B873F008BE79A /* PSFocusModel.m */; };
 		38D380A2208B874C008BE79A /* PSCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D380A1208B874C008BE79A /* PSCollectionModel.m */; };
-		38D380A5208B8761008BE79A /* PSTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D380A4208B8761008BE79A /* PSTopicModel.m */; };
 		38DB91E82087924800243E80 /* PSOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91E62087924800243E80 /* PSOrderDetailCell.m */; };
 		38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DB91E72087924800243E80 /* PSOrderDetailCell.xib */; };
 		38DB91EC208794E400243E80 /* PSOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB91EB208794E400243E80 /* PSOrderDetailModel.m */; };
@@ -234,8 +233,6 @@
 		38D3809E208B873F008BE79A /* PSFocusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSFocusModel.m; sourceTree = "<group>"; };
 		38D380A0208B874C008BE79A /* PSCollectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCollectionModel.h; sourceTree = "<group>"; };
 		38D380A1208B874C008BE79A /* PSCollectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSCollectionModel.m; sourceTree = "<group>"; };
-		38D380A3208B8761008BE79A /* PSTopicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTopicModel.h; sourceTree = "<group>"; };
-		38D380A4208B8761008BE79A /* PSTopicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTopicModel.m; sourceTree = "<group>"; };
 		38DB91E52087924800243E80 /* PSOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSOrderDetailCell.h; sourceTree = "<group>"; };
 		38DB91E62087924800243E80 /* PSOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSOrderDetailCell.m; sourceTree = "<group>"; };
 		38DB91E72087924800243E80 /* PSOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSOrderDetailCell.xib; sourceTree = "<group>"; };
@@ -911,8 +908,6 @@
 				38D3809E208B873F008BE79A /* PSFocusModel.m */,
 				38D380A0208B874C008BE79A /* PSCollectionModel.h */,
 				38D380A1208B874C008BE79A /* PSCollectionModel.m */,
-				38D380A3208B8761008BE79A /* PSTopicModel.h */,
-				38D380A4208B8761008BE79A /* PSTopicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1483,7 +1478,6 @@
 				383FFF4620731E4E000E8631 /* SVProgressAnimatedView.m in Sources */,
 				381EAD71208740DA0047FFD2 /* PSMeOrderModel.m in Sources */,
 				385FD46A208A11D20033D098 /* PSShowGradeStarView.m in Sources */,
-				38D380A5208B8761008BE79A /* PSTopicModel.m in Sources */,
 				383FFF4520731E43000E8631 /* SVRadialGradientLayer.m in Sources */,
 				38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */,
 				381EAD822087522F0047FFD2 /* PSOrderListViewController.m in Sources */,

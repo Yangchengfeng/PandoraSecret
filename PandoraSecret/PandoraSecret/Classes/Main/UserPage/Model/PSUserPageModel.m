@@ -26,7 +26,7 @@
             [self.focusArr addObject:[PSFocusModel focusModelWithDict:collect]];
         }
         for(NSDictionary *collect in dict[@"topics"]) {
-            [self.topicArr addObject:[PSTopicModel topicModelWithDict:collect]];
+            [self.topicArr addObject:[PSShowGroundModel showWithDict:collect]];
         }
     }
     return self;

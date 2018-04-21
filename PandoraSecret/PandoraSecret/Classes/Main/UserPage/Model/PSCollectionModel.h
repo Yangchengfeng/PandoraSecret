@@ -10,6 +10,11 @@
 
 @interface PSCollectionModel : NSObject
 
+@property (nonatomic, assign) NSInteger uid;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *image;
+
 + (instancetype)collectionModelWithDict:(NSDictionary *)dict;
 
 @end
