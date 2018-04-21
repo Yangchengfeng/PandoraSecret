@@ -183,7 +183,7 @@ static NSString *placeholderStr = @"请输入收件人的详细地址信息，�
         UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         saveBtn.frame = CGRectMakes(13, 2.5, cell.bounds.size.width-26, 35);
         [saveBtn setTitle:_editListArr[indexPath.section][indexPath.row] forState:UIControlStateNormal];
-        [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [saveBtn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
         saveBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [saveBtn addTarget:self action:@selector(commitAllInformation) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:saveBtn];
@@ -283,7 +283,8 @@ static NSString *placeholderStr = @"请输入收件人的详细地址信息，�
     NSDictionary *addressParam = @{@"uid":@(userManager.uid),
                                    @"phone": _uphoneTextField.text,
                                    @"uname": _unameTextField.text,
-                                   @"address":[NSString stringWithFormat:@"%@-%@", self.addressBtn.titleLabel.text, _detailAddressTextView.text],
+                                   @"address":self.addressBtn.titleLabel.text,
+                                   @"detailAddress":_detailAddressTextView.text,
                                    @"isDefault":@(_defaultSwitch.isOn)
                                    };
     [PSNetoperation postRequestWithConcretePartOfURL:_editType==VictoriaAddressEditTypeNew?addAddress:updateAddress parameter:addressParam success:^(id responseObject) {
