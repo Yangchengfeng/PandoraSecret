@@ -126,6 +126,9 @@ static NSString *placeholderStr = @"请输入有关商品或店铺的描述，�
         self.comment.placeholder = placeholderStr;
     }
     if ([text isEqualToString:@"\n"]){
+        if([text isEqualToString:@""]) {
+            self.comment.placeholder = placeholderStr;
+        }
         [textView resignFirstResponder];
         return NO;
     }
