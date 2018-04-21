@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PSShowGradeStarViewDelegate <NSObject>
+
+- (void)finalGradeWithSelectedStarIdx:(NSInteger)starsIdx;
+
+@end
+
 @interface PSShowGradeStarView : UIView
+
+@property (nonatomic, assign) id<PSShowGradeStarViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame selectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional;
 - (void)buildStarsWithSelectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional;

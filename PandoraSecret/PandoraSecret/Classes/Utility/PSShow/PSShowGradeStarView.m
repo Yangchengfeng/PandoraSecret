@@ -10,14 +10,6 @@
 
 static NSInteger starBeginWithIdx = 0;
 
-@interface PSShowGradeStarView ()
-
-//@property (nonatomic, assign) NSInteger selectedStars;
-//@property (nonatomic, assign) NSInteger totalStars;
-//@property (nonatomic, assign) CGSize starSize;
-
-@end
-
 @implementation PSShowGradeStarView
 
 - (id)initWithFrame:(CGRect)frame selectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
@@ -28,6 +20,7 @@ static NSInteger starBeginWithIdx = 0;
     return self;
 }
 
+// 不传frame创建方式：xib等
 - (void)buildStarsWithSelectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
     // 容错处理
     NSInteger viableSelectedStars = selectedStars%(totalStars+1);
@@ -45,15 +38,27 @@ static NSInteger starBeginWithIdx = 0;
         } else {
             starBtn.selected = NO;
         }
+        starBtn.tag = idx;
         starBtn.userInteractionEnabled = optional;
+        if(optional) {
+            [starBtn addTarget:self action:@selector(clickStarBtn:) forControlEvents:UIControlEventTouchUpInside];
+        }
         [self addSubview:starBtn];
     }
 }
 
-#pragma mark - 点击评分
 
-- (id)initWithFrame:(CGRect)frame totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
-    return [self initWithFrame:frame selectedStars:0 totalStars:totalStars starSize:starSize optional:optional];
+- (void)clickStarBtn:(UIButton *)selectedStar{
+    for(UIButton *btn in self.subviews) {
+        if(btn.tag <= selectedStar.tag) {
+            btn.selected = YES;
+        } else {
+            btn.selected = NO;
+        }
+    }
+    if([self.delegate respondsToSelector:@selector(finalGradeWithSelectedStarIdx:)]) {
+        [self.delegate finalGradeWithSelectedStarIdx:selectedStar.tag];
+    }
 }
 
 @end
