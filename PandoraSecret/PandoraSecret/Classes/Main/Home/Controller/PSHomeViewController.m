@@ -151,8 +151,7 @@ static CGFloat carouseH = 150.f;
         [SVProgressHUD showErrorWithStatus:@"数据加载出错，请稍后再试~~~"];
     }];
 }
-//
-// page=1&pageSize=10
+
 - (void)loadProductListWithProductListURL:(NSString *)url {
     __weak typeof(self) weakSelf = self;
     _productListArr = [NSMutableArray array];
