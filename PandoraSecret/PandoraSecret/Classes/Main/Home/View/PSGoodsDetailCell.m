@@ -71,12 +71,22 @@ static CGFloat scrollImageViewMargin = 2.5;
     if(self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"PSGoodsDetailCell" owner:nil options:nil].firstObject;
         
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToEnterShopPage)];
+        self.shopBackView.userInteractionEnabled = YES;
+        [self.shopBackView addGestureRecognizer:tap];
+        
         _subImage.pagingEnabled = NO;
         _subImage.showsVerticalScrollIndicator = NO;
         _subImage.showsHorizontalScrollIndicator = YES;
         _subImage.scrollEnabled = YES;
     }
     return self;
+}
+
+- (void)tapToEnterShopPage {
+    if([self.delegate respondsToSelector:@selector(enterShopPageWithShopId:)]) {
+        [self.delegate enterShopPageWithShopId:_goodsDetailModel.shopId];
+    }
 }
 
 @end

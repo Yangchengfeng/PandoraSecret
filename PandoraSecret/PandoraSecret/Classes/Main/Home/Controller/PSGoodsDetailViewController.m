@@ -9,10 +9,11 @@
 #import "PSGoodsDetailViewController.h"
 #import "PSGoodsDetailCell.h"
 #import "PSHomeProductListItem.h"
+#import "PSShopPageViewController.h"
 
 static NSString *goodsDetailQuery = @"product/detail";
 
-@interface PSGoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface PSGoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate, PSGoodsDetailCellDelegate>
 
 @property (nonatomic, strong) UITableView *goodsDetailView;
 @property (nonatomic, assign) PSNoDataViewType noDataType;
@@ -62,6 +63,7 @@ static NSString *goodsDetailQuery = @"product/detail";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PSGoodsDetailCell *cell = [[PSGoodsDetailCell alloc] init];;
     cell.goodsDetailModel = _goodsDetailArr[indexPath.section];
+    cell.delegate = self;
     return cell;
 }
 
@@ -83,11 +85,11 @@ static NSString *goodsDetailQuery = @"product/detail";
     return 1;
 }
 
-- (void)enterShopPageWithshopId:(NSInteger)uid {
-//    PSUserPageViewController *userPage = [[PSUserPageViewController alloc] init];
-//    userPage.hidesBottomBarWhenPushed = YES;
-//    userPage.uid = uid;
-//    [self.navigationController pushViewController:userPage animated:YES];
+- (void)enterShopPageWithShopId:(NSInteger)shopId {
+    PSShopPageViewController *shopPage = [[PSShopPageViewController alloc] init];
+    shopPage.hidesBottomBarWhenPushed = YES;
+    shopPage.shopId = shopId;
+    [self.navigationController pushViewController:shopPage animated:YES];
 }
 
 @end

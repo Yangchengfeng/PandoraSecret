@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "PSHomeProductListItem.h"
 
+@protocol PSGoodsDetailCellDelegate <NSObject>
+
+- (void)enterShopPageWithShopId:(NSInteger)shopId;
+
+@end
+
 @interface PSGoodsDetailCell : UITableViewCell
 
 @property (nonatomic, strong) PSHomeProductListItem *goodsDetailModel;
+@property (nonatomic, strong) id<PSGoodsDetailCellDelegate> delegate;
 
 @end

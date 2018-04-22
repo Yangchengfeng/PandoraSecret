@@ -18,6 +18,7 @@ static NSString *goodsId = @"homeGoodsId";
 static NSString *bannerQuery = @"banner/query";
 static NSString *productList = @"product/list";
 static CGFloat carouseH = 150.f;
+static CGFloat cellH = 60.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -172,7 +173,7 @@ static CGFloat carouseH = 150.f;
     }];
 }
 
-//#pragma mark - 数据源设置
+#pragma mark - 数据源设置
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -235,7 +236,7 @@ static CGFloat carouseH = 150.f;
         return CGSizeMake(kScreenWidth, carouseH);
     }
     CGFloat goodsW = (kScreenWidth-30)/2.0;
-    return CGSizeMake(goodsW, goodsW + 55.0);
+    return CGSizeMake(goodsW, goodsW + 60.0);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

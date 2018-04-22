@@ -17,6 +17,7 @@ static CGFloat fancyBtnH = 50.f;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *decs;
 @property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *saleLabel;
 
 @end
 
@@ -26,7 +27,8 @@ static CGFloat fancyBtnH = 50.f;
     _productListItem = productListItem;
     [_image sd_setImageWithURL:[NSURL URLWithString:productListItem.mainImage] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
     _decs.text = [NSString stringWithFormat:@"%@-%@", _productListItem.name, _productListItem.title];
-    _price.text = [NSString stringWithFormat:@"%ld",_productListItem.price];
+    _saleLabel.text = [NSString stringWithFormat:@"销量%ld件", _productListItem.sale];
+    _price.text = [NSString stringWithFormat:@"￥%ld", _productListItem.price];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
