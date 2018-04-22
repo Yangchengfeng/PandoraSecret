@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSHomeProductListItem.h"
 
 @interface PSGoodsDetailCell : UITableViewCell
+
+@property (nonatomic, strong) PSHomeProductListItem *goodsDetailModel;
 
 @end

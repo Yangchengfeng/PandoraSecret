@@ -7,8 +7,16 @@
 //
 
 #import "PSGoodsDetailViewController.h"
+#import "PSGoodsDetailCell.h"
+#import "PSHomeProductListItem.h"
 
-@interface PSGoodsDetailViewController ()
+static NSString *goodsDetailQuery = @"product/detail";
+
+@interface PSGoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *goodsDetailView;
+@property (nonatomic, assign) PSNoDataViewType noDataType;
+@property (nonatomic, copy) NSMutableArray *goodsDetailArr;
 
 @end
 
@@ -16,22 +24,70 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _goodsDetailView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-20) style:UITableViewStyleGrouped];
+    _goodsDetailView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _goodsDetailView.delegate = self;
+    _goodsDetailView.dataSource = self;
+    [self.view addSubview:_goodsDetailView];
+    
+    [self queryGoodsDetail];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)queryGoodsDetail {
+    _goodsDetailArr = [NSMutableArray array];
+    NSDictionary *param = @{@"tradeItemId":@(_tradeItemId)};
+    [PSNetoperation getRequestWithConcretePartOfURL:goodsDetailQuery parameter:param success:^(id responseObject) {
+        [_goodsDetailArr addObject:[PSHomeProductListItem homeProductListItemWithDict:responseObject[@"data"]]];
+        [_goodsDetailView reloadData];
+    } failure:^(id failure) {
+        _noDataType = PSNoDataViewTypeFailure;
+    } andError:^(NSError *error) {
+        _noDataType = PSNoDataViewTypeError;
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 520.f;
 }
-*/
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _goodsDetailArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PSGoodsDetailCell *cell = [[PSGoodsDetailCell alloc] init];;
+    cell.goodsDetailModel = _goodsDetailArr[indexPath.section];
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
+
+- (void)enterShopPageWithshopId:(NSInteger)uid {
+//    PSUserPageViewController *userPage = [[PSUserPageViewController alloc] init];
+//    userPage.hidesBottomBarWhenPushed = YES;
+//    userPage.uid = uid;
+//    [self.navigationController pushViewController:userPage animated:YES];
+}
 
 @end

@@ -11,6 +11,7 @@
 #import "PSHomeGoodsCell.h"
 #import "PSHomeCarouselItem.h"
 #import "PSHomeProductListItem.h"
+#import "PSGoodsDetailViewController.h"
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *goodsId = @"homeGoodsId";
@@ -253,7 +254,9 @@ static CGFloat carouseH = 150.f;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *vc = [[UIViewController alloc] init];
+    PSGoodsDetailViewController *vc = [[PSGoodsDetailViewController alloc] init];
+    PSHomeProductListItem *item = _productListArr[indexPath.item];
+    vc.tradeItemId = item.tradeItemId;
     vc.view.backgroundColor = [UIColor whiteColor];
     
     [self.navigationController pushViewController:vc animated:YES];

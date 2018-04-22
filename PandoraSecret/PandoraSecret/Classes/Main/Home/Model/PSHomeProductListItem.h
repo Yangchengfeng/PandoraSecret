@@ -10,16 +10,18 @@
 
 @interface PSHomeProductListItem : NSObject
 
-@property (nonatomic, strong) NSString *tradeItemId;
+@property (nonatomic, assign) NSInteger tradeItemId;
+@property (nonatomic, assign) NSInteger shopId; // 店铺ID
 @property (nonatomic, strong) NSString *name; // 商品标题
 @property (nonatomic, strong) NSString *title; // 商品二级标题
 @property (nonatomic, strong) NSString *productCategory; // 商品所属类目
-@property (nonatomic, strong) NSString *status; // 1是在线商品 0 是下线商品
-@property (nonatomic, strong) NSString *sale; // 销量
-@property (nonatomic, strong) NSString *stock; // 库存
-@property (nonatomic, strong) NSString *shopId; // 店铺ID
-@property (nonatomic, strong) NSString *image;
-@property (nonatomic, strong) NSString *price;
+@property (nonatomic, assign) NSInteger status; // 1是在线商品 0 是下线商品
+@property (nonatomic, assign) NSInteger sale; // 销量
+@property (nonatomic, assign) NSInteger stock; // 库存
+@property (nonatomic, assign) NSInteger price;
+@property (nonatomic, strong) NSString *mainImage;
+@property (nonatomic, strong) NSString *shopName;
+@property (nonatomic, strong) NSArray *subImages;
 
 + (instancetype)homeProductListItemWithDict:(NSDictionary *)dict;
 

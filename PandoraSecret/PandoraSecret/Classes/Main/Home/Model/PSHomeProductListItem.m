@@ -13,16 +13,18 @@
 - (instancetype)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if(self) {
-        self.tradeItemId = dict[@"tradeItemId"];
+        self.tradeItemId = [dict[@"tradeItemId"] integerValue];
         self.name = dict[@"name"];
         self.title = dict[@"title"];
         self.productCategory = dict[@"category"];
-        self.status = dict[@"status"];
-        self.stock = dict[@"stock"];
-        self.sale = dict[@"sale"];
-        self.shopId = dict[@"shopId"];
-        self.image = dict[@"image"];
-        self.price = dict[@"price"];
+        self.status = [dict[@"status"] integerValue];
+        self.stock = [dict[@"stock"] integerValue];
+        self.sale = [dict[@"sale"] integerValue];
+        self.shopId = [dict[@"shopId"] integerValue];
+        self.mainImage = dict[@"mainImage"];
+        self.price = [dict[@"price"] integerValue];
+        self.shopName = dict[@"shopName"];
+        self.subImages = dict[@"subImages"];
     }
     return self;
 }

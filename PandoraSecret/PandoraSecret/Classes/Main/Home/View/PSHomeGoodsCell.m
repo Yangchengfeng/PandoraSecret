@@ -23,12 +23,10 @@ static CGFloat fancyBtnH = 50.f;
 @implementation PSHomeGoodsCell
 
 - (void)setProductListItem:(PSHomeProductListItem *)productListItem {
-    if(_productListItem == nil) {
-        _productListItem = productListItem;
-    }
-    [_image sd_setImageWithURL:[NSURL URLWithString:productListItem.image] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
-    _decs.text = [NSString stringWithFormat:@"%@-%@", productListItem.name, productListItem.title];
-    _price.text = productListItem.price;
+    _productListItem = productListItem;
+    [_image sd_setImageWithURL:[NSURL URLWithString:productListItem.mainImage] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
+    _decs.text = [NSString stringWithFormat:@"%@-%@", _productListItem.name, _productListItem.title];
+    _price.text = [NSString stringWithFormat:@"%ld",_productListItem.price];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{

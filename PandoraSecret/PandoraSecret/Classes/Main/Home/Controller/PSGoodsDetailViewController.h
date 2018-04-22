@@ -10,4 +10,6 @@
 
 @interface PSGoodsDetailViewController : PSBaseViewController
 
+@property (nonatomic, assign) NSInteger tradeItemId;
+
 @end
