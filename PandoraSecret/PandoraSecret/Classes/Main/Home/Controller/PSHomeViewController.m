@@ -259,7 +259,7 @@ static CGFloat cellH = 60.f;
     PSHomeProductListItem *item = _productListArr[indexPath.item];
     vc.tradeItemId = item.tradeItemId;
     vc.view.backgroundColor = [UIColor whiteColor];
-    
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

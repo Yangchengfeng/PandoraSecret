@@ -27,7 +27,7 @@ static CGFloat fancyBtnH = 50.f;
     _productListItem = productListItem;
     [_image sd_setImageWithURL:[NSURL URLWithString:productListItem.mainImage] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
     _decs.text = [NSString stringWithFormat:@"%@-%@", _productListItem.name, _productListItem.title];
-    _saleLabel.text = [NSString stringWithFormat:@"销量%ld件", _productListItem.sale];
+    _saleLabel.text = [NSString stringWithFormat:@"%ld人付款", _productListItem.sale];
     _price.text = [NSString stringWithFormat:@"￥%ld", _productListItem.price];
 }
 
