@@ -9,10 +9,12 @@
 #import "PSShopCartListViewController.h"
 #import "PSShopCartTableViewCell.h"
 #import "PSShopCartModel.h"
+#import "PSGoodsDetailViewController.h"
+#import "PSShopPageViewController.h"
 
 static NSString *shopCartListQuery = @"cart/list";
 
-@interface PSShopCartListViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PSShopCartListViewController () <UITableViewDelegate, UITableViewDataSource, PSShopCartTableViewCellDelegate>
 
 @property (nonatomic, copy) NSMutableArray *shopCartListShopArr;
 @property (nonatomic, copy) NSMutableArray *shopCartListGoodsArr;
@@ -75,11 +77,14 @@ static NSString *shopCartListQuery = @"cart/list";
     if(indexPath.row == 0) {
         cell = [[PSShopCartTableViewCell alloc] initWithParam:isHeader];
         cell.shopName = _shopCartListShopArr[indexPath.section];
+        PSShopCartModel *shopCartModel =  [PSShopCartModel shopCartListModelWithDict:_shopCartListGoodsArr[indexPath.section][indexPath.row]];
+        cell.shopId = shopCartModel.shopId;
     } else {
         cell = [[PSShopCartTableViewCell alloc] initWithParam:(!isHeader)];
         NSInteger realIdx = indexPath.row-1;
         cell.shopCartModel = [PSShopCartModel shopCartListModelWithDict:_shopCartListGoodsArr[indexPath.section][realIdx]];
     }
+    cell.shopCartDelegate = self;
     return cell;
 }
 
@@ -98,8 +103,19 @@ static NSString *shopCartListQuery = @"cart/list";
     return 5.f;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+- (void)shopCartToEnterDetailPageWithId:(NSInteger)detailPageId andIsHeader:(BOOL)isHeader{
+    if(isHeader) {
+        PSShopPageViewController *shopPage = [[PSShopPageViewController alloc] init];
+        shopPage.hidesBottomBarWhenPushed = YES;
+        shopPage.shopId = detailPageId;
+        [self.navigationController pushViewController:shopPage animated:YES];
+    } else {
+        PSGoodsDetailViewController *vc = [[PSGoodsDetailViewController alloc] init];
+        vc.tradeItemId = detailPageId;
+        vc.view.backgroundColor = kColorRGBA(255, 255, 255, 0.98);
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

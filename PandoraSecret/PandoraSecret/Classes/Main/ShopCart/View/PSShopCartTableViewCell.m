@@ -27,6 +27,10 @@
     [_shopNameBtn setTitle:_shopName forState:UIControlStateNormal];
 }
 
+- (void)setShopId:(NSInteger)shopId {
+    _shopId = shopId;
+}
+
 - (void)setShopCartModel:(PSShopCartModel *)shopCartModel {
     _shopCartModel = shopCartModel;
     [_goodsImage sd_setImageWithURL:[NSURL URLWithString:_shopCartModel.image] placeholderImage:[UIImage imageNamed:@"image_view_placeholder_small"]];
@@ -69,6 +73,9 @@
 
 - (IBAction)enterShopHome:(id)sender {
     NSLog(@"进入该商店首页");
+    if([self.shopCartDelegate respondsToSelector:@selector(shopCartToEnterDetailPageWithId:andIsHeader:)]) {
+        [self.shopCartDelegate shopCartToEnterDetailPageWithId:self.shopId andIsHeader:YES];
+    }
 }
 
 - (IBAction)chooseThisGoods:(UIButton *)sender {
@@ -82,6 +89,11 @@
 
 - (IBAction)enterGoodsDetail:(id)sender {
      NSLog(@"查看该商品详情");
+    if([self.shopCartDelegate respondsToSelector:@selector(shopCartToEnterDetailPageWithId:andIsHeader:)]) {
+        [self.shopCartDelegate shopCartToEnterDetailPageWithId:_shopCartModel.itemId andIsHeader:NO];
+    }
 }
+
+
 
 @end
