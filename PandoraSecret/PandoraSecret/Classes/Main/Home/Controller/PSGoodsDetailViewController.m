@@ -12,6 +12,7 @@
 #import "PSShopPageViewController.h"
 
 static NSString *goodsDetailQuery = @"product/detail";
+static CGFloat tableFooterH = 44.f;
 
 @interface PSGoodsDetailViewController () <UITableViewDataSource, UITableViewDelegate, PSGoodsDetailCellDelegate>
 
@@ -26,11 +27,34 @@ static NSString *goodsDetailQuery = @"product/detail";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _goodsDetailView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-20) style:UITableViewStyleGrouped];
+    _goodsDetailView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-tableFooterH) style:UITableViewStyleGrouped];
     _goodsDetailView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _goodsDetailView.delegate = self;
     _goodsDetailView.dataSource = self;
     [self.view addSubview:_goodsDetailView];
+    
+    UIButton *shopCartBtn = [UIButton new];
+    shopCartBtn.backgroundColor = [UIColor whiteColor];
+    [shopCartBtn setTitle:@"加入购物车" forState:UIControlStateNormal];
+    [shopCartBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [shopCartBtn addTarget:self action:@selector(addToShopCart) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:shopCartBtn];
+    [shopCartBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.and.bottom.equalTo(self.view);
+        make.height.mas_equalTo(44);
+        make.width.mas_equalTo(self.view.mas_width).multipliedBy(0.5);
+    }];
+    UIButton *payBtn = [[UIButton alloc] init];
+    [payBtn addTarget:self action:@selector(pay) forControlEvents:UIControlEventTouchUpInside];
+    payBtn.backgroundColor = kPandoraSecretColor;
+    [payBtn setTitle:@"购买" forState:UIControlStateNormal];
+    [payBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:payBtn];
+    [payBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.and.bottom.equalTo(self.view);
+        make.height.mas_equalTo(44);
+        make.width.equalTo(self.view.mas_width).multipliedBy(0.5);
+    }];
     
     [self queryGoodsDetail];
 }
@@ -64,6 +88,7 @@ static NSString *goodsDetailQuery = @"product/detail";
     PSGoodsDetailCell *cell = [[PSGoodsDetailCell alloc] init];;
     cell.goodsDetailModel = _goodsDetailArr[indexPath.section];
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -76,9 +101,8 @@ static NSString *goodsDetailQuery = @"product/detail";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
+    return footerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -90,6 +114,14 @@ static NSString *goodsDetailQuery = @"product/detail";
     shopPage.hidesBottomBarWhenPushed = YES;
     shopPage.shopId = shopId;
     [self.navigationController pushViewController:shopPage animated:YES];
+}
+
+- (void)pay {
+    
+}
+
+- (void)addToShopCart {
+    
 }
 
 @end

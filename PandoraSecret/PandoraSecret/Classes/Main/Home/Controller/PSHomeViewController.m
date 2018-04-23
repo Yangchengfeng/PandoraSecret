@@ -188,7 +188,7 @@ static CGFloat cellH = 60.f;
     if(_productListArr.count>0) {
         return _productListArr.count;
     }
-    return 10;
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
