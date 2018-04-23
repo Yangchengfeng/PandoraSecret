@@ -27,16 +27,15 @@
 
 - (UIProgressView *)progressView {
     if(!_progressView) {
-        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 20, [[UIScreen mainScreen] bounds].size.width, 2)];
-        self.progressView.backgroundColor = [UIColor blueColor];
+        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 64, [[UIScreen mainScreen] bounds].size.width, 2)];
+        self.progressView.backgroundColor = [UIColor redColor];
+        self.progressView.hidden = NO;
     }
     return _progressView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.view addSubview:self.progressView];
     
     [self.view addSubview:self.wkWebView];
     NSURL *url = [NSURL URLWithString:_webLink];
@@ -44,6 +43,9 @@
     [_wkWebView loadRequest:request];
     [_wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [_wkWebView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [self.view addSubview:self.progressView];
+    [self.view bringSubviewToFront:self.progressView];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
