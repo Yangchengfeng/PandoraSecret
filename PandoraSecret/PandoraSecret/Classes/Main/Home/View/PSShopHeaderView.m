@@ -43,5 +43,8 @@
 }
 
 - (IBAction)back:(id)sender {
+    if([self.delegate respondsToSelector:@selector(back)]) {
+        [self.delegate back];
+    }
 }
 @end

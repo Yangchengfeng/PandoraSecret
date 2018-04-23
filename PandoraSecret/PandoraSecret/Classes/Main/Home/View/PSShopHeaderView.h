@@ -10,8 +10,15 @@
 #import "PSShowGradeStarView.h"
 #import "PSShopDetailModel.h"
 
+@protocol PSShopHeaderViewDelegate <NSObject>
+
+- (void)back;
+
+@end
+
 @interface PSShopHeaderView : UIView
 
+@property (nonatomic, weak) id<PSShopHeaderViewDelegate> delegate;
 @property (nonatomic, strong) PSShopDetailModel *shopHeaderModel;
 
 @end

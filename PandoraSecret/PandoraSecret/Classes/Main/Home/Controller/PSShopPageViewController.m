@@ -15,7 +15,7 @@
 static NSString *shopQuery = @"shop/query";
 static NSString *goodsCell = @"goodsCell";
 
-@interface PSShopPageViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PSShopPageViewController () <UICollectionViewDelegate, UICollectionViewDataSource, PSShopHeaderViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *shopListView;
 @property (nonatomic, strong) PSShopHeaderView *shopHeaderView;
@@ -40,6 +40,7 @@ static NSString *goodsCell = @"goodsCell";
     [super viewDidLoad];
     
     _shopHeaderView = [[PSShopHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 90)];
+    _shopHeaderView.delegate = self;
     [self.view addSubview:_shopHeaderView];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -131,6 +132,10 @@ static NSString *goodsCell = @"goodsCell";
     vc.tradeItemId = item.tradeItemId;
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
