@@ -62,16 +62,26 @@ static CGFloat fancyBtnH = 50.f;
 
     [_maskView addSubview:likeBtn];
     [_maskView addSubview:dislikeBtn];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeMask) name:@"homeVCBeginDragToRemove" object:nil];
 }
 
 - (void)like {
     // 保存喜欢进行智能推荐
-    [_maskView removeFromSuperview];
+    [self removeMask];
 }
 
 - (void)dislike {
     // 保存不喜欢进行智能推荐
+    [self removeMask];
+}
+
+- (void)removeMask {
     [_maskView removeFromSuperview];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:nil];
 }
 
 @end

@@ -20,6 +20,7 @@ static NSString *goodsId = @"homeGoodsId";
 static NSString *productList = @"product/list";
 static NSString *homeBeginDrag = @"homeVCBeginDrag";
 static NSString *homeEndDrag = @"homeVCEndDrag";
+static NSString *homeVCBeginDragToRemove = @"homeVCBeginDragToRemove";
 static CGFloat marginViewH = 38.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PSHomeHeaderViewDelegate>
@@ -171,7 +172,7 @@ static CGFloat marginViewH = 38.f;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#pragma mark - 计时器添加与删除
+#pragma mark - 计时器添加与删除、去掉遮罩
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate { // 通知
     NSNotification *notification =[NSNotification notificationWithName:homeEndDrag object:nil userInfo:nil];
@@ -181,6 +182,7 @@ static CGFloat marginViewH = 38.f;
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     NSNotification *notification =[NSNotification notificationWithName:homeBeginDrag object:nil userInfo:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:homeVCBeginDragToRemove object:nil userInfo:nil]];
 }
 
 @end
