@@ -14,13 +14,14 @@ static NSString *carouselId = @"homeCarouselId";
 static NSString *bannerQuery = @"banner/query";
 static NSString *homeBeginDrag = @"homeVCBeginDrag";
 static NSString *homeEndDrag = @"homeVCEndDrag";
-static CGFloat carouseH = 150.f;
-static CGFloat marginLabelH = 15.f;
+static CGFloat marginViewH = 38.f;
+
+#define kCarouseH kScreenWidth/25.*14
 
 @interface PSHomeHeaderView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UICollectionView *homeCarousel;
-@property (nonatomic, strong) UILabel *marginLabel;
+@property (nonatomic, strong) UIView *marginView;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, copy) NSMutableArray *homeCarouselArr;
 
@@ -32,10 +33,10 @@ static CGFloat marginLabelH = 15.f;
     if(!_homeCarousel) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        _homeCarousel = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, carouseH) collectionViewLayout:layout];
+        _homeCarousel = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kCarouseH) collectionViewLayout:layout];
         _homeCarousel.backgroundColor = [UIColor whiteColor];
         _homeCarousel.pagingEnabled = YES;
-        _homeCarousel.showsVerticalScrollIndicator = YES;
+        _homeCarousel.showsVerticalScrollIndicator = NO;
         _homeCarousel.showsHorizontalScrollIndicator = NO;
         _homeCarousel.delegate = self;
         _homeCarousel.dataSource = self;
@@ -44,15 +45,25 @@ static CGFloat marginLabelH = 15.f;
     return _homeCarousel;
 }
 
-- (UILabel *)marginLabel {
-    if(!_marginLabel) {
-        _marginLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, carouseH, kScreenWidth, marginLabelH)];
-        _marginLabel.text = @"-> 猜你喜欢 <-";
-        _marginLabel.textColor = kPandoraSecretColor;
-        _marginLabel.textAlignment = NSTextAlignmentCenter;
-        _marginLabel.font = [UIFont systemFontOfSize:12];
+- (UIView *)marginView {
+    if(!_marginView) {
+        _marginView = [[UIView alloc] initWithFrame:CGRectMake(0, kCarouseH, kScreenWidth, marginViewH)];
+        _marginView.backgroundColor = [UIColor whiteColor];
+        
+        UIView *marginSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 8)];
+        marginSubView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [_marginView addSubview:marginSubView];
+        
+        UIButton *marginBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 8, kScreenWidth, 30)];
+        marginBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [marginBtn setTitle:@"猜你喜欢" forState:UIControlStateNormal];
+        [marginBtn setImage:[UIImage imageNamed:@"guessUlike"] forState:UIControlStateNormal];
+        [marginBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
+        [marginBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 8, 0, 0)];
+        [marginBtn setTitleColor:kPandoraSecretColor forState:UIControlStateNormal];
+        [_marginView addSubview:marginBtn];
     }
-    return _marginLabel;
+    return _marginView;
 }
 
 - (NSMutableArray *)homeCarouselArr {
@@ -68,7 +79,7 @@ static CGFloat marginLabelH = 15.f;
         
         [self addTimer];
         [self addSubview:self.homeCarousel];
-        [self addSubview:self.marginLabel];
+        [self addSubview:self.marginView];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:@"homeVCBeginDrag" object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTimer) name:@"homeVCEndDrag" object:nil];
@@ -128,7 +139,7 @@ static CGFloat marginLabelH = 15.f;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(kScreenWidth, carouseH);
+    return CGSizeMake(kScreenWidth, kCarouseH);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -141,10 +152,6 @@ static CGFloat marginLabelH = 15.f;
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(kScreenWidth, carouseH+marginLabelH);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

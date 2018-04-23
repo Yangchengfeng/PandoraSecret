@@ -20,8 +20,7 @@ static NSString *goodsId = @"homeGoodsId";
 static NSString *productList = @"product/list";
 static NSString *homeBeginDrag = @"homeVCBeginDrag";
 static NSString *homeEndDrag = @"homeVCEndDrag";
-static CGFloat carouseH = 150.f;
-static CGFloat marginLabelH = 15.f;
+static CGFloat marginViewH = 38.f;
 
 @interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PSHomeHeaderViewDelegate>
 
@@ -41,8 +40,8 @@ static CGFloat marginLabelH = 15.f;
         [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
         _goodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
         _goodsCollectionView.backgroundColor = [UIColor whiteColor];
-        _goodsCollectionView.showsVerticalScrollIndicator = NO;
-        _goodsCollectionView.showsHorizontalScrollIndicator = YES;
+        _goodsCollectionView.showsVerticalScrollIndicator = YES;
+        _goodsCollectionView.showsHorizontalScrollIndicator = NO;
         _goodsCollectionView.delegate = self;
         _goodsCollectionView.dataSource = self;
         [_goodsCollectionView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsId];
@@ -127,7 +126,7 @@ static CGFloat marginLabelH = 15.f;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(kScreenWidth, carouseH+marginLabelH);
+    return CGSizeMake(kScreenWidth, kScreenWidth/25.*14+marginViewH);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
