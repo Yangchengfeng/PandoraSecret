@@ -38,6 +38,10 @@
     if(self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"PSShopHeaderView" owner:nil options:nil].firstObject;
         [_starView buildStarsWithSelectedStars:0 totalStars:5 starSize:CGSizeMake(15, 15) optional:NO];
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        effectView.frame = CGRectMake(0, 0, _maskView.frame.size.width, _maskView.frame.size.height);
+        [_maskView addSubview:effectView];
     }
     return self;
 }
