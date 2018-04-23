@@ -16,6 +16,7 @@
 
 @interface PSShowGradeStarView : UIView
 
+@property (nonatomic, assign) NSInteger selectedStars;
 @property (nonatomic, assign) id<PSShowGradeStarViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame selectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional;

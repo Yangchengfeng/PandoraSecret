@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PSHomeProductListItem.h"
 
 @interface PSShopDetailModel : NSObject
 
@@ -16,7 +15,6 @@
 @property (nonatomic, strong) NSString *shopName;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *image;
-@property (nonatomic, strong) NSMutableArray<PSHomeProductListItem *> *productItems;
 
 + (instancetype)shopDetailWithDict:(NSDictionary *)dict;
 

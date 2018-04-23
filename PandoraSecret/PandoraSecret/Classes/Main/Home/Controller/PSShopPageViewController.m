@@ -7,58 +7,44 @@
 //
 
 #import "PSShopPageViewController.h"
-#import "PSShowGradeStarView.h"
-#import "PSShopDetailModel.h"
 #import "PSGoodsDetailViewController.h"
 #import "PSHomeGoodsCell.h"
+#import "PSHomeProductListItem.h"
+#import "PSShopHeaderView.h"
 
-static NSString *headerView = @"headerView";
 static NSString *shopQuery = @"shop/query";
 static NSString *goodsCell = @"goodsCell";
-static CGFloat titleFont = 12.F;
 
-@interface PSShopHeaderView : UIView
-
-@property (weak, nonatomic) IBOutlet UIImageView *shopImageView;
-@property (weak, nonatomic) IBOutlet UILabel *shopNameLabel;
-@property (weak, nonatomic) IBOutlet PSShowGradeStarView *starView;
-@property (weak, nonatomic) IBOutlet UILabel *fansNumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *shopIntroLabel;
-
-@property (nonatomic, copy) NSMutableDictionary *shopHeaderModel;
-
-@end
-
-@implementation PSShopHeaderView
-
-- (instancetype)init {
-    self = [super init];
-    if(self) {
-        self = [[NSBundle mainBundle] loadNibNamed:@"PSShopHeaderView" owner:nil options:nil].firstObject;
-    }
-    return self;
-}
-
-@end
-
-@interface PSShopPageViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PSShopPageViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *shopListView;
 @property (nonatomic, strong) PSShopHeaderView *shopHeaderView;
 @property (nonatomic, assign) PSNoDataViewType noDataType;
 @property (nonatomic, copy) NSMutableArray *goodsArr;
-@property (nonatomic, strong) PSShopDetailModel *shopDetailModel;
 
 @end
 
 @implementation PSShopPageViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _shopHeaderView = [[PSShopHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 90)];
+    [self.view addSubview:_shopHeaderView];
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    _shopListView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
+    _shopListView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_shopHeaderView.frame), kScreenWidth, kScreenHeight-CGRectGetMaxY(_shopHeaderView.frame)) collectionViewLayout:layout];
     _shopListView.delegate = self;
     _shopListView.backgroundColor = [UIColor whiteColor];
     _shopListView.showsVerticalScrollIndicator = YES;
@@ -67,10 +53,9 @@ static CGFloat titleFont = 12.F;
     _shopListView.dataSource = self;
     [_shopListView registerClass:[PSHomeGoodsCell class] forCellWithReuseIdentifier:goodsCell];
     [self.view addSubview:_shopListView];
-
-//    [_shopListView registerNib:[UINib nibWithNibName:NSStringFromClass([PSShopHeaderView class]) bundle:nil]
-//          forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerView];
-
+    
+    [_shopListView bringSubviewToFront:_shopHeaderView];
+    
     [self queryGoodsDetail];
 }
 
@@ -79,10 +64,10 @@ static CGFloat titleFont = 12.F;
     NSDictionary *param = @{@"shopId":@(_shopId)};
     [PSNetoperation getRequestWithConcretePartOfURL:shopQuery parameter:param success:^(id responseObject) {
         PSShopDetailModel *shopDetailModel = [PSShopDetailModel shopDetailWithDict:responseObject[@"data"]];
-        _shopDetailModel = shopDetailModel;
-        for(NSDictionary *dict in shopDetailModel.productItems) {
-            [_goodsArr addObject:dict];
+        for(NSDictionary *dict in responseObject[@"data"][@"pros"]) {
+            [_goodsArr addObject:[PSHomeProductListItem homeProductListItemWithDict:dict]];
         }
+        _shopHeaderView.shopHeaderModel = shopDetailModel;
         [_shopListView reloadData];
     } failure:^(id failure) {
         _noDataType = PSNoDataViewTypeFailure;
@@ -113,8 +98,9 @@ static CGFloat titleFont = 12.F;
                                @"stock":@"0",
                                @"sale":@"0",
                                @"shopId": @"0",
-                               @"image": @"",
+                               @"mainImage": @"",
                                @"price": @"0",
+                               @"subImages":@[]
                                };
         PSHomeProductListItem *homeProductItem = [PSHomeProductListItem homeProductListItemWithDict:dict];
         cell.productListItem = homeProductItem;
@@ -124,7 +110,7 @@ static CGFloat titleFont = 12.F;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat goodsW = (kScreenWidth-30)/2.0;
-    return CGSizeMake(goodsW, goodsW + 55.0);
+    return CGSizeMake(goodsW, goodsW + 60.0);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -146,36 +132,5 @@ static CGFloat titleFont = 12.F;
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    if (kind == UICollectionElementKindSectionHeader) {
-//        PSShopHeaderView *shopHeader = (PSShopHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerView forIndexPath:indexPath];
-//
-//        return (UICollectionReusableView *)shopHeader;
-//
-//    } else {
-//        return nil;
-//    }
-//}
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-//    CGSize size = [self sizeWithText:_shopDetailModel.content maxWidth:kScreenWidth];
-//    return CGSizeMake(ceil(size.width), ceil(size.height)+115);
-//}
-//
-//- (CGSize)sizeWithText:(NSString *)text maxWidth:(CGFloat)maxWidth {
-//    if(!text) {
-//        return CGSizeMake(kScreenWidth, 115);
-//    }
-//    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-//    style.lineBreakMode = NSLineBreakByCharWrapping;
-//    CGSize size = [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
-//                                     options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
-//                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:titleFont],
-//                                               NSParagraphStyleAttributeName:style
-//                                               }
-//                                     context:nil].size;
-//    return CGSizeMake(ceil(size.width), ceil(size.height));
-//}
 
 @end

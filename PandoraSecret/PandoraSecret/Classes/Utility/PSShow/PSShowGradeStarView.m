@@ -8,9 +8,17 @@
 
 #import "PSShowGradeStarView.h"
 
-static NSInteger starBeginWithIdx = 0;
-
 @implementation PSShowGradeStarView
+
+- (void)setSelectedStars:(NSInteger)selectedStars {
+    for(UIButton *btn in self.subviews) {
+        if(btn.tag < selectedStars) {
+            btn.selected = YES;
+        } else {
+            btn.selected = NO;
+        }
+    }
+}
 
 - (id)initWithFrame:(CGRect)frame selectedStars:(NSInteger)selectedStars totalStars:(NSInteger)totalStars starSize:(CGSize)starSize optional:(BOOL)optional {
     self = [super initWithFrame:frame];
@@ -50,12 +58,13 @@ static NSInteger starBeginWithIdx = 0;
 
 - (void)clickStarBtn:(UIButton *)selectedStar{
     for(UIButton *btn in self.subviews) {
-        if(btn.tag <= selectedStar.tag) {
+        if(btn.tag < selectedStar.tag) {
             btn.selected = YES;
         } else {
             btn.selected = NO;
         }
     }
+    
     if([self.delegate respondsToSelector:@selector(finalGradeWithSelectedStarIdx:)]) {
         [self.delegate finalGradeWithSelectedStarIdx:selectedStar.tag];
     }

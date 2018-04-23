@@ -16,12 +16,8 @@
         self.fans = [dict[@"fans"] integerValue];
         self.image = dict[@"image"];
         self.shopName = dict[@"shopName"];
-        self.productItems = [NSMutableArray array];
-        for(NSDictionary *pros in dict[@"pros"]) {
-            [self.productItems addObject:[PSHomeProductListItem homeProductListItemWithDict:pros]];
-        }
         self.star = [dict[@"star"] integerValue];
-        self.content = dict[@"content"];;
+        self.content = dict[@"content"];
     }
     return self;
 }
