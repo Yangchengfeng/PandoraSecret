@@ -28,7 +28,8 @@ static CGFloat marginLabelH = 15.f;
 @property (nonatomic, strong) UICollectionReusableView *homeHeaderView;
 @property (nonatomic, strong) UICollectionView *goodsCollectionView;
 @property (nonatomic, copy) NSMutableArray *productListArr;
-@property (nonatomic, strong) NSTimer *timer;
+
+
 
 @end
 

@@ -35,7 +35,7 @@ static CGFloat marginLabelH = 15.f;
         _homeCarousel = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, carouseH) collectionViewLayout:layout];
         _homeCarousel.backgroundColor = [UIColor whiteColor];
         _homeCarousel.pagingEnabled = YES;
-        _homeCarousel.showsVerticalScrollIndicator = NO;
+        _homeCarousel.showsVerticalScrollIndicator = YES;
         _homeCarousel.showsHorizontalScrollIndicator = NO;
         _homeCarousel.delegate = self;
         _homeCarousel.dataSource = self;
@@ -53,6 +53,13 @@ static CGFloat marginLabelH = 15.f;
         _marginLabel.font = [UIFont systemFontOfSize:12];
     }
     return _marginLabel;
+}
+
+- (NSMutableArray *)homeCarouselArr {
+    if(!_homeCarouselArr) {
+        _homeCarouselArr = [NSMutableArray array];
+    }
+    return _homeCarouselArr;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -73,14 +80,13 @@ static CGFloat marginLabelH = 15.f;
 
 - (void)loadBannerInfoWithBannerURL:(NSString *)url{
     __weak typeof(self) weakSelf = self;
-    _homeCarouselArr = [NSMutableArray array];
     [PSNetoperation getRequestWithConcretePartOfURL:url parameter:nil success:^(id responseObject) {
         NSArray *carouselGoods = responseObject[@"data"];
         for(NSDictionary *dict in carouselGoods) {
             PSHomeCarouselItem *homeCarouselItem = [PSHomeCarouselItem HomeCarouselWithDict:dict];
-            [_homeCarouselArr addObject:homeCarouselItem];
-            [weakSelf.homeCarousel reloadData];
+            [self.homeCarouselArr addObject:homeCarouselItem];
         }
+        [weakSelf.homeCarousel reloadData];
     } andError:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"数据加载出错，请稍后再试~~~"];
     }];
@@ -93,8 +99,8 @@ static CGFloat marginLabelH = 15.f;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
    
-    if(_homeCarouselArr.count>0) {
-        return _homeCarouselArr.count;
+    if(self.homeCarouselArr.count>0) {
+        return self.homeCarouselArr.count;
     }
     return 5;
 
