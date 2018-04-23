@@ -13,6 +13,7 @@
 #import "PSHomeProductListItem.h"
 #import "PSGoodsDetailViewController.h"
 #import "PSHomeHeaderView.h"
+#import "PSWebViewController.h"
 
 static NSString *headerId = @"homeHeaderId";
 static NSString *goodsId = @"homeGoodsId";
@@ -20,7 +21,7 @@ static NSString *productList = @"product/list";
 static CGFloat carouseH = 150.f;
 static CGFloat marginLabelH = 15.f;
 
-@interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PSHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PSHomeHeaderViewDelegate>
 
 @property (nonatomic, strong) UICollectionReusableView *homeHeaderView;
 @property (nonatomic, strong) UICollectionView *goodsCollectionView;
@@ -53,15 +54,6 @@ static CGFloat marginLabelH = 15.f;
     [self.view addSubview:self.goodsCollectionView];
     
     [self loadProductListWithProductListURL:productList];
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *reusableView = nil;
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        PSHomeHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
-        reusableView = header;
-    }
-    return reusableView;
 }
 
 - (void)loadProductListWithProductListURL:(NSString *)url {
@@ -128,7 +120,7 @@ static CGFloat marginLabelH = 15.f;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    return 5;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
@@ -143,9 +135,19 @@ static CGFloat marginLabelH = 15.f;
     PSGoodsDetailViewController *vc = [[PSGoodsDetailViewController alloc] init];
     PSHomeProductListItem *item = _productListArr[indexPath.item];
     vc.tradeItemId = item.tradeItemId;
-    vc.view.backgroundColor = [UIColor whiteColor];
+    vc.view.backgroundColor = kColorRGBA(255, 255, 255, 0.98);
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        PSHomeHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
+        header.delegate = self;
+        reusableView = header;
+    }
+    return reusableView;
 }
 
 #pragma mark - 导航栏
@@ -157,6 +159,14 @@ static CGFloat marginLabelH = 15.f;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
+}
+
+#pragma mark - 轮播图跳转网页
+- (void)enterWebView:(NSString *)webViewLink {
+    PSWebViewController *vc = [[PSWebViewController alloc] init];
+    vc.webLink = webViewLink;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "PSHomeHeaderView.h"
 #import "PSHomeCarousel.h"
+#import "PSHomeCarouselItem.h"
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *bannerQuery = @"banner/query";
@@ -132,6 +133,13 @@ static CGFloat marginLabelH = 15.f;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(kScreenWidth, carouseH+marginLabelH);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    PSHomeCarouselItem *item = _homeCarouselArr[indexPath.item];
+    if([self.delegate respondsToSelector:@selector(enterWebView:)]) {
+        [self.delegate enterWebView:item.link];
+    }
 }
 
 #pragma mark - 计时器

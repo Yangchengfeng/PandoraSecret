@@ -58,6 +58,7 @@
 		383EA980208D896000BDFD3D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EA960208D826F00BDFD3D /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		383EA981208D897100BDFD3D /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EA969208D826F00BDFD3D /* ViewController+MASAdditions.m */; };
 		383EA984208D94F800BDFD3D /* PSHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EA983208D94F800BDFD3D /* PSHomeHeaderView.m */; };
+		383EA987208DBAF900BDFD3D /* PSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EA986208DBAF900BDFD3D /* PSWebViewController.m */; };
 		383EAF7C207DF0E3009E57CE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3930207BCA1C00FD055F /* UIImageView+WebCache.m */; };
 		383EAF7D207DF105009E57CE /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC390D207BCA1C00FD055F /* SDWebImageManager.m */; };
 		383EAF7E207DF11D009E57CE /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC3929207BCA1C00FD055F /* SDImageCache.m */; };
@@ -243,6 +244,8 @@
 		383EA977208D826F00BDFD3D /* MASViewAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		383EA982208D94F800BDFD3D /* PSHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeHeaderView.h; sourceTree = "<group>"; };
 		383EA983208D94F800BDFD3D /* PSHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeHeaderView.m; sourceTree = "<group>"; };
+		383EA985208DBAF900BDFD3D /* PSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSWebViewController.h; sourceTree = "<group>"; };
+		383EA986208DBAF900BDFD3D /* PSWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSWebViewController.m; sourceTree = "<group>"; };
 		383EAF8B207E2017009E57CE /* PSHomeProductListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHomeProductListItem.h; sourceTree = "<group>"; };
 		383EAF8C207E2017009E57CE /* PSHomeProductListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHomeProductListItem.m; sourceTree = "<group>"; };
 		383FFF3620731A04000E8631 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -1316,6 +1319,8 @@
 				38D380A7208BBC1F008BE79A /* PSGoodsDetailViewController.m */,
 				383EA94F208D248300BDFD3D /* PSShopPageViewController.h */,
 				383EA950208D248300BDFD3D /* PSShopPageViewController.m */,
+				383EA985208DBAF900BDFD3D /* PSWebViewController.h */,
+				383EA986208DBAF900BDFD3D /* PSWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1534,6 +1539,7 @@
 				383EA980208D896000BDFD3D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				383EA97F208D890D00BDFD3D /* MASConstraint.m in Sources */,
 				383EA97D208D890200BDFD3D /* MASViewConstraint.m in Sources */,
+				383EA987208DBAF900BDFD3D /* PSWebViewController.m in Sources */,
 				383EA97E208D890200BDFD3D /* MASViewAttribute.m in Sources */,
 				383EA979208D88F500BDFD3D /* MASCompositeConstraint.m in Sources */,
 				383EA97A208D88F500BDFD3D /* MASConstraintMaker.m in Sources */,

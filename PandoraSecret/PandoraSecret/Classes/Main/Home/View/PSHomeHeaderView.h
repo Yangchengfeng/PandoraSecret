@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PSHomeHeaderViewDelegate <NSObject>
+
+- (void)enterWebView:(NSString *)webViewLink;
+
+@end
+
 @interface PSHomeHeaderView : UICollectionReusableView
+
+@property (nonatomic, weak) id<PSHomeHeaderViewDelegate> delegate;
 
 @end
