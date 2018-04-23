@@ -11,6 +11,7 @@
 
 @interface PSHomeGoodsCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *fancyBtn;
 @property (nonatomic, strong) PSHomeProductListItem *productListItem;
 
 @end

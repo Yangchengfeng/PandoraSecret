@@ -88,6 +88,7 @@ static NSString *goodsCell = @"goodsCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PSHomeGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsCell forIndexPath:indexPath];
+    cell.fancyBtn.tag = indexPath.item;
     if(_goodsArr.count > 0) {
         cell.productListItem = _goodsArr[indexPath.item];
     } else {

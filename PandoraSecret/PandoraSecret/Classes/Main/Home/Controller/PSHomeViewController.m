@@ -56,6 +56,9 @@ static CGFloat marginViewH = 38.f;
     
     [self.view addSubview:self.goodsCollectionView];
     
+    // 对用户选择进行保存
+    [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"fancyBtnTag"];
+    
     [self loadProductListWithProductListURL:productList];
 }
 
@@ -89,6 +92,7 @@ static CGFloat marginViewH = 38.f;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PSHomeGoodsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:goodsId forIndexPath:indexPath];
+    cell.fancyBtn.tag = indexPath.item;
     if(_productListArr.count > 0) {
         cell.productListItem = _productListArr[indexPath.item];
     } else {

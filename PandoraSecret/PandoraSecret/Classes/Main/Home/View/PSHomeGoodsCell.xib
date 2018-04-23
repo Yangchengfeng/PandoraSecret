@@ -84,6 +84,7 @@
             <size key="customSize" width="60" height="97"/>
             <connections>
                 <outlet property="decs" destination="VsV-7D-b0j" id="lKr-tu-z8z"/>
+                <outlet property="fancyBtn" destination="qR9-zd-74v" id="bAy-aE-w0G"/>
                 <outlet property="image" destination="4eH-l3-zrt" id="8Ni-fq-3s7"/>
                 <outlet property="price" destination="uuV-rx-Qmi" id="1c1-VZ-waB"/>
                 <outlet property="saleLabel" destination="Ezx-91-3V3" id="SQ2-pp-yNZ"/>

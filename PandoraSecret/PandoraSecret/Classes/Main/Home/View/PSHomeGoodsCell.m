@@ -39,7 +39,14 @@ static CGFloat fancyBtnH = 50.f;
     return self;
 }
 
-- (IBAction)userFancy:(id)sender {
+- (IBAction)userFancy:(UIButton *)sender {
+    
+    NSInteger fancyBtnTag = [[NSUserDefaults standardUserDefaults] integerForKey:@"fancyBtnTag"];
+    if(fancyBtnTag != sender.tag) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"homeVCBeginDragToRemove" object:nil userInfo:nil]];
+        [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:@"fancyBtnTag"];
+    }
+    
     _maskView = [[UIView alloc] initWithFrame:self.bounds];
     _maskView.backgroundColor = kPandoraSecretMaskColor;
     
