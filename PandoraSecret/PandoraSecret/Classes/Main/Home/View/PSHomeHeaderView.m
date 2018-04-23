@@ -12,6 +12,8 @@
 
 static NSString *carouselId = @"homeCarouselId";
 static NSString *bannerQuery = @"banner/query";
+static NSString *homeBeginDrag = @"homeVCBeginDrag";
+static NSString *homeEndDrag = @"homeVCEndDrag";
 static CGFloat carouseH = 150.f;
 static CGFloat marginLabelH = 15.f;
 
@@ -38,7 +40,6 @@ static CGFloat marginLabelH = 15.f;
         _homeCarousel.delegate = self;
         _homeCarousel.dataSource = self;
         [_homeCarousel registerClass:[PSHomeCarousel class] forCellWithReuseIdentifier:carouselId];
-        [self addTimer];
     }
     return _homeCarousel;
 }
@@ -57,8 +58,13 @@ static CGFloat marginLabelH = 15.f;
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
+        
+        [self addTimer];
         [self addSubview:self.homeCarousel];
         [self addSubview:self.marginLabel];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTimer) name:@"homeVCBeginDrag" object:nil];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTimer) name:@"homeVCEndDrag" object:nil];
         
         [self loadBannerInfoWithBannerURL:bannerQuery];
     }
@@ -167,12 +173,8 @@ static CGFloat marginLabelH = 15.f;
     self.timer = nil;
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate { // 通知
-    [self addTimer];
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self removeTimer];
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:nil];
 }
 
 @end

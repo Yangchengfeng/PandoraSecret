@@ -18,6 +18,8 @@
 static NSString *headerId = @"homeHeaderId";
 static NSString *goodsId = @"homeGoodsId";
 static NSString *productList = @"product/list";
+static NSString *homeBeginDrag = @"homeVCBeginDrag";
+static NSString *homeEndDrag = @"homeVCEndDrag";
 static CGFloat carouseH = 150.f;
 static CGFloat marginLabelH = 15.f;
 
@@ -167,6 +169,18 @@ static CGFloat marginLabelH = 15.f;
     vc.webLink = webViewLink;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 计时器添加与删除
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate { // 通知
+    NSNotification *notification =[NSNotification notificationWithName:homeEndDrag object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSNotification *notification =[NSNotification notificationWithName:homeBeginDrag object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 @end
