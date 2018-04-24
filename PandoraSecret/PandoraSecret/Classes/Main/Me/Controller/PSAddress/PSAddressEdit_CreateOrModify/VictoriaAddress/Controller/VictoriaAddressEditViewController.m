@@ -59,8 +59,8 @@ static NSString *placeholderStr = @"请输入收件人的详细地址信息，�
 
 #pragma mark - 判断新增或编辑
 - (void)enterAddressEditVCWithType:(VictoriaAddressEditType)editType {
+    _editType = editType;
     switch(editType) {
-        _editType = editType;
         case VictoriaAddressEditTypeNew: {
             self.navigationItem.title = @"新增地址";
             break;

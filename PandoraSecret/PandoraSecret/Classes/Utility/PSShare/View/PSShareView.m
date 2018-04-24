@@ -10,8 +10,7 @@
 
 #import "PSShareView.h"
 #import "PSShareCollectionViewCell.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import "WeiboSDK.h"
 
 static NSString *cellId = @"PSShareCollectionViewCell";
 
@@ -209,56 +208,43 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // 判断是否安装，mob在模拟器判断是否安装应用会崩溃([ShareSDK isClientInstalled:])
-    
-    NSArray* imageArray = @[[UIImage imageNamed:@"login_sms"]];
-    if (imageArray) {
-        
-        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-        [shareParams SSDKSetupShareParamsByText:@"分享内容"
-                                         images:imageArray
-                                            url:[NSURL URLWithString:@"http://mob.com"]
-                                          title:@"分享标题"
-                                           type:SSDKContentTypeAuto];
-        [shareParams SSDKEnableUseClientShare]; //有的平台要客户端分享需要加此方法，例如微博
-       
-        [ShareSDK showShareActionSheet:nil
-                                 items:nil
-                           shareParams:shareParams
-                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
-                       switch (state) {
-                           case SSDKResponseStateSuccess: {
-                               [self dismiss:YES];
-                               // 设置代理(之后改善)
-                               UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"分享成功"
-                                                                                              message:nil
-                                                                                       preferredStyle:UIAlertControllerStyleAlert];
-                               
-                               UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定"          style:UIAlertActionStyleDefault
-                                                                                     handler:^(UIAlertAction * action) {}];
-                               
-                               [alert addAction:defaultAction];
-                               [_presentVC presentViewController:alert animated:YES completion:nil];
-                               break;
-                           }
-                           case SSDKResponseStateFail: {
-                               UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"分享失败"
-                                                                                              message:nil
-                                                                                       preferredStyle:UIAlertControllerStyleAlert];
-                               
-                               UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定"          style:UIAlertActionStyleDefault
-                                                                                     handler:^(UIAlertAction * action) {}];
-                               
-                               [alert addAction:defaultAction];
-                               [_presentVC presentViewController:alert animated:YES completion:nil];
-                               break;
-                           }
-                           default:
-                               break;
-                       }
-                   }];
+    if (collectionView == self.shareCollectionView) {
+        switch (indexPath.row) {
+            case 0: {// 微博
+                BOOL isInstall = [WeiboSDK isWeiboAppInstalled];
+                if(!isInstall) {
+                    [SVProgressHUD showErrorWithStatus:@"请先安装微博客户端!"];
+                    return;
+                }
+                [self shareWithText:@"啦啦啦啦" desc:@"成双成对" image:[UIImage imageNamed:@"star"]];
+            }
+            default:
+                [SVProgressHUD showImage:[UIImage imageNamed:@"sorry"] status:@"功能需要通过appStore审核才能使用"];
+                break;
+        }
+    } else {
+        switch (<#expression#>) {
+            case <#constant#>:
+                <#statements#>
+                break;
+                
+            default:
+                [SVProgressHUD showImage:[UIImage imageNamed:@"sorry"] status:@"小仙女正在紧急开发，请期待"];
+                break;
+        }
     }
+}
+
+- (void)shareWithText:(NSString *)text desc:(NSString *)desc image:(UIImage *)image{
+        WBMessageObject *message = [WBMessageObject message];
+        message.text = [NSString stringWithFormat:@"【PandoraSecret】好友分享：%@ - %@", text, desc];
+    
+        WBImageObject *imageObject = [WBImageObject object];
+        imageObject.imageData = UIImageJPEGRepresentation(image, 1.0); // 图片大小有要求
+        message.imageObject = imageObject;
+        
+        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
+        [WeiboSDK sendRequest:request];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {

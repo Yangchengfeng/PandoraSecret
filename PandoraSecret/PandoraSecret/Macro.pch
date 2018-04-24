@@ -49,4 +49,8 @@ CG_INLINE CGRect const CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat 
 // 主秀场图片上传文档：https://sm.ms/doc/
 #define kBasePicUploadURLStr @"https://sm.ms/api/upload"
 
+// 分享
+#define kSinaAppKey @"3409353101"
+#define kReDirectURI @"http://www.sina.com"
+
 #endif /* Macro_pch */
