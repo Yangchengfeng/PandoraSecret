@@ -10,7 +10,6 @@
 #import "PSMeViewController.h"
 #import "PSMeTableView.h"
 #import "PSMeHeaderTableViewCell.h"
-#import "PSShareView.h"
 #import "PSLaunchViewController.h"
 #import "PSMePersonalityEditViewController.h"
 #import "PSAppAboutViewController.h"
@@ -32,8 +31,6 @@ typedef enum {
 
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *shareItems;
-@property (nonatomic, strong) NSArray *functionItems;
 @property (nonatomic, strong) NSArray *settingsItems;
 @property (weak, nonatomic) IBOutlet PSMeTableView *meTableView;
 
@@ -48,20 +45,6 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (NSArray *)shareItems { 
-    if(!_shareItems) {
-        _shareItems = @[@"weibo", @"sms", @"QQ", @"wechat", @"email", @"renren",@"facebook"];
-    }
-    return _shareItems;
-}
-
-- (NSArray *)functionItems {
-    if(!_functionItems) {
-        _functionItems = @[@"copy", @"complaint", @"collection"];
-    }
-    return _functionItems;
 }
 
 - (NSArray *)settingsItems {
@@ -174,13 +157,6 @@ typedef enum {
         default:
             break;
     }
-}
-
-- (IBAction)sharePersonality:(id)sender {
-    CGRect frame = [UIScreen mainScreen].bounds;
-    CGSize itemSize = CGSizeMake(60, 80);
-    PSShareView *shareView = [[PSShareView alloc] initWithshareViewFrame:frame ShareItems:self.shareItems functionItems:self.functionItems itemSize:itemSize];
-    [shareView showOnController:self];
 }
 
 @end

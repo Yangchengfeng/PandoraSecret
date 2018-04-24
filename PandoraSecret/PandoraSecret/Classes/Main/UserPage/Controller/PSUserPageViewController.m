@@ -9,6 +9,7 @@
 #import "PSUserPageViewController.h"
 #import "PSUserPageList.h"
 #import "PSUserPageModel.h"
+#import "PSShareView.h"
 
 static CGFloat underlineWidthConstraint = 44.f;
 static NSString *userPageQuery = @"user/message/query";
@@ -24,10 +25,26 @@ static NSString *userPageQuery = @"user/message/query";
 @property (nonatomic, strong) PSUserPageList *followList;
 @property (nonatomic, strong) PSUserPageList *collectionList;
 @property (nonatomic, strong) PSUserPageModel *userPageModel;
+@property (nonatomic, strong) NSArray *shareItems;
+@property (nonatomic, strong) NSArray *functionItems;
 
 @end
 
 @implementation PSUserPageViewController
+
+- (NSArray *)shareItems {
+    if(!_shareItems) {
+        _shareItems = @[@"weibo", @"sms", @"QQ", @"wechat", @"email", @"renren",@"facebook"];
+    }
+    return _shareItems;
+}
+
+- (NSArray *)functionItems {
+    if(!_functionItems) {
+        _functionItems = @[@"copy", @"complaint", @"collection"];
+    }
+    return _functionItems;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,6 +117,14 @@ static NSString *userPageQuery = @"user/message/query";
 
 - (IBAction)collectionListBtn:(id)sender {
     _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0 + kScreenWidth/2.+1;
+}
+
+- (IBAction)shareThisPeople:(id)sender {
+    CGRect frame = [UIScreen mainScreen].bounds;
+    CGSize itemSize = CGSizeMake(60, 80);
+    PSShareView *shareView = [[PSShareView alloc] initWithshareViewFrame:frame ShareItems:self.shareItems functionItems:self.functionItems itemSize:itemSize];
+    [shareView shareViewWithUid:_userPageModel.uid Title:_userPageModel.userName content:_userPageModel.userDesc image:_userPageModel.image];
+    [shareView showOnController:self];
 }
 
 @end

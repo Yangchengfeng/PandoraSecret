@@ -11,6 +11,7 @@
 @interface PSShareView : UIView
 
 - (instancetype)initWithshareViewFrame:(CGRect)frame ShareItems:(NSArray *)shareItems functionItems:(NSArray *)functionItems itemSize:(CGSize)itemSize;
+- (void)shareViewWithUid:(NSInteger)uid Title:(NSString *)title content:(NSString *)content image:(NSString *)image;
 - (void)showOnController:(UIViewController *)controller;
 
 @end

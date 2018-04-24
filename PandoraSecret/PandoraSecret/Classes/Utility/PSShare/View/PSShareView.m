@@ -32,6 +32,11 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 @property (nonatomic, strong) NSDictionary *functionDict;
 @property (nonatomic, assign) CGSize itemSize;
 
+@property (nonatomic, assign) NSInteger uid;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *image;
+
 @end
 
 @implementation PSShareView
@@ -152,6 +157,13 @@ static NSString *cellId = @"PSShareCollectionViewCell";
     return self;
 }
 
+- (void)shareViewWithUid:(NSInteger)uid Title:(NSString *)title content:(NSString *)content image:(NSString *)image {
+    self.uid = uid;
+    self.title = title;
+    self.content = content;
+    self.image = image;
+}
+
 - (void)showOnController:(UIViewController *)controller{
     _presentVC = controller;
     [controller.view.window addSubview:self];
@@ -210,14 +222,14 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView == self.shareCollectionView) {
         switch (indexPath.row) {
-            case 0: {// 微博
-//                BOOL isInstall = [WeiboSDK isWeiboAppInstalled];
-                BOOL isInstall = [WeiboSDK openWeiboApp];
+            case 0: { // 微博
+                BOOL isInstall = [WeiboSDK isWeiboAppInstalled];
                 if(!isInstall) {
                     [SVProgressHUD showErrorWithStatus:@"请先安装微博客户端!"];
                     return;
                 }
-                [self shareWithText:@"啦啦啦啦" desc:@"成双成对" image:[UIImage imageNamed:@"star"]];
+                [self shareWithTitle:self.title content:self.content image:self.image];
+                break;
             }
             default:
                 [SVProgressHUD showImage:[UIImage imageNamed:@"sorry"] status:@"功能需要通过appStore审核才能使用"];
@@ -235,16 +247,20 @@ static NSString *cellId = @"PSShareCollectionViewCell";
     }
 }
 
-- (void)shareWithText:(NSString *)text desc:(NSString *)desc image:(UIImage *)image{
-        WBMessageObject *message = [WBMessageObject message];
-        message.text = [NSString stringWithFormat:@"【PandoraSecret】好友分享：%@ - %@", text, desc];
+- (void)shareWithTitle:(NSString *)title content:(NSString *)content image:(NSString *)image{
+    WBMessageObject *message = [WBMessageObject message];
+    if(self.uid == [PSUserManager shareManager].uid) {
+        message.text = [NSString stringWithFormat:@"【PandoraSecret】个人名片分享：%@ - %@ - 我是潘多拉社会人，快来这里认识我吧！！", title, content];
+    } else {
+        message.text = [NSString stringWithFormat:@"【PandoraSecret】好友名片分享：%@ - %@ - 这是我在潘多拉认识的社会人，快来认识他(她)吧！！", title, content];
+    }
     
-        WBImageObject *imageObject = [WBImageObject object];
-        imageObject.imageData = UIImageJPEGRepresentation(image, 1.0); // 图片大小有要求
-        message.imageObject = imageObject;
+    WBImageObject *imageObject = [WBImageObject object];
+    imageObject.imageData = UIImageJPEGRepresentation([UIImage imageNamed:image], 1.0);
+    message.imageObject = imageObject;
         
-        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
-        [WeiboSDK sendRequest:request];
+    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
+    [WeiboSDK sendRequest:request];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {

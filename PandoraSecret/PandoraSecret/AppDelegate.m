@@ -9,7 +9,15 @@
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
 
-@interface AppDelegate ()
+@protocol WeiboDelegate <NSObject>
+
+- (void)showViewWithResponse:(WBBaseResponse *)sinaResponseObject;
+
+@end
+
+@interface AppDelegate () <WeiboSDKDelegate>
+
+@property (nonatomic, weak) id<WeiboDelegate> sinaDelegate;
 
 @end
 
@@ -25,6 +33,13 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    NSLog(@"%@", response);
+    if([self.sinaDelegate respondsToSelector:@selector(showViewWithResponse:)]) {
+        [self.sinaDelegate showViewWithResponse:response];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
