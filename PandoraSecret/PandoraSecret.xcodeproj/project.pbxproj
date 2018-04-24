@@ -905,13 +905,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		383EA957208D337200BDFD3D /* PSCollectionViewLayout */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PSCollectionViewLayout;
-			sourceTree = "<group>";
-		};
 		383EA95E208D826F00BDFD3D /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,7 +1120,6 @@
 		38F2A216207313CC00F80D92 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				383EA957208D337200BDFD3D /* PSCollectionViewLayout */,
 				385FD471208B032C0033D098 /* PSTextViewWithPlaceholder */,
 				385FD467208A11AC0033D098 /* PSShow */,
 				381EAD022083286B0047FFD2 /* PSNoDataView */,
