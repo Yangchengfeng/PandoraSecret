@@ -118,9 +118,8 @@
 		38F2A21220727E3000F80D92 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A21120727E3000F80D92 /* AdSupport.framework */; };
 		38F2A2132072823300F80D92 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */; };
 		38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20120727D2600F80D92 /* MOBFoundation.framework */; };
-		38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */; };
+		38F5BDA9208F992F00F10A32 /* PSUserPageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */; };
 		38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37682074791A00FD055F /* PSUserPageViewController.m */; };
-		38FC376B2074791A00FD055F /* PSUserPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC37692074791A00FD055F /* PSUserPageViewController.xib */; };
 		38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */; };
 		38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */; };
 		38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37782074A04E00FD055F /* PSUserPageList.m */; };
@@ -317,11 +316,9 @@
 		38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		38F2A20F20727E2800F80D92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		38F2A21120727E3000F80D92 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		38FC37622073DD5300FD055F /* PSUserPageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageHeaderView.h; sourceTree = "<group>"; };
-		38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageHeaderView.m; sourceTree = "<group>"; };
+		38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageHeaderView.xib; sourceTree = "<group>"; };
 		38FC37672074791A00FD055F /* PSUserPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageViewController.h; sourceTree = "<group>"; };
 		38FC37682074791A00FD055F /* PSUserPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageViewController.m; sourceTree = "<group>"; };
-		38FC37692074791A00FD055F /* PSUserPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageViewController.xib; sourceTree = "<group>"; };
 		38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageListFollowCell.h; sourceTree = "<group>"; };
 		38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageListFollowCell.m; sourceTree = "<group>"; };
 		38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListFollowCell.xib; sourceTree = "<group>"; };
@@ -980,7 +977,6 @@
 			children = (
 				38FC37672074791A00FD055F /* PSUserPageViewController.h */,
 				38FC37682074791A00FD055F /* PSUserPageViewController.m */,
-				38FC37692074791A00FD055F /* PSUserPageViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1001,13 +997,12 @@
 		383FFF502073CBF9000E8631 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38FC37622073DD5300FD055F /* PSUserPageHeaderView.h */,
-				38FC37632073DD5300FD055F /* PSUserPageHeaderView.m */,
 				38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */,
 				38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */,
 				38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */,
 				38FC37772074A04E00FD055F /* PSUserPageList.h */,
 				38FC37782074A04E00FD055F /* PSUserPageList.m */,
+				38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1395,7 +1390,7 @@
 				38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */,
 				38FC37A92077CA5600FD055F /* PSShareCollectionViewCell.xib in Resources */,
 				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
-				38FC376B2074791A00FD055F /* PSUserPageViewController.xib in Resources */,
+				38F5BDA9208F992F00F10A32 /* PSUserPageHeaderView.xib in Resources */,
 				38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */,
 				381EAD07208338490047FFD2 /* PSNoDataView.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
@@ -1471,7 +1466,6 @@
 				381EAD71208740DA0047FFD2 /* PSMeOrderModel.m in Sources */,
 				385FD46A208A11D20033D098 /* PSShowGradeStarView.m in Sources */,
 				383FFF4520731E43000E8631 /* SVRadialGradientLayer.m in Sources */,
-				38FC37642073DD5300FD055F /* PSUserPageHeaderView.m in Sources */,
 				381EAD822087522F0047FFD2 /* PSOrderListViewController.m in Sources */,
 				38FC394A207C899C00FD055F /* PSHomeViewController.m in Sources */,
 				38D3809C208B84DA008BE79A /* PSUserPageModel.m in Sources */,

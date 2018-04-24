@@ -29,8 +29,6 @@ static CGFloat marginViewH = 38.f;
 @property (nonatomic, strong) UICollectionView *goodsCollectionView;
 @property (nonatomic, copy) NSMutableArray *productListArr;
 
-
-
 @end
 
 @implementation PSHomeViewController
