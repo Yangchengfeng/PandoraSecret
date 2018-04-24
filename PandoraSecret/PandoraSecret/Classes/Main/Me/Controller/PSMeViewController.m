@@ -32,8 +32,8 @@ typedef enum {
 
 @interface PSMeViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSDictionary *shareItems;
-@property (nonatomic, strong) NSDictionary *functionItems;
+@property (nonatomic, strong) NSArray *shareItems;
+@property (nonatomic, strong) NSArray *functionItems;
 @property (nonatomic, strong) NSArray *settingsItems;
 @property (weak, nonatomic) IBOutlet PSMeTableView *meTableView;
 
@@ -50,26 +50,16 @@ typedef enum {
     [super viewDidLoad];
 }
 
-- (NSDictionary *)shareItems { // @"分享类目名"：@"分享类目图片名"
+- (NSArray *)shareItems { 
     if(!_shareItems) {
-        _shareItems = @{ @"QQ":@"QQ",
-                         @"weibo":@"微博",
-                         @"sms":@"短信",
-                         @"wechat":@"微信",
-                         @"email":@"邮件" ,
-                         @"renren":@"人人网",
-                         @"facebook":@"Facebook",
-                        };
+        _shareItems = @[@"weibo", @"sms", @"QQ", @"wechat", @"email", @"renren",@"facebook"];
     }
     return _shareItems;
 }
 
-- (NSDictionary *)functionItems { // 本人不支持
+- (NSArray *)functionItems {
     if(!_functionItems) {
-        _functionItems = @{ @"copy":@"复制",
-                            @"complaint":@"投诉",
-                            @"collection":@"收藏",
-                            };
+        _functionItems = @[@"copy", @"complaint", @"collection"];
     }
     return _functionItems;
 }

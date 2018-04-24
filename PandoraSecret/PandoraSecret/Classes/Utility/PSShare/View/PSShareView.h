@@ -10,7 +10,7 @@
 
 @interface PSShareView : UIView
 
-- (instancetype)initWithshareViewFrame:(CGRect)frame ShareItems:(NSDictionary *)shareItems functionItems:(NSDictionary *)functionItems itemSize:(CGSize)itemSize;
+- (instancetype)initWithshareViewFrame:(CGRect)frame ShareItems:(NSArray *)shareItems functionItems:(NSArray *)functionItems itemSize:(CGSize)itemSize;
 - (void)showOnController:(UIViewController *)controller;
 
 @end

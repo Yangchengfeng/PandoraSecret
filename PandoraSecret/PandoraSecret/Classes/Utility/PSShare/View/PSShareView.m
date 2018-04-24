@@ -27,15 +27,43 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 @property (nonatomic, strong) UICollectionView *functionCollectionView;
 @property (nonatomic, strong) UIButton *cancelBtn;
 
-@property (nonatomic, strong) NSDictionary *shareItems;
-@property (nonatomic, strong) NSDictionary *functionItems;
+@property (nonatomic, strong) NSArray *shareItems;
+@property (nonatomic, strong) NSArray *functionItems;
+@property (nonatomic, strong) NSDictionary *shareDict;
+@property (nonatomic, strong) NSDictionary *functionDict;
 @property (nonatomic, assign) CGSize itemSize;
 
 @end
 
 @implementation PSShareView
 
-- (instancetype)initWithshareViewFrame:(CGRect)frame ShareItems:(NSDictionary *)shareItems functionItems:(NSDictionary *)functionItems itemSize:(CGSize)itemSize {
+- (NSDictionary *)shareDict {
+    if(!_shareDict) {
+        _shareDict = @{
+                       @"weibo": @"微博",
+                       @"sms": @"短信",
+                       @"QQ":@"QQ",
+                       @"wechat": @"微信",
+                       @"email": @"邮件",
+                       @"renren": @"人人网",
+                       @"facebook": @"Facebook",
+                       };
+    }
+    return _shareDict;
+}
+
+- (NSDictionary *)functionDict {
+    if(!_functionDict) {
+        _functionDict = @{
+                          @"copy": @"复制",
+                          @"complaint": @"投诉",
+                          @"collection": @"收藏",
+                          };
+    }
+    return _functionDict;
+}
+
+- (instancetype)initWithshareViewFrame:(CGRect)frame ShareItems:(NSArray *)shareItems functionItems:(NSArray *)functionItems itemSize:(CGSize)itemSize {
     
     self = [super initWithFrame:frame];
     if (self) {
@@ -44,8 +72,8 @@ static NSString *cellId = @"PSShareCollectionViewCell";
         self.functionItems = functionItems;
         self.itemSize = itemSize;
         
-        BOOL hasThirdpart = (shareItems.allKeys.count>0) ? YES : NO;
-        BOOL hasOtherFunction = (functionItems.allKeys.count>0) ? YES : NO;
+        BOOL hasThirdpart = (shareItems.count>0) ? YES : NO;
+        BOOL hasOtherFunction = (functionItems.count>0) ? YES : NO;
         
         CGFloat lineViewL = 15.f;
         CGFloat lineViewH = 1.f;
@@ -156,10 +184,10 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (collectionView == self.shareCollectionView) {
-        return self.shareItems.allKeys.count;
+        return self.shareItems.count;
     }
     if (collectionView == self.functionCollectionView) {
-        return self.functionItems.allKeys.count;
+        return self.functionItems.count;
     }
     return 0;
 }
@@ -167,11 +195,11 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PSShareCollectionViewCell *cell = (PSShareCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     if (collectionView == self.shareCollectionView) {
-        [cell.itemImage setImage:[UIImage imageNamed:_shareItems.allKeys[indexPath.item]]];
-        cell.itemTitle.text = [_shareItems objectForKey:_shareItems.allKeys[indexPath.item]];
+        [cell.itemImage setImage:[UIImage imageNamed:_shareItems[indexPath.item]]];
+        cell.itemTitle.text = [self.shareDict objectForKey:_shareItems[indexPath.item]];
     } else {
-        [cell.itemImage setImage:[UIImage imageNamed:_functionItems.allKeys[indexPath.item]]];
-        cell.itemTitle.text = [_functionItems objectForKey:_functionItems.allKeys[indexPath.item]];
+        [cell.itemImage setImage:[UIImage imageNamed:_functionItems[indexPath.item]]];
+        cell.itemTitle.text = [self.functionDict objectForKey:_functionItems[indexPath.item]];
     }
     return cell;
 }
