@@ -79,7 +79,7 @@ static NSString *cellId = @"PSShareCollectionViewCell";
             _shareCollectionView.showsVerticalScrollIndicator = NO;
             _shareCollectionView.showsHorizontalScrollIndicator = YES;
             _shareCollectionView.bounces = YES;
-            _shareCollectionView.backgroundColor = [UIColor redColor];
+            _shareCollectionView.backgroundColor = [UIColor whiteColor];
             [_shareCollectionView registerClass:[PSShareCollectionViewCell class] forCellWithReuseIdentifier:cellId];
             [_containView addSubview:_shareCollectionView];
         }
@@ -98,7 +98,7 @@ static NSString *cellId = @"PSShareCollectionViewCell";
             _functionCollectionView.showsVerticalScrollIndicator = NO;
             _functionCollectionView.showsHorizontalScrollIndicator = YES;
             _functionCollectionView.bounces = NO;
-            _functionCollectionView.backgroundColor = [UIColor blueColor];
+            _functionCollectionView.backgroundColor = [UIColor whiteColor];
             [_functionCollectionView registerClass:[PSShareCollectionViewCell class] forCellWithReuseIdentifier:cellId];
             [_containView addSubview:_functionCollectionView];
         }
@@ -167,12 +167,12 @@ static NSString *cellId = @"PSShareCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PSShareCollectionViewCell *cell = (PSShareCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     if (collectionView == self.shareCollectionView) {
-        cell.itemTitle.text = _shareItems.allKeys[indexPath.item];
+        [cell.itemImage setImage:[UIImage imageNamed:_shareItems.allKeys[indexPath.item]]];
+        cell.itemTitle.text = [_shareItems objectForKey:_shareItems.allKeys[indexPath.item]];
     } else {
-        cell.itemTitle.text = _functionItems.allKeys[indexPath.item];
+        [cell.itemImage setImage:[UIImage imageNamed:_functionItems.allKeys[indexPath.item]]];
+        cell.itemTitle.text = [_functionItems objectForKey:_functionItems.allKeys[indexPath.item]];
     }
-    [cell.itemImage setImage:[UIImage imageNamed:@"login_sms"]];
-    
     return cell;
 }
 

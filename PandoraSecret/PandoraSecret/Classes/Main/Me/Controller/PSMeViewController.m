@@ -52,13 +52,13 @@ typedef enum {
 
 - (NSDictionary *)shareItems { // @"分享类目名"：@"分享类目图片名"
     if(!_shareItems) {
-        _shareItems = @{ @"QQ": @"QQ",
-                         @"微博": @"weibo",
-                         @"短信": @"sms",
-                         @"微信": @"wechat",
-                         @"邮件": @"email",
-                         @"人人网": @"renre",
-                         @"FB": @"facebook",
+        _shareItems = @{ @"QQ":@"QQ",
+                         @"weibo":@"微博",
+                         @"sms":@"短信",
+                         @"wechat":@"微信",
+                         @"email":@"邮件" ,
+                         @"renren":@"人人网",
+                         @"facebook":@"Facebook",
                         };
     }
     return _shareItems;
@@ -66,7 +66,9 @@ typedef enum {
 
 - (NSDictionary *)functionItems { // 本人不支持
     if(!_functionItems) {
-        _functionItems = @{ @"复制": @"copy",
+        _functionItems = @{ @"copy":@"复制",
+                            @"complaint":@"投诉",
+                            @"collection":@"收藏",
                             };
     }
     return _functionItems;
