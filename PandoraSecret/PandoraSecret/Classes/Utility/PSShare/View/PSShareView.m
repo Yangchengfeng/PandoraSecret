@@ -223,9 +223,8 @@ static NSString *cellId = @"PSShareCollectionViewCell";
                 break;
         }
     } else {
-        switch (<#expression#>) {
-            case <#constant#>:
-                <#statements#>
+        switch (indexPath.row) {
+            case 0:
                 break;
                 
             default:
