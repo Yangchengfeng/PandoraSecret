@@ -211,7 +211,8 @@ static NSString *cellId = @"PSShareCollectionViewCell";
     if (collectionView == self.shareCollectionView) {
         switch (indexPath.row) {
             case 0: {// 微博
-                BOOL isInstall = [WeiboSDK isWeiboAppInstalled];
+//                BOOL isInstall = [WeiboSDK isWeiboAppInstalled];
+                BOOL isInstall = [WeiboSDK openWeiboApp];
                 if(!isInstall) {
                     [SVProgressHUD showErrorWithStatus:@"请先安装微博客户端!"];
                     return;
