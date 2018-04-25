@@ -120,7 +120,9 @@
 		38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20120727D2600F80D92 /* MOBFoundation.framework */; };
 		38F5BDAE20904D5300F10A32 /* PSUserHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */; };
 		38F5BDF22090626B00F10A32 /* PSUserHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */; };
-		38F5BDF42090628C00F10A32 /* PSUserHomePageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */; };
+		38F5BDF820907BA900F10A32 /* PSUserHomePageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */; };
+		38F5BDFB2090A3F600F10A32 /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */; };
+		38F5BDFE2090A8D300F10A32 /* PSUserHomePageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */; };
 		38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */; };
 		38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */; };
 		38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37782074A04E00FD055F /* PSUserPageList.m */; };
@@ -321,7 +323,11 @@
 		38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageViewController.m; sourceTree = "<group>"; };
 		38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageHeaderView.h; sourceTree = "<group>"; };
 		38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageHeaderView.m; sourceTree = "<group>"; };
-		38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserHomePageHeaderView.xib; sourceTree = "<group>"; };
+		38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserHomePageHeaderView.xib; sourceTree = "<group>"; };
+		38F5BDF92090A3F600F10A32 /* PSCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCollectionView.h; sourceTree = "<group>"; };
+		38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSCollectionView.m; sourceTree = "<group>"; };
+		38F5BDFC2090A8D300F10A32 /* PSUserHomePageList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageList.h; sourceTree = "<group>"; };
+		38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageList.m; sourceTree = "<group>"; };
 		38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageListFollowCell.h; sourceTree = "<group>"; };
 		38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageListFollowCell.m; sourceTree = "<group>"; };
 		38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListFollowCell.xib; sourceTree = "<group>"; };
@@ -1007,7 +1013,11 @@
 				38FC37782074A04E00FD055F /* PSUserPageList.m */,
 				38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */,
 				38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */,
-				38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */,
+				38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */,
+				38F5BDF92090A3F600F10A32 /* PSCollectionView.h */,
+				38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */,
+				38F5BDFC2090A8D300F10A32 /* PSUserHomePageList.h */,
+				38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1392,10 +1402,10 @@
 				38FC394D207D030A00FD055F /* LaunchTour.mp4 in Resources */,
 				381EAD7F208749030047FFD2 /* PSOrderListCell.xib in Resources */,
 				383FFF4020731A8D000E8631 /* SVProgressHUD.bundle in Resources */,
+				38F5BDF820907BA900F10A32 /* PSUserHomePageHeaderView.xib in Resources */,
 				38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */,
 				38FC37A92077CA5600FD055F /* PSShareCollectionViewCell.xib in Resources */,
 				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
-				38F5BDF42090628C00F10A32 /* PSUserHomePageHeaderView.xib in Resources */,
 				38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */,
 				381EAD07208338490047FFD2 /* PSNoDataView.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
@@ -1429,6 +1439,7 @@
 				383EA97C208D88F500BDFD3D /* NSArray+MASAdditions.m in Sources */,
 				383EA978208D88E400BDFD3D /* View+MASAdditions.m in Sources */,
 				381EAD6D208505A50047FFD2 /* PSAddressListCell.m in Sources */,
+				38F5BDFB2090A3F600F10A32 /* PSCollectionView.m in Sources */,
 				381EAD612084C6B50047FFD2 /* VictoriaAddressModel.m in Sources */,
 				381EAD602084C6A50047FFD2 /* VictoriaAddressPickerView.m in Sources */,
 				381EAD5F2084C69F0047FFD2 /* VictoriaAddressEditViewController.m in Sources */,
@@ -1487,6 +1498,7 @@
 				381EAD7E208749030047FFD2 /* PSOrderListCell.m in Sources */,
 				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
+				38F5BDFE2090A8D300F10A32 /* PSUserHomePageList.m in Sources */,
 				383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */,
 				381EAD0120825DC60047FFD2 /* PSAddressListViewController.m in Sources */,
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,

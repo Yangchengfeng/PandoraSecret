@@ -10,35 +10,25 @@
 #import "PSUserHomePageHeaderView.h"
 #import "PSUserPageModel.h"
 #import "PSShareView.h"
-#import "PSUserPageList.h"
 
 static NSString *userPageQuery = @"user/message/query";
 static NSString *userPageUpdate = @"user/message/update";
 
-@interface PSUserHomePageViewController () <UIScrollViewDelegate, UITableViewDelegate, PSUserPageHeaderViewDelegate>
+@interface PSUserHomePageViewController () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, PSUserPageHeaderViewDelegate>
 
 @property (nonatomic, strong) PSUserHomePageHeaderView *headerView;
 @property (nonatomic, strong) UIScrollView *tableScrollView;
 @property (nonatomic, strong) PSUserPageModel *userPageModel;
 @property (nonatomic, strong) NSArray *shareItems;
 @property (nonatomic, strong) NSArray *functionItems;
-@property (nonatomic, strong) PSUserPageList *focusView;
-@property (nonatomic, strong) PSUserPageList *collectionView;
+@property (nonatomic, strong) UITableView *focusView;
+@property (nonatomic, strong) UITableView *collectionView;
 
 @end
 
 @implementation PSUserHomePageViewController {
     NSInteger _index;
     CGFloat _yOffset;
-}
-
-- (PSUserHomePageHeaderView *)headerView {
-    if(!_headerView) {
-        _headerView = [[PSUserHomePageHeaderView alloc] initWithFrame:CGRectMake(0, kNavH, kScreenWidth, 230)];
-        _headerView.headerDelegate = self;
-        _yOffset = _headerView.center.y;
-    }
-    return _headerView;
 }
 
 - (NSArray *)shareItems {
@@ -59,7 +49,13 @@ static NSString *userPageUpdate = @"user/message/update";
     
     [self createTableScrollView];
     
+    self.headerView = [[NSBundle mainBundle] loadNibNamed:@"PSUserHomePageHeaderView" owner:nil options:nil].firstObject;
+    self.headerView.headerDelegate = self;
     [self.view addSubview:self.headerView];
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.leading.and.trailing.equalTo(self.view);
+        make.height.equalTo(@(230));
+    }];
     
     [self queryList];
 }
@@ -70,8 +66,8 @@ static NSString *userPageUpdate = @"user/message/update";
                             };
     [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
         _userPageModel = [PSUserPageModel userPageModelWithDict:responseObject[@"data"]];
-        _focusView.userPageArr = _userPageModel.focusArr;
-        _collectionView.userPageArr = _userPageModel.topicArr;
+//        _focusView.userPageArr = _userPageModel.focusArr;
+//        _collectionView.userPageArr = _userPageModel.topicArr;
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
     } andError:^(NSError *error) {
@@ -80,31 +76,30 @@ static NSString *userPageUpdate = @"user/message/update";
 
 #pragma mark 创建下方tableview
 -(void)createTableScrollView{
-    CGFloat tableScrollX = 0;
-    CGFloat tableScrollY = 0;
-    CGFloat tableScrollWidth = kScreenWidth;
-    CGFloat tableScrollHeight = kScreenHeight - kNavH;
     
-    UIScrollView *userPageListScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(tableScrollX, tableScrollY, tableScrollWidth, tableScrollHeight)];
-    userPageListScrollView.delegate = self;
-    userPageListScrollView.contentSize = CGSizeMake(2*kScreenWidth, tableScrollHeight);
-    userPageListScrollView.pagingEnabled = YES;
-    userPageListScrollView.alwaysBounceVertical = NO;
-    userPageListScrollView.bounces = NO;
-    _tableScrollView = userPageListScrollView;
+    self.tableScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _tableScrollView.delegate = self;
+    _tableScrollView.contentSize = CGSizeMake(2*kScreenWidth, kScreenHeight);
+    _tableScrollView.pagingEnabled = YES;
+    _tableScrollView.alwaysBounceVertical = NO;
+    _tableScrollView.bounces = NO;
 
     // 关注列表
-    _focusView = [[PSUserPageList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, tableScrollHeight) andListType:PSUserPageListTypeFollow];
-    _focusView.userPageListView.tag = 100;
-    _focusView.userPageListView.delegate = self;
-    [self createTableHeadView:_focusView.userPageListView];
+    _focusView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _focusView.delegate = self;
+    _focusView.dataSource = self;
+    _focusView.backgroundColor = [UIColor greenColor];
+    _focusView.tag = 100;
+    [self createTableHeadView:_focusView];
     [_tableScrollView addSubview:_focusView];
     
     // 收藏列表
-    _collectionView = [[PSUserPageList alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth,tableScrollHeight) andListType:PSUserPageListTypeCollection];
-    _collectionView.userPageListView.tag = 101;
-    _collectionView.userPageListView.delegate = self;
-    [self createTableHeadView:_collectionView.userPageListView];
+    _collectionView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _collectionView.backgroundColor = [UIColor blueColor];
+    _collectionView.tag = 101;
+    [self createTableHeadView:_collectionView];
     [_tableScrollView addSubview:_collectionView];
     
     [self.view addSubview:_tableScrollView];
@@ -128,8 +123,8 @@ static NSString *userPageUpdate = @"user/message/update";
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    if (scrollView.contentOffset.y > 195) {
-        _headerView.center = CGPointMake(_headerView.center.x, _yOffset - 195);
+    if (scrollView.contentOffset.y > 187) {
+        _headerView.center = CGPointMake(_headerView.center.x, _yOffset - 187);
         return;
     }
     CGFloat h = _yOffset - offsetY;
@@ -150,12 +145,12 @@ static NSString *userPageUpdate = @"user/message/update";
     
     [self setTableViewContentOffsetWithTag:scrollView.tag contentOffset:scrollView.contentOffset.y];
     
-//    CGFloat page = scrollView.contentOffset.x/kScreenWidth;
-//    if(page < 0.5) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFollow" object:nil];
-//    } else {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFoCollection" object:nil];
-//    }
+    CGFloat page = scrollView.contentOffset.x/kScreenWidth;
+    if(page < 0.5) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFollow" object:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFoCollection" object:nil];
+    }
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -168,14 +163,14 @@ static NSString *userPageUpdate = @"user/message/update";
 //设置tableView的偏移量
 -(void)setTableViewContentOffsetWithTag:(NSInteger)tag contentOffset:(CGFloat)offset{
     CGFloat tableViewOffset = offset;
-    if(offset > 195){
-        tableViewOffset = 195;
+    if(offset > 187){
+        tableViewOffset = 187;
     }
     if (tag == 100) {
-//        [_collectionView.userPageListView setContentOffset:CGPointMake(0, tableViewOffset) animated:NO];
+        [_collectionView setContentOffset:CGPointMake(0, tableViewOffset) animated:NO];
     }
     if(tag == 101){
-//        [_focusView.tableview setContentOffset:CGPointMake(0, tableViewOffset) animated:NO];
+        [_focusView setContentOffset:CGPointMake(0, tableViewOffset) animated:NO];
     }
 }
 
@@ -195,6 +190,36 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 - (void)moveToCollectionList {
+}
+
+- (void)goBackToShowGround {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 数据源
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if(!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    return cell;
 }
 
 #pragma mark - 导航栏

@@ -19,17 +19,19 @@
 @implementation PSUserPageList
 
 - (instancetype)initWithFrame:(CGRect)frame andListType:(PSUserPageListType)listType {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if(self) {
-    
-        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-        tableView.dataSource = self;
-        tableView.delegate = self;
-        tableView.separatorColor = [UIColor whiteColor];
-        self.userPageListView = tableView;
-        self.frame = frame;
+        self.userPageListView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) style:UITableViewStylePlain];
+        self.userPageListView.delegate = self;
+        self.userPageListView.dataSource = self;
+        self.userPageListView.separatorColor = [UIColor whiteColor];
         self.listType = listType;
-        [self addSubview:_userPageListView];
+        if(listType == PSUserPageListTypeFollow) {
+            self.backgroundColor = [UIColor blueColor];
+        } else {
+            self.backgroundColor = [UIColor redColor];
+        }
+        [self addSubview:self.userPageListView];
     }
     return self;
 }
@@ -56,7 +58,7 @@
     }
     if(_listType == PSUserPageListTypeCollection) {
         PSShowGroundCell *cell = [[PSShowGroundCell alloc] init];
-        cell.showGroundModel = (PSShowGroundModel *)_userPageArr;
+//        cell.showGroundModel = (PSShowGroundModel *)_userPageArr;
         return cell;
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];

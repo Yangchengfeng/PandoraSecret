@@ -16,6 +16,7 @@ static CGFloat underlineWidthConstraint = 44.f;
 - (void)followThisPeople;
 - (void)moveToFollowList;
 - (void)moveToCollectionList;
+- (void)goBackToShowGround;
 
 @end
 
@@ -27,7 +28,6 @@ static CGFloat underlineWidthConstraint = 44.f;
 @property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *underlinViewLeftConstraint;
 @property (nonatomic, copy) NSMutableDictionary *headerDict;
-
 @property (nonatomic, weak) id<PSUserPageHeaderViewDelegate> headerDelegate;
 
 @end

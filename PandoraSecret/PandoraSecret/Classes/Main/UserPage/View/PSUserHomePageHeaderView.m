@@ -39,24 +39,19 @@
 //    }
 }
 
-- (instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if(self) {
-        self = [[NSBundle mainBundle] loadNibNamed:@"PSUserHomePageHeaderView" owner:nil options:nil].firstObject;
-        
-        _userVatcar.layer.cornerRadius = 34.5;
-        _userVatcar.layer.masksToBounds = YES;
-        // 下划线位置
-        _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
-        
-        // unfollow_button
-        [_focusBtn setImage:[UIImage imageNamed:@"follow_button"] forState:UIControlStateNormal];
-        [_focusBtn setImage:[UIImage imageNamed:@"unfollow_button"] forState:UIControlStateSelected];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userPageListScrollToFollow) name:@"userPageScrollFollow" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userPageListScrollToCollection) name:@"userPageScrollFoCollection" object:nil];
-    }
-    return self;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    _userVatcar.layer.cornerRadius = 34.5;
+    _userVatcar.layer.masksToBounds = YES;
+    // 下划线位置
+    _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;
+    
+    // unfollow_button
+    [_focusBtn setImage:[UIImage imageNamed:@"follow_button"] forState:UIControlStateNormal];
+    [_focusBtn setImage:[UIImage imageNamed:@"unfollow_button"] forState:UIControlStateSelected];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userPageListScrollToFollow) name:@"userPageScrollFollow" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userPageListScrollToCollection) name:@"userPageScrollFoCollection" object:nil];
 }
 
 - (IBAction)chooseListBtn:(UIButton *)sender {
@@ -87,6 +82,9 @@
 }
 
 - (IBAction)backToShowGround:(id)sender {
+    if([self.headerDelegate respondsToSelector:@selector(goBackToShowGround)]) {
+        [self.headerDelegate goBackToShowGround];
+    }
 }
 
 - (void)userPageListScrollToFollow {
