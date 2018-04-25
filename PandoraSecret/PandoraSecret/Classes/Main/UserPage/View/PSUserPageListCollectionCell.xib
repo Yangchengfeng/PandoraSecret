@@ -80,6 +80,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="collectionDesc" destination="IVe-SC-Tr4" id="wP5-Dd-wxk"/>
+                <outlet property="collectionGoodsImage" destination="UDd-bE-1jd" id="f9u-f4-gVb"/>
+                <outlet property="collectionName" destination="jpt-g0-Tgp" id="KFo-Zo-xxs"/>
+                <outlet property="collectionUserImage" destination="yhR-J6-fbR" id="qHz-Vn-pRQ"/>
+            </connections>
             <point key="canvasLocation" x="34" y="92.5"/>
         </tableViewCell>
     </objects>

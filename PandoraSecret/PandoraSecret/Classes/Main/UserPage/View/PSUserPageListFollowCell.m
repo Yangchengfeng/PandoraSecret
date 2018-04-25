@@ -23,6 +23,8 @@
     _focusModel = focusModel;
     
     [_userVatcarImageView sd_setImageWithURL:[NSURL URLWithString:_focusModel.image] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
+    _userVatcarImageView.layer.cornerRadius = 25;
+    _userVatcarImageView.layer.masksToBounds = YES;
     _userDescLabel.text = _focusModel.userDesc;
     _userNameLabel.text = _focusModel.userName;
     if(_focusModel.isFocus == -1) {

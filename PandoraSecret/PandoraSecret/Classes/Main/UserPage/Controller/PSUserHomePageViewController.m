@@ -25,6 +25,8 @@ static NSString *userPageUpdate = @"user/message/update";
 @property (nonatomic, strong) NSArray *functionItems;
 @property (nonatomic, strong) UITableView *focusView;
 @property (nonatomic, strong) UITableView *collectionView;
+@property (nonatomic, assign) PSNoDataViewType noDataTypeFollow;
+@property (nonatomic, assign) PSNoDataViewType noDataTypeCollection;
 
 @end
 
@@ -58,7 +60,8 @@ static NSString *userPageUpdate = @"user/message/update";
         make.height.equalTo(@(230));
     }];
     _yOffset = self.headerView.center.y;
-//    [self queryList];
+    
+    [self queryList];
 }
 
 - (void)queryList {
@@ -67,10 +70,52 @@ static NSString *userPageUpdate = @"user/message/update";
                             };
     [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
         _userPageModel = [PSUserPageModel userPageModelWithDict:responseObject[@"data"]];
+        [self refreshHeaderView];
+        [_collectionView reloadData];
+        [_focusView reloadData];
+        if(_userPageModel.focusArr.count<=0) {
+            _noDataTypeFollow = PSNoDataViewTypeSuccess;
+        }
+        if(_userPageModel.collectionArr.count<=0 || _userPageModel.collectionArr.count<=0) {
+            _noDataTypeCollection = PSNoDataViewTypeSuccess;
+        }
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+        _noDataTypeFollow = PSNoDataViewTypeFailure;
+        _noDataTypeCollection = PSNoDataViewTypeFailure;
     } andError:^(NSError *error) {
+        _noDataTypeFollow = PSNoDataViewTypeError;
+        _noDataTypeCollection = PSNoDataViewTypeError;
     }];
+}
+
+- (void)refreshHeaderView {
+    if(_userPageModel.userName.length>0) {
+        _headerView.userNameLabel.text = _userPageModel.userName;
+    } else {
+        _headerView.userNameLabel.text = @"潘多拉的秘密社会人";
+    }
+    if(_userPageModel.userDesc.length>0) {
+        _headerView.userDescLabel.text = _userPageModel.userDesc;
+    } else {
+        _headerView.userDescLabel.text = @"我只是潘多拉的秘密里的社会人";
+    }
+    [_headerView.userVatcar sd_setImageWithURL:[NSURL URLWithString:_userPageModel.image] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
+    if(_userPageModel.isFocus==-1) {
+        _headerView.focusBtn.hidden = YES;
+    } else {
+        _headerView.focusBtn.hidden = NO;
+        if(_userPageModel.isFocus == 0) {
+            _headerView.focusBtn.selected = NO;
+        } else {
+            _headerView.focusBtn.selected = YES;
+        }
+    }
+    if(_userPageModel.uid == [PSUserManager shareManager].uid) {
+        _headerView.focusBtn.hidden = YES;
+    } else {
+        _headerView.focusBtn.hidden = NO;
+    }
 }
 
 #pragma mark 创建下方tableview
@@ -173,6 +218,7 @@ static NSString *userPageUpdate = @"user/message/update";
 
 - (void)followThisPeople {
     // 发送网络请求回调信息刷新
+    [_focusView reloadData];
 }
 
 - (void)moveToFollowList {
@@ -191,24 +237,62 @@ static NSString *userPageUpdate = @"user/message/update";
 #pragma mark - 数据源
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if(tableView == _collectionView) {
+    if(tableView == _collectionView && _userPageModel.topicArr.count>0 && _userPageModel.collectionArr.count>0) {
         return 2;
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(tableView == _collectionView) {
-        return 10;
+    if(tableView == _collectionView && _userPageModel.topicArr.count>0 && _userPageModel.collectionArr.count>0) {
+        if(section == 0) {
+            return _userPageModel.collectionArr.count;
+        } else {
+            return _userPageModel.topicArr.count;
+        }
     }
-    return 20;
+    if(tableView == _focusView && _userPageModel.focusArr.count>0) {
+        return _userPageModel.focusArr.count;
+    }
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(tableView == _collectionView && (_userPageModel.topicArr.count>0 || _userPageModel.collectionArr.count>0)) {
+        return 25;
+    }
     return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(tableView == _collectionView) {
+        if(_userPageModel.collectionArr.count<=0 && _userPageModel.topicArr.count<=0) {
+            return nil;
+        }
+        UIView *headerView;
+        if(section == 0) {
+            headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 25)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(6, 3, kScreenWidth, 20)];
+            label.textColor = kPandoraSecretColor;
+            label.textAlignment = NSTextAlignmentLeft;
+            label.font = [UIFont systemFontOfSize:10];
+            if(_userPageModel.collectionArr.count > 0) {
+                label.text = @"收藏的商品";
+            } else {
+                label.text = @"收藏的秀秀场作品";
+            }
+            [headerView addSubview:label];
+        } else {
+            headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 25)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(6, 3, kScreenWidth, 20)];
+            label.textColor = kPandoraSecretColor;
+            label.textAlignment = NSTextAlignmentLeft;
+            label.font = [UIFont systemFontOfSize:10];
+            label.text = @"收藏的秀秀场作品";
+            [headerView addSubview:label];
+        }
+        return headerView;
+    }
     return nil;
 }
 
@@ -221,6 +305,9 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if((tableView == _focusView && _userPageModel.focusArr.count<=0) || (tableView == _collectionView && _userPageModel.collectionArr.count<=0 && _userPageModel.topicArr.count<=0)) {
+        return kScreenHeight-230+20;
+    }
     if(tableView == _focusView) {
         return 73.5;
     }
@@ -228,20 +315,54 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    if(tableView == _focusView) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"followId"];
+    if(tableView == _focusView && _userPageModel.focusArr.count>0) {
+        PSUserPageListFollowCell *cell = [tableView dequeueReusableCellWithIdentifier:@"followId"];
         if(!cell) {
             cell = [[PSUserPageListFollowCell alloc] init];
+            cell.focusModel = _userPageModel.focusArr[indexPath.row];
         }
         return cell;
     }
-    if(tableView == _collectionView) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"collectionId"];
+    if(tableView == _collectionView && (_userPageModel.collectionArr.count>0 || _userPageModel.topicArr.count>0)) {
+        PSUserPageListCollectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collectionId"];
         if(!cell) {
             cell = [[PSUserPageListCollectionCell alloc] init];
         }
+        if(indexPath.section == 0) {
+            if(_userPageModel.collectionArr.count > 0) {
+                cell.collectionModel = _userPageModel.collectionArr[indexPath.row];
+            } else {
+                cell.topicModel = _userPageModel.topicArr[indexPath.row];
+            }
+        } else {
+            cell.topicModel = _userPageModel.topicArr[indexPath.row];
+        }
         return cell;
+    }
+    UITableViewCell *cell;
+    if(tableView == _focusView) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
+        if(!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+        }
+        for(UIView *view in cell.subviews) {
+            [view removeFromSuperview];
+        }
+        PSNoDataView *noDataView = [[PSNoDataView alloc] init];
+        [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-230+20) andType:_noDataTypeFollow];
+        [cell addSubview:noDataView];
+    }
+    if(tableView == _collectionView) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
+        if(!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+        }
+        for(UIView *view in cell.subviews) {
+            [view removeFromSuperview];
+        }
+        PSNoDataView *noDataView = [[PSNoDataView alloc] init];
+        [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-230+20) andType:_noDataTypeCollection];
+        [cell addSubview:noDataView];
     }
     return cell;
 }

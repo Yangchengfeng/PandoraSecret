@@ -10,38 +10,9 @@
 
 @implementation PSUserHomePageHeaderView
 
-- (void)setHeaderDict:(NSMutableDictionary *)headerDict {
-//    if(_userPageModel.userName.length>0) {
-//        header.userNameLabel.text = _userPageModel.userName;
-//    } else {
-//        header.userNameLabel.text = @"潘多拉的秘密社会人";
-//    }
-//    if(_userPageModel.userDesc.length>0) {
-//        header.userDescLabel.text = _userPageModel.userDesc;
-//    } else {
-//        header.userDescLabel.text = @"我只是潘多拉的秘密里的社会人";
-//    }
-//    [header.userVatcarImageView sd_setImageWithURL:[NSURL URLWithString:_userPageModel.image] placeholderImage:[UIImage imageNamed:@"head_icon_me"]];
-//    if(_userPageModel.isFocus==-1) {
-//        header.focusBtn.hidden = YES;
-//    } else {
-//        header.focusBtn.hidden = NO;
-//        if(_userPageModel.isFocus == 0) {
-//            header.focusBtn.selected = NO;
-//        } else {
-//            header.focusBtn.selected = YES;
-//        }
-//    }
-//    if(_userPageModel.uid == [PSUserManager shareManager].uid) {
-//        header.focusBtn.hidden = YES;
-//    } else {
-//        header.focusBtn.hidden = NO;
-//    }
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _userVatcar.layer.cornerRadius = 34.5;
+    _userVatcar.layer.cornerRadius = 32.5;
     _userVatcar.layer.masksToBounds = YES;
     // 下划线位置
     _underlinViewLeftConstraint.constant = ((kScreenWidth-1)/2.0 - underlineWidthConstraint)/2.0;

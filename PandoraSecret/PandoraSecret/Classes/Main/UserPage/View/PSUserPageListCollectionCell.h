@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSShowGroundModel.h"
+#import "PSCollectionModel.h"
 
 @interface PSUserPageListCollectionCell : UITableViewCell
+
+@property (nonatomic, strong) PSShowGroundModel *topicModel;
+@property (nonatomic, strong) PSCollectionModel *collectionModel;
 
 @end
