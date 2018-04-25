@@ -7,17 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "WeiboSDK.h"
-
-@protocol WeiboDelegate <NSObject>
-
-- (void)showViewWithResponse:(WBBaseResponse *)sinaResponseObject;
-
-@end
 
 @interface AppDelegate () <WeiboSDKDelegate>
-
-@property (nonatomic, weak) id<WeiboDelegate> sinaDelegate;
 
 @end
 
@@ -35,10 +26,16 @@
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     NSLog(@"%@", response);
-    if([self.sinaDelegate respondsToSelector:@selector(showViewWithResponse:)]) {
-        [self.sinaDelegate showViewWithResponse:response];
+    if ([response isKindOfClass:WBAuthorizeResponse.class]) {
+        if([self.sinaDelegate respondsToSelector:@selector(weiboLoginByResponse:)]) {
+            [self.sinaDelegate weiboLoginByResponse:response];
+        }
     }
 }
 

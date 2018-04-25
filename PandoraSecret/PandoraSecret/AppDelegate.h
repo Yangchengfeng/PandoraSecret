@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeiboSDK.h"
+
+@protocol WeiboDelegate <NSObject>
+
+-(void)weiboLoginByResponse:(WBBaseResponse *)response;
+-(void)weiboShareSuccessCode:(NSInteger)shareResultCode;
+
+@end
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, weak) id<WeiboDelegate> sinaDelegate;
 
 @end
 

@@ -9,8 +9,16 @@
 #import "PSLaunchViewController.h"
 #import "PSMainTabBarController.h"
 #import <AVKit/AVKit.h>
+#import "WeiboSDK.h"
+#import "AppDelegate.h"
 
-@interface PSLaunchViewController ()
+static NSString *queryURL = @"user/query";
+static NSString *registerURL = @"user/register";
+
+@interface PSLaunchViewController () <WeiboDelegate>
+{
+    AppDelegate *appDelgate; 
+}
 
 @property (nonatomic, strong) AVPlayerViewController *avPlayer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLeftConstraint;
@@ -19,11 +27,6 @@
 @end
 
 @implementation PSLaunchViewController
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,13 +70,63 @@
     [_avPlayer.player play];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (IBAction)loginWithweibo:(id)sender {
+    appDelgate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelgate.sinaDelegate = self;
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = kReDirectURI;
+    request.scope = @"all";
+    request.userInfo = nil;
+    [WeiboSDK sendRequest:request];
+}
+
+-(void)weiboLoginByResponse:(WBBaseResponse *)response{
+    if(response.statusCode == WeiboSDKResponseStatusCodeSuccess) {
+        // 保存用户信息，dismissVC，并进行异步注册
+        NSDictionary *dic = (NSDictionary *) response.requestUserInfo;
+        NSString *sinaUid = [NSString stringWithFormat:@"100000%@", dic[@"uid"]];
+        NSDictionary *param = @{@"phone":sinaUid};
+        [PSNetoperation getRequestWithConcretePartOfURL:queryURL parameter:param success:^(id responseObject) {
+            NSDictionary *userInfo = responseObject[@"data"][0];
+            PSUserManager *userManager = [PSUserManager shareManager];
+            [userManager saveUserInfo:userInfo];
+            PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+            self.view.window.rootViewController = mainVC;
+        } failure:^(id failure) {
+            [self registerSinaUid:sinaUid];
+        } andError:^(NSError *responseError) {
+            [SVProgressHUD showErrorWithStatus:@"操作失败，请重新再试"];
+        }];
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"微博登录失败，请尝试其他登录方式！"];
+    }
+}
+
+- (void)registerSinaUid:(NSString *)sinaUid {
+    NSDictionary *param = @{@"phone":sinaUid, @"password":@"123456"};
+    [PSNetoperation postRequestWithConcretePartOfURL:registerURL parameter:param success:^(id responseObject) {
+        PSUserManager *userManager = [PSUserManager shareManager];
+        NSDictionary *userInfo = @{
+                                   }; // 需要返回uid
+        [userManager saveUserInfo:userInfo];
+        PSMainTabBarController *mainVC = [[PSMainTabBarController alloc] init];
+        self.view.window.rootViewController = mainVC;
+    } failure:^(id failure) {
+        NSLog(@"%@", failure);
+        [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+    } andError:^(NSError *responseError) {
+        NSLog(@"%@", responseError);
+    }];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end
