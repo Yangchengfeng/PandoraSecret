@@ -8,8 +8,10 @@
 
 #import "PSRegisterViewController.h"
 #import "PSMainTabBarController.h"
+#import "PSWebViewController.h"
 
 static NSString *registerURL = @"user/register";
+static NSString *privacyLink = @"https://www.baidu.com/duty/yinsiquan.html";
 
 @interface PSRegisterViewController ()
 
@@ -58,6 +60,12 @@ static NSString *registerURL = @"user/register";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     BOOL isPhoneNum = [phoneTest evaluateWithObject:phoneNum];
     return isPhoneNum;
+}
+
+- (IBAction)showPrivacy:(id)sender {
+    PSWebViewController *privacy = [[PSWebViewController alloc] init];
+    privacy.webLink = privacyLink;
+    [self.navigationController pushViewController:privacy animated:YES];
 }
 
 @end
