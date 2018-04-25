@@ -41,8 +41,8 @@
     self = [super init];
     if(self) {
         self = [[NSBundle mainBundle] loadNibNamed:@"PSUserPageListFollowCell" owner:nil options:nil].firstObject;
-        [_focusBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        [_focusBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateSelected];
+        [_focusBtn setImage:[UIImage imageNamed:@"follow_button"] forState:UIControlStateNormal];
+        [_focusBtn setImage:[UIImage imageNamed:@"unfollow_button"] forState:UIControlStateSelected];
     }
     return self;
 }

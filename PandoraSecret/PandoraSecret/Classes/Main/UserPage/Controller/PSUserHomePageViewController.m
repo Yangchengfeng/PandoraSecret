@@ -10,6 +10,8 @@
 #import "PSUserHomePageHeaderView.h"
 #import "PSUserPageModel.h"
 #import "PSShareView.h"
+#import "PSUserPageListFollowCell.h"
+#import "PSUserPageListCollectionCell.h"
 
 static NSString *userPageQuery = @"user/message/query";
 static NSString *userPageUpdate = @"user/message/update";
@@ -27,7 +29,6 @@ static NSString *userPageUpdate = @"user/message/update";
 @end
 
 @implementation PSUserHomePageViewController {
-    NSInteger _index;
     CGFloat _yOffset;
 }
 
@@ -56,8 +57,8 @@ static NSString *userPageUpdate = @"user/message/update";
         make.top.and.leading.and.trailing.equalTo(self.view);
         make.height.equalTo(@(230));
     }];
-    
-    [self queryList];
+    _yOffset = self.headerView.center.y;
+//    [self queryList];
 }
 
 - (void)queryList {
@@ -66,8 +67,6 @@ static NSString *userPageUpdate = @"user/message/update";
                             };
     [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
         _userPageModel = [PSUserPageModel userPageModelWithDict:responseObject[@"data"]];
-//        _focusView.userPageArr = _userPageModel.focusArr;
-//        _collectionView.userPageArr = _userPageModel.topicArr;
     } failure:^(id failure) {
         [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
     } andError:^(NSError *error) {
@@ -77,27 +76,27 @@ static NSString *userPageUpdate = @"user/message/update";
 #pragma mark 创建下方tableview
 -(void)createTableScrollView{
     
-    self.tableScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.tableScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight+20)];
     _tableScrollView.delegate = self;
     _tableScrollView.contentSize = CGSizeMake(2*kScreenWidth, kScreenHeight);
     _tableScrollView.pagingEnabled = YES;
     _tableScrollView.alwaysBounceVertical = NO;
+    _tableScrollView.alwaysBounceHorizontal = NO;
+    _tableScrollView.bouncesZoom = NO;
     _tableScrollView.bounces = NO;
 
     // 关注列表
-    _focusView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _focusView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight+20) style:UITableViewStyleGrouped];
     _focusView.delegate = self;
     _focusView.dataSource = self;
-    _focusView.backgroundColor = [UIColor greenColor];
     _focusView.tag = 100;
     [self createTableHeadView:_focusView];
     [_tableScrollView addSubview:_focusView];
     
     // 收藏列表
-    _collectionView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
+    _collectionView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight+20) style:UITableViewStyleGrouped];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    _collectionView.backgroundColor = [UIColor blueColor];
     _collectionView.tag = 101;
     [self createTableHeadView:_collectionView];
     [_tableScrollView addSubview:_collectionView];
@@ -107,20 +106,19 @@ static NSString *userPageUpdate = @"user/message/update";
 
 -(void)createTableHeadView:(UITableView *)tableView {
     UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 230)];
-    tableHeaderView.backgroundColor = [UIColor clearColor];
+    tableHeaderView.backgroundColor = [UIColor orangeColor];
     tableView.showsVerticalScrollIndicator = NO;
+    tableView.showsHorizontalScrollIndicator = NO;
+    tableView.separatorColor = [UIColor whiteColor];
     tableView.tableHeaderView = tableHeaderView;
     tableView.backgroundColor = kColorRGBA(252, 252, 252, 1);
 }
 
 #pragma mark scrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
     if ([scrollView isEqual:_tableScrollView]) {
-        _index = _tableScrollView.bounds.origin.x/_tableScrollView.bounds.size.width;
         return;
     }
-    
     CGFloat offsetY = scrollView.contentOffset.y;
     
     if (scrollView.contentOffset.y > 187) {
@@ -133,23 +131,14 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if ([scrollView isEqual:_tableScrollView]) {
-        if (_index == 0) {
-            
-        }
-        if (_index == 1){
-            
-        }
-        return;
-    }
-    
-    [self setTableViewContentOffsetWithTag:scrollView.tag contentOffset:scrollView.contentOffset.y];
-    
     CGFloat page = scrollView.contentOffset.x/kScreenWidth;
     if(page < 0.5) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFollow" object:nil];
     } else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"userPageScrollFoCollection" object:nil];
+    }
+    if (![scrollView isEqual:_tableScrollView]) {
+        [self setTableViewContentOffsetWithTag:scrollView.tag contentOffset:scrollView.contentOffset.y];
     }
 }
 
@@ -187,9 +176,12 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 - (void)moveToFollowList {
+    [_tableScrollView setContentOffset:CGPointMake(0, -20) animated:YES];
 }
 
 - (void)moveToCollectionList {
+    [_tableScrollView setContentOffset:CGPointMake(kScreenWidth, -20) animated:YES];
+
 }
 
 - (void)goBackToShowGround {
@@ -199,10 +191,16 @@ static NSString *userPageUpdate = @"user/message/update";
 #pragma mark - 数据源
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if(tableView == _collectionView) {
+        return 2;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(tableView == _collectionView) {
+        return 10;
+    }
     return 20;
 }
 
@@ -214,10 +212,36 @@ static NSString *userPageUpdate = @"user/message/update";
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(tableView == _focusView) {
+        return 73.5;
+    }
+    return 170;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    UITableViewCell *cell;
+    if(tableView == _focusView) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"followId"];
+        if(!cell) {
+            cell = [[PSUserPageListFollowCell alloc] init];
+        }
+        return cell;
+    }
+    if(tableView == _collectionView) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"collectionId"];
+        if(!cell) {
+            cell = [[PSUserPageListCollectionCell alloc] init];
+        }
+        return cell;
     }
     return cell;
 }

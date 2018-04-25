@@ -121,11 +121,10 @@
 		38F5BDAE20904D5300F10A32 /* PSUserHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */; };
 		38F5BDF22090626B00F10A32 /* PSUserHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */; };
 		38F5BDF820907BA900F10A32 /* PSUserHomePageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */; };
-		38F5BDFB2090A3F600F10A32 /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */; };
-		38F5BDFE2090A8D300F10A32 /* PSUserHomePageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */; };
+		38F5BE022090B9C300F10A32 /* PSUserPageListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BE002090B9C300F10A32 /* PSUserPageListCollectionCell.m */; };
+		38F5BE032090B9C300F10A32 /* PSUserPageListCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BE012090B9C300F10A32 /* PSUserPageListCollectionCell.xib */; };
 		38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */; };
 		38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */; };
-		38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37782074A04E00FD055F /* PSUserPageList.m */; };
 		38FC37A12077581700FD055F /* PSShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37A02077581700FD055F /* PSShareView.m */; };
 		38FC37A82077CA5600FD055F /* PSShareCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37A62077CA5600FD055F /* PSShareCollectionViewCell.m */; };
 		38FC37A92077CA5600FD055F /* PSShareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC37A72077CA5600FD055F /* PSShareCollectionViewCell.xib */; };
@@ -324,15 +323,12 @@
 		38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageHeaderView.h; sourceTree = "<group>"; };
 		38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageHeaderView.m; sourceTree = "<group>"; };
 		38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserHomePageHeaderView.xib; sourceTree = "<group>"; };
-		38F5BDF92090A3F600F10A32 /* PSCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCollectionView.h; sourceTree = "<group>"; };
-		38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSCollectionView.m; sourceTree = "<group>"; };
-		38F5BDFC2090A8D300F10A32 /* PSUserHomePageList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageList.h; sourceTree = "<group>"; };
-		38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageList.m; sourceTree = "<group>"; };
+		38F5BDFF2090B9C300F10A32 /* PSUserPageListCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageListCollectionCell.h; sourceTree = "<group>"; };
+		38F5BE002090B9C300F10A32 /* PSUserPageListCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageListCollectionCell.m; sourceTree = "<group>"; };
+		38F5BE012090B9C300F10A32 /* PSUserPageListCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListCollectionCell.xib; sourceTree = "<group>"; };
 		38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageListFollowCell.h; sourceTree = "<group>"; };
 		38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageListFollowCell.m; sourceTree = "<group>"; };
 		38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListFollowCell.xib; sourceTree = "<group>"; };
-		38FC37772074A04E00FD055F /* PSUserPageList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageList.h; sourceTree = "<group>"; };
-		38FC37782074A04E00FD055F /* PSUserPageList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageList.m; sourceTree = "<group>"; };
 		38FC379F2077581700FD055F /* PSShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShareView.h; sourceTree = "<group>"; };
 		38FC37A02077581700FD055F /* PSShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSShareView.m; sourceTree = "<group>"; };
 		38FC37A52077CA5600FD055F /* PSShareCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSShareCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1009,15 +1005,12 @@
 				38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */,
 				38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */,
 				38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */,
-				38FC37772074A04E00FD055F /* PSUserPageList.h */,
-				38FC37782074A04E00FD055F /* PSUserPageList.m */,
 				38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */,
 				38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */,
 				38F5BDF720907BA900F10A32 /* PSUserHomePageHeaderView.xib */,
-				38F5BDF92090A3F600F10A32 /* PSCollectionView.h */,
-				38F5BDFA2090A3F600F10A32 /* PSCollectionView.m */,
-				38F5BDFC2090A8D300F10A32 /* PSUserHomePageList.h */,
-				38F5BDFD2090A8D300F10A32 /* PSUserHomePageList.m */,
+				38F5BDFF2090B9C300F10A32 /* PSUserPageListCollectionCell.h */,
+				38F5BE002090B9C300F10A32 /* PSUserPageListCollectionCell.m */,
+				38F5BE012090B9C300F10A32 /* PSUserPageListCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1413,6 +1406,7 @@
 				381F96A8206DEE49008E8284 /* PSMeHeaderTableViewCell.xib in Resources */,
 				383EA956208D28CB00BDFD3D /* PSShopHeaderView.xib in Resources */,
 				38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */,
+				38F5BE032090B9C300F10A32 /* PSUserPageListCollectionCell.xib in Resources */,
 				381F9642206CC3B4008E8284 /* Assets.xcassets in Resources */,
 				38FC3956207D227C00FD055F /* PSHomeGoodsCell.xib in Resources */,
 				381F96B320711964008E8284 /* PSShopCartTableViewCell.xib in Resources */,
@@ -1439,7 +1433,7 @@
 				383EA97C208D88F500BDFD3D /* NSArray+MASAdditions.m in Sources */,
 				383EA978208D88E400BDFD3D /* View+MASAdditions.m in Sources */,
 				381EAD6D208505A50047FFD2 /* PSAddressListCell.m in Sources */,
-				38F5BDFB2090A3F600F10A32 /* PSCollectionView.m in Sources */,
+				38F5BE022090B9C300F10A32 /* PSUserPageListCollectionCell.m in Sources */,
 				381EAD612084C6B50047FFD2 /* VictoriaAddressModel.m in Sources */,
 				381EAD602084C6A50047FFD2 /* VictoriaAddressPickerView.m in Sources */,
 				381EAD5F2084C69F0047FFD2 /* VictoriaAddressEditViewController.m in Sources */,
@@ -1498,7 +1492,6 @@
 				381EAD7E208749030047FFD2 /* PSOrderListCell.m in Sources */,
 				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
-				38F5BDFE2090A8D300F10A32 /* PSUserHomePageList.m in Sources */,
 				383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */,
 				381EAD0120825DC60047FFD2 /* PSAddressListViewController.m in Sources */,
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
@@ -1515,7 +1508,6 @@
 				381F968A206D16FF008E8284 /* PSLoginViewController.m in Sources */,
 				38DB91EC208794E400243E80 /* PSOrderDetailModel.m in Sources */,
 				381F96A7206DEE49008E8284 /* PSMeHeaderTableViewCell.m in Sources */,
-				38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */,
 				381F96D52071FD06008E8284 /* PSShowGroundCell.m in Sources */,
 				383EA95D208D5EFE00BDFD3D /* PSShopHeaderView.m in Sources */,
 				38FC37A82077CA5600FD055F /* PSShareCollectionViewCell.m in Sources */,

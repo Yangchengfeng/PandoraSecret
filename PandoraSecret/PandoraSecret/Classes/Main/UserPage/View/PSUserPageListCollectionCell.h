@@ -1,5 +1,5 @@
 //
-//  PSCollectionView.h
+//  PSUserPageListCollectionCell.h
 //  PandoraSecret
 //
 //  Created by 阳丞枫 on 2018/4/25.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSCollectionView : UIView
-
-@property (nonatomic, strong) UITableView *collectionView;
+@interface PSUserPageListCollectionCell : UITableViewCell
 
 @end
