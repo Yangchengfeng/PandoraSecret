@@ -9,7 +9,7 @@
 #import "PSShowGroundViewController.h"
 #import "PSShowGroundCell.h"
 #import "PSShowGroundModel.h"
-#import "PSUserPageViewController.h"
+#import "PSUserHomePageViewController.h"
 
 static NSString *showGroundListQuery = @"topic/list";
 
@@ -92,7 +92,7 @@ static NSString *showGroundListQuery = @"topic/list";
 }
 
 - (void)enterUserPageWithUid:(NSInteger)uid {
-    PSUserPageViewController *userPage = [[PSUserPageViewController alloc] init];
+    PSUserHomePageViewController *userPage = [[PSUserHomePageViewController alloc] init];
     userPage.hidesBottomBarWhenPushed = YES;
     userPage.uid = uid;
     [self.navigationController pushViewController:userPage animated:YES];

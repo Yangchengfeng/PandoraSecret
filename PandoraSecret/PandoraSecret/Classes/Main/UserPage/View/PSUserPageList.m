@@ -21,10 +21,15 @@
 - (instancetype)initWithFrame:(CGRect)frame andListType:(PSUserPageListType)listType {
     self = [super init];
     if(self) {
-        self.delegate = self;
-        self.dataSource = self;
+    
+        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        tableView.separatorColor = [UIColor whiteColor];
+        self.userPageListView = tableView;
         self.frame = frame;
         self.listType = listType;
+        [self addSubview:_userPageListView];
     }
     return self;
 }

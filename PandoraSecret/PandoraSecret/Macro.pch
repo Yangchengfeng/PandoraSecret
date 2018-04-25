@@ -33,6 +33,7 @@ CG_INLINE CGRect const CGRectMakes(CGFloat x, CGFloat y, CGFloat width, CGFloat 
 // 宽高设置
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kNavH 64.f
 
 // 颜色设置
 #define kPandoraSecretColor [UIColor colorWithRed:212.0/255.0 green:35.0/255.0 blue:122.0/255.0 alpha:1.0]

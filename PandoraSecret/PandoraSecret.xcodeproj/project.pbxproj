@@ -118,8 +118,9 @@
 		38F2A21220727E3000F80D92 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A21120727E3000F80D92 /* AdSupport.framework */; };
 		38F2A2132072823300F80D92 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A1FF20727D2600F80D92 /* SMS_SDK.framework */; };
 		38F2A2142072823600F80D92 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2A20120727D2600F80D92 /* MOBFoundation.framework */; };
-		38F5BDA9208F992F00F10A32 /* PSUserPageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */; };
-		38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37682074791A00FD055F /* PSUserPageViewController.m */; };
+		38F5BDAE20904D5300F10A32 /* PSUserHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */; };
+		38F5BDF22090626B00F10A32 /* PSUserHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */; };
+		38F5BDF42090628C00F10A32 /* PSUserHomePageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */; };
 		38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */; };
 		38FC377320748A1800FD055F /* PSUserPageListFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */; };
 		38FC37792074A04E00FD055F /* PSUserPageList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC37782074A04E00FD055F /* PSUserPageList.m */; };
@@ -316,9 +317,11 @@
 		38F2A20D20727E1E00F80D92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		38F2A20F20727E2800F80D92 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		38F2A21120727E3000F80D92 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageHeaderView.xib; sourceTree = "<group>"; };
-		38FC37672074791A00FD055F /* PSUserPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageViewController.h; sourceTree = "<group>"; };
-		38FC37682074791A00FD055F /* PSUserPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageViewController.m; sourceTree = "<group>"; };
+		38F5BDAC20904D5300F10A32 /* PSUserHomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageViewController.h; sourceTree = "<group>"; };
+		38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageViewController.m; sourceTree = "<group>"; };
+		38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserHomePageHeaderView.h; sourceTree = "<group>"; };
+		38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserHomePageHeaderView.m; sourceTree = "<group>"; };
+		38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserHomePageHeaderView.xib; sourceTree = "<group>"; };
 		38FC376F20748A1800FD055F /* PSUserPageListFollowCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserPageListFollowCell.h; sourceTree = "<group>"; };
 		38FC377020748A1800FD055F /* PSUserPageListFollowCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserPageListFollowCell.m; sourceTree = "<group>"; };
 		38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PSUserPageListFollowCell.xib; sourceTree = "<group>"; };
@@ -975,8 +978,8 @@
 		383FFF4E2073CBF9000E8631 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38FC37672074791A00FD055F /* PSUserPageViewController.h */,
-				38FC37682074791A00FD055F /* PSUserPageViewController.m */,
+				38F5BDAC20904D5300F10A32 /* PSUserHomePageViewController.h */,
+				38F5BDAD20904D5300F10A32 /* PSUserHomePageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1002,7 +1005,9 @@
 				38FC377120748A1800FD055F /* PSUserPageListFollowCell.xib */,
 				38FC37772074A04E00FD055F /* PSUserPageList.h */,
 				38FC37782074A04E00FD055F /* PSUserPageList.m */,
-				38F5BDA8208F992F00F10A32 /* PSUserPageHeaderView.xib */,
+				38F5BDF02090626B00F10A32 /* PSUserHomePageHeaderView.h */,
+				38F5BDF12090626B00F10A32 /* PSUserHomePageHeaderView.m */,
+				38F5BDF32090628C00F10A32 /* PSUserHomePageHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1390,7 +1395,7 @@
 				38FC3902207BC06400FD055F /* PSHomeCarousel.xib in Resources */,
 				38FC37A92077CA5600FD055F /* PSShareCollectionViewCell.xib in Resources */,
 				381F96D62071FD06008E8284 /* PSShowGroundCell.xib in Resources */,
-				38F5BDA9208F992F00F10A32 /* PSUserPageHeaderView.xib in Resources */,
+				38F5BDF42090628C00F10A32 /* PSUserHomePageHeaderView.xib in Resources */,
 				38DB91E92087924800243E80 /* PSOrderDetailCell.xib in Resources */,
 				381EAD07208338490047FFD2 /* PSNoDataView.xib in Resources */,
 				381F9692206D35FB008E8284 /* PSMain.storyboard in Resources */,
@@ -1444,6 +1449,7 @@
 				383EAF82207DF16F009E57CE /* SDWebImageCodersManager.m in Sources */,
 				383EAF81207DF161009E57CE /* SDWebImageDownloader.m in Sources */,
 				383EAF80207DF13F009E57CE /* SDImageCacheConfig.m in Sources */,
+				38F5BDAE20904D5300F10A32 /* PSUserHomePageViewController.m in Sources */,
 				383EAF7F207DF136009E57CE /* SDWebImageCoder.m in Sources */,
 				383EAF7E207DF11D009E57CE /* SDImageCache.m in Sources */,
 				383EAF7D207DF105009E57CE /* SDWebImageManager.m in Sources */,
@@ -1481,7 +1487,6 @@
 				381EAD7E208749030047FFD2 /* PSOrderListCell.m in Sources */,
 				38FC38EA2079E48800FD055F /* PSNetoperation.m in Sources */,
 				381F963A206CC3B4008E8284 /* AppDelegate.m in Sources */,
-				38FC376A2074791A00FD055F /* PSUserPageViewController.m in Sources */,
 				383FFF4A20737104000E8631 /* PSLoginWithPasswordViewController.m in Sources */,
 				381EAD0120825DC60047FFD2 /* PSAddressListViewController.m in Sources */,
 				381F969E206D5A3C008E8284 /* PSMeViewController.m in Sources */,
@@ -1491,6 +1496,7 @@
 				38FC3955207D227C00FD055F /* PSHomeGoodsCell.m in Sources */,
 				38A03D2220815117004AACD0 /* PSMeHeaderModel.m in Sources */,
 				38A03D3E20816DCA004AACD0 /* PSAppAboutViewController.m in Sources */,
+				38F5BDF22090626B00F10A32 /* PSUserHomePageHeaderView.m in Sources */,
 				381F9681206CD676008E8284 /* PSRegisterViewController.m in Sources */,
 				38FC377220748A1800FD055F /* PSUserPageListFollowCell.m in Sources */,
 				38DB91E82087924800243E80 /* PSOrderDetailCell.m in Sources */,

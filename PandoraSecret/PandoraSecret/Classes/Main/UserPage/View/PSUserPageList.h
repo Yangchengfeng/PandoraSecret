@@ -13,8 +13,9 @@ typedef enum {
     PSUserPageListTypeCollection,
 } PSUserPageListType;
 
-@interface PSUserPageList : UITableView
+@interface PSUserPageList : UIView
 
+@property (nonatomic, strong) UITableView *userPageListView;
 @property (nonatomic, copy) NSMutableArray *userPageArr;
 
 - (instancetype)initWithFrame:(CGRect)frame andListType:(PSUserPageListType)listType;
