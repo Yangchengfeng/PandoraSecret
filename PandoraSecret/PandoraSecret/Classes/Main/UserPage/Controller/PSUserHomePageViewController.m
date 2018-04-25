@@ -28,18 +28,9 @@ static NSString *userPageUpdate = @"user/message/update";
 @end
 
 @implementation PSUserHomePageViewController {
-    
-    UIView *_bottomLine;
-    UIView *_movingLine;
     NSInteger _index;
-    CGFloat _tableViewH;
-    CGFloat _lastOffset;
     CGFloat _yOffset;
-    CGFloat _changW;
-    CGFloat _changY;
-    UIImage *_headImage;
 }
-
 
 - (PSUserHomePageHeaderView *)headerView {
     if(!_headerView) {
