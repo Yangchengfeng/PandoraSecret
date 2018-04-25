@@ -152,8 +152,12 @@ typedef enum {
             [self.navigationController pushViewController:aboutVC animated:YES];
             break;
         }
-        case PSSettingsSectionTypeLogout:
+        case PSSettingsSectionTypeLogout: {
+            PSLaunchViewController *launch = [[UIStoryboard storyboardWithName: @"PSLaunchViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"launchFirstVCId"];
+            launch.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:launch animated:YES];
             break;
+        }
         default:
             break;
     }

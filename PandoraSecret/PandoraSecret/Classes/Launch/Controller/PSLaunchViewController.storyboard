@@ -30,7 +30,7 @@
         <!--Launch View Controller-->
         <scene sceneID="hFW-kd-QRc">
             <objects>
-                <viewController id="m61-gn-b3W" customClass="PSLaunchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="launchFirstVCId" id="m61-gn-b3W" customClass="PSLaunchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e68-BR-9yT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,6 +444,6 @@
         <image name="logo" width="375" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="09X-yW-TwN"/>
+        <segue reference="6Hf-JM-DMX"/>
     </inferredMetricsTieBreakers>
 </document>
