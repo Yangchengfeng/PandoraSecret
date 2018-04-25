@@ -217,8 +217,22 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 - (void)followThisPeople {
-    // 发送网络请求回调信息刷新
-    [_focusView reloadData];
+    // id=1&isFocus=0&uid=36
+    BOOL isFocus = !(_userPageModel.isFocus);
+    NSDictionary *param = @{@"isFocus":@(isFocus),
+                            @"uid":@([PSUserManager shareManager].uid),
+                            @"id":@(_uid)
+                            };
+    [PSNetoperation getRequestWithConcretePartOfURL:userPageQuery parameter:param success:^(id responseObject) {
+        // 返回新的关注列表
+        [_focusView reloadData];
+    } failure:^(id failure) {
+        [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
+        _noDataTypeFollow = PSNoDataViewTypeFailure;
+    } andError:^(NSError *error) {
+        _noDataTypeFollow = PSNoDataViewTypeError;
+        _noDataTypeCollection = PSNoDataViewTypeError;
+    }];
 }
 
 - (void)moveToFollowList {
