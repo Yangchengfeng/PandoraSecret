@@ -366,6 +366,7 @@ static NSString *userPageUpdate = @"user/message/update";
         PSNoDataView *noDataView = [[PSNoDataView alloc] init];
         [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-230+20) andType:_noDataTypeFollow];
         [cell addSubview:noDataView];
+        return cell;
     }
     if(tableView == _collectionView) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
@@ -378,6 +379,7 @@ static NSString *userPageUpdate = @"user/message/update";
         PSNoDataView *noDataView = [[PSNoDataView alloc] init];
         [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-230+20) andType:_noDataTypeCollection];
         [cell addSubview:noDataView];
+        return cell;
     }
     UITableViewCell *cell_instead = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if(!cell_instead) {

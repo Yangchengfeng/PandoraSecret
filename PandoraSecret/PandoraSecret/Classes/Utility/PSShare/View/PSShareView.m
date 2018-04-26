@@ -256,7 +256,7 @@ static NSString *cellId = @"PSShareCollectionViewCell";
     }
     
     WBImageObject *imageObject = [WBImageObject object];
-    imageObject.imageData = UIImageJPEGRepresentation([UIImage imageNamed:image], 1.0);
+    imageObject.imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"head_icon_me"], 1.0);
     message.imageObject = imageObject;
         
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];

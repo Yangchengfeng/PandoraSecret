@@ -31,7 +31,9 @@
 }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-    NSLog(@"%@", response);
+    if(response.statusCode == WeiboSDKResponseStatusCodeUnknown) {
+        [SVProgressHUD showErrorWithStatus:@"未登录"];
+    }
     if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         if([self.sinaDelegate respondsToSelector:@selector(weiboLoginByResponse:)]) {
             [self.sinaDelegate weiboLoginByResponse:response];
