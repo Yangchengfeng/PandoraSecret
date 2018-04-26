@@ -34,7 +34,7 @@ static NSString *deleteRequest = @"address/delete";
     [super viewDidLoad];
     self.navigationItem.title = @"管理地址列表";
     
-    self.addressListView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-44-64-49) style:UITableViewStylePlain];
+    self.addressListView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-44-64-49) style:UITableViewStyleGrouped];
     _addressListView.delegate = self;
     _addressListView.dataSource = self;
     [self.view addSubview:_addressListView];
@@ -92,6 +92,10 @@ static NSString *deleteRequest = @"address/delete";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return  nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

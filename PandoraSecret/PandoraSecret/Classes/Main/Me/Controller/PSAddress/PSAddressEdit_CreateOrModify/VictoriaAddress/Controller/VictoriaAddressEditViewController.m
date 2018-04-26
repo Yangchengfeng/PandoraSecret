@@ -265,8 +265,7 @@ static NSString *placeholderStr = @"请输入收件人的详细地址信息，�
         [addressBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         addressBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [addressBtn setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-        [addressBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 50, 0, -50)];
-        [addressBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -16, 0, 16)];
+        [addressBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 30)];
         [addressBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 123, 0, -123)];
         addressBtn.userInteractionEnabled = YES;
         [addressBtn addTarget:self action:@selector(showAddressView) forControlEvents:UIControlEventTouchUpInside];
