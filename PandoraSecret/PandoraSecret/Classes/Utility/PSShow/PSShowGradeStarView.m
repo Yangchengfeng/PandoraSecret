@@ -41,7 +41,7 @@
         [starBtn setFrame:CGRectMake((starSize.width+starDistance)*idx, starY, starW, starSize.height)];
         [starBtn setImage:[UIImage imageNamed:@"star_none_click"] forState:UIControlStateNormal];
         [starBtn setImage:[UIImage imageNamed:@"star"] forState:UIControlStateSelected];
-        if(idx<viableSelectedStars) {
+        if(idx<=viableSelectedStars) {
             starBtn.selected = YES;
         } else {
             starBtn.selected = NO;
@@ -58,7 +58,7 @@
 
 - (void)clickStarBtn:(UIButton *)selectedStar{
     for(UIButton *btn in self.subviews) {
-        if(btn.tag < selectedStar.tag) {
+        if(btn.tag <= selectedStar.tag) {
             btn.selected = YES;
         } else {
             btn.selected = NO;

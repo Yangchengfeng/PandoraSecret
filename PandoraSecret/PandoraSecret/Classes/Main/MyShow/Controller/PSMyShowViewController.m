@@ -12,7 +12,7 @@
 #import "PSShowGroundViewController.h"
 #import "PSMainTabBarController.h"
 
-static NSInteger selectedStar = 0;
+static NSInteger selectedStarIdx = -1;
 static NSInteger totalStars = 5;
 static NSString *myShowPostUrl = @"topic/public";
 static NSString *placeholderStr = @"请输入有关商品或店铺的描述，不多于50字，也不要少于5个字，来畅所欲言，让更多朋友了解这样一件心水品吧！！！！！！！！O(∩_∩)O";
@@ -41,7 +41,7 @@ static NSString *placeholderStr = @"请输入有关商品或店铺的描述，�
     _imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     _imagePickerController.allowsEditing = YES;
     
-    [_pickStarView buildStarsWithSelectedStars:selectedStar totalStars:totalStars starSize:CGSizeMake(30, 30) optional:YES];
+    [_pickStarView buildStarsWithSelectedStars:selectedStarIdx totalStars:totalStars starSize:CGSizeMake(30, 30) optional:YES];
     _pickStarView.delegate = self;
     
     _comment.delegate = self;
@@ -122,7 +122,7 @@ static NSString *placeholderStr = @"请输入有关商品或店铺的描述，�
 }
 
 - (void)finalGradeWithSelectedStarIdx:(NSInteger)starsIdx {
-    _garde = starsIdx+1;
+    _garde = starsIdx;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
