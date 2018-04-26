@@ -40,6 +40,8 @@ static NSInteger totalStars = 5;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToEnterUserPage)];
     self.userVatcarImage.userInteractionEnabled = YES;
     [self.userVatcarImage addGestureRecognizer:tap];
+    self.userVatcarImage.layer.cornerRadius = 20.f;
+    self.userVatcarImage.layer.masksToBounds = YES;
 }
 
 - (void)tapToEnterUserPage {
