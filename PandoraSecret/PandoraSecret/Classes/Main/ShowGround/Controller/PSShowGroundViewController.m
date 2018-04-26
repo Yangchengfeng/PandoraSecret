@@ -22,6 +22,11 @@ static NSString *showGroundListQuery = @"topic/list";
 
 @implementation PSShowGroundViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self queryList];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -29,7 +34,6 @@ static NSString *showGroundListQuery = @"topic/list";
     _showGroundListView.delegate = self;
     _showGroundListView.dataSource = self;
     [self.view addSubview:_showGroundListView];
-    [self queryList];
 }
 
 - (void)queryList {
@@ -46,7 +50,7 @@ static NSString *showGroundListQuery = @"topic/list";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PSShowGroundCell *cell = [[PSShowGroundCell alloc] init];
+    PSShowGroundCell *cell = [[NSBundle mainBundle] loadNibNamed:@"PSShowGroundCell" owner:nil options:nil].firstObject;
     if(!cell) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
     }

@@ -49,6 +49,7 @@ static NSString *userPageUpdate = @"user/message/update";
 }
 
 -(void)viewDidLoad {
+    [super viewDidLoad];
     
     [self createTableScrollView];
     
@@ -378,7 +379,11 @@ static NSString *userPageUpdate = @"user/message/update";
         [noDataView noDataViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-230+20) andType:_noDataTypeCollection];
         [cell addSubview:noDataView];
     }
-    return cell;
+    UITableViewCell *cell_instead = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if(!cell_instead) {
+        cell_instead = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    return cell_instead;
 }
 
 #pragma mark - 导航栏

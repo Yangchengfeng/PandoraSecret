@@ -22,6 +22,15 @@
 
 @implementation PSShopHeaderView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [_starView buildStarsWithSelectedStars:0 totalStars:5 starSize:CGSizeMake(15, 15) optional:NO];
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    effectView.frame = CGRectMake(0, 0, _maskView.frame.size.width, _maskView.frame.size.height);
+    [_maskView addSubview:effectView];
+}
+
 - (void)setShopHeaderModel:(PSShopDetailModel *)shopHeaderModel {
     _shopHeaderModel = shopHeaderModel;
     
@@ -31,19 +40,6 @@
     _starView.selectedStars = _shopHeaderModel.star;
     _fansNumLabel.text = [NSString stringWithFormat:@"粉丝数:%ld", _shopHeaderModel.fans];
     _shopIntroLabel.text = _shopHeaderModel.content;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if(self) {
-        self = [[NSBundle mainBundle] loadNibNamed:@"PSShopHeaderView" owner:nil options:nil].firstObject;
-        [_starView buildStarsWithSelectedStars:0 totalStars:5 starSize:CGSizeMake(15, 15) optional:NO];
-        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-        effectView.frame = CGRectMake(0, 0, _maskView.frame.size.width, _maskView.frame.size.height);
-        [_maskView addSubview:effectView];
-    }
-    return self;
 }
 
 - (IBAction)back:(id)sender {

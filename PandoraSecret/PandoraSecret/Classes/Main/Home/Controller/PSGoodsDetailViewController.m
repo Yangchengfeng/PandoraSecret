@@ -85,7 +85,7 @@ static CGFloat tableFooterH = 44.f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PSGoodsDetailCell *cell = [[PSGoodsDetailCell alloc] init];;
+    PSGoodsDetailCell *cell = [[NSBundle mainBundle] loadNibNamed:@"PSGoodsDetailCell" owner:nil options:nil].firstObject;;
     cell.goodsDetailModel = _goodsDetailArr[indexPath.section];
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

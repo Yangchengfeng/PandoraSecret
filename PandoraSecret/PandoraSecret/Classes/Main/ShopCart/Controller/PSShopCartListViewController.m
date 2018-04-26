@@ -26,6 +26,7 @@ static NSString *shopCartListQuery = @"cart/list";
 @implementation PSShopCartListViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
      [self queryShopCartList];
 }
 

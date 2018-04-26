@@ -39,7 +39,7 @@ static NSString *goodsCell = @"goodsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _shopHeaderView = [[PSShopHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 95)];
+    _shopHeaderView = [[NSBundle mainBundle] loadNibNamed:@"PSShopHeaderView" owner:nil options:nil].firstObject;
     _shopHeaderView.delegate = self;
     [self.view addSubview:_shopHeaderView];
     

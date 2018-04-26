@@ -35,15 +35,11 @@ static NSInteger totalStars = 5;
     _shopOrGoodsName.text = showGroundModel.shopName;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if(self) {
-        self = [[NSBundle mainBundle] loadNibNamed:@"PSShowGroundCell" owner:nil options:nil].firstObject;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToEnterUserPage)];
-        self.userVatcarImage.userInteractionEnabled = YES;
-        [self.userVatcarImage addGestureRecognizer:tap];
-    }
-    return self;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToEnterUserPage)];
+    self.userVatcarImage.userInteractionEnabled = YES;
+    [self.userVatcarImage addGestureRecognizer:tap];
 }
 
 - (void)tapToEnterUserPage {
