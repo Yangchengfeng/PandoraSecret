@@ -9,6 +9,8 @@
 #import "PSMyShowViewController.h"
 #import "PSShowGradeStarView.h"
 #import "PSTextViewWithPlaceholder.h"
+#import "PSShowGroundViewController.h"
+#import "PSMainTabBarController.h"
 
 static NSInteger selectedStar = 0;
 static NSInteger totalStars = 5;
@@ -95,9 +97,16 @@ static NSString *placeholderStr = @"请输入有关商品或店铺的描述，�
                                };
         [PSNetoperation postRequestWithConcretePartOfURL:myShowPostUrl parameter:dict success:^(id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"图片上传成功"];
+            self.comment.text = @"";
+            [self.choosePhoto setImage:[UIImage imageNamed:@"add_photo"] forState:UIControlStateNormal];
+            self.pickStarView.selectedStars = 0;
+            self.isAnonymous.selected = NO;
+            [self.navigationController popToRootViewControllerAnimated:NO];
+             PSMainTabBarController *tabBarVC = (PSMainTabBarController *)self.view.window.rootViewController;
+            tabBarVC.selectedIndex = 1;
             // 页面跳转
         } failure:^(id failure) {
-            [SVProgressHUD showErrorWithStatus:@"图片上传失败"];
+            [SVProgressHUD showErrorWithStatus:failure[@"msg"]];
         } andError:^(NSError *error) {
             
         }];
