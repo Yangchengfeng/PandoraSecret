@@ -133,7 +133,7 @@ static NSString *queryURL = @"user/query";
                                             _sendRequestBtn.userInteractionEnabled = NO;
                                         } else {
                                             // toast
-                                            [SVProgressHUD showWithStatus:@"验证码未发送成功"];
+                                            [SVProgressHUD showErrorWithStatus:@"验证码未发送成功"];
                                             [_sendRequestBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                                             [_sendRequestBtn setBackgroundColor:[UIColor redColor]];
                                             _sendRequestBtn.userInteractionEnabled = YES;
