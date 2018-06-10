@@ -12,24 +12,24 @@
 
 2、猜你喜欢
 
-![首页](./yangchengfeng.files/林玫妮毕业论文30306.png)    ![猜你喜欢](./yangchengfeng.files/林玫妮毕业论文20972.png)
+![首页](https://github.com/Yangchengfeng/PandoraSecret/Pic/01.png)    ![猜你喜欢](https://github.com/Yangchengfeng/PandoraSecret/Pic/02.png)
 
 
 ### 秀秀场
 
 1、用户主页
 
-![秀秀场](./yangchengfeng.files/林玫妮毕业论文31019.png) ![用户主页](./yangchengfeng.files/林玫妮毕业论文22486.png)
+![秀秀场](https://github.com/Yangchengfeng/PandoraSecret/Pic/03.png) ![用户主页](https://github.com/Yangchengfeng/PandoraSecret/Pic/04.png)
 
 
 ### 主场
 
-![主场](./yangchengfeng.files/林玫妮毕业论文31020.png)
+![主场](https://github.com/Yangchengfeng/PandoraSecret/Pic/05.png)
 
 
 ### 购物车
 
-![购物车](./yangchengfeng.files/林玫妮毕业论文31314.png)
+![购物车](https://github.com/Yangchengfeng/PandoraSecret/Pic/06.png)
 
 
 ### 我
@@ -38,7 +38,7 @@
 
 2、收货地址编辑修改
 
-![个人中心](./yangchengfeng.files/林玫妮毕业论文31501.png)  ![地址选择](./yangchengfeng.files/林玫妮毕业论文32267.png) ![地址列表](./yangchengfeng.files/林玫妮毕业论文32266.png)
+![个人中心](https://github.com/Yangchengfeng/PandoraSecret/Pic/07.png)  ![地址选择](https://github.com/Yangchengfeng/PandoraSecret/Pic/08.png) ![地址列表](https://github.com/Yangchengfeng/PandoraSecret/Pic/09.png)
 
 
 ### 其他
@@ -47,11 +47,11 @@
 
 2、登陆
 
-![mob第三方登录之手机验证码](./yangchengfeng.files/林玫妮毕业论文30082.png)
+![mob第三方登录之手机验证码](https://github.com/Yangchengfeng/PandoraSecret/Pic/10.png)
 
 3、分享
 
-![弹框](./yangchengfeng.files/林玫妮毕业论文22162.png) ![微博分享](./yangchengfeng.files/林玫妮毕业论文22089.png)
+![弹框](https://github.com/Yangchengfeng/PandoraSecret/Pic/11.png) ![微博分享](https://github.com/Yangchengfeng/PandoraSecret/Pic/12.png)
 
 
 
