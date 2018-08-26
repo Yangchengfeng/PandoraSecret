@@ -10,6 +10,7 @@
 		3805FF982133128D005BB8C2 /* HepburnBackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF972133128D005BB8C2 /* HepburnBackgroundTask.m */; };
 		3805FF9B21331AE0005BB8C2 /* HepburnServerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF9A21331AE0005BB8C2 /* HepburnServerTask.m */; };
 		3805FF9E21331DC3005BB8C2 /* HepburnPushHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF9D21331DC3005BB8C2 /* HepburnPushHandler.m */; };
+		3805FFAB21336143005BB8C2 /* HepburnPush.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3805FFA321336143005BB8C2 /* HepburnPush.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		382C449E21047FF300CA4A41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C449D21047FF300CA4A41 /* AppDelegate.m */; };
 		382C44A121047FF300CA4A41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C44A021047FF300CA4A41 /* ViewController.m */; };
 		382C44A421047FF300CA4A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382C44A221047FF300CA4A41 /* Main.storyboard */; };
@@ -17,6 +18,30 @@
 		382C44A921047FF500CA4A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382C44A721047FF500CA4A41 /* LaunchScreen.storyboard */; };
 		382C44AC21047FF500CA4A41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C44AB21047FF500CA4A41 /* main.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3805FFA921336143005BB8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 382C449121047FF300CA4A41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3805FFA221336143005BB8C2;
+			remoteInfo = HepburnPush;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3805FFAF21336143005BB8C2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3805FFAB21336143005BB8C2 /* HepburnPush.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3805FF952132E690005BB8C2 /* Hepburn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hepburn.entitlements; sourceTree = "<group>"; };
@@ -26,6 +51,7 @@
 		3805FF9A21331AE0005BB8C2 /* HepburnServerTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HepburnServerTask.m; sourceTree = "<group>"; };
 		3805FF9C21331DC3005BB8C2 /* HepburnPushHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HepburnPushHandler.h; sourceTree = "<group>"; };
 		3805FF9D21331DC3005BB8C2 /* HepburnPushHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HepburnPushHandler.m; sourceTree = "<group>"; };
+		3805FFA321336143005BB8C2 /* HepburnPush.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HepburnPush.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		382C449921047FF300CA4A41 /* Hepburn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hepburn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382C449C21047FF300CA4A41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		382C449D21047FF300CA4A41 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3805FFA021336143005BB8C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		382C449621047FF300CA4A41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				382C449921047FF300CA4A41 /* Hepburn.app */,
+				3805FFA321336143005BB8C2 /* HepburnPush.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +125,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3805FFA221336143005BB8C2 /* HepburnPush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3805FFAE21336143005BB8C2 /* Build configuration list for PBXNativeTarget "HepburnPush" */;
+			buildPhases = (
+				3805FF9F21336143005BB8C2 /* Sources */,
+				3805FFA021336143005BB8C2 /* Frameworks */,
+				3805FFA121336143005BB8C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HepburnPush;
+			productName = HepburnPush;
+			productReference = 3805FFA321336143005BB8C2 /* HepburnPush.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		382C449821047FF300CA4A41 /* Hepburn */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 382C44AF21047FF500CA4A41 /* Build configuration list for PBXNativeTarget "Hepburn" */;
@@ -98,10 +149,12 @@
 				382C449521047FF300CA4A41 /* Sources */,
 				382C449621047FF300CA4A41 /* Frameworks */,
 				382C449721047FF300CA4A41 /* Resources */,
+				3805FFAF21336143005BB8C2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3805FFAA21336143005BB8C2 /* PBXTargetDependency */,
 			);
 			name = Hepburn;
 			productName = Hepburn;
@@ -117,6 +170,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "阳丞枫";
 				TargetAttributes = {
+					3805FFA221336143005BB8C2 = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					382C449821047FF300CA4A41 = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
@@ -144,11 +200,19 @@
 			projectRoot = "";
 			targets = (
 				382C449821047FF300CA4A41 /* Hepburn */,
+				3805FFA221336143005BB8C2 /* HepburnPush */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3805FFA121336143005BB8C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		382C449721047FF300CA4A41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,6 +226,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3805FF9F21336143005BB8C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		382C449521047FF300CA4A41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,6 +247,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3805FFAA21336143005BB8C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3805FFA221336143005BB8C2 /* HepburnPush */;
+			targetProxy = 3805FFA921336143005BB8C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		382C44A221047FF300CA4A41 /* Main.storyboard */ = {
@@ -197,6 +276,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3805FFAC21336143005BB8C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33B7CRFX4N;
+				INFOPLIST_FILE = HepburnPush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepbur.HepburnPush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3805FFAD21336143005BB8C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33B7CRFX4N;
+				INFOPLIST_FILE = HepburnPush/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepbur.HepburnPush;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		382C44AD21047FF500CA4A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -352,6 +467,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3805FFAE21336143005BB8C2 /* Build configuration list for PBXNativeTarget "HepburnPush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3805FFAC21336143005BB8C2 /* Debug */,
+				3805FFAD21336143005BB8C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		382C449421047FF300CA4A41 /* Build configuration list for PBXProject "Hepburn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

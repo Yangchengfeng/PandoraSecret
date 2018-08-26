@@ -10,10 +10,12 @@
 #define IS_IOS8_OR_ABOVE SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("8.0")
 
 #import "AppDelegate.h"
-#import <UserNotifications/UserNotifications.h>
 #import "HepburnBackgroundTask.h"
 #import "HepburnPushHandler.h"
 #import <PushKit/PKPushRegistry.h>
+
+#import <UserNotifications/UserNotifications.h>
+#import <UserNotificationsUI/UserNotificationsUI.h>
 
 #define kNotification_Action_Follow_ID @"Notification_Action_Follow_ID"
 #define kNotification_Action_Cancel_ID @"Notification_Action_Cancel_ID"
@@ -52,6 +54,7 @@
         // registerAPN
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
+        [center setNotificationCategories:[NSSet setWithObjects:[self createCatrgory], nil]];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
             if(granted && !error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -76,11 +79,24 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    [application registerForRemoteNotifications]; // 向苹果服务器申请app的token，对应回调如下1️⃣、2️⃣
+
+- (UNNotificationCategory *)createCatrgory  API_AVAILABLE(ios(10.0)){
+
+    UNTextInputNotificationAction *textInputAction = [UNTextInputNotificationAction actionWithIdentifier:@"textInputAction" title:@"请输入信息" options:UNNotificationActionOptionAuthenticationRequired textInputButtonTitle:@"输入" textInputPlaceholder:@"还有多少话要说……"];
+    
+    UNNotificationAction *followAction = [UNNotificationAction actionWithIdentifier:kNotification_Action_Follow_ID title:@"关注" options:UNNotificationActionOptionForeground];
+    UNNotificationAction *cancelAction = [UNNotificationAction actionWithIdentifier:kNotification_Action_Cancel_ID title:@"取消" options:UNNotificationActionOptionDestructive];
+    
+    UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"category" actions:@[textInputAction, followAction, cancelAction] intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+    
+    return category;
 }
 
-// 1️⃣成功
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [application registerForRemoteNotifications]; // 向苹果服务器申请app的token，对应回调如下didRegisterForRemoteNotificationsWithDeviceToken、didFailToRegisterForRemoteNotificationsWithError
+}
+
+// 成功
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *deviceId = [NSString stringWithFormat:@"%@", deviceToken];
     deviceId = [deviceId substringWithRange:NSMakeRange(1, deviceId.length - 2)];
@@ -90,7 +106,7 @@
     // upload tokenStr to server
 }
 
-// 2️⃣
+// 失败
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"%@", error);
 }
@@ -155,6 +171,10 @@
 
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void (^)(void))completion {
     // 收到voip push执行后台逻辑，并生成localpush
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)pushCredentials forType:(PKPushType)type {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
