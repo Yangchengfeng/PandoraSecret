@@ -10,4 +10,21 @@
 
 @implementation HepburnServerTask
 
++ (instancetype)sharedInstance {
+    static HepburnServerTask *instance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[HepburnServerTask alloc] init];
+    });
+    
+    return instance;
+}
+
+- (void)detectServerTask {
+    // create Server message
+    
+    // create local push
+}
+
 @end

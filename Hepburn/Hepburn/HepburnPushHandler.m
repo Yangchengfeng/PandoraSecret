@@ -10,4 +10,26 @@
 
 @implementation HepburnPushHandler
 
++ (instancetype)sharedInstance {
+    static HepburnPushHandler *instance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[HepburnPushHandler alloc] init];
+    });
+    
+    return instance;
+}
+
+- (void)hepburnPushHandler:(NSDictionary *)info {
+    // 对应操作
+    NSLog(@"%@", info);
+    
+    NSDictionary *customInfo = info[@"aps"][@"custom"];
+    NSString *j = customInfo[@"j"];
+    NSString *p = customInfo[@"p"];
+    
+    NSLog(@"%@ *** %@", j, p);
+}
+
 @end

@@ -10,4 +10,7 @@
 
 @interface HepburnPushHandler : NSObject
 
++ (instancetype)sharedInstance;
+- (void)hepburnPushHandler:(NSDictionary *)info;
+
 @end

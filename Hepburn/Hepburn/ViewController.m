@@ -10,19 +10,33 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UILocalNotification *localNotification;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detectHepburnEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(detectHepburnEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
+- (void)detectHepburnEnterBackground {
+    _localNotification = [[UILocalNotification alloc] init];
+    _localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    _localNotification.alertBody = @"快来记录你的蜜月之旅吧~";
+    [[UIApplication sharedApplication] scheduleLocalNotification:_localNotification];
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// 当用户在1分钟内打开应用则取消通知
+- (void)detectHepburnEnterForeground {
+    [[UIApplication sharedApplication] cancelLocalNotification:_localNotification];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]  removeObserver:self];
 }
 
 

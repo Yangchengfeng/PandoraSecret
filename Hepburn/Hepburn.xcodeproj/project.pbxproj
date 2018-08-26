@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3805FF982133128D005BB8C2 /* HepburnBackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF972133128D005BB8C2 /* HepburnBackgroundTask.m */; };
+		3805FF9B21331AE0005BB8C2 /* HepburnServerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF9A21331AE0005BB8C2 /* HepburnServerTask.m */; };
+		3805FF9E21331DC3005BB8C2 /* HepburnPushHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3805FF9D21331DC3005BB8C2 /* HepburnPushHandler.m */; };
 		382C449E21047FF300CA4A41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C449D21047FF300CA4A41 /* AppDelegate.m */; };
 		382C44A121047FF300CA4A41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382C44A021047FF300CA4A41 /* ViewController.m */; };
 		382C44A421047FF300CA4A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382C44A221047FF300CA4A41 /* Main.storyboard */; };
@@ -16,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3805FF952132E690005BB8C2 /* Hepburn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hepburn.entitlements; sourceTree = "<group>"; };
+		3805FF962133128D005BB8C2 /* HepburnBackgroundTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HepburnBackgroundTask.h; sourceTree = "<group>"; };
+		3805FF972133128D005BB8C2 /* HepburnBackgroundTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HepburnBackgroundTask.m; sourceTree = "<group>"; };
+		3805FF9921331AE0005BB8C2 /* HepburnServerTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HepburnServerTask.h; sourceTree = "<group>"; };
+		3805FF9A21331AE0005BB8C2 /* HepburnServerTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HepburnServerTask.m; sourceTree = "<group>"; };
+		3805FF9C21331DC3005BB8C2 /* HepburnPushHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HepburnPushHandler.h; sourceTree = "<group>"; };
+		3805FF9D21331DC3005BB8C2 /* HepburnPushHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HepburnPushHandler.m; sourceTree = "<group>"; };
 		382C449921047FF300CA4A41 /* Hepburn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hepburn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382C449C21047FF300CA4A41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		382C449D21047FF300CA4A41 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +68,7 @@
 		382C449B21047FF300CA4A41 /* Hepburn */ = {
 			isa = PBXGroup;
 			children = (
+				3805FF952132E690005BB8C2 /* Hepburn.entitlements */,
 				382C449C21047FF300CA4A41 /* AppDelegate.h */,
 				382C449D21047FF300CA4A41 /* AppDelegate.m */,
 				382C449F21047FF300CA4A41 /* ViewController.h */,
@@ -67,6 +78,12 @@
 				382C44A721047FF500CA4A41 /* LaunchScreen.storyboard */,
 				382C44AA21047FF500CA4A41 /* Info.plist */,
 				382C44AB21047FF500CA4A41 /* main.m */,
+				3805FF962133128D005BB8C2 /* HepburnBackgroundTask.h */,
+				3805FF972133128D005BB8C2 /* HepburnBackgroundTask.m */,
+				3805FF9921331AE0005BB8C2 /* HepburnServerTask.h */,
+				3805FF9A21331AE0005BB8C2 /* HepburnServerTask.m */,
+				3805FF9C21331DC3005BB8C2 /* HepburnPushHandler.h */,
+				3805FF9D21331DC3005BB8C2 /* HepburnPushHandler.m */,
 			);
 			path = Hepburn;
 			sourceTree = "<group>";
@@ -102,6 +119,14 @@
 				TargetAttributes = {
 					382C449821047FF300CA4A41 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -142,6 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				382C44A121047FF300CA4A41 /* ViewController.m in Sources */,
+				3805FF9E21331DC3005BB8C2 /* HepburnPushHandler.m in Sources */,
+				3805FF9B21331AE0005BB8C2 /* HepburnServerTask.m in Sources */,
+				3805FF982133128D005BB8C2 /* HepburnBackgroundTask.m in Sources */,
 				382C44AC21047FF500CA4A41 /* main.m in Sources */,
 				382C449E21047FF300CA4A41 /* AppDelegate.m in Sources */,
 			);
@@ -283,14 +311,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Hepburn/Hepburn.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 33B7CRFX4N;
 				INFOPLIST_FILE = Hepburn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepburn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepbur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f3fb16a4-43fe-4041-ab12-078da41a6303";
+				PROVISIONING_PROFILE_SPECIFIER = "淘宝买家-阳丞枫配置文件1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -299,14 +332,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Hepburn/Hepburn.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 33B7CRFX4N;
 				INFOPLIST_FILE = Hepburn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepburn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chengfengyang.Hepbur;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f3fb16a4-43fe-4041-ab12-078da41a6303";
+				PROVISIONING_PROFILE_SPECIFIER = "淘宝买家-阳丞枫配置文件1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

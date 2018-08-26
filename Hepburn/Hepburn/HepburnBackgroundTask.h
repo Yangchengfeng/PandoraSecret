@@ -10,4 +10,7 @@
 
 @interface HepburnBackgroundTask : NSObject
 
++ (instancetype)sharedInstance;
+- (void)beginBackgroundTask;
+
 @end
